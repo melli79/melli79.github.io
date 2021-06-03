@@ -1,0 +1,25 @@
+div.board {
+    border: 5px solid brown;
+    width: 210px;
+}
+
+div.row > button {
+    height: 70px;
+    width: 70px;
+    font-size: 65px;
+    text-align: center;
+}
+
+div.row > button.four {
+    height: 52px;
+    width: 52px;
+    font-size: 48px;
+    text-align: center;
+}
+
+div.row > button.five {
+    height: 42px;
+    width: 42px;
+    font-size: 40px;
+    text-align: center;
+}
