@@ -8,6 +8,8 @@ div.row > button {
     width: 70px;
     font-size: 65px;
     text-align: center;
+    padding: 0;
+    border: 1px solid;
     border-radius: 1px;
 }
 
