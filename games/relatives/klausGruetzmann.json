@@ -1,0 +1,1564 @@
+{
+  "givenNames" : [ "Klaus", "Gottfried" ],
+  "gender" : "male",
+  "birthday" : {
+    "year" : 1926,
+    "month" : 3,
+    "day" : 2
+  },
+  "familyName" : "Grützmann",
+  "parents" : [ {
+    "givenNames" : [ "Gustav", "Friedrich" ],
+    "gender" : "male",
+    "birthday" : {
+      "year" : 1892,
+      "month": 9,
+      "day": 2
+    },
+    "familyName" : "Grützmann",
+    "parents" : [ {
+      "givenNames" : [ "Gustav", "Theodor" ],
+      "gender" : "male",
+      "birthday" : {
+        "year" : 1900
+      },
+      "familyName" : "Grützmann",
+      "parents" : [ {
+        "givenNames": [ "Julius" ],
+        "gender": "male",
+        "birthday": {
+          "year": 1900
+        },
+        "familyName": "Grützmann",
+        "parents": [],
+        "children": [ {
+          "givenNames": [ "Wilhelm" ],
+          "gender": "male",
+          "birthday": {},
+          "familyName": "Grützmann"
+        }, {
+          "givenNames": [ "Maria" ],
+          "gender": "female",
+          "birthday": {},
+          "familyName": "Grützmann"
+        }, {
+          "givenNames": [ "Bertha" ],
+          "gender": "female",
+          "birthday": {},
+          "familyName": "Grützmann"
+        }, {
+          "givenNames": [ "Juliane" ],
+          "gender": "female",
+          "birthday": {},
+          "familyName": "Grützmann"
+        }, {
+          "givenNames": [ "Friedrich" ],
+          "gender": "male",
+          "birthday": {
+            "year": 1862
+          },
+          "familyName": "Grützmann"
+        }, {
+          "givenNames": [ "Karl" ],
+          "gender": "male",
+          "birthday": {},
+          "familyName": "Grützmann"
+        }, {
+          "givenNames": [ "Ernst" ],
+          "gender": "male",
+          "birthday": {},
+          "familyName": "Grützmann"
+        }, {
+          "givenNames": [ "Otto" ],
+          "gender": "male",
+          "birthday": { },
+          "familyName": "Grützmann"
+        } ]
+      }, {
+        "givenNames": ["Amalie"],
+        "gender": "female",
+        "birthday": { },
+        "familyName": "Grützmann",
+        "parents": [ {
+          "givenNames": [],
+          "gender": "male",
+          "birthday": { },
+          "familyName": "Stapel",
+          "parents": []
+        } ]
+      } ],
+      "isEastern" : false,
+      "children" : [ {
+        "givenNames" : [ "Otto" ],
+        "gender" : "male",
+        "birthday" : {
+          "year" : 1900
+        },
+        "familyName" : "Grützmann",
+        "isEastern" : false,
+        "children" : [ ]
+      }, {
+        "givenNames" : [ "Wilhelm" ],
+        "gender" : "male",
+        "birthday" : {
+          "year" : 1900
+        },
+        "familyName" : "Grützmann",
+        "isEastern" : false,
+        "children" : [ ]
+      }, {
+        "givenNames" : [ "Berta" ],
+        "gender" : "female",
+        "birthday" : {
+          "year" : 1900
+        },
+        "familyName" : "Grützmann",
+        "isEastern" : false,
+        "children" : [ ]
+      } ]
+    }, {
+      "givenNames" : [ "Adelgunde" ],
+      "gender" : "female",
+      "birthday" : {
+        "year" : 1900
+      },
+      "familyName" : "Grützmann",
+      "parents" : [ {
+          "givenNames": [
+            "Anna",
+            "Auguste"
+          ],
+          "gender": "female",
+          "birthday": {
+            "year": 1900
+          },
+          "familyName": "Lieske",
+          "parents": [],
+          "isEastern": false
+        }, {
+          "givenNames": [ "Hermann", "Julius", "Franz" ],
+          "gender": "male",
+          "birthday": {},
+          "familyName": "Keller",
+          "parents": [ {
+            "givenNames": [ "Karl", "Friedrich", "Wilhelm" ],
+            "gender": "male",
+            "birthday": {},
+            "familyName": "Keller",
+            "parents": []
+          }, {
+            "givenNames": [ "Florentine", "Mathilde" ],
+            "gender": "female",
+            "birthday": {},
+            "familyName": "Keller",
+            "parents": [ {
+              "givenNames": [],
+              "gender": "male",
+              "birthday": {},
+              "familyName": "Kuß"
+            } ]
+          } ],
+          "children" : [ {
+            "givenNames": [ "Hermann" ],
+            "gender": "male",
+            "birthday": {},
+            "familyName": "Keller",
+            "spouse": {
+              "givenNames": [ "Anna" ],
+              "gender": "female",
+              "birthday": {},
+              "familyName": "Keller",
+              "parents": [ {
+                "givenNames": [],
+                "gender": "male",
+                "birthday": {},
+                "familyName": "Paul"
+              } ]
+            }
+          }, {
+            "givenNames": [ "Waltraud" ],
+            "gender": "female",
+            "birthday": {},
+            "familyName": "Lorenz",
+            "spouse": {
+              "givenNames": [ "Reinhard" ],
+              "gender": "male",
+              "birthday": {},
+              "familyName": "Lorenz"
+            }
+          } ]
+      } ],
+      "isEastern" : false,
+      "children" : [ ]
+    } ],
+    "isEastern" : false,
+    "children" : [ {
+      "givenNames" : [ "Christa" ],
+      "gender" : "female",
+      "birthday" : {
+        "year" : 1929,
+        "month": 12,
+        "day": 25
+      },
+      "familyName" : "Dula",
+      "isEastern" : false,
+      "spouse" : {
+        "givenNames" : [ "Manfred" ],
+        "gender" : "male",
+        "birthday" : {
+          "year" : 1930
+        },
+        "familyName" : "Wolf",
+        "parents" : [ ],
+        "isEastern" : false,
+        "children" : [ ]
+      },
+      "children" : [ {
+        "givenNames" : [ "Thomas" ],
+        "gender" : "male",
+        "birthday" : {
+          "year" : 1954,
+          "month": 10,
+          "day": 30
+        },
+        "familyName" : "Wolff",
+        "parents" : [ ],
+        "isEastern" : false,
+        "spouse" : {
+          "givenNames" : [ "Eva" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1955,
+            "month": 6,
+            "day": 17
+          },
+          "familyName" : "Wolff",
+          "parents" : [ {
+            "givenNames": [],
+            "gender": "male",
+            "birthday": {},
+            "familyName": "Mendel"
+          } ],
+          "isEastern" : false,
+          "children" : [ ]
+        },
+        "children" : [ {
+          "givenNames" : [ "Nicole" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1976,
+            "month": 10,
+            "day": 30
+          },
+          "familyName" : "Wolff",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        }, {
+          "givenNames" : [ "Kerstin" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1980,
+            "month": 9,
+            "day": 15
+          },
+          "familyName" : "Wolff",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  }, {
+    "givenNames" : [ "Martha", "Auguste" ],
+    "gender" : "female",
+    "birthday" : {
+      "year" : 1893
+    },
+    "familyName" : "Grützmann",
+    "parents" : [ {
+      "givenNames" : [ "Christoph" ],
+      "gender" : "male",
+      "birthday" : {
+        "year" : 1847
+      },
+      "familyName" : "Schumbrutzki",
+      "children" : [ {
+        "givenNames" : [ "Anna" ],
+        "gender" : "female",
+        "birthday" : {
+          "year" : 1900
+        },
+        "familyName" : "Paetzel",
+        "parents" : [ ],
+        "isEastern" : false,
+        "children" : [ {
+          "givenNames" : [ "Lotte" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Paetzel",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        }, {
+          "givenNames" : [ "Horst" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Paetzel",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        } ]
+      }, {
+        "givenNames": [ "Auguste", "Luise" ],
+        "gender": "female",
+        "birthday": {
+          "year": 1854
+        },
+        "familyName": "Schumbrutzki",
+        "parents": [ {
+          "givenNames": [ "Christian" ],
+          "gender": "male",
+          "birthday": {},
+          "familyName": "Witteck"
+        }, {
+          "givenNames": [ "Dorothea" ],
+          "gender": "female",
+          "birthday": {},
+          "familyName": "Witteck",
+          "parents": [ {
+            "givenNames": [],
+            "gender": "male",
+            "birthday": {},
+            "familyName": "Pabusch"
+          } ]
+        } ]
+      } ]
+    } ],
+    "isEastern" : false,
+    "children" : [ ]
+  } ],
+  "isEastern" : false,
+  "spouse" : {
+    "givenNames" : [ "Else", "Susanne" ],
+    "gender" : "female",
+    "birthday" : {
+      "year" : 1929,
+      "month" : 2,
+      "day" : 7
+    },
+    "deathDay": {
+      "year": 2008,
+      "month": 1,
+      "day": 18
+    },
+    "familyName" : "Grützmann",
+    "parents" : [ {
+      "givenNames" : [ "Alfred" ],
+      "gender" : "male",
+      "birthday" : {
+        "year" : 1900
+      },
+      "familyName" : "Friedemann",
+      "parents" : [ {
+        "givenNames" : [ "Johann", "Karl" ],
+        "gender" : "male",
+        "birthday" : {
+          "year" : 1900
+        },
+        "familyName" : "Friedemann",
+        "parents" : [ {
+          "givenNames" : [ "Johann", "August", "Wilhelm" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Friedemann",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        }, {
+          "givenNames" : [ "Christiane", "Erdmuthe" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Friedemann",
+          "parents" : [ {
+            "givenNames" : [ ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Schmiedel",
+            "parents" : [ ],
+            "isEastern" : false,
+            "children" : [ ]
+          } ],
+          "isEastern" : false,
+          "children" : [ ]
+        } ],
+        "isEastern" : false,
+        "children" : [ {
+          "givenNames" : [ "Hedwig" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Friedemann",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        }, {
+          "givenNames" : [ "Albert" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Friedemann",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        }, {
+          "givenNames" : [ "Otto" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Friedemann",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        }, {
+          "givenNames" : [ "Ida" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Friedemann",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        }, {
+          "givenNames" : [ "Anna" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Friedemann",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        } ]
+      }, {
+        "givenNames" : [ "Amalie" ],
+        "gender" : "female",
+        "birthday" : {
+          "year" : 1900
+        },
+        "familyName" : "Friedemann",
+        "parents" : [ {
+          "givenNames" : [ "Friedrich" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Otto",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        }, {
+          "givenNames" : [ "Christiane" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Otto",
+          "parents" : [ {
+            "givenNames" : [ ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Blavius",
+            "parents" : [ ],
+            "isEastern" : false,
+            "children" : [ ]
+          } ],
+          "isEastern" : false,
+          "children" : [ ]
+        } ],
+        "isEastern" : false,
+        "children" : [ ]
+      } ],
+      "isEastern" : false,
+      "children" : [ {
+        "givenNames" : [ "Anneliese" ],
+        "gender" : "female",
+        "birthday" : {
+          "year" : 1933
+        },
+        "familyName" : "Rothensee",
+        "parents" : [ ],
+        "isEastern" : false,
+        "spouse" : {
+          "givenNames" : [ "Rudi" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1932
+          },
+          "familyName" : "Rothensee",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        },
+        "children" : [ {
+          "givenNames" : [ "Werner" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1959
+          },
+          "familyName" : "Rothensee",
+          "parents" : [ ],
+          "isEastern" : false,
+          "spouse" : {
+            "givenNames" : [ "Nitaya" ],
+            "gender" : "female",
+            "birthday" : {
+              "year" : 1975
+            },
+            "familyName" : "Rothensee",
+            "parents" : [ ],
+            "isEastern" : false,
+            "children" : [ ]
+          },
+          "children" : [ {
+            "givenNames" : [ "Rudolf" ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1998
+            },
+            "familyName" : "Rothensee",
+            "isEastern" : false,
+            "children" : [ ]
+          } ]
+        } ]
+      }, {
+        "givenNames" : [ "Horst" ],
+        "gender" : "male",
+        "birthday" : {
+          "year" : 1934
+        },
+        "familyName" : "Friedemann",
+        "isEastern" : false,
+        "spouse" : {
+          "givenNames" : [ "Sigrid" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1935
+          },
+          "familyName" : "Friedemann",
+          "parents" : [ {
+            "givenNames" : [ ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Wilhelmi",
+            "isEastern" : false,
+            "children" : [ ]
+          } ],
+          "isEastern" : false
+        },
+        "children" : [ {
+          "givenNames" : [ "Thomas" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1958
+          },
+          "familyName" : "Friedemann",
+          "parents" : [ ],
+          "isEastern" : false,
+          "spouse" : {
+            "givenNames" : [ "Ines" ],
+            "gender" : "female",
+            "birthday" : {
+              "year" : 1959
+            },
+            "familyName" : "Friedemann",
+            "parents" : [ ],
+            "isEastern" : false,
+            "children" : [ ]
+          },
+          "children" : [ {
+            "givenNames" : [ "Marco" ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1989
+            },
+            "familyName" : "Friedemann",
+            "isEastern" : false,
+            "children" : [ ]
+          } ]
+        }, {
+          "givenNames" : [ "Torsten" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1969
+          },
+          "familyName" : "Friedemann",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        } ]
+      }, {
+        "givenNames" : [ "Achim" ],
+        "gender" : "male",
+        "birthday" : {
+          "year" : 1936
+        },
+        "familyName" : "Friedemann",
+        "parents" : [ ],
+        "isEastern" : false,
+        "spouse" : {
+          "givenNames" : [ "Renate" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1937
+          },
+          "familyName" : "Friedemann",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        },
+        "children" : [ {
+          "givenNames" : [ "Olaf" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1961
+          },
+          "familyName" : "Friedemann",
+          "parents" : [ ],
+          "isEastern" : false,
+          "spouse" : {
+            "givenNames" : [ "Kerstin" ],
+            "gender" : "female",
+            "birthday" : {
+              "year" : 1962
+            },
+            "familyName" : "Friedemann",
+            "parents" : [ ],
+            "isEastern" : false,
+            "children" : [ ]
+          },
+          "children" : [ {
+            "givenNames" : [ "Erik" ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1985
+            },
+            "familyName" : "Friedemann",
+            "parents" : [ ],
+            "isEastern" : false,
+            "children" : [ ]
+          } ]
+        } ]
+      } ]
+    }, {
+      "givenNames" : [ "Elisabeth" ],
+      "gender" : "female",
+      "birthday" : {
+        "year" : 1900
+      },
+      "familyName" : "Friedemann",
+      "parents" : [ {
+        "givenNames" : [ "Friedrich", "Paul" ],
+        "gender" : "male",
+        "birthday" : {
+          "year" : 1900
+        },
+        "familyName" : "Metzsch",
+        "parents" : [ {
+          "givenNames" : [ "Julius", "Herrmann" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Metzsch",
+          "parents" : [ {
+            "givenNames" : [ "Johann", "Gottfried" ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Metzsch",
+            "parents" : [ ],
+            "isEastern" : false,
+            "children" : [ ]
+          }, {
+            "givenNames" : [ "Christiane", "Sophie" ],
+            "gender" : "female",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Metzsch",
+            "parents" : [ {
+              "givenNames" : [ ],
+              "gender" : "male",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Sünderkauf",
+              "parents" : [ ],
+              "isEastern" : false,
+              "children" : [ ]
+            } ],
+            "isEastern" : false,
+            "children" : [ ]
+          } ],
+          "isEastern" : false,
+          "children" : [ ]
+        }, {
+          "givenNames" : [ "Auguste", "Amalie" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Metzsch",
+          "parents" : [ {
+            "givenNames" : [ "Friedrich", "Traugott" ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Richter",
+            "parents" : [ ],
+            "isEastern" : false,
+            "children" : [ ]
+          }, {
+            "givenNames" : [ "Johanna", "Eleonore" ],
+            "gender" : "female",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Richter",
+            "parents" : [ {
+              "givenNames" : [ ],
+              "gender" : "male",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Lange",
+              "parents" : [ ],
+              "isEastern" : false,
+              "children" : [ ]
+            } ],
+            "isEastern" : false,
+            "children" : [ ]
+          } ],
+          "isEastern" : false,
+          "children" : [ ]
+        } ],
+        "isEastern" : false,
+        "children" : [ {
+          "givenNames" : [ "Susanne" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Lahm",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        }, {
+          "givenNames" : [ "Martha" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Beier",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        }, {
+          "givenNames" : [ "Else" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Friedemann",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        }, {
+          "givenNames" : [ "Willi" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Friedemann",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        } ]
+      }, {
+        "givenNames" : [ "Maria", "Anna" ],
+        "gender" : "female",
+        "birthday" : {
+          "year" : 1900
+        },
+        "familyName" : "Metzsch",
+        "parents" : [ {
+          "givenNames" : [ "Carl", "Eduard" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Agsten",
+          "parents" : [ {
+            "givenNames" : [ "Carl", "August" ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Agsten",
+            "parents" : [ ],
+            "isEastern" : false,
+            "children" : [ ]
+          }, {
+            "givenNames" : [ "Johanna", "Sophie" ],
+            "gender" : "female",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Agsten",
+            "parents" : [ {
+              "givenNames" : [ ],
+              "gender" : "male",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Ritzler",
+              "parents" : [ ],
+              "isEastern" : false,
+              "children" : [ ]
+            } ],
+            "isEastern" : false,
+            "children" : [ ]
+          } ],
+          "isEastern" : false,
+          "children" : [ {
+            "givenNames" : [ "Ella" ],
+            "gender" : "female",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Agsten",
+            "parents" : [ ],
+            "isEastern" : false,
+            "children" : [ ]
+          } ]
+        }, {
+          "givenNames" : [ "Auguste", "Minna" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Agsten",
+          "parents" : [ {
+            "givenNames" : [ "Wilhelm", "Romanus" ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Oschatz",
+            "parents" : [ ],
+            "isEastern" : false,
+            "children" : [ ]
+          }, {
+            "givenNames" : [ "Christiane", "Henriette" ],
+            "gender" : "female",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Oschatz",
+            "parents" : [ {
+              "givenNames" : [ ],
+              "gender" : "male",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Oelschlägel",
+              "parents" : [ ],
+              "isEastern" : false,
+              "children" : [ ]
+            } ],
+            "isEastern" : false,
+            "children" : [ ]
+          } ],
+          "isEastern" : false,
+          "children" : [ ]
+        } ],
+        "isEastern" : false,
+        "children" : [ ]
+      } ],
+      "isEastern" : false,
+      "children" : [ ]
+    } ],
+    "isEastern" : false,
+    "children" : [ {
+      "givenNames" : [ "Siegfried", "Michael" ],
+      "gender" : "male",
+      "birthday" : {
+        "year" : 1951,
+        "month" : 1,
+        "day" : 11
+      },
+      "familyName" : "Friedemann",
+      "parents" : [ {
+        "givenNames" : [ "Herbert", "Fritz", "Karl" ],
+        "gender" : "male",
+        "birthday" : {
+          "year" : 1929,
+          "month": 6,
+          "day": 15
+        },
+        "deathDay": {
+          "year": 2008,
+          "month": 10,
+          "day": 17
+        },
+        "familyName" : "Gadde",
+        "parents" : [ ],
+        "isEastern" : false,
+        "children" : [ ]
+      } ],
+      "isEastern" : false,
+      "spouse" : {
+        "givenNames" : [ "Renate", "Charlotte" ],
+        "gender" : "female",
+        "birthday" : {
+          "year" : 1952,
+          "month": 9,
+          "day": 30
+        },
+        "familyName" : "Friedemann",
+        "parents" : [
+        {
+          "givenNames" : [ "Werner" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1918,
+            "month": 2,
+            "day": 3
+          },
+          "deathDay": {
+            "year": 1997,
+            "month": 3,
+            "day": 4
+          },
+          "familyName" : "Gericke",
+          "parents" : [ {
+            "givenNames" : [ "Karl", "Wilhelm", "Otto" ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Gericke",
+            "parents" : [ {
+              "givenNames": [ "Otto" ],
+              "gender": "male",
+              "birthday": {},
+              "familyName": "Gericke",
+              "parents": [],
+              "children": [ {
+                "givenNames": [ "Paul" ],
+                "gender": "male",
+                "birthday": {},
+                "familyName": "Gericke"
+              }, {
+                "givenNames": [ "Martha" ],
+                "gender": "female",
+                "birthday": {},
+                "familyName": "Weller",
+                "spouse": {
+                  "givenNames": [ "Leo" ],
+                  "gender": "male",
+                  "birthday": {},
+                  "familyName": "Weller"
+                },
+                "children": [ {
+                  "givenNames": [ "Ingeborg" ],
+                  "gender": "female",
+                  "birthday": {},
+                  "familyName": "Weller"
+                }, {
+                  "givenNames": [ "Wanda" ],
+                  "gender": "female",
+                  "birthday": {},
+                  "familyName": "Weller"
+                } ]
+              }, {
+                "givenNames": [ "Willi" ],
+                "gender": "male",
+                "birthday": {},
+                "familyName": "Gericke"
+              }, {
+              "givenNames": [ "Karl", "Wilhelm", "Ernst" ],
+                "gender": "male",
+                "birthday": {},
+                "familyName": "Gericke",
+                "spouse": {
+                  "givenNames": [ "Anna", "Elisabeth" ],
+                  "gender": "female",
+                  "birthday": {},
+                  "familyName": "Gericke",
+                  "parents": [ {
+                    "givenNames": [],
+                    "gender": "male",
+                    "birthday": {},
+                    "familyName": "Kuddat"
+                  } ]
+                },
+                "children": [ {
+                  "givenNames": [ "Eva" ],
+                  "gender": "female",
+                  "birthday": {},
+                  "familyName": "Hausenblas",
+                  "spouse": {
+                    "givenNames": [ "Franz" ],
+                    "gender": "male",
+                    "birthday": {},
+                    "familyName": "Hausenblas"
+                  },
+                  "children": [ {
+                    "givenNames": [ "Petra" ],
+                    "gender": "female",
+                    "birthday": {},
+                    "familyName": "Sandig",
+                    "spouse": {
+                      "givenNames": [ "Wolfgang" ],
+                      "gender": "male",
+                      "birthday": {},
+                      "familyName": "Sandig"
+                    },
+                    "children": [ {
+                      "givenNames": [ "Claudia" ],
+                      "gender": "female",
+                      "birthday": { },
+                      "familyName": "Sandig"
+                    }, {
+                      "givenNames": [ "Kathrin" ],
+                      "gender": "female",
+                      "birthday": {},
+                      "familyName": "Sandig"
+                    } ]
+                  } ]
+                }, {
+                  "givenNames": [ "Ernst" ],
+                  "gender": "male",
+                  "birthday": {},
+                  "familyName": "Gericke"
+                } ]
+              } ]
+            }, {
+              "givenNames": [ "Emma" ],
+              "gender": "female",
+              "birthday": {},
+              "familyName": "Gericke",
+              "parents": [ {
+                "givenNames": [],
+                "gender": "male",
+                "birthday": {},
+                "familyName": "Kyritz"
+              } ]
+            } ],
+            "isEastern" : false,
+            "children" : [ {
+              "givenNames": [ "Otto" ],
+              "gender": "male",
+              "birthday": {},
+              "familyName": "Gericke"
+            }, {
+              "givenNames": [ "Walter" ],
+              "gender": "male",
+              "birthday": {},
+              "familyName": "Gericke"
+            } ]
+          }, {
+            "givenNames" : [ "Anna", "Lina" ],
+            "gender" : "female",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Gericke",
+            "parents" : [ {
+              "givenNames" : [ ],
+              "gender" : "male",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Mösch"
+            } ],
+            "isEastern" : false
+          } ],
+          "isEastern" : false,
+          "children" : [ {
+            "givenNames": [ "Steffi" ],
+            "gender": "female",
+            "birthday": {
+              "year": 1959,
+              "month": 8,
+              "day": 16
+            },
+            "familyName": "Blume",
+            "spouse": {
+              "givenNames": [ "Lutz" ],
+              "gender": "male",
+              "birthday": {
+                "year": 1956,
+                "month": 1,
+                "day": 29
+              },
+              "familyName": "Blume"
+            },
+            "children": [ {
+              "givenNames": [ "Nico" ],
+              "gender": "male",
+              "birthday": {
+                "year": 1981,
+                "month": 8,
+                "day": 3
+              },
+              "familyName": "Blume"
+            } ]
+          } ]
+        }, {
+          "givenNames" : [ "Gertrud", "Charlotte", "Elfriede" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1932
+          },
+          "familyName" : "Gericke",
+          "parents" : [ {
+            "givenNames" : [ "Ernst", "Otto" ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Klett",
+            "parents" : [ ],
+            "isEastern" : false,
+            "children" : [ ]
+          }, {
+            "givenNames" : [ "Elfirede" ],
+            "gender" : "female",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Klett",
+            "parents" : [ {
+              "givenNames" : [ ],
+              "gender" : "male",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Karf",
+              "parents" : [ ]
+            } ],
+            "isEastern" : false,
+            "children" : [ ]
+          } ],
+          "isEastern" : false,
+          "children" : [ ]
+        } ]
+      },
+      "children": [ {
+        "givenNames" : [ "Antje" ],
+        "gender" : "female",
+        "birthday" : {
+          "year" : 1977,
+          "month" : 6,
+          "day" : 11
+        },
+        "familyName" : "Fritsche",
+        "parents" : [ ],
+        "isEastern" : false,
+        "spouse" : {
+          "givenNames" : [ "Daniel" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1979,
+            "month": 12,
+            "day": 29
+          },
+          "familyName" : "Fritsche",
+          "parents" : [ ],
+          "isEastern" : false
+        },
+        "children" : [ ]
+      }, {
+        "givenNames" : [ "Katrin" ],
+        "gender" : "female",
+        "birthday" : {
+          "year" : 1980,
+          "month" : 10,
+          "day" : 7
+        },
+        "familyName" : "Friedemann",
+        "parents" : [ ],
+        "isEastern" : false,
+        "children" : [ {
+          "givenNames" : [ "Sebastian" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 2012,
+            "month" : 9,
+            "day": 16
+          },
+          "familyName" : "Specht",
+          "parents" : [ {
+            "givenNames" : [ "Oliver" ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1980
+            },
+            "familyName" : "Specht",
+            "parents" : [ ],
+            "isEastern" : false,
+            "children" : [ ]
+          } ],
+          "isEastern" : false,
+          "children" : [ ]
+        } ]
+      } ]
+    } ]
+  },
+  "children" : [ {
+    "givenNames" : [ "Wolfgang", "Dieter" ],
+    "gender" : "male",
+    "birthday" : {
+      "year" : 1954,
+      "month" : 11,
+      "day" : 7
+    },
+    "familyName" : "Grützmann",
+    "parents" : [ ],
+    "isEastern" : false,
+    "spouse" : {
+      "givenNames" : [ "Astrid","Ilse","Barbara" ],
+      "gender" : "female",
+      "birthday" : {
+        "year" : 1955,
+        "month" : 12,
+        "day" : 9
+      },
+      "familyName" : "Grützmann",
+      "parents" : [ {
+        "givenNames" : [ "Werner" ],
+        "gender" : "male",
+        "birthday" : {
+          "year" : 1920,
+          "month": 9,
+          "day": 16
+        },
+        "deathDay": {
+          "year": 1965,
+          "month": 2
+        },
+        "familyName" : "Kulisch",
+        "parents" : [ {
+          "givenNames" : [ "Maria" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Kulisch",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ {
+            "givenNames" : [ "Ilse" ],
+            "gender" : "female",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Kulisch",
+            "parents" : [ ],
+            "isEastern" : false,
+            "children" : [ ]
+          }, {
+            "givenNames": [ "Hanfried" ],
+            "gender": "male",
+            "birthday": {},
+            "familyName": "Kulisch",
+            "spouse": {
+              "givenNames": [],
+              "gender": "female",
+              "birthday": {},
+              "familyName": "Kulisch"
+            },
+            "children": [ {
+              "givenNames": [],
+              "gender": "female",
+              "birthday": {},
+              "familyName": "Kulisch"
+            } ]
+          } ]
+        } ],
+        "isEastern" : false,
+        "children" : [ {
+          "givenNames" : [ "Uwe" ],
+          "gender" : "male",
+          "birthday" : {
+            "year" : 1957,
+            "month": 2,
+            "day": 19
+          },
+          "familyName" : "Kulisch",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ {
+            "givenNames" : [ "Mathias" ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1990
+            },
+            "familyName" : "Kulisch",
+            "parents" : [ {
+              "givenNames" : [ "Katharina" ],
+              "gender" : "female",
+              "birthday" : {
+                "year" : 1960
+              },
+              "familyName" : "Lenski",
+              "parents" : [ ],
+              "isEastern" : false,
+              "children" : [ ]
+            } ],
+            "isEastern" : false,
+            "children" : [ ]
+          }, {
+            "givenNames": [ "Rahild" ],
+            "gender": "female",
+            "birthday": {
+              "year": 1983
+            },
+            "familyName": "Kulisch"
+          } ]
+        } ]
+      }, {
+        "givenNames" : [ "Herta", "Erna", "Irmgard" ],
+        "gender" : "female",
+        "birthday" : {
+          "year" : 1931,
+          "month" : 7,
+          "day" : 29
+        },
+        "deathDay": {
+          "year": 2000,
+          "month": 1
+        },
+        "familyName" : "Kulisch",
+        "parents" : [ {
+          "givenNames" : [ "Erna" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1900
+          },
+          "familyName" : "Krüger",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ {
+            "givenNames" : [ "Gertraude" ],
+            "gender" : "female",
+            "birthday" : {
+              "year" : 1933,
+              "month": 12,
+              "day": 29
+            },
+            "familyName" : "Riesner",
+            "parents" : [ ],
+            "isEastern" : false,
+            "spouse" : {
+              "givenNames" : [ "Gerd" ],
+              "gender" : "male",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Riesner",
+              "parents" : [ ],
+              "isEastern" : false
+            },
+            "children" : [ {
+              "givenNames" : [ "Stefan" ],
+              "gender" : "male",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Riesner",
+              "parents" : [ ],
+              "isEastern" : false,
+              "children" : [ ]
+            }, {
+              "givenNames" : [ "Thomas" ],
+              "gender" : "male",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Riesner",
+              "parents" : [ ],
+              "isEastern" : false,
+              "children" : [ ]
+            }, {
+              "givenNames": [ "Karsten" ],
+              "gender" : "male",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Riesner",
+              "parents" : [ ],
+              "isEastern" : false,
+              "children" : [ ]
+            } ]
+          }, {
+            "givenNames" : [ "Herbert" ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Krüger",
+            "parents" : [ ],
+            "isEastern" : false,
+            "spouse" : {
+              "givenNames" : [ "Traudel" ],
+              "gender" : "female",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Krüger",
+              "parents" : [ ],
+              "isEastern" : false,
+              "children" : [ ]
+            },
+            "children" : [ {
+              "givenNames" : [ "Birgit" ],
+              "gender" : "female",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Krüger",
+              "parents" : [ ],
+              "isEastern" : false,
+              "children" : [ ]
+            }, {
+              "givenNames" : [ "Axel" ],
+              "gender" : "male",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Krüger",
+              "parents" : [ ],
+              "isEastern" : false,
+              "children" : [ ]
+            } ]
+          }, {
+            "givenNames" : [ "Gerhard" ],
+            "gender" : "male",
+            "birthday" : {
+              "year" : 1900
+            },
+            "familyName" : "Krüger",
+            "parents" : [ ],
+            "isEastern" : false,
+            "spouse" : {
+              "givenNames" : [ "Eva" ],
+              "gender" : "female",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Krüger",
+              "parents" : [ ],
+              "isEastern" : false,
+              "children" : [ ]
+            },
+            "children" : [ {
+              "givenNames" : [ "Torsten" ],
+              "gender" : "male",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Krüger",
+              "parents" : [ ],
+              "isEastern" : false,
+              "children" : [ ]
+            }, {
+              "givenNames" : [ "Steffen" ],
+              "gender" : "male",
+              "birthday" : {
+                "year" : 1900
+              },
+              "familyName" : "Krüger",
+              "parents" : [ ],
+              "isEastern" : false,
+              "children" : [ ]
+            } ]
+          } ]
+        } ],
+        "isEastern" : false,
+        "children" : [ ]
+      } ],
+      "isEastern" : false
+    },
+    "children" : [ {
+      "givenNames" : [ "Melchior" ],
+      "gender" : "male",
+      "birthday" : {
+        "year" : 1979,
+        "month" : 6,
+        "day" : 20
+      },
+      "familyName" : "Grützmann",
+      "parents" : [ ],
+      "isEastern" : false,
+      "children" : [ ]
+    }, {
+      "givenNames" : [ "Konrad" ],
+      "gender" : "male",
+      "birthday" : {
+        "year" : 1981,
+        "month" : 7,
+        "day" : 22
+      },
+      "familyName" : "Grützmann",
+      "parents" : [ ],
+      "isEastern" : false,
+      "children" : [ {
+        "givenNames" : [ "Luca" ],
+        "gender" : "male",
+        "birthday" : {
+          "year" : 2010,
+          "month" : 12,
+          "day" : 16
+        },
+        "familyName" : "Grützmann",
+        "parents" : [ {
+          "givenNames" : [ "Julia" ],
+          "gender" : "female",
+          "birthday" : {
+            "year" : 1981
+          },
+          "familyName" : "Haberda",
+          "parents" : [ ],
+          "isEastern" : false,
+          "children" : [ ]
+        } ],
+        "isEastern" : false,
+        "children" : [ ]
+      } ]
+    } ]
+  } ]
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "file://relatives.schema.json",
+  "title": "Relative",
+  "description": "A tree of relatives",
+  "$dynamicAnchor": "relative",
+  "type": "object",
+  "properties": {
+    "givenNames": {
+      "description": "The given names of a relative",
+      "type": "array",
+      "item": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "gender": {
+      "description": "The preferred gender of the person.  The gender will also decide whether the person is addressed a father/mother, brother/sister, ...",
+      "type": "string",
+      "enum": [ "male", "female", "other" ]
+    },
+    "birthday": {
+      "description": "The known parts of the birthday",
+      "type": "object",
+      "properties": {
+        "year": {
+          "type": "integer",
+          "minimum": 1600,
+          "maximum": 2100
+        },
+        "month": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12
+        },
+        "day": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 31
+        }
+      }
+    },
+    "familyName": {
+      "description": "The current or last known family name of the person",
+      "type": "string"
+    },
+    "isEastern": {
+      "description": "Whether the person is Eastern or Western (rendering of the full name and naming of the relatives",
+      "type": "boolean",
+      "default": false
+    },
+    "parents": {
+      "description": "Immediate ancestors of the person, i.e. father and mother",
+      "type": "array",
+      "item": {
+        "type": { "$dynamicRef": "#relative" }
+      }
+    },
+    "spouse": {
+      "description": "The ligated other person, e.g. husband, wife, mate, ...",
+      "type": { "$dynamicRef": "#relative" }
+    },
+    "children": {
+      "description": "The immediate offsprings, i.e. daughters, sons.",
+      "type": "array",
+      "item": {
+        "type": { "$dynamicRef": "#relative" }
+      }
+    }
+  },
+  "required": [ "givenNames", "gender", "birthday", "familyName" ]
+}

@@ -1,0 +1,602 @@
+{
+  "givenNames" : [ "我" ],
+  "gender" : "female",
+  "birthday" : {
+    "year" : 1991
+  },
+  "familyName" : "家",
+  "isEastern": true,
+  "parents" : [ {
+      "givenNames": [ "爸爸" ],
+      "gender": "male",
+      "birthday": {
+        "year": 1965
+      },
+      "familyName": "家",
+      "isEastern": true,
+      "parents": [ {
+        "givenNames": [ "爷爷" ],
+        "gender": "male",
+        "birthday": {
+          "year": 1938
+        },
+        "familyName": "家",
+        "isEastern": true,
+        "children": [ {
+          "givenNames": [ "姑姑" ],
+          "gender": "female",
+          "birthday": {
+            "year": 1960
+          },
+          "familyName": "林",
+          "isEastern": true,
+          "spouse": {
+            "givenNames": [ "姑父" ],
+            "gender": "male",
+            "birthday": {
+              "year": 1961
+            },
+            "familyName": "深",
+            "isEastern": true
+          },
+          "children": [ {
+            "givenNames": [ "表哥" ],
+            "gender": "male",
+            "birthday": {
+              "year": 1988
+            },
+            "familyName": "深",
+            "isEastern": true,
+            "spouse": {
+              "givenNames": [ "表嫂" ],
+              "gender": "female",
+              "birthday": {
+                "year": 1989
+              },
+              "familyName": "",
+              "isEastern": true
+            },
+            "children": [ {
+              "givenNames": [],
+              "gender": "male",
+              "birthday": {
+                "year": 2015
+              },
+              "familyName": "深",
+              "isEastern": true
+            }, {
+              "givenNames": [],
+              "gender": "female",
+              "birthday": {
+                "year": 2017
+              },
+              "familyName": "深",
+              "isEastern": true
+            } ]
+          } ]
+        }, {
+          "givenNames": [ "姑妈" ],
+          "gender": "female",
+          "birthday": {
+            "year": 1967
+          },
+          "familyName": "林",
+          "isEastern": true,
+          "spouse": {
+            "givenNames": [ "姑丈" ],
+            "gender": "male",
+            "birthday": {
+              "year": 1966
+            },
+            "familyName": "陈",
+            "isEastern": true
+          },
+          "children": [ {
+            "givenNames": [ "表哥" ],
+            "gender": "male",
+            "birthday": {
+              "year": 1989
+            },
+            "familyName": "陈",
+            "isEastern": true
+          }, {
+            "givenNames": [ "表弟" ],
+            "gender": "male",
+            "birthday": {
+              "year": 1996
+            },
+            "familyName": "陈",
+            "isEastern": true,
+            "spouse": {
+              "givenNames": [ "表嫂" ],
+              "gender": "female",
+              "birthday": {
+                "year": 1997
+              },
+              "familyName": ""
+            },
+            "children": [ {
+              "givenNames": [ "？" ],
+              "gender": "male",
+              "birthday": {
+                "year": 2019
+              },
+              "familyName": "陈",
+              "isEastern": true
+            } ]
+          } ]
+        }, {
+          "givenNames": [ "伯伯" ],
+          "gender": "male",
+          "birthday": {
+            "year": 1963
+          },
+          "familyName": "林",
+          "isEastern": true,
+          "spouse": {
+            "givenNames": [ "伯母" ],
+            "gender": "female",
+            "birthday": {
+              "year": 1964
+            },
+            "familyName": "沈",
+            "isEastern": true
+          },
+          "children": [ {
+            "givenNames": [ "堂哥" ],
+            "gender": "male",
+            "birthday": {
+              "year": 1990
+            },
+            "familyName": "林",
+            "isEastern": true,
+            "spouse": {
+              "givenNames": [ "堂嫂" ],
+              "gender": "female",
+              "birthday": {
+                "year": 1991
+              },
+              "familyName": "",
+              "isEastern": true
+            },
+            "children": [ {
+              "givenNames": [],
+              "gender": "male",
+              "birthday": {
+                "year": 2018
+              },
+              "familyName": "林",
+              "isEastern": true
+            } ]
+          }, {
+            "givenNames": [ "堂弟" ],
+            "gender": "male",
+            "birthday": {
+              "year": 1992
+            },
+            "familyName": "林",
+            "isEastern": true,
+            "spouse": {
+              "givenNames": [ "堂嫂" ],
+              "gender": "female",
+              "birthday": {
+                "year": 1993
+              },
+              "familyName": "",
+              "isEastern": true
+            },
+            "children": [ {
+              "givenNames": [],
+              "gender": "male",
+              "birthday": {
+                "year": 2020
+              },
+              "familyName": "林",
+              "isEastern": true
+            } ]
+          } ]
+        }, {
+            "givenNames": [ "叔叔" ],
+            "gender": "male",
+            "birthday": {
+              "year": 1968
+            },
+            "familyName": "林",
+            "isEastern": true,
+            "spouse": {
+              "givenNames": [ "婶婶" ],
+              "gender": "female",
+              "birthday": {
+                "year": 1969
+              },
+              "familyName": "沈",
+              "isEastern": true
+            },
+            "children": [ {
+              "givenNames": [ "表妹" ],
+              "gender": "female",
+              "birthday": {
+                "year": 1992
+              },
+              "familyName": "林",
+              "isEastern": true,
+              "spouse": {
+                "givenNames": [ "表妹夫" ],
+                "gender": "male",
+                "birthday": {
+                  "year": 1991
+                },
+                "isEastern": true,
+                "familyName": ""
+              },
+              "children": [ {
+                "givenNames": [],
+                "gender": "male",
+                "birthday": {
+                  "year": 2018
+                },
+                "familyName": "林",
+                "isEastern": true
+              } ]
+            }, {
+              "givenNames": [ "表弟" ],
+              "gender": "male",
+              "birthday": {
+                "year": 1994
+              },
+              "familyName": "林",
+              "isEastern": true,
+              "spouse": {
+                "givenNames": [ "表嫂" ],
+                "gender": "female",
+                "birthday": {
+                  "year": 1995
+                },
+                "familyName": "",
+                "isEastern": true
+              },
+              "children": [ {
+                "givenNames": [],
+                "gender": "male",
+                "birthday": {
+                  "year": 2020
+                },
+                "familyName": "林",
+                "isEastern": true
+              } ]
+            } ]
+          } ]
+      }, {
+          "givenNames": [ "奶奶" ],
+          "gender": "female",
+          "birthday": {
+            "year": 1939
+          },
+          "familyName": "家",
+          "isEastern": true,
+          "parents": []
+      } ],
+    "children": [ {
+      "givenNames" : [ "哥哥" ],
+      "gender" : "male",
+      "birthday" : {
+        "year" : 1990
+      },
+      "familyName" : "家",
+      "isEastern" : true,
+      "spouse": {
+        "givenNames": [ "嫂子" ],
+        "gender": "female",
+        "birthday": {
+          "year": 1991
+        },
+        "familyName": "",
+        "isEastern": true
+      },
+      "children" : [ ]
+    }, {
+      "givenNames" : [ "姐姐" ],
+      "gender" : "female",
+      "birthday" : {
+        "year" : 1989
+      },
+      "familyName" : "家",
+      "isEastern" : true,
+      "spouse": {
+        "givenNames": [ "姐夫" ],
+        "gender": "male",
+        "birthday": {
+          "year": 1990
+        },
+        "familyName": "",
+        "isEastern": true
+      },
+      "children" : [ {
+        "givenNames": [ "外甥" ],
+        "gender": "male",
+        "birthday": {
+          "year": 2020
+        },
+        "familyName": "",
+        "isEastern": true
+      }, {
+        "givenNames": [ "外甥女" ],
+        "gender": "female",
+        "birthday": {
+          "year": 2021
+        },
+        "familyName": "",
+        "isEastern": true
+      } ]
+    }, {
+      "givenNames" : [ "弟弟" ],
+      "gender" : "male",
+      "birthday" : {
+        "year" : 1993
+      },
+      "familyName" : "家",
+      "isEastern" : true,
+      "spouse": {
+        "givenNames": [ "弟妇" ],
+        "gender": "female",
+        "birthday": {
+          "year": 1994
+        },
+        "familyName": "",
+        "isEastern": true
+      },
+      "children" : [ ]
+    }, {
+      "givenNames" : [ "妹妹" ],
+      "gender" : "female",
+      "birthday" : {
+        "year" : 1994
+      },
+      "familyName" : "家",
+      "isEastern" : true,
+      "spouse": {
+        "givenNames": [ "妹夫" ],
+        "gender": "male",
+        "birthday": {
+          "year": 1993
+        },
+        "familyName": "",
+        "isEastern": true
+      },
+      "children" : [ ]
+    } ]
+    }, {
+      "givenNames" : [ "妈妈" ],
+      "gender" : "female",
+      "birthday" : {
+        "year" : 1966
+      },
+      "familyName" : "家",
+      "isEastern": true,
+      "parents": [ {
+      "givenNames": [ "外公" ],
+        "gender": "male",
+        "birthday": {
+          "year": 1937
+        },
+        "familyName": "大家庭",
+        "isEastern": true,
+        "children": [ {
+          "givenNames": [ "阿姨" ],
+          "gender": "female",
+          "birthday": {
+            "year": 1963
+          },
+          "familyName": "深",
+          "isEastern": true,
+          "spouse": {
+            "givenNames": [ "姨丈" ],
+            "gender": "male",
+            "birthday": {
+              "year": 1962
+            },
+            "familyName": "",
+            "isEastern": true
+          },
+          "children": [ {
+            "givenNames": [ "表哥" ],
+            "gender": "male",
+            "birthday": {
+              "year": 1990
+            },
+            "familyName": "",
+            "isEastern": true,
+            "spouse": {
+              "givenNames": [ "表嫂" ],
+              "gender": "female",
+              "birthday": {
+                "year": 1991
+              },
+              "familyName": "",
+              "isEastern": true
+            }
+          }, {
+            "givenNames": [ "表妹" ],
+            "gender": "female",
+            "birthday": {
+              "year": 1992
+            },
+            "familyName": "",
+            "isEastern": true,
+            "spouse": {
+              "givenNames": [ "表妹夫" ],
+              "gender": "male",
+              "birthday": {
+                "year": 1991
+              },
+              "familyName": "",
+              "isEastern": true
+            }
+          } ]
+        }, {
+          "givenNames": [ "舅舅" ],
+          "gender": "male",
+          "birthday": {
+            "year": 1963
+          },
+          "familyName": "深",
+          "isEastern": true,
+          "spouse": {
+            "givenNames": [ "舅妈" ],
+            "gender": "female",
+            "birthday": {
+              "year": 1964
+            },
+            "familyName": "",
+            "isEastern": true
+          },
+          "children": [ {
+            "givenNames": [ "表姐" ],
+            "gender": "female",
+            "birthday": {
+              "year": 1990
+            },
+            "familyName": "",
+            "isEastern": true,
+            "spouse": {
+              "givenNames": [ "表姐夫" ],
+              "gender": "male",
+              "birthday": {
+                "year": 1989
+              },
+              "familyName": "",
+              "isEastern": true
+            }
+          }, {
+            "givenNames": [ "表弟" ],
+            "gender": "male",
+            "birthday": {
+              "year": 1992
+            },
+            "familyName": "",
+            "isEastern": true,
+            "spouse": {
+              "givenNames": [ "表嫂" ],
+              "gender": "female",
+              "birthday": {
+                "year": 1993
+              },
+              "familyName": "",
+              "isEastern": true
+            }
+          } ]
+        }, {
+          "givenNames": [ "姨妈" ],
+          "gender": "female",
+          "birthday": {
+            "year": 1967
+          },
+          "familyName": "深",
+          "isEastern": true,
+          "spouse": {
+            "givenNames": [ "姨夫" ],
+            "gender": "male",
+            "birthday": {
+              "year": 1966
+            },
+            "familyName": "",
+            "isEastern": true
+          },
+          "children": [ {
+            "givenNames": [ "表哥" ],
+            "gender": "male",
+            "birthday": {
+              "year": 1990
+            },
+            "familyName": "",
+            "isEastern": true
+          }, {
+            "givenNames": [ "表妹" ],
+            "gender": "female",
+            "birthday": {
+              "year": 1992
+            },
+            "familyName": "",
+            "isEastern": true
+          } ]
+        }, {
+          "givenNames": [ "舅舅" ],
+          "gender": "male",
+          "birthday": {
+            "year": 1969
+          },
+          "familyName": "深",
+          "isEastern": true,
+          "spouse": {
+            "givenNames": [ "舅妈" ],
+            "gender": "female",
+            "birthday": {
+              "year": 1970
+            },
+            "familyName": "",
+            "isEastern": true
+          },
+          "children": [ {
+            "givenNames": [ "表姐" ],
+            "gender": "female",
+            "birthday": {
+              "year": 1990
+            },
+            "familyName": "",
+            "isEastern": true
+          }, {
+            "givenNames": [ "表弟" ],
+            "gender": "male",
+            "birthday": {
+              "year": 1992
+            },
+            "familyName": "",
+            "isEastern": true
+          } ]
+        } ]
+      }, {
+        "givenNames": [ "外婆" ],
+        "gender": "female",
+        "birthday": {
+          "year": 1938
+        },
+        "familyName": "大家庭",
+        "isEastern": true
+      } ]
+    } ],
+  "children": [ {
+    "givenNames": [ "儿子" ],
+    "gender": "male",
+    "birthday": {
+      "year": 2023
+    },
+    "familyName": "家",
+    "isEastern": true,
+    "spouse": {
+      "givenNames": [ "媳妇" ],
+      "gender": "female",
+      "birthday": {
+        "year": 2024
+      },
+      "familyName": "村",
+      "isEastern": true
+    }
+  }, {
+    "givenNames": [ "女儿" ],
+    "gender": "female",
+    "birthday": {
+      "year": 2025
+    },
+    "familyName": "家",
+    "isEastern": true,
+    "spouse": {
+      "givenNames": [ "女婿" ],
+      "gender": "male",
+      "birthday": {
+        "year": 2024
+      },
+      "familyName": "",
+      "isEastern": true
+    }
+  } ]
+}
