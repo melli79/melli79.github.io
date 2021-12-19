@@ -39,7 +39,7 @@ Natürlich wollen wir die Vielfache nicht alle von Hand eintippen, schließlich 
 ```
 Wenn wir davon ausgehen, dass die Variablen x und y Zahlen enthalten, dann bedeutet `x*y`, dass deren Produkt berechnet wird.  Entsprechend kann man mit `4+5` die Summe von 4 und 5 berechnen.
 
-## Was soll mit den Zahlen pasieren?
+## 2. Was soll mit den Zahlen pasieren?
 
 Wir wollen sie auf der Kommandozeile ausgeben.  Im einfachsten Fall geht das mit
 
@@ -48,7 +48,7 @@ Wir wollen sie auf der Kommandozeile ausgeben.  Im einfachsten Fall geht das mit
 ```
 Alles, was zwischen ( und ) steht, wird von print ausgegeben.  Print kommt aus dem Englischen und heißt wörtlich ausdrucken.  Entsprechend kommt auch `val` von value aus dem Englischen und bedeutet Wert, d.h. `val x = 3` ist eigentlich nur ein benannter Wert.
 
-## Wir brauchen noch eine Zutat:
+## 3. Wir brauchen noch eine Zutat:
 
 Wir wollen in jeder Zeile 10 Ausdrücke haben und das für 10 Zeilen wiederholen.
 
@@ -67,7 +67,7 @@ Den ersten Ausdruck kennen wir schon `val y = 5` bedeutet, dass der Name `y` fü
 
 Auch den Ausdruck `print(x*y)` kennen wir, hier wird das Produkt berechnet und an der Konsole ausgegeben.
 
-## Wie kommen wir nun zur ganzen Tabelle?
+## 4. Wie kommen wir nun zur ganzen Tabelle?
 
 Wir dürfen den obigen Block nicht nur für `y=5` ausführen, sondern müssen ihn für `y` in `1..10` widerholen, also wie folgt:
 
@@ -87,7 +87,7 @@ Print gibt etwas auf der Konsole aus, `println()` gibt ein Zeilenende aus.
 Wenn man also die Zeile `println()` weglässt, dann erscheint die ganze Tabelle
 auf 1 Zeile (bis die Zeile überläuft).
 
-## Wo fängt der Computer das Programm an?
+## 5. Wo fängt der Computer das Programm an?
 
 Dazu muss man den ersten Teil des Programms zwischen die Zeilen
 

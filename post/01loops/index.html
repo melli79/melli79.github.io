@@ -55,7 +55,7 @@ Das Ziel Das Ziel soll etwa folgende Tabelle sein:
 Das Ziel Das Ziel soll etwa folgende Tabelle sein:
  1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21 24 27 30 4 8 12 16 20 24 28 32 36 40 5 10 15 20 25 30 35 40 45 50 6 12 18 24 30 36 42 48 54 60 7 14 21 28 35 42 49 56 63 70 8 16 24 32 40 48 56 64 72 80 9 18 27 36 45 54 63 72 81 90 10 20 30 40 50 60 70 80 90 100  Was wollen wir haben: Zeilen 1."><meta itemprop="datePublished" content="2021-12-18T23:21:50+01:00" />
 <meta itemprop="dateModified" content="2021-12-18T23:21:50+01:00" />
-<meta itemprop="wordCount" content="949">
+<meta itemprop="wordCount" content="953">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="For-Schleifen"/>
 <meta name="twitter:description" content="Nachdem Ihr die Programmierumgebung aufgesetzt habt, fangen wir heute mit einem ersten kleinen Programm an: Das kleine 1x1.
@@ -144,11 +144,11 @@ Das Ziel Das Ziel soll etwa folgende Tabelle sein:
     <li><a href="#das-ziel">Das Ziel</a></li>
     <li><a href="#welche-elemente-brauchen-wir">Welche Elemente brauchen wir?</a>
       <ul>
-        <li><a href="#was-soll-mit-den-zahlen-pasieren">Was soll mit den Zahlen pasieren?</a></li>
-        <li><a href="#wir-brauchen-noch-eine-zutat">Wir brauchen noch eine Zutat:</a></li>
-        <li><a href="#wie-kommen-wir-nun-zur-ganzen-tabelle">Wie kommen wir nun zur ganzen Tabelle?</a></li>
+        <li><a href="#2-was-soll-mit-den-zahlen-pasieren">2. Was soll mit den Zahlen pasieren?</a></li>
+        <li><a href="#3-wir-brauchen-noch-eine-zutat">3. Wir brauchen noch eine Zutat:</a></li>
+        <li><a href="#4-wie-kommen-wir-nun-zur-ganzen-tabelle">4. Wie kommen wir nun zur ganzen Tabelle?</a></li>
         <li><a href="#was-bedeutet-println">Was bedeutet <code>println()</code>?</a></li>
-        <li><a href="#wo-fängt-der-computer-das-programm-an">Wo fängt der Computer das Programm an?</a></li>
+        <li><a href="#5-wo-fängt-der-computer-das-programm-an">5. Wo fängt der Computer das Programm an?</a></li>
       </ul>
     </li>
     <li><a href="#wie-kann-ich-das-programm-ausprobieren">Wie kann ich das Programm ausprobieren?</a>
@@ -222,7 +222,7 @@ In jeder Zeile die Zahl, dann ihr Doppeltes, dann das Dreifache, &hellip;, das 1
 </code></pre></td></tr></table>
 </div>
 </div><p>Wenn wir davon ausgehen, dass die Variablen x und y Zahlen enthalten, dann bedeutet <code>x*y</code>, dass deren Produkt berechnet wird.  Entsprechend kann man mit <code>4+5</code> die Summe von 4 und 5 berechnen.</p>
-<h2 id="was-soll-mit-den-zahlen-pasieren">Was soll mit den Zahlen pasieren?</h2>
+<h2 id="2-was-soll-mit-den-zahlen-pasieren">2. Was soll mit den Zahlen pasieren?</h2>
 <p>Wir wollen sie auf der Kommandozeile ausgeben.  Im einfachsten Fall geht das mit</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -233,7 +233,7 @@ In jeder Zeile die Zahl, dann ihr Doppeltes, dann das Dreifache, &hellip;, das 1
 </code></pre></td></tr></table>
 </div>
 </div><p>Alles, was zwischen ( und ) steht, wird von print ausgegeben.  Print kommt aus dem Englischen und heißt wörtlich ausdrucken.  Entsprechend kommt auch <code>val</code> von value aus dem Englischen und bedeutet Wert, d.h. <code>val x = 3</code> ist eigentlich nur ein benannter Wert.</p>
-<h2 id="wir-brauchen-noch-eine-zutat">Wir brauchen noch eine Zutat:</h2>
+<h2 id="3-wir-brauchen-noch-eine-zutat">3. Wir brauchen noch eine Zutat:</h2>
 <p>Wir wollen in jeder Zeile 10 Ausdrücke haben und das für 10 Zeilen wiederholen.</p>
 <p>Das kann man für eine Zeile so erreichen</p>
 <div class="highlight"><div class="chroma">
@@ -255,7 +255,7 @@ In jeder Zeile die Zahl, dann ihr Doppeltes, dann das Dreifache, &hellip;, das 1
 </div><p>Den ersten Ausdruck kennen wir schon <code>val y = 5</code> bedeutet, dass der Name <code>y</code> für den Wert 5 steht.
 <code>for (x in 1..10)</code> bedeutet, dass der Ausdruck zwischen <code>{</code> und <code>}</code> für alle Zahlen von 1 bis 10 wiederholt wird. D.h. im ersten Durchlauf ist <code>x=1</code>, im zweiten Durchlauf <code>x=2</code> und so weiter bis einschließlich <code>x=10</code>.</p>
 <p>Auch den Ausdruck <code>print(x*y)</code> kennen wir, hier wird das Produkt berechnet und an der Konsole ausgegeben.</p>
-<h2 id="wie-kommen-wir-nun-zur-ganzen-tabelle">Wie kommen wir nun zur ganzen Tabelle?</h2>
+<h2 id="4-wie-kommen-wir-nun-zur-ganzen-tabelle">4. Wie kommen wir nun zur ganzen Tabelle?</h2>
 <p>Wir dürfen den obigen Block nicht nur für <code>y=5</code> ausführen, sondern müssen ihn für <code>y</code> in <code>1..10</code> widerholen, also wie folgt:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -279,7 +279,7 @@ In jeder Zeile die Zahl, dann ihr Doppeltes, dann das Dreifache, &hellip;, das 1
 <p>Print gibt etwas auf der Konsole aus, <code>println()</code> gibt ein Zeilenende aus.</p>
 <p>Wenn man also die Zeile <code>println()</code> weglässt, dann erscheint die ganze Tabelle
 auf 1 Zeile (bis die Zeile überläuft).</p>
-<h2 id="wo-fängt-der-computer-das-programm-an">Wo fängt der Computer das Programm an?</h2>
+<h2 id="5-wo-fängt-der-computer-das-programm-an">5. Wo fängt der Computer das Programm an?</h2>
 <p>Dazu muss man den ersten Teil des Programms zwischen die Zeilen</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
