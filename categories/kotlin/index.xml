@@ -6,7 +6,18 @@
     <description>Recent content in Kotlin on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 18 Dec 2021 23:21:50 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/kotlin/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Dec 2021 18:13:46 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/kotlin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>02 If und Geschlecht</title>
+      <link>https://melli79.github.io/post/02gender/</link>
+      <pubDate>Sun, 19 Dec 2021 18:13:46 +0100</pubDate>
+      
+      <guid>https://melli79.github.io/post/02gender/</guid>
+      <description>Heute wollen wir uns fragen, wie der Computer am Namen erkennen kann, ob jemand Mann oder Frau ist.
+1. Woran erkennt man, ob jemand weiblich ist? Natürlich ist der Vorname nicht die einzige Quelle, anhand derer man das entscheiden kann, z.B. kann man oft auch am Surf- oder Kaufverhalten herausfinden, ob jemand Mann (Junge) oder Frau (Mädchen) ist.
+Auch ist es nicht immer ganz eindeutig, ob jemand Mann oder Frau ist, z.</description>
+    </item>
+    
     <item>
       <title>For-Schleifen</title>
       <link>https://melli79.github.io/post/01loops/</link>
