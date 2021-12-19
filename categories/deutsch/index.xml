@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Melchior&#39;s Homepage</title>
-    <link>https://melli79.github.io/</link>
-    <description>Recent content on Melchior&#39;s Homepage</description>
+    <title>deutsch on Melchior&#39;s Homepage</title>
+    <link>https://melli79.github.io/categories/deutsch/</link>
+    <description>Recent content in deutsch on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 18 Dec 2021 23:21:50 +0100</lastBuildDate><atom:link href="https://melli79.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 18 Dec 2021 23:21:50 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/deutsch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>For-Schleifen</title>
       <link>https://melli79.github.io/post/01loops/</link>
@@ -16,17 +16,6 @@
       <description>Nachdem Ihr die Programmierumgebung aufgesetzt habt, fangen wir heute mit einem ersten kleinen Programm an: Das kleine 1x1.
 Das Ziel Das Ziel soll etwa folgende Tabelle sein:
  1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21 24 27 30 4 8 12 16 20 24 28 32 36 40 5 10 15 20 25 30 35 40 45 50 6 12 18 24 30 36 42 48 54 60 7 14 21 28 35 42 49 56 63 70 8 16 24 32 40 48 56 64 72 80 9 18 27 36 45 54 63 72 81 90 10 20 30 40 50 60 70 80 90 100  Was wollen wir haben: Zeilen 1.</description>
-    </item>
-    
-    <item>
-      <title>Setup Webpage</title>
-      <link>https://melli79.github.io/post/setup-webpage/</link>
-      <pubDate>Sat, 05 Sep 2020 21:50:55 +0200</pubDate>
-      
-      <guid>https://melli79.github.io/post/setup-webpage/</guid>
-      <description>There is a considerable easy way to set up a web page similar to this one.
-Step 1: install Hugo A. If you are using a Mac, just get accustomed to Homebrew and install hugo via
-1  brew install hugo   B. If you are using Linux it probably comes with a package manager that should have some compatible version of hugo available, e.g. on Ubuntu like systems:</description>
     </item>
     
   </channel>
