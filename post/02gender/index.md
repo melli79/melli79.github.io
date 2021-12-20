@@ -265,7 +265,7 @@ Sicherlich ist immer noch nicht alles perfekt, aber es ist auch nicht ganz klar,
   val tpr = round(truePositive/positives*100).toInt()
   val tnr = round(trueNegative/negatives*100).toInt()
   val correctness = (tpr +tnr)/2
-  val mismatch = round((1 - correctness)*100).toInt()
+  val mismatch = round(100 - correctness).toInt()
   println("Rate korrekt weiblich erkannter: $tpr%;  Rate korrekt männlich erkannter: $tnr%;  Fehlerrate: $mismatch%.")
 ```
 
