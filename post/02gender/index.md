@@ -57,7 +57,7 @@ Entsprechend brauchen wir auch eine Variable `var falseNegative = 0` (fälschlic
 
 Wenn wir wissen, dass der Name korrekt als weiblich erkannt wurde, dann können wir mit `truePositive++` den Zähler um 1 erhöhen, entsprechend mit `falseNegative++` die Anzahl der falsch zugeordneten weiblichen Namen um 1 erhöhen.
 
-Wir dürfen aber immer nur 1 der beiden Zähler erhöhen, abhängig vom Ergebnis von `isFemale(name)`.  Das heißt, wenn `isFemale(name)`, dann `truePositive++`, ansonsten `falseNegative++`.  Jetzt müssen wir das nur noch dem Computer verständlich machen.  Die Sprache Kotlin ist am Englischen angelehnt, d.h. "Wenn" wird mit `if` übersetzt (nicht `when`, da ja nicht klar ist, ob die Bedingung jemals eintritt) und "ansonsten" heißt `else`.  Insgesamt sieht das dann in der ersten for-Schleife so aus:
+Wir dürfen aber immer nur 1 der beiden Zähler erhöhen, abhängig vom Ergebnis von `isFemale(name)`.  Das heißt, falls `isFemale(name)`, dann `truePositive++`, ansonsten `falseNegative++`.  Jetzt müssen wir das nur noch dem Computer verständlich machen.  Die Sprache Kotlin ist am Englischen angelehnt, d.h. "Falls" wird mit `if` übersetzt (nicht `when`, da ja nicht klar ist, ob die Bedingung jemals eintritt) und "ansonsten" heißt `else`.  Insgesamt sieht das dann in der ersten for-Schleife so aus:
 
 ```Kotlin
   if (isFemale(name))
@@ -86,7 +86,7 @@ Wir könnten einfach die 4 Zahlen ausgeben (`truePositive`, `falseNegative`, `tr
   val numberOfErrors = falsePositive +falseNegative
   println("Korrekt weiblich erkannt: $truePositive/$positives;  korrekt männlich erkannt: $trueNegative/$negatives;  Gesamtzahl Fehler: $numberOfErrors.")
 ```
-Vom letzten Mal kennst du dich sicherlich noch `println()`, das gibt eine neue Zeile aus.  Neu ist, dass man da auch einen Text angeben kann, z.B. `"Gesamtzahl Fehler: $numberOfErrrors."`.  Texte werden immer in doppelten Anführungszeichen geschrieben.  Interessant ist auch, dass der Computer nicht wörtlich den Text "\$numberOfErrors" ausgibt, sondern dort die Anzahl der Fehler einsetzt (also die Zahl ausgibt), dazu dient das `$`.
+Vom letzten Mal kennst du sicherlich noch `println()`, das gibt eine neue Zeile aus.  Neu ist, dass man da auch einen Text angeben kann, z.B. `"Gesamtzahl Fehler: $numberOfErrrors."`.  Texte werden immer in doppelten Anführungszeichen geschrieben.  Interessant ist auch, dass der Computer nicht wörtlich den Text "\$numberOfErrors" ausgibt, sondern dort die Anzahl der Fehler einsetzt (also die Zahl ausgibt), dazu dient das `$`.
 
 
 # 2. Was erzeugt das Programm?
@@ -122,11 +122,12 @@ Das bisher geschriebene Programm sieht etwa so aus:
 
     val positives = truePositive +falseNegative
     val negatives = trueNegative +falsePositive
+    val numberOfErrors = falsePositive +falseNegative
     println("Korrekt weiblich erkannt: $truePositive/$positives;  korrekt männlich erkannt: $trueNegative/$negatives;  Gesamtzahl Fehler: $numberOfErrors.")
   }
 ```
 
-Wenn wir jetzt das Programm starten (auf den grünen Pfeil am linken Rand klicken), dann bleibt das Programm stehen mit dem Text "Bitte geben Sie einen weiblichen Vornamen ein (...): ".  Hier geben wir jetzt der Reihe nach weibliche Vornamen ein, z.B.
+Wenn wir jetzt das Programm starten (auf den grünen Pfeil am linken Rand klicken), dann bleibt das Programm stehen mit dem Text "Bitte geben Sie einen weiblichen Vornamen ein (...): ".[^1]  Hier geben wir jetzt der Reihe nach weibliche Vornamen ein, z.B.
 ```log
   Julia<Enter>
   Barabara<Enter>
@@ -223,13 +224,13 @@ Dazu müssten wir die Namen nicht vom Benutzer, sondern aus den Dateien einlesen
   fclose(file)
 ```
 
-Da sind jetzt einige neue Elemente enthalten.  Also der Reihe nach: `fopen(name, "rt")` öffnet (engl. open) eine Datei (english file) zum Lesen.  Das Ergebnis ist die geöffnete Datei (oder nichts). `?: throw IllegalArgumentException("...")` bedeutet, dass wir einen Ausnahmefall (engl. exception) feststellen wollen, wenn sich die Datei nicht öffnen lässt.  Ausnahmefall bedeutet so auch, dass wir dann nicht mehr weiterarbeiten wollen (das Programm sich beendet).  Ist das gut?  Naja, der Nutzer erhält noch die Textnachricht "...", bevor sich das Programm beendet.  Da steht drinnnen, dass die Datei nicht geöffnet werden kann.  Ohne die Datei mit den Namen kann das Programm nicht weiterarbeiten, deshalb habe ich beschlossen, hier einen Ausnahmefall zu erzeugen.
+Da sind jetzt einige neue Elemente enthalten.  Also der Reihe nach: `fopen(name, "rt")` öffnet (engl. open) eine Datei (english file) zum Lesen.  Das Ergebnis ist die geöffnete Datei (oder nichts). `?: throw IllegalArgumentException("...")` bedeutet, dass wir einen Ausnahmefall (engl. exception) feststellen wollen (engl. throw heißt werfen), wenn sich die Datei nicht öffnen lässt.  Ausnahmefall bedeutet so auch, dass wir dann nicht mehr weiterarbeiten wollen (das Programm sich beendet).  Ist das gut?  Naja, der Nutzer erhält noch die Textnachricht "...", bevor sich das Programm beendet.  Da steht drinnnen, dass die Datei nicht geöffnet werden kann.  Ohne die Datei mit den Namen kann das Programm nicht weiterarbeiten, deshalb habe ich beschlossen, hier einen Ausnahmefall zu werfen.
 
 `val buffer = malloc(bufferSize)` legt einen Puffer (engl. buffer), also temporären Zwischenspeicher an.  Das ist notwendig, damit beim Einlesen der Namen aus der Datei diese zwischengespeichert werden können.  Leider muss man auch angeben, wieviel Platz man dafür einräumt, hier `val bufferSize = 128`, also 128 einfache Zeichen (für einen Namen).  Was bedeutet `as CValuesRef<ByteVar>?` und warum ist das gelb? `malloc` kommt vom Betriebssystem und dem ist es egal, welche Werte wir in dem Speicher speichern.  Kotlin aber nicht.  Mit `as CValuesRef<ByteVar>?` erklären wir Kotlin, dass der Speicher für Bytes von beliebiger Gesamtlänge verwendet werden soll.  Das ganze ist gelb, weil die Entwicklungsumgebung nicht recht glauben kann, dass der Speicher wirklich dafür geeignet ist.  Ich weiß aber, dass es funktioniert, probier das Programm am Ende aus.  Das `?: throw IllegalStateException("...")` kennen wir schon, es bedeutet wieder einen Ausnahmefall, wenn wir keinen Speicher bekommen haben (dann kann man auch nicht mehr weiterarbeiten).
 
 `fgets(buffer, bufferSize, file)` liest eine Zeile ein, diesmal nicht von der Kommandozeile, sondern aus der Datei (`file`).  Die eingelesene Zeile wird in `buffer` gespeichert und darf maximal `bufferSize` Zeichen lang sein, danach wird angehalten.
 
-Wenn wir bereits am Ende der Dateil sind, dann bewirkt `?: break`, dass die Schleife abbricht (engl. break heißt abbrechen, manchmal auch unterbrechen, z.B. lunch break). `for (n in 10..1000)` wird also nicht wirklich 991 mal ausgeführt, nur maximal 991 mal.  (In der Datei stehen etwa 365 Namen).
+Wenn wir bereits am Ende der Datei sind, dann bewirkt `?: break`, dass die Schleife abbricht (engl. break heißt abbrechen, manchmal auch unterbrechen, z.B. lunch break). `for (n in 10..1000)` wird also nicht wirklich 991 mal ausgeführt, nur maximal 991 mal.  (In der Datei stehen etwa 365 Namen).
 
 Schließlich noch `fclose(file)`, das ist das Gegenstück zu `fopen(...)`.  Damit wird die Datei wieder geschlossen und deren Arbeitsspeicher freigegeben.  Das ist wichtig, damit das Programm im Arbeitsspeicher nicht immer größer wird.
 
@@ -268,7 +269,7 @@ Sicherlich ist immer noch nicht alles perfekt, aber es ist auch nicht ganz klar,
   println("Rate korrekt weiblich erkannter: $tpr%;  Rate korrekt männlich erkannter: $tnr%;  Fehlerrate: $mismatch%.")
 ```
 
-Hier bedeutet `round(...).toInt()` das auf ganze Zahlen gerundet wird. `...*100` bedeutet, dass wir die Rate in Prozent angeben (pro hundert), dementsprechend habe ich "$tpr%;" geschrieben.
+Hier bedeutet `round(...).toInt()`, dass auf ganze Zahlen gerundet wird. `...*100` bedeutet, dass wir die Rate in Prozent angeben (pro hundert), dementsprechend habe ich "$tpr%;" geschrieben.
 
 Dann sieht das Ganze so aus:
 
@@ -314,7 +315,7 @@ Wenn wir wissen wollen, wie gut die Erkennung für die Menschen in Deutschland i
       falsePositive += 1.0/n
   ...
 ```
-`truePositive += 1.0/n` im Gegensatz zu `truePositive++` bedeutet, dass wir nicht konstant immer um 1 erhöhen, sondern um $1/n$.  Also beim ersten Durchlauf (`n=10`) um $1/10=0.10000$), beim zweiten Durchlauf (`n=11`) um $1/11=0.09090909...$, schon etwas weniger, und im letzten Durchlauf (`n=1000`) dann nur noch um $1/1000=0.0010000$.  Das sind zwar ziemlich kleine und krumme Zahlen, aber am Ende geben wir nur Verhältnisse aus und runden auf ganze Prozent:
+`truePositive += 1.0/n` im Gegensatz zu `truePositive++` bedeutet, dass wir nicht konstant immer um 1 erhöhen, sondern um $1/n$.  Also beim ersten Durchlauf (`n=10`) um $1/10=0.10000$, beim zweiten Durchlauf (`n=11`) um $1/11=0.09090909...$, schon etwas weniger, und im letzten Durchlauf (`n=1000`) dann nur noch um $1/1000=0.0010000$.  Das sind zwar ziemlich kleine und krumme Zahlen, aber am Ende geben wir nur Verhältnisse aus und runden auf ganze Prozent:
 
 ```log
   Rate korrekt weiblicher Namen: 85%; Rate korrekt männlicher Namen: 91%;  Fehlerrate: 12%.
@@ -327,3 +328,5 @@ Jetzt ist Zeit zum selber probieren:  Fällt dir noch eine Regel ein, an der man
 Kannst du mit `val line = readLine() ?: return` das Programm so erweitern, dass es am Ende nach 1 Namen fragt und für diesen entscheidet (und ausgibt), ob er weiblich oder männlich ist?
 
 [Lösung](/02solution.md)
+
+[^1]: Wenn das Programm nicht stehen bleibt, müsst ihr es von Hand starten: am unteren Rand auf Terminal klicken und dort `.\build\bin\native\debugExecutable\gender.exe` eingeben, dabei ist "gender" der Name des Projektes.

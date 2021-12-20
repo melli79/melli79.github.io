@@ -49,7 +49,7 @@
 <meta itemprop="name" content="02 If und Geschlecht">
 <meta itemprop="description" content="how to make decisions"><meta itemprop="datePublished" content="2021-12-19T18:13:46+01:00" />
 <meta itemprop="dateModified" content="2021-12-19T18:13:46+01:00" />
-<meta itemprop="wordCount" content="2718">
+<meta itemprop="wordCount" content="2756">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="02 If und Geschlecht"/>
 <meta name="twitter:description" content="how to make decisions"/>
@@ -216,7 +216,7 @@
 <p>Wie kommen wir jetzt zum Auszählen?  Wir müssten irgendwie abhängig vom Ergebnis <code>isFemale(name)</code> einen Zähler erhöhen.  Den Zähler können wir so anlegen: <code>var truePositive = 0</code>, d.h. wir legen eine Variable mit Namen <code>truePositive</code> (also die korrekt als weiblich erkannten) an und fangen bei 0 an. <code>var</code> im Gegensatz zu <code>val</code> bedeutet, dass sich der Wert im Laufe des Programmes ändern kann.</p>
 <p>Entsprechend brauchen wir auch eine Variable <code>var falseNegative = 0</code> (fälschlicher Weise als nicht-weiblich erkannt), <code>var trueNegative = 0</code> (korrekt als nicht-weiblich erkannt) und <code>var falsePositive = 0</code> (fälschlicher Weise als weiblich erkannt).</p>
 <p>Wenn wir wissen, dass der Name korrekt als weiblich erkannt wurde, dann können wir mit <code>truePositive++</code> den Zähler um 1 erhöhen, entsprechend mit <code>falseNegative++</code> die Anzahl der falsch zugeordneten weiblichen Namen um 1 erhöhen.</p>
-<p>Wir dürfen aber immer nur 1 der beiden Zähler erhöhen, abhängig vom Ergebnis von <code>isFemale(name)</code>.  Das heißt, wenn <code>isFemale(name)</code>, dann <code>truePositive++</code>, ansonsten <code>falseNegative++</code>.  Jetzt müssen wir das nur noch dem Computer verständlich machen.  Die Sprache Kotlin ist am Englischen angelehnt, d.h. &ldquo;Wenn&rdquo; wird mit <code>if</code> übersetzt (nicht <code>when</code>, da ja nicht klar ist, ob die Bedingung jemals eintritt) und &ldquo;ansonsten&rdquo; heißt <code>else</code>.  Insgesamt sieht das dann in der ersten for-Schleife so aus:</p>
+<p>Wir dürfen aber immer nur 1 der beiden Zähler erhöhen, abhängig vom Ergebnis von <code>isFemale(name)</code>.  Das heißt, falls <code>isFemale(name)</code>, dann <code>truePositive++</code>, ansonsten <code>falseNegative++</code>.  Jetzt müssen wir das nur noch dem Computer verständlich machen.  Die Sprache Kotlin ist am Englischen angelehnt, d.h. &ldquo;Falls&rdquo; wird mit <code>if</code> übersetzt (nicht <code>when</code>, da ja nicht klar ist, ob die Bedingung jemals eintritt) und &ldquo;ansonsten&rdquo; heißt <code>else</code>.  Insgesamt sieht das dann in der ersten for-Schleife so aus:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -263,7 +263,7 @@
   <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Korrekt weiblich erkannt: </span><span class="si">$truePositive</span><span class="s2">/</span><span class="si">$positives</span><span class="s2">;  korrekt männlich erkannt: </span><span class="si">$trueNegative</span><span class="s2">/</span><span class="si">$negatives</span><span class="s2">;  Gesamtzahl Fehler: </span><span class="si">$numberOfErrors</span><span class="s2">.&#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Vom letzten Mal kennst du dich sicherlich noch <code>println()</code>, das gibt eine neue Zeile aus.  Neu ist, dass man da auch einen Text angeben kann, z.B. <code>&quot;Gesamtzahl Fehler: $numberOfErrrors.&quot;</code>.  Texte werden immer in doppelten Anführungszeichen geschrieben.  Interessant ist auch, dass der Computer nicht wörtlich den Text &ldquo;$numberOfErrors&rdquo; ausgibt, sondern dort die Anzahl der Fehler einsetzt (also die Zahl ausgibt), dazu dient das <code>$</code>.</p>
+</div><p>Vom letzten Mal kennst du sicherlich noch <code>println()</code>, das gibt eine neue Zeile aus.  Neu ist, dass man da auch einen Text angeben kann, z.B. <code>&quot;Gesamtzahl Fehler: $numberOfErrrors.&quot;</code>.  Texte werden immer in doppelten Anführungszeichen geschrieben.  Interessant ist auch, dass der Computer nicht wörtlich den Text &ldquo;$numberOfErrors&rdquo; ausgibt, sondern dort die Anzahl der Fehler einsetzt (also die Zahl ausgibt), dazu dient das <code>$</code>.</p>
 <h1 id="2-was-erzeugt-das-programm">2. Was erzeugt das Programm?</h1>
 <p>Das bisher geschriebene Programm sieht etwa so aus:</p>
 <div class="highlight"><div class="chroma">
@@ -298,6 +298,7 @@
 </span><span class="lnt">28
 </span><span class="lnt">29
 </span><span class="lnt">30
+</span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">isFemale</span><span class="p">(</span><span class="n">name</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
@@ -328,11 +329,12 @@
 
     <span class="k">val</span> <span class="py">positives</span> <span class="p">=</span> <span class="n">truePositive</span> <span class="p">+</span><span class="n">falseNegative</span>
     <span class="k">val</span> <span class="py">negatives</span> <span class="p">=</span> <span class="n">trueNegative</span> <span class="p">+</span><span class="n">falsePositive</span>
+    <span class="k">val</span> <span class="py">numberOfErrors</span> <span class="p">=</span> <span class="n">falsePositive</span> <span class="p">+</span><span class="n">falseNegative</span>
     <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Korrekt weiblich erkannt: </span><span class="si">$truePositive</span><span class="s2">/</span><span class="si">$positives</span><span class="s2">;  korrekt männlich erkannt: </span><span class="si">$trueNegative</span><span class="s2">/</span><span class="si">$negatives</span><span class="s2">;  Gesamtzahl Fehler: </span><span class="si">$numberOfErrors</span><span class="s2">.&#34;</span><span class="p">)</span>
   <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Wenn wir jetzt das Programm starten (auf den grünen Pfeil am linken Rand klicken), dann bleibt das Programm stehen mit dem Text &ldquo;Bitte geben Sie einen weiblichen Vornamen ein (&hellip;): &ldquo;.  Hier geben wir jetzt der Reihe nach weibliche Vornamen ein, z.B.</p>
+</div><p>Wenn wir jetzt das Programm starten (auf den grünen Pfeil am linken Rand klicken), dann bleibt das Programm stehen mit dem Text &ldquo;Bitte geben Sie einen weiblichen Vornamen ein (&hellip;): &ldquo;.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>  Hier geben wir jetzt der Reihe nach weibliche Vornamen ein, z.B.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -471,10 +473,10 @@
   <span class="n">fclose</span><span class="p">(</span><span class="k">file</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Da sind jetzt einige neue Elemente enthalten.  Also der Reihe nach: <code>fopen(name, &quot;rt&quot;)</code> öffnet (engl. open) eine Datei (english file) zum Lesen.  Das Ergebnis ist die geöffnete Datei (oder nichts). <code>?: throw IllegalArgumentException(&quot;...&quot;)</code> bedeutet, dass wir einen Ausnahmefall (engl. exception) feststellen wollen, wenn sich die Datei nicht öffnen lässt.  Ausnahmefall bedeutet so auch, dass wir dann nicht mehr weiterarbeiten wollen (das Programm sich beendet).  Ist das gut?  Naja, der Nutzer erhält noch die Textnachricht &ldquo;&hellip;&rdquo;, bevor sich das Programm beendet.  Da steht drinnnen, dass die Datei nicht geöffnet werden kann.  Ohne die Datei mit den Namen kann das Programm nicht weiterarbeiten, deshalb habe ich beschlossen, hier einen Ausnahmefall zu erzeugen.</p>
+</div><p>Da sind jetzt einige neue Elemente enthalten.  Also der Reihe nach: <code>fopen(name, &quot;rt&quot;)</code> öffnet (engl. open) eine Datei (english file) zum Lesen.  Das Ergebnis ist die geöffnete Datei (oder nichts). <code>?: throw IllegalArgumentException(&quot;...&quot;)</code> bedeutet, dass wir einen Ausnahmefall (engl. exception) feststellen wollen (engl. throw heißt werfen), wenn sich die Datei nicht öffnen lässt.  Ausnahmefall bedeutet so auch, dass wir dann nicht mehr weiterarbeiten wollen (das Programm sich beendet).  Ist das gut?  Naja, der Nutzer erhält noch die Textnachricht &ldquo;&hellip;&rdquo;, bevor sich das Programm beendet.  Da steht drinnnen, dass die Datei nicht geöffnet werden kann.  Ohne die Datei mit den Namen kann das Programm nicht weiterarbeiten, deshalb habe ich beschlossen, hier einen Ausnahmefall zu werfen.</p>
 <p><code>val buffer = malloc(bufferSize)</code> legt einen Puffer (engl. buffer), also temporären Zwischenspeicher an.  Das ist notwendig, damit beim Einlesen der Namen aus der Datei diese zwischengespeichert werden können.  Leider muss man auch angeben, wieviel Platz man dafür einräumt, hier <code>val bufferSize = 128</code>, also 128 einfache Zeichen (für einen Namen).  Was bedeutet <code>as CValuesRef&lt;ByteVar&gt;?</code> und warum ist das gelb? <code>malloc</code> kommt vom Betriebssystem und dem ist es egal, welche Werte wir in dem Speicher speichern.  Kotlin aber nicht.  Mit <code>as CValuesRef&lt;ByteVar&gt;?</code> erklären wir Kotlin, dass der Speicher für Bytes von beliebiger Gesamtlänge verwendet werden soll.  Das ganze ist gelb, weil die Entwicklungsumgebung nicht recht glauben kann, dass der Speicher wirklich dafür geeignet ist.  Ich weiß aber, dass es funktioniert, probier das Programm am Ende aus.  Das <code>?: throw IllegalStateException(&quot;...&quot;)</code> kennen wir schon, es bedeutet wieder einen Ausnahmefall, wenn wir keinen Speicher bekommen haben (dann kann man auch nicht mehr weiterarbeiten).</p>
 <p><code>fgets(buffer, bufferSize, file)</code> liest eine Zeile ein, diesmal nicht von der Kommandozeile, sondern aus der Datei (<code>file</code>).  Die eingelesene Zeile wird in <code>buffer</code> gespeichert und darf maximal <code>bufferSize</code> Zeichen lang sein, danach wird angehalten.</p>
-<p>Wenn wir bereits am Ende der Dateil sind, dann bewirkt <code>?: break</code>, dass die Schleife abbricht (engl. break heißt abbrechen, manchmal auch unterbrechen, z.B. lunch break). <code>for (n in 10..1000)</code> wird also nicht wirklich 991 mal ausgeführt, nur maximal 991 mal.  (In der Datei stehen etwa 365 Namen).</p>
+<p>Wenn wir bereits am Ende der Datei sind, dann bewirkt <code>?: break</code>, dass die Schleife abbricht (engl. break heißt abbrechen, manchmal auch unterbrechen, z.B. lunch break). <code>for (n in 10..1000)</code> wird also nicht wirklich 991 mal ausgeführt, nur maximal 991 mal.  (In der Datei stehen etwa 365 Namen).</p>
 <p>Schließlich noch <code>fclose(file)</code>, das ist das Gegenstück zu <code>fopen(...)</code>.  Damit wird die Datei wieder geschlossen und deren Arbeitsspeicher freigegeben.  Das ist wichtig, damit das Programm im Arbeitsspeicher nicht immer größer wird.</p>
 <p>Der Rest in dieser for-Schleife ist gleich geblieben.</p>
 <p>Die zweite for-Schleife für die männlichen Namen sieht ähnlich aus:</p>
@@ -528,7 +530,7 @@
   <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Rate korrekt weiblich erkannter: </span><span class="si">$tpr</span><span class="s2">%;  Rate korrekt männlich erkannter: </span><span class="si">$tnr</span><span class="s2">%;  Fehlerrate: </span><span class="si">$mismatch</span><span class="s2">%.&#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Hier bedeutet <code>round(...).toInt()</code> das auf ganze Zahlen gerundet wird. <code>...*100</code> bedeutet, dass wir die Rate in Prozent angeben (pro hundert), dementsprechend habe ich &ldquo;$tpr%;&rdquo; geschrieben.</p>
+</div><p>Hier bedeutet <code>round(...).toInt()</code>, dass auf ganze Zahlen gerundet wird. <code>...*100</code> bedeutet, dass wir die Rate in Prozent angeben (pro hundert), dementsprechend habe ich &ldquo;$tpr%;&rdquo; geschrieben.</p>
 <p>Dann sieht das Ganze so aus:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -604,7 +606,7 @@
   <span class="o">..</span><span class="p">.</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><code>truePositive += 1.0/n</code> im Gegensatz zu <code>truePositive++</code> bedeutet, dass wir nicht konstant immer um 1 erhöhen, sondern um $1/n$.  Also beim ersten Durchlauf (<code>n=10</code>) um $1/10=0.10000$), beim zweiten Durchlauf (<code>n=11</code>) um $1/11=0.09090909&hellip;$, schon etwas weniger, und im letzten Durchlauf (<code>n=1000</code>) dann nur noch um $1/1000=0.0010000$.  Das sind zwar ziemlich kleine und krumme Zahlen, aber am Ende geben wir nur Verhältnisse aus und runden auf ganze Prozent:</p>
+</div><p><code>truePositive += 1.0/n</code> im Gegensatz zu <code>truePositive++</code> bedeutet, dass wir nicht konstant immer um 1 erhöhen, sondern um $1/n$.  Also beim ersten Durchlauf (<code>n=10</code>) um $1/10=0.10000$, beim zweiten Durchlauf (<code>n=11</code>) um $1/11=0.09090909&hellip;$, schon etwas weniger, und im letzten Durchlauf (<code>n=1000</code>) dann nur noch um $1/1000=0.0010000$.  Das sind zwar ziemlich kleine und krumme Zahlen, aber am Ende geben wir nur Verhältnisse aus und runden auf ganze Prozent:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -617,6 +619,14 @@
 <p>Jetzt ist Zeit zum selber probieren:  Fällt dir noch eine Regel ein, an der man weibliche Vornamen erkennt?  Oder nicht-weibliche Vornamen?</p>
 <p>Kannst du mit <code>val line = readLine() ?: return</code> das Programm so erweitern, dass es am Ende nach 1 Namen fragt und für diesen entscheidet (und ausgibt), ob er weiblich oder männlich ist?</p>
 <p><a href="/02solution.md">Lösung</a></p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>Wenn das Programm nicht stehen bleibt, müsst ihr es von Hand starten: am unteren Rand auf Terminal klicken und dort <code>.\build\bin\native\debugExecutable\gender.exe</code> eingeben, dabei ist &ldquo;gender&rdquo; der Name des Projektes.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
 
     </div>
 
