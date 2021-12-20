@@ -33,23 +33,31 @@ Mit Hilfe der for-Schleifen vom letzten Mal können wir das erreichen:
       print("Geben Sie einen weiblichen Vornamen ein (oder drücken Sie direkt Enter): ")
       val line = readLine() ?: break
       val name = line.trim()
+      if (name.isEmpty())
+        break
       isFemale(name)
     }
     for (n in 1..10) {
       print("Geben sie einen männlichen Vornamen ein (oder drücken Sie direkt Enter): ")
       val line = readLine() ?: break
       val name = line.trim()
+      if (name.isEmpty())
+        break
       isFemale(name)
     }
     ...
   }
 ```
 
-Wie kommen wir jetzt zum Auszählen?  Wir müssten irgendwie abhängig vom Ergebnis `isFemale(name)` einen Zähler erhöhen.  Den Zähler können wir so anlegen: `var truePositive = 0`, d.h. wir legen eine Variable mit Namen `truePositive` (also die positiv Korrekten) an und fangen bei 0 an.  Entsprechend brauchen wir auch eine Variable `var falseNegative = 0`, `var trueNegative = 0` und `var falsePositive = 0`.
+`readLine()` liest eine Zeile von der Kommandozeile ein und `?: break` bricht die Schleife ab, falls die Eingabe abgebrochen wurde.  `if (name.isEmpty())` testet, ob der Name leer ist.  In diesem Falle wird mit `break` ebenfalls die Schleife abgebrochen.
+
+Wie kommen wir jetzt zum Auszählen?  Wir müssten irgendwie abhängig vom Ergebnis `isFemale(name)` einen Zähler erhöhen.  Den Zähler können wir so anlegen: `var truePositive = 0`, d.h. wir legen eine Variable mit Namen `truePositive` (also die korrekt als weiblich erkannten) an und fangen bei 0 an. `var` im Gegensatz zu `val` bedeutet, dass sich der Wert im Laufe des Programmes ändern kann.
+
+Entsprechend brauchen wir auch eine Variable `var falseNegative = 0` (fälschlicher Weise als nicht-weiblich erkannt), `var trueNegative = 0` (korrekt als nicht-weiblich erkannt) und `var falsePositive = 0` (fälschlicher Weise als weiblich erkannt).
 
 Wenn wir wissen, dass der Name korrekt als weiblich erkannt wurde, dann können wir mit `truePositive++` den Zähler um 1 erhöhen, entsprechend mit `falseNegative++` die Anzahl der falsch zugeordneten weiblichen Namen um 1 erhöhen.
 
-Wir dürfen aber immer nur 1 der beiden Zähler erhöhen, abhängig vom Ergebnis von `isFemale(name)`.  Das heißt, wenn `isFemale(name)`, dann `truePositive++`, ansonsten `falseNegative++`.  Jetzt müssen wir das nur noch dem Computer verständlich machen.  Die Sprache Kotlin ist am Englischen angelehnt, d.h. "Wenn" wird mit `if` übersetzt (nicht `when`, da ja nicht klar ist, ob die Bedingung jemals eintritt) und "Ansonsten" heißt `else`.  Insgesamt sieht das dann in der ersten for-Schleife so aus:
+Wir dürfen aber immer nur 1 der beiden Zähler erhöhen, abhängig vom Ergebnis von `isFemale(name)`.  Das heißt, wenn `isFemale(name)`, dann `truePositive++`, ansonsten `falseNegative++`.  Jetzt müssen wir das nur noch dem Computer verständlich machen.  Die Sprache Kotlin ist am Englischen angelehnt, d.h. "Wenn" wird mit `if` übersetzt (nicht `when`, da ja nicht klar ist, ob die Bedingung jemals eintritt) und "ansonsten" heißt `else`.  Insgesamt sieht das dann in der ersten for-Schleife so aus:
 
 ```Kotlin
   if (isFemale(name))
@@ -78,7 +86,8 @@ Wir könnten einfach die 4 Zahlen ausgeben (`truePositive`, `falseNegative`, `tr
   val numberOfErrors = falsePositive +falseNegative
   println("Korrekt weiblich erkannt: $truePositive/$positives;  korrekt männlich erkannt: $trueNegative/$negatives;  Gesamtzahl Fehler: $numberOfErrors.")
 ```
-Vom letzten Mal kennst du dich sicherlich noch an `println()`, das gibt eine neue Zeile aus.  Neu ist, dass man da auch einen Text angeben kann, z.B. `"Gesamtzahl Fehler: $numberOfErrrors."`.  Texte werden immer in doppelten Anführungszeichen geschrieben.  Interessant ist auch, dass der Computer nicht wörtlich den Text "\$numberOfErrors" ausgibt, sondern dort die Anzahl der Fehler einsetzt (also die Zahl ausgibt).
+Vom letzten Mal kennst du dich sicherlich noch `println()`, das gibt eine neue Zeile aus.  Neu ist, dass man da auch einen Text angeben kann, z.B. `"Gesamtzahl Fehler: $numberOfErrrors."`.  Texte werden immer in doppelten Anführungszeichen geschrieben.  Interessant ist auch, dass der Computer nicht wörtlich den Text "\$numberOfErrors" ausgibt, sondern dort die Anzahl der Fehler einsetzt (also die Zahl ausgibt), dazu dient das `$`.
+
 
 # 2. Was erzeugt das Programm?
 
@@ -100,6 +109,7 @@ Das bisher geschriebene Programm sieht etwa so aus:
       else
         falseNegative++
     }
+
     var trueNegative = 0;  var falsePositive = 0
     for (n in 1..10) {
       print("Bitte geben Sie einen männlichen Vornamen ein (oder drücken Sie Enter zum Beenden): ")
@@ -109,6 +119,7 @@ Das bisher geschriebene Programm sieht etwa so aus:
       else
         falsePositive++
     }
+
     val positives = truePositive +falseNegative
     val negatives = trueNegative +falsePositive
     println("Korrekt weiblich erkannt: $truePositive/$positives;  korrekt männlich erkannt: $trueNegative/$negatives;  Gesamtzahl Fehler: $numberOfErrors.")
@@ -150,7 +161,7 @@ Wie kann man die Erkennung weiblicher Vornamen besser machen?  Naja, wenn wir un
 
 ```Kotlin
   fun isFemale(name :String) :Boolean {
-    if (name.endsWith("a")||name.endsWith("e")||name/endsWith("in"))
+    if (name.endsWith("a")||name.endsWith("e")||name.endsWith("in"))
       return true
     return false
   }
@@ -212,13 +223,13 @@ Dazu müssten wir die Namen nicht vom Benutzer, sondern aus den Dateien einlesen
   fclose(file)
 ```
 
-Da sind jetzt einige neue Elemente enthalten.  Also der Reihe nach: `fopen(name, "rt")` öffnet eine Datei (english file) zum Lesen.  Das Ergebnis ist die geöffnete Datei (oder nichts). `?: throw IllegalArgumentException("...")` bedeutet, dass wir einen Ausnahmefall (engl. exception) feststellen wollen, wenn sich die Datei nicht öffnen lässt.  Ausnahmefall bedeutet so auch, dass wir dann nicht mehr weiterarbeiten wollen (das Programm sich beendet).  Ist das gut?  Naja, der Nutzer erhält noch die Textnachricht "..." bevor sich das Programm beendet.  Da steht drinnnen, dass die Datei nicht geöffnet werden kann.  Ohne die Datei mit den Namen kann das Programm nicht weiterarbeiten, deshalb habe ich beschlossen hier einen Ausnahmefall zu erzeugen.
+Da sind jetzt einige neue Elemente enthalten.  Also der Reihe nach: `fopen(name, "rt")` öffnet (engl. open) eine Datei (english file) zum Lesen.  Das Ergebnis ist die geöffnete Datei (oder nichts). `?: throw IllegalArgumentException("...")` bedeutet, dass wir einen Ausnahmefall (engl. exception) feststellen wollen, wenn sich die Datei nicht öffnen lässt.  Ausnahmefall bedeutet so auch, dass wir dann nicht mehr weiterarbeiten wollen (das Programm sich beendet).  Ist das gut?  Naja, der Nutzer erhält noch die Textnachricht "...", bevor sich das Programm beendet.  Da steht drinnnen, dass die Datei nicht geöffnet werden kann.  Ohne die Datei mit den Namen kann das Programm nicht weiterarbeiten, deshalb habe ich beschlossen, hier einen Ausnahmefall zu erzeugen.
 
-`val buffer = malloc(bufferSize)` legt einen Puffer (engl. buffer), also temporären Zwischenspeicher an.  Das ist notwendig, damit beim Einlesen der Namen aus der Datei diese Zwischengespeichert werden können.  Leider muss man auch angeben, wieviel Platz man dafür einräumt, hier `val bufferSize = 128`, also 128 einfache Zeichen.  Was bedeutet `as CValuesRef<ByteVar>?` und warum ist das gelb? `malloc` kommt vom Betriebssystem und dem ist es egal, welche Werte wir in dem Speicher speichern.  Kotlin aber nicht.  Mit `as CValuesRef<ByteVar>?` erklären wir Kotlin, dass der Speicher für Bytes von beliebiger Gesamtlänge verwendet werden soll.  Das ganze ist gelb, weil die Entwicklungsumgebung nicht recht glauben kann, dass der Speicher wirklich dafür geeignet ist.  Ich weiß aber, dass es funktioniert, probier das Programm am Ende aus.  Das `?: throw IllegalStateException("...")` kennen wir schon, es bedeutet wieder einen Ausnahmefall, wenn wir keinen Speicher bekommen haben (dann kann man auch nicht mehr weiterarbeiten).
+`val buffer = malloc(bufferSize)` legt einen Puffer (engl. buffer), also temporären Zwischenspeicher an.  Das ist notwendig, damit beim Einlesen der Namen aus der Datei diese zwischengespeichert werden können.  Leider muss man auch angeben, wieviel Platz man dafür einräumt, hier `val bufferSize = 128`, also 128 einfache Zeichen (für einen Namen).  Was bedeutet `as CValuesRef<ByteVar>?` und warum ist das gelb? `malloc` kommt vom Betriebssystem und dem ist es egal, welche Werte wir in dem Speicher speichern.  Kotlin aber nicht.  Mit `as CValuesRef<ByteVar>?` erklären wir Kotlin, dass der Speicher für Bytes von beliebiger Gesamtlänge verwendet werden soll.  Das ganze ist gelb, weil die Entwicklungsumgebung nicht recht glauben kann, dass der Speicher wirklich dafür geeignet ist.  Ich weiß aber, dass es funktioniert, probier das Programm am Ende aus.  Das `?: throw IllegalStateException("...")` kennen wir schon, es bedeutet wieder einen Ausnahmefall, wenn wir keinen Speicher bekommen haben (dann kann man auch nicht mehr weiterarbeiten).
 
 `fgets(buffer, bufferSize, file)` liest eine Zeile ein, diesmal nicht von der Kommandozeile, sondern aus der Datei (`file`).  Die eingelesene Zeile wird in `buffer` gespeichert und darf maximal `bufferSize` Zeichen lang sein, danach wird angehalten.
 
-Wenn wir bereits am Ende der Dateil sind, dann bewirkt `?: break`, dass die Schleife abbricht (engl. break heißt abbrechen). `for (n in 10..1000)` wird also nicht wirklich 991 mal ausgeführt, nur maximal 991 mal.  (In der Datei stehen etwa 465 Namen).
+Wenn wir bereits am Ende der Dateil sind, dann bewirkt `?: break`, dass die Schleife abbricht (engl. break heißt abbrechen, manchmal auch unterbrechen, z.B. lunch break). `for (n in 10..1000)` wird also nicht wirklich 991 mal ausgeführt, nur maximal 991 mal.  (In der Datei stehen etwa 365 Namen).
 
 Schließlich noch `fclose(file)`, das ist das Gegenstück zu `fopen(...)`.  Damit wird die Datei wieder geschlossen und deren Arbeitsspeicher freigegeben.  Das ist wichtig, damit das Programm im Arbeitsspeicher nicht immer größer wird.
 
@@ -234,8 +245,10 @@ Die zweite for-Schleife für die männlichen Namen sieht ähnlich aus:
     ...
   }
   fclose(file)
-  ...
+  free(buffer)
 ```
+
+`free(buffer)` ist das Gegenstück zu `val buffer = malloc(...)`.  Es beudetet, dass wir den Pufferspeicher wieder freigeben (engl. free, frei oder befreien, freigeben).
 
 Damit das ganze funktioniert, muss man beim Herunterladen die 2 Dateien unter diesen Namen abspeichern:  die [weiblichen Vornamen](/femaleNames.csv) unter "femaleNames.csv" und die [männlichen Vornamen](/maleNames.csv) unter "maleNames.csv".  Alles im Projekt-Verzeichnis.
 
@@ -250,7 +263,7 @@ Sicherlich ist immer noch nicht alles perfekt, aber es ist auch nicht ganz klar,
 ```Kotlin
   val tpr = round(truePositive/positives*100).toInt()
   val tnr = round(trueNegative/negatives*100).toInt()
-  val correctness = (sensitivity +specificity)/2
+  val correctness = (tpr +tnr)/2
   val mismatch = round((1 - correctness)*100).toInt()
   println("Rate korrekt weiblich erkannter: $tpr%;  Rate korrekt männlich erkannter: $tnr%;  Fehlerrate: $mismatch%.")
 ```
@@ -301,6 +314,7 @@ Wenn wir wissen wollen, wie gut die Erkennung für die Menschen in Deutschland i
       falsePositive += 1.0/n
   ...
 ```
+`truePositive += 1.0/n` im Gegensatz zu `truePositive++` bedeutet, dass wir nicht konstant immer um 1 erhöhen, sondern um $1/n$.  Also beim ersten Durchlauf (`n=10`) um $1/10=0.10000$), beim zweiten Durchlauf (`n=11`) um $1/11=0.09090909...$, schon etwas weniger, und im letzten Durchlauf (`n=1000`) dann nur noch um $1/1000=0.0010000$.  Das sind zwar ziemlich kleine und krumme Zahlen, aber am Ende geben wir nur Verhältnisse aus und runden auf ganze Prozent:
 
 ```log
   Rate korrekt weiblicher Namen: 85%; Rate korrekt männlicher Namen: 91%;  Fehlerrate: 12%.
@@ -309,3 +323,7 @@ Also noch etwas besser.
 
 
 Jetzt ist Zeit zum selber probieren:  Fällt dir noch eine Regel ein, an der man weibliche Vornamen erkennt?  Oder nicht-weibliche Vornamen?
+
+Kannst du mit `val line = readLine() ?: return` das Programm so erweitern, dass es am Ende nach 1 Namen fragt und für diesen entscheidet (und ausgibt), ob er weiblich oder männlich ist?
+
+[Lösung](/02solution.md)
