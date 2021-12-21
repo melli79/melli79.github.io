@@ -38,17 +38,18 @@ Falls `n%5==0`, dann müssen wir "Schlümpf, " ausgeben, ansonsten "$n, ".  Wie 
     print("$n, ")
 ```
 
-Damit wir nicht alles ins Hauptprogramm stopfen, wollen wir das Schlumpfen in eine Funktion stecken:
+Damit wir nicht alles ins Hauptprogramm stopfen, wollen wir das Verschlumpfen in eine Funktion stecken:
 
 ```Kotlin
   fun smurfify(n :Int) :String {
     if (n%5 != 0)
       return n.toString()
+
     return "Schlümpf"
   }
 ```
 
-`fun` kennst du sicherlich noch von der ersten Lektion, `fun main()` ist das Hauptprogramm.  Unser Teilstück heißt jetzt `smurfify` (Verschlumpfung).  Dazu muss man natürlich wissen, welche Zahl verschlumpft werden soll, also übergeben wir eine Zahl `(n :Int)`.  Die Zahl heisst im Teilprogramm `n` und `Int` gibt an, dass eine ganze Zahl (also nicht $0.5$ oder "Hallo") übergeben wird.
+`fun` kennst du sicherlich noch von der ersten Lektion, `fun main()` ist das Hauptprogramm.  Unser Teilstück heißt jetzt `smurfify` (Verschlumpfen).  Dazu muss man natürlich wissen, welche Zahl verschlumpft werden soll, also übergeben wir eine Zahl `(n :Int)`.  Die Zahl heisst im Teilprogramm `n` und `Int` gibt an, dass eine ganze Zahl (also nicht $0.5$ oder "Hallo") übergeben wird.
 
 Natürlich wollen wir auch das Ergebnis zurück geben, also schreiben wir `:String`, d.h. es wird am Ende Text zurück gegeben.
 
@@ -62,6 +63,7 @@ Jetzt sieht unser Programm etwa so aus:
   fun smurfify(n :Int) :String {
     if (n%5 != 0)
       return n.toString()
+
     return "Schlümpf"
   }
 
@@ -115,6 +117,7 @@ Ok, offenbar müssen wir noch einen Fall unterscheiden:  Wenn der `factor` 1 ist
     var factor = n/5
     if (factor==1)
       return "Schlümpf"
+
     return "$factor Schlümpf"
   }
 ```
@@ -143,11 +146,14 @@ Eine Sache stört noch:  Die 25 ist nicht einfach "5 Schlümpf", sondern der `fa
 
     if (factor==1)
       return suffix
+
     return "$factor $suffix"
   }
 ```
 
-`while (bedingung) { ... }` bedeutet, dass die `bedingung` getestet wird.  Wenn die wahr ist, wird der Teil zwischen `{` und `}` ausgeführt.  Dann wird die Bedingung wieder getestet und so weiter, bis die Bedingung irgendwann nicht mehr erfüllt ist.
+`while (bedingung) { ... }` bedeutet, dass die `bedingung` getestet wird.  Wenn die wahr ist, wird der Teil zwischen `{` und `}` ausgeführt.  Dann wird die Bedingung wieder getestet und so weiter, bis die Bedingung irgendwann nicht mehr erfüllt ist (engl. while heisst während, solange).
+
+`factor /= 5` heisst, dass der Faktor durch 5 geteilt wird und das neue Erbegnis gespeichert wird (deshalb auch `var factor = ...`).  Entsprechend heisst `suffix += "-Schlümpf"`, dass einmal "-Schlümpf" angehängt wird.  Nach dem ersten Durchlauf ist also `factor` um einen Faktor 5 kleiner und `suffix == "Schlümpf-Schlümpf"`.
 
 Nun sieht die Ausgabe wie folgt aus:
 

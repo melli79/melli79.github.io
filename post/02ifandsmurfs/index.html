@@ -49,7 +49,7 @@
 <meta itemprop="name" content="02 If und Schlümpfe">
 <meta itemprop="description" content="if and smurfs"><meta itemprop="datePublished" content="2021-12-20T20:30:46+01:00" />
 <meta itemprop="dateModified" content="2021-12-20T20:30:46+01:00" />
-<meta itemprop="wordCount" content="901">
+<meta itemprop="wordCount" content="959">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="02 If und Schlümpfe"/>
 <meta name="twitter:description" content="if and smurfs"/>
@@ -213,7 +213,7 @@
     <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$n</span><span class="s2">, &#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>Damit wir nicht alles ins Hauptprogramm stopfen, wollen wir das Schlumpfen in eine Funktion stecken:</p>
+</div><p>Damit wir nicht alles ins Hauptprogramm stopfen, wollen wir das Verschlumpfen in eine Funktion stecken:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -221,16 +221,18 @@
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">smurfify</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span>
       <span class="k">return</span> <span class="n">n</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
+
     <span class="k">return</span> <span class="s2">&#34;Schlümpf&#34;</span>
   <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><code>fun</code> kennst du sicherlich noch von der ersten Lektion, <code>fun main()</code> ist das Hauptprogramm.  Unser Teilstück heißt jetzt <code>smurfify</code> (Verschlumpfung).  Dazu muss man natürlich wissen, welche Zahl verschlumpft werden soll, also übergeben wir eine Zahl <code>(n :Int)</code>.  Die Zahl heisst im Teilprogramm <code>n</code> und <code>Int</code> gibt an, dass eine ganze Zahl (also nicht $0.5$ oder &ldquo;Hallo&rdquo;) übergeben wird.</p>
+</div><p><code>fun</code> kennst du sicherlich noch von der ersten Lektion, <code>fun main()</code> ist das Hauptprogramm.  Unser Teilstück heißt jetzt <code>smurfify</code> (Verschlumpfen).  Dazu muss man natürlich wissen, welche Zahl verschlumpft werden soll, also übergeben wir eine Zahl <code>(n :Int)</code>.  Die Zahl heisst im Teilprogramm <code>n</code> und <code>Int</code> gibt an, dass eine ganze Zahl (also nicht $0.5$ oder &ldquo;Hallo&rdquo;) übergeben wird.</p>
 <p>Natürlich wollen wir auch das Ergebnis zurück geben, also schreiben wir <code>:String</code>, d.h. es wird am Ende Text zurück gegeben.</p>
 <p>Nun zu den 2 Fällen:  Es wird kontrolliert, ob <code>n</code> bei Division durch 5 nicht den Rest 0 ergibt, also nur 1, 2, 3 oder 4.  In diesem Fall wird, <code>n.toString()</code> zurück gegeben, also die Zahl als Text.  <code>return</code> bewirkt noch etwas anderes, nämlich, dass die Funktion hier beendet wird.  Die letzte Zeile wird in diesem Fall also gar nicht mehr ausgeführt.</p>
 <p>Wenn <code>n</code> aber durch 5 teilbar ist (<code>n%5 == 0</code>), dann wird die erste <code>return</code>-Anweisung nicht ausgeführt.  Stattdessen geht es mit dem nächsten Befehl weiter.  Da wird dann &ldquo;Schlümpf&rdquo; zurück gegeben (und die Funktion beendet).</p>
@@ -250,11 +252,13 @@
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
+</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">smurfify</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span>
       <span class="k">return</span> <span class="n">n</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
+
     <span class="k">return</span> <span class="s2">&#34;Schlümpf&#34;</span>
   <span class="p">}</span>
 
@@ -312,15 +316,16 @@
 <p>Ok, offenbar müssen wir noch einen Fall unterscheiden:  Wenn der <code>factor</code> 1 ist, dann nur &ldquo;Schlümpf&rdquo; ausgeben, also:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">smurfify</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">{</span>
@@ -330,6 +335,7 @@
     <span class="k">var</span> <span class="py">factor</span> <span class="p">=</span> <span class="n">n</span><span class="p">/</span><span class="m">5</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">factor</span><span class="o">==</span><span class="m">1</span><span class="p">)</span>
       <span class="k">return</span> <span class="s2">&#34;Schlümpf&#34;</span>
+
     <span class="k">return</span> <span class="s2">&#34;</span><span class="si">$factor</span><span class="s2"> Schlümpf&#34;</span>
   <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -362,6 +368,7 @@
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">smurfify</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">{</span>
@@ -377,11 +384,13 @@
 
     <span class="k">if</span> <span class="p">(</span><span class="n">factor</span><span class="o">==</span><span class="m">1</span><span class="p">)</span>
       <span class="k">return</span> <span class="n">suffix</span>
+
     <span class="k">return</span> <span class="s2">&#34;</span><span class="si">$factor</span><span class="s2"> </span><span class="si">$suffix</span><span class="s2">&#34;</span>
   <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>
-</div><p><code>while (bedingung) { ... }</code> bedeutet, dass die <code>bedingung</code> getestet wird.  Wenn die wahr ist, wird der Teil zwischen <code>{</code> und <code>}</code> ausgeführt.  Dann wird die Bedingung wieder getestet und so weiter, bis die Bedingung irgendwann nicht mehr erfüllt ist.</p>
+</div><p><code>while (bedingung) { ... }</code> bedeutet, dass die <code>bedingung</code> getestet wird.  Wenn die wahr ist, wird der Teil zwischen <code>{</code> und <code>}</code> ausgeführt.  Dann wird die Bedingung wieder getestet und so weiter, bis die Bedingung irgendwann nicht mehr erfüllt ist (engl. while heisst während, solange).</p>
+<p><code>factor /= 5</code> heisst, dass der Faktor durch 5 geteilt wird und das neue Erbegnis gespeichert wird (deshalb auch <code>var factor = ...</code>).  Entsprechend heisst <code>suffix += &quot;-Schlümpf&quot;</code>, dass einmal &ldquo;-Schlümpf&rdquo; angehängt wird.  Nach dem ersten Durchlauf ist also <code>factor</code> um einen Faktor 5 kleiner und <code>suffix == &quot;Schlümpf-Schlümpf&quot;</code>.</p>
 <p>Nun sieht die Ausgabe wie folgt aus:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
