@@ -49,7 +49,7 @@
 <meta itemprop="name" content="02 If und Schlümpfe">
 <meta itemprop="description" content="if and smurfs"><meta itemprop="datePublished" content="2021-12-20T20:30:46+01:00" />
 <meta itemprop="dateModified" content="2021-12-20T20:30:46+01:00" />
-<meta itemprop="wordCount" content="959">
+<meta itemprop="wordCount" content="965">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="02 If und Schlümpfe"/>
 <meta name="twitter:description" content="if and smurfs"/>
@@ -234,7 +234,7 @@
 </div>
 </div><p><code>fun</code> kennst du sicherlich noch von der ersten Lektion, <code>fun main()</code> ist das Hauptprogramm.  Unser Teilstück heißt jetzt <code>smurfify</code> (Verschlumpfen).  Dazu muss man natürlich wissen, welche Zahl verschlumpft werden soll, also übergeben wir eine Zahl <code>(n :Int)</code>.  Die Zahl heisst im Teilprogramm <code>n</code> und <code>Int</code> gibt an, dass eine ganze Zahl (also nicht $0.5$ oder &ldquo;Hallo&rdquo;) übergeben wird.</p>
 <p>Natürlich wollen wir auch das Ergebnis zurück geben, also schreiben wir <code>:String</code>, d.h. es wird am Ende Text zurück gegeben.</p>
-<p>Nun zu den 2 Fällen:  Es wird kontrolliert, ob <code>n</code> bei Division durch 5 nicht den Rest 0 ergibt, also nur 1, 2, 3 oder 4.  In diesem Fall wird, <code>n.toString()</code> zurück gegeben, also die Zahl als Text.  <code>return</code> bewirkt noch etwas anderes, nämlich, dass die Funktion hier beendet wird.  Die letzte Zeile wird in diesem Fall also gar nicht mehr ausgeführt.</p>
+<p>Nun zu den 2 Fällen:  Es wird kontrolliert, ob <code>n</code> bei Division durch 5 nicht den Rest 0 ergibt, also nur 1, 2, 3 oder 4.  In diesem Fall wird, <code>n.toString()</code> zurück gegeben (engl. return heisst zurückkehren oder zurückgeben), also die Zahl als Text.  <code>return</code> bewirkt noch etwas anderes, nämlich, dass die Funktion hier beendet wird.  Die letzte Zeile wird in diesem Fall also gar nicht mehr ausgeführt.</p>
 <p>Wenn <code>n</code> aber durch 5 teilbar ist (<code>n%5 == 0</code>), dann wird die erste <code>return</code>-Anweisung nicht ausgeführt.  Stattdessen geht es mit dem nächsten Befehl weiter.  Da wird dann &ldquo;Schlümpf&rdquo; zurück gegeben (und die Funktion beendet).</p>
 <p>Jetzt sieht unser Programm etwa so aus:</p>
 <div class="highlight"><div class="chroma">

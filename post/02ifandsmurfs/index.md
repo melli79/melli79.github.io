@@ -53,7 +53,7 @@ Damit wir nicht alles ins Hauptprogramm stopfen, wollen wir das Verschlumpfen in
 
 Natürlich wollen wir auch das Ergebnis zurück geben, also schreiben wir `:String`, d.h. es wird am Ende Text zurück gegeben.
 
-Nun zu den 2 Fällen:  Es wird kontrolliert, ob `n` bei Division durch 5 nicht den Rest 0 ergibt, also nur 1, 2, 3 oder 4.  In diesem Fall wird, `n.toString()` zurück gegeben, also die Zahl als Text.  `return` bewirkt noch etwas anderes, nämlich, dass die Funktion hier beendet wird.  Die letzte Zeile wird in diesem Fall also gar nicht mehr ausgeführt.
+Nun zu den 2 Fällen:  Es wird kontrolliert, ob `n` bei Division durch 5 nicht den Rest 0 ergibt, also nur 1, 2, 3 oder 4.  In diesem Fall wird, `n.toString()` zurück gegeben (engl. return heisst zurückkehren oder zurückgeben), also die Zahl als Text.  `return` bewirkt noch etwas anderes, nämlich, dass die Funktion hier beendet wird.  Die letzte Zeile wird in diesem Fall also gar nicht mehr ausgeführt.
 
 Wenn `n` aber durch 5 teilbar ist (`n%5 == 0`), dann wird die erste `return`-Anweisung nicht ausgeführt.  Stattdessen geht es mit dem nächsten Befehl weiter.  Da wird dann "Schlümpf" zurück gegeben (und die Funktion beendet).
 
