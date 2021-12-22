@@ -6,7 +6,31 @@
     <description>Recent content in Programming on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 20 Dec 2021 20:30:46 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Dec 2021 21:39:52 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>03B Leute können Heiraten</title>
+      <link>https://melli79.github.io/post/03bpeoplecanmarry/</link>
+      <pubDate>Wed, 22 Dec 2021 21:39:52 +0100</pubDate>
+      
+      <guid>https://melli79.github.io/post/03bpeoplecanmarry/</guid>
+      <description>Heute wollen wir schauen, was Personen tun können.
+3. Zwei Personen können heiraten. Wenn wir schon ein Modell von Menschen haben, dann sollten die auch wie Menschen leben können. Als erstes wollen sie heiraten können.
+Was sind die Voraussetzungen zum Heiraten? Man braucht einen Mann, eine Frau (oder 2 Männer oder 2 Frauen), die müssen beide ledig sein und alt genug und dann werden sie Mann und Frau (oder Mann und Mann oder Frau und Frau).</description>
+    </item>
+    
+    <item>
+      <title>03 Daten und Leute</title>
+      <link>https://melli79.github.io/post/03dataandpeople/</link>
+      <pubDate>Wed, 22 Dec 2021 19:40:39 +0100</pubDate>
+      
+      <guid>https://melli79.github.io/post/03dataandpeople/</guid>
+      <description>Heute soll es darum gehen, wie man Leute im Computer darstellt.
+1. Was ist uns an Leuten wichtig? Ein echter Mensch ist 2&amp;ndash;200 kg schwer, besteht aus Haut, Muskeln, Knochen, &amp;hellip;, trägt Kleidung, &amp;hellip; . Die werden wahrscheinlich nicht in den Computer passen.
+Stattdessen überlegen wir uns, was wir von einem Menschen darstellen wollen, d.h. wir bilden uns ein Modell.
+Also ein Mensch hat
+ einen festen Vornamen, einen Familiennamen, ein Geburtsdatum, ein Geschlecht, einen Vater, eine Mutter, vielleicht eine/n Ehepartner/in, vielleicht Kinder.</description>
+    </item>
+    
     <item>
       <title>02 If und Schlümpfe</title>
       <link>https://melli79.github.io/post/02ifandsmurfs/</link>
