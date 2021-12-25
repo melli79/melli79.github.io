@@ -39,7 +39,7 @@ Natürlich wollen wir die Vielfache nicht alle von Hand eintippen, schließlich 
 ```
 Wenn wir davon ausgehen, dass die Variablen x und y Zahlen enthalten, dann bedeutet `x*y`, dass deren Produkt berechnet wird.  Entsprechend kann man mit `4+5` die Summe von 4 und 5 berechnen.
 
-## 2. Was soll mit den Zahlen pasieren?
+## 2. Was soll mit den Zahlen passieren?
 
 Wir wollen sie auf der Kommandozeile ausgeben.  Im einfachsten Fall geht das mit
 
