@@ -6,7 +6,19 @@
     <description>Recent content on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Dec 2021 21:39:52 +0100</lastBuildDate><atom:link href="https://melli79.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 23 Dec 2021 18:10:51 +0100</lastBuildDate><atom:link href="https://melli79.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>03C Frauen Gebären und sich Scheiden lassen</title>
+      <link>https://melli79.github.io/post/03cwomengivebirth/</link>
+      <pubDate>Thu, 23 Dec 2021 18:10:51 +0100</pubDate>
+      
+      <guid>https://melli79.github.io/post/03cwomengivebirth/</guid>
+      <description>4. Frauen Gebären Woher kommen die Kinder?
+Das soll jetzt kein Vortrag über das Kinderkriegen werden, aber wenn unser Modell Menschen beschreibt, dann sollte es auch Kinder produzieren können.
+Im Einfachsten Fall bekommt eine Frau ein Kind und ihr Ehepartner ist der Vater. Die Signatur sieht etwa so aus:
+1 2 3  fun Person.giveBirth(givenName :String, birthday :PartialDate, gender :Gender) :Person { ... }   Offenbar brauchen wir auch das Geschlecht und den Geburtstag des Kindes.</description>
+    </item>
+    
     <item>
       <title>03B Leute können Heiraten</title>
       <link>https://melli79.github.io/post/03bpeoplecanmarry/</link>

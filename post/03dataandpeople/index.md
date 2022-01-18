@@ -89,7 +89,7 @@ Also müssen wir Kotlin sagen, wie es die Person in einen Text (`String`) umwand
 ```
 """...""" bedeutet dabei, dass der lange Text zwischen den 2x3 Anführungszeichen ausgewertet wird (die $... durch die Werte ersetzt werden).
 
-`"${gender.title}"` bedeutet, dass der Titel zum Geschlecht ausgegeben wird, also für männlich (`Male`) "Herr", für weiblich (`Female`) "Frau" und für divers (`other`) "" (ein leerer String).
+`"${gender.title}"` bedeutet, dass der Titel zum Geschlecht ausgegeben wird, also für männlich (`Male`) "Herr", für weiblich (`Female`) "Frau" und für divers (`Other`) "" (ein leerer String).
 
 Und wenn wir das Geburtsdatum implementiert haben, dann kann man eine Person auch wirklich ausgeben.  Das sieht dann so aus:
 
@@ -116,7 +116,7 @@ Wir haben das gleiche Problem mit der Ausgabe.  Diesmal können wir das aber nic
     else """$year"""
 ```
 
-Achtung, weil der Strich '/' innerhalb des Strings ist, wird hier nicht dividiert, sondern ein Strich '/' ausgegeben.
+Achtung, weil der Schrägstrich '/' innerhalb des Strings ist, wird hier nicht dividiert, sondern ein Schrägstrich '/' ausgegeben.
 
 Das gesamte Programm sieht etwa so aus:
 
