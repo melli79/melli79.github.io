@@ -59,8 +59,8 @@ Der Familienname wird von der Person übernommen, die gebärt.  Das muss nicht i
   fun main() {
     val father = Person("Wolfgang Dieter", "Grützmann", PartialDate(1954), Gender.Male)
     val mother = Person("Barbara", "Kulisch", PartialDate(1955), Gender.Female)
-    father.marry(mother, PartialDate(1979))
-    println("$father Heiratete $mother.")
+    father.marry(mother, PartialDate(1978))
+    println("$father heiratete $mother.")
 
     val melli = mother.giveBirth("Melchior", PartialDate(1979, 6, 20), Gender.Male)
     println("$melli war geboren.")
@@ -131,11 +131,11 @@ So jetzt bist du dran.  Versuch doch mal, deinen Familienstammbaum zu rekonstrui
   fun main() {
     val grandpa = Person("Klaus Gottfried", "Grützmann", PartialDate(1926), Gender.Male)
     val grandma = Person("Susanne", "Friedemann", PartialDate(1929), Gender.Female)
-    grandpa.marry(grandma)
+    grandpa.marry(grandma, PartialDate(1953))
 
     val daddy = grandma.giveBirth("Wolfgang Dieter", PartialDate(1954), Gender.Male)
     val mommy = Person("Barbara", "Kulisch", PartialDate(1955), Gender.Female)
-    daddy.marry(mommy)
+    daddy.marry(mommy, PartialDate(1978))
 
     val melli = mommy.giveBirth("Melchior", PartialDate(1979, 6, 20), Gender.Male)
   }
@@ -173,7 +173,7 @@ Englisch "Set" heisst Menge auf Deutsch.  Das benutzen wir, um jedes Geschwister
 
 Warum steht da `siblings.remove(this)`?
 
-Naja, wenn wir `melli.siblings()` aufrufen, dann ist `this==melli`, d.h. erst fügen wir alle Kinder von Mutter und Vater hinzu, und dann entfernen wir `melli` wieder.  Klar, oder? (`melli` ist nich sein eigenes Geschwister.)
+Naja, wenn wir `melli.siblings()` aufrufen, dann ist `this==melli`, d.h. erst fügen wir alle Kinder von Mutter und Vater hinzu, und dann entfernen wir `melli` wieder.  Klar, oder? (`melli` ist nicht sein eigenes Geschwister.)
 
 # Was kommt denn in deinem Familienstammbaum heraus?
 
@@ -211,8 +211,8 @@ Dann sollten wir für den zweiten Typ `PartialDate` die gleichen Funktionen noch
 ```Kotlin
   class PartialDate(...) {
     ...
-    override fun hashCode() = year +if (month!=null) 13*month else 0 +
-            if (day!=null) 13*37*day else 0
+    override fun hashCode() = year +(if (month!=null) 13*month else 0) +
+            (if (day!=null) 13*37*day else 0)
 
     override fun equals(other :Any?) :Boolean {
         if (other !is PartialDate)

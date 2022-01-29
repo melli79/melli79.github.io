@@ -218,12 +218,12 @@ Die werden wahrscheinlich nicht in den Computer passen.</p>
     <span class="k">var</span> <span class="py">father</span> <span class="p">:</span><span class="n">Person</span><span class="p">,</span>
     <span class="k">var</span> <span class="py">mother</span> <span class="p">:</span><span class="n">Person</span><span class="p">,</span>
     <span class="k">var</span> <span class="py">spouse</span> <span class="p">:</span><span class="n">Person</span><span class="p">?</span> <span class="p">=</span><span class="k">null</span><span class="p">,</span>
-    <span class="k">val</span> <span class="py">children</span> <span class="p">:</span><span class="n">MutableList</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="p">=</span><span class="n">mutableList</span><span class="p">()</span>
+    <span class="k">val</span> <span class="py">children</span> <span class="p">:</span><span class="n">MutableList</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="p">=</span><span class="n">mutableListOf</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;()</span>
   <span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>Was bedeutet <code>var spouse :Person? =null</code>?  Zunächst einmal dass der/die Partner/in (engl. spouse) sich ändern kann (<code>var</code> steht für engl. variable, änderbar).  Dann, dass es eine <code>Person</code> sein kann oder auch niemand (<code>?</code>) und schließlich, dass der Anfangswert <code>null</code> ist (also niemand).  Das ist sicherlich sinnvoll, z.B. wenn die Person gerade erst geboren ist.</p>
-<p>Was bedeutet <code>:MutableList&lt;Person&gt; =mutableList()</code>?  Das die Kinder in einer Liste eingetragen werden und die sich im Laufe des Lebens ändern kann (engl. mutable heisst änderbar).   Am Anfang ist die Liste leer, weil man noch keine Kinder hat.</p>
+<p>Was bedeutet <code>= mutableList&lt;Person&gt;()</code>?  Dass die Kinder in einer Liste eingetragen werden und die sich im Laufe des Lebens ändern kann (engl. mutable heisst änderbar).   Am Anfang ist die Liste leer, weil man noch keine Kinder hat.</p>
 <p>Wie erzeugt man jetzt eine Person?</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

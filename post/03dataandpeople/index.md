@@ -43,13 +43,13 @@ Wie sieht nun eine Person aus?
     var father :Person,
     var mother :Person,
     var spouse :Person? =null,
-    val children :MutableList<Person> =mutableList()
+    val children :MutableList<Person> =mutableListOf<Person>()
   )
 ```
 
 Was bedeutet `var spouse :Person? =null`?  Zunächst einmal dass der/die Partner/in (engl. spouse) sich ändern kann (`var` steht für engl. variable, änderbar).  Dann, dass es eine `Person` sein kann oder auch niemand (`?`) und schließlich, dass der Anfangswert `null` ist (also niemand).  Das ist sicherlich sinnvoll, z.B. wenn die Person gerade erst geboren ist.
 
-Was bedeutet `:MutableList<Person> =mutableList()`?  Das die Kinder in einer Liste eingetragen werden und die sich im Laufe des Lebens ändern kann (engl. mutable heisst änderbar).   Am Anfang ist die Liste leer, weil man noch keine Kinder hat.
+Was bedeutet `= mutableList<Person>()`?  Dass die Kinder in einer Liste eingetragen werden und die sich im Laufe des Lebens ändern kann (engl. mutable heisst änderbar).   Am Anfang ist die Liste leer, weil man noch keine Kinder hat.
 
 Wie erzeugt man jetzt eine Person?
 

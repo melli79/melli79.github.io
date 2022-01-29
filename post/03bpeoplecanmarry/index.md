@@ -146,6 +146,6 @@ Ok, nun ist Zeit, selber zu probieren:
 
 Überlege dir das erst einmal theoretisch und probiere es dann mit dem Programm aus.
 
-3. Wie sieht es am 5.2.2018 aus?
+3. Wie sieht es am 5.2.2028 aus?
 
 4. Und am 1.1.2030?
