@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.91.2 with theme even" />
+<meta name="generator" content="Hugo 0.96.0 with theme even" />
 
 
 <link rel="canonical" href="https://melli79.github.io/post/22statistics/" />
@@ -156,10 +156,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">isFemale</span><span class="p">(</span><span class="n">name</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">false</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">isFemale</span><span class="p">(</span><span class="n">name</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">false</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>An die Bezeichnung <code>fun</code> erinnerst du dich vielleicht noch, sie bedeutet function und kennzeichnet einen Teil des Programmes.  Im Gegensatz zur Hauptfunktion <code>fun main()</code> nimmt unsere Funktion ein Argument entgegen, konkret den Namen als Text <code>(name :String)</code>.  Außerdem gibt die Funktion explizit etwas zurück, nämlich die Antwort, ob der Name weiblich ist (<code>true</code>, wahr) oder nicht (<code>false</code>, falsch).  Dieser Typ heißt <code>Boolean</code>.</p>
 <p>Natürlich ist die Funktion noch nicht fertig, denn nicht alle Vornamen sind nicht weiblich, aber im Prinzip muss die Funktion so ähnlich aussehen.</p>
@@ -190,27 +190,27 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="o">..</span><span class="p">.</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Geben Sie einen weiblichen Vornamen ein (oder drücken Sie direkt Enter): &#34;</span><span class="p">)</span>
-      <span class="k">val</span> <span class="py">line</span> <span class="p">=</span> <span class="n">readLine</span><span class="p">()</span> <span class="o">?:</span> <span class="k">break</span>
-      <span class="k">val</span> <span class="py">name</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="n">trim</span><span class="p">()</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span>
-        <span class="k">break</span>
-      <span class="n">isFemale</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Geben sie einen männlichen Vornamen ein (oder drücken Sie direkt Enter): &#34;</span><span class="p">)</span>
-      <span class="k">val</span> <span class="py">line</span> <span class="p">=</span> <span class="n">readLine</span><span class="p">()</span> <span class="o">?:</span> <span class="k">break</span>
-      <span class="k">val</span> <span class="py">name</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="n">trim</span><span class="p">()</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span>
-        <span class="k">break</span>
-      <span class="n">isFemale</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="o">..</span><span class="p">.</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Geben Sie einen weiblichen Vornamen ein (oder drücken Sie direkt Enter): &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">line</span> <span class="p">=</span> <span class="n">readLine</span><span class="p">()</span> <span class="o">?:</span> <span class="k">break</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">name</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="n">trim</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
+</span></span><span class="line"><span class="cl">      <span class="n">isFemale</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Geben sie einen männlichen Vornamen ein (oder drücken Sie direkt Enter): &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">line</span> <span class="p">=</span> <span class="n">readLine</span><span class="p">()</span> <span class="o">?:</span> <span class="k">break</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">name</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="n">trim</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
+</span></span><span class="line"><span class="cl">      <span class="n">isFemale</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>readLine()</code> liest eine Zeile von der Kommandozeile ein und <code>?: break</code> bricht die Schleife ab, falls die Eingabe abgebrochen wurde.  <code>if (name.isEmpty())</code> testet, ob der Name leer ist.  In diesem Falle wird mit <code>break</code> ebenfalls die Schleife abgebrochen.</p>
 <p>Wie kommen wir jetzt zum Auszählen?  Wir müssten irgendwie abhängig vom Ergebnis <code>isFemale(name)</code> einen Zähler erhöhen.  Den Zähler können wir so anlegen: <code>var truePositive = 0</code>, d.h. wir legen eine Variable mit Namen <code>truePositive</code> (also die korrekt als weiblich erkannten) an und fangen bei 0 an. <code>var</code> im Gegensatz zu <code>val</code> bedeutet, dass sich der Wert im Laufe des Programmes ändern kann.</p>
@@ -225,11 +225,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">if</span> <span class="p">(</span><span class="n">isFemale</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-    <span class="n">truePositive</span><span class="o">++</span>
-  <span class="k">else</span>
-    <span class="n">falseNegative</span><span class="o">++</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">isFemale</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">truePositive</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="n">falseNegative</span><span class="o">++</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>In der zweiten for-Schleife haben wir nur männliche Namen, d.h. wenn ein männlicher Namen als nicht-weiblich erkannt wird, dann ist das ein korrekt negativer Fall, ansonsten ein falscher positiver Fall.</p>
 <div class="highlight"><div class="chroma">
@@ -240,11 +240,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">if</span> <span class="p">(</span><span class="o">!is</span><span class="n">Female</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-    <span class="n">trueNegative</span><span class="o">++</span>
-  <span class="k">else</span>
-    <span class="n">falsePositive</span><span class="o">++</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="o">!is</span><span class="n">Female</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">trueNegative</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="n">falsePositive</span><span class="o">++</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>!isFemale(name)</code> bedeutet nicht-weiblich, <code>!</code> negiert also wahr/falsch-Werte.</p>
 <p>Wie können wir nun am Ende die Auszählung ausgeben?</p>
@@ -257,11 +257,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">val</span> <span class="py">positives</span> <span class="p">=</span> <span class="n">truePositive</span> <span class="p">+</span><span class="n">falseNegative</span>
-  <span class="k">val</span> <span class="py">negatives</span> <span class="p">=</span> <span class="n">trueNegative</span> <span class="p">+</span><span class="n">falsePositive</span>
-  <span class="k">val</span> <span class="py">numberOfErrors</span> <span class="p">=</span> <span class="n">falsePositive</span> <span class="p">+</span><span class="n">falseNegative</span>
-  <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Korrekt weiblich erkannt: </span><span class="si">$truePositive</span><span class="s2">/</span><span class="si">$positives</span><span class="s2">;  korrekt männlich erkannt: </span><span class="si">$trueNegative</span><span class="s2">/</span><span class="si">$negatives</span><span class="s2">;  Gesamtzahl Fehler: </span><span class="si">$numberOfErrors</span><span class="s2">.&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">positives</span> <span class="p">=</span> <span class="n">truePositive</span> <span class="p">+</span><span class="n">falseNegative</span>
+</span></span><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">negatives</span> <span class="p">=</span> <span class="n">trueNegative</span> <span class="p">+</span><span class="n">falsePositive</span>
+</span></span><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">numberOfErrors</span> <span class="p">=</span> <span class="n">falsePositive</span> <span class="p">+</span><span class="n">falseNegative</span>
+</span></span><span class="line"><span class="cl">  <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Korrekt weiblich erkannt: </span><span class="si">$truePositive</span><span class="s2">/</span><span class="si">$positives</span><span class="s2">;  korrekt männlich erkannt: </span><span class="si">$trueNegative</span><span class="s2">/</span><span class="si">$negatives</span><span class="s2">;  Gesamtzahl Fehler: </span><span class="si">$numberOfErrors</span><span class="s2">.&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Vom letzten Mal kennst du sicherlich noch <code>println()</code>, das gibt eine neue Zeile aus.  Neu ist, dass man da auch einen Text angeben kann, z.B. <code>&quot;Gesamtzahl Fehler: $numberOfErrrors.&quot;</code>.  Texte werden immer in doppelten Anführungszeichen geschrieben.  Interessant ist auch, dass der Computer nicht wörtlich den Text &ldquo;$numberOfErrors&rdquo; ausgibt, sondern dort die Anzahl der Fehler einsetzt (also die Zahl ausgibt), dazu dient das <code>$</code>.</p>
 <h1 id="2-was-erzeugt-das-programm">2. Was erzeugt das Programm?</h1>
@@ -301,38 +301,38 @@
 </span><span class="lnt">31
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">isFemale</span><span class="p">(</span><span class="n">name</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="k">false</span>
-  <span class="p">}</span>
-
-  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">var</span> <span class="py">truePositive</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>  <span class="k">var</span> <span class="py">falseNegative</span> <span class="p">=</span> <span class="m">0</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Bitte geben Sie einen weiblichen Vornamen ein (oder drücken Enter zum Beenden): &#34;</span><span class="p">)</span>
-      <span class="k">val</span> <span class="py">line</span> <span class="p">=</span> <span class="n">readLine</span><span class="p">()</span> <span class="o">?:</span> <span class="k">break</span>
-      <span class="k">val</span> <span class="py">name</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="n">trim</span><span class="p">()</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">isFemale</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-        <span class="n">truePositive</span><span class="o">++</span>
-      <span class="k">else</span>
-        <span class="n">falseNegative</span><span class="o">++</span>
-    <span class="p">}</span>
-
-    <span class="k">var</span> <span class="py">trueNegative</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>  <span class="k">var</span> <span class="py">falsePositive</span> <span class="p">=</span> <span class="m">0</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Bitte geben Sie einen männlichen Vornamen ein (oder drücken Sie Enter zum Beenden): &#34;</span><span class="p">)</span>
-      <span class="k">val</span> <span class="py">line</span> <span class="p">=</span> <span class="n">readLine</span><span class="p">()</span> <span class="o">?:</span> <span class="k">break</span>
-      <span class="k">if</span> <span class="p">(</span><span class="o">!is</span><span class="n">Female</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-        <span class="n">trueNegative</span><span class="o">++</span>
-      <span class="k">else</span>
-        <span class="n">falsePositive</span><span class="o">++</span>
-    <span class="p">}</span>
-
-    <span class="k">val</span> <span class="py">positives</span> <span class="p">=</span> <span class="n">truePositive</span> <span class="p">+</span><span class="n">falseNegative</span>
-    <span class="k">val</span> <span class="py">negatives</span> <span class="p">=</span> <span class="n">trueNegative</span> <span class="p">+</span><span class="n">falsePositive</span>
-    <span class="k">val</span> <span class="py">numberOfErrors</span> <span class="p">=</span> <span class="n">falsePositive</span> <span class="p">+</span><span class="n">falseNegative</span>
-    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Korrekt weiblich erkannt: </span><span class="si">$truePositive</span><span class="s2">/</span><span class="si">$positives</span><span class="s2">;  korrekt männlich erkannt: </span><span class="si">$trueNegative</span><span class="s2">/</span><span class="si">$negatives</span><span class="s2">;  Gesamtzahl Fehler: </span><span class="si">$numberOfErrors</span><span class="s2">.&#34;</span><span class="p">)</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">isFemale</span><span class="p">(</span><span class="n">name</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">false</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">truePositive</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>  <span class="k">var</span> <span class="py">falseNegative</span> <span class="p">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Bitte geben Sie einen weiblichen Vornamen ein (oder drücken Enter zum Beenden): &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">line</span> <span class="p">=</span> <span class="n">readLine</span><span class="p">()</span> <span class="o">?:</span> <span class="k">break</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">name</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="n">trim</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">isFemale</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">truePositive</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="n">falseNegative</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">trueNegative</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>  <span class="k">var</span> <span class="py">falsePositive</span> <span class="p">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Bitte geben Sie einen männlichen Vornamen ein (oder drücken Sie Enter zum Beenden): &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">line</span> <span class="p">=</span> <span class="n">readLine</span><span class="p">()</span> <span class="o">?:</span> <span class="k">break</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="o">!is</span><span class="n">Female</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">trueNegative</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="n">falsePositive</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">positives</span> <span class="p">=</span> <span class="n">truePositive</span> <span class="p">+</span><span class="n">falseNegative</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">negatives</span> <span class="p">=</span> <span class="n">trueNegative</span> <span class="p">+</span><span class="n">falsePositive</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">numberOfErrors</span> <span class="p">=</span> <span class="n">falsePositive</span> <span class="p">+</span><span class="n">falseNegative</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Korrekt weiblich erkannt: </span><span class="si">$truePositive</span><span class="s2">/</span><span class="si">$positives</span><span class="s2">;  korrekt männlich erkannt: </span><span class="si">$trueNegative</span><span class="s2">/</span><span class="si">$negatives</span><span class="s2">;  Gesamtzahl Fehler: </span><span class="si">$numberOfErrors</span><span class="s2">.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Wenn wir jetzt das Programm starten (auf den grünen Pfeil am linken Rand klicken), dann bleibt das Programm stehen mit dem Text &ldquo;Bitte geben Sie einen weiblichen Vornamen ein (&hellip;): &ldquo;.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>  Hier geben wir jetzt der Reihe nach weibliche Vornamen ein, z.B.</p>
 <div class="highlight"><div class="chroma">
@@ -344,12 +344,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  Julia&lt;Enter&gt;
-  Barabara&lt;Enter&gt;
-  Susanne&lt;Enter&gt;
-  Ina&lt;Enter&gt;
-  &lt;Enter&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Julia&lt;Enter&gt;
+</span></span><span class="line"><span class="cl">  Barabara&lt;Enter&gt;
+</span></span><span class="line"><span class="cl">  Susanne&lt;Enter&gt;
+</span></span><span class="line"><span class="cl">  Ina&lt;Enter&gt;
+</span></span><span class="line"><span class="cl">  &lt;Enter&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Danach fragt das Programm nach männlichen Vornamen.  Hier können wir eingeben:</p>
 <div class="highlight"><div class="chroma">
@@ -362,13 +362,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  Luca&lt;Enter&gt;
-  Konrad&lt;Enter&gt;
-  Melchior&lt;Enter&gt;
-  Dieter&lt;Enter&gt;
-  Wolfgang&lt;Enter&gt;
-  &lt;Enter&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Luca&lt;Enter&gt;
+</span></span><span class="line"><span class="cl">  Konrad&lt;Enter&gt;
+</span></span><span class="line"><span class="cl">  Melchior&lt;Enter&gt;
+</span></span><span class="line"><span class="cl">  Dieter&lt;Enter&gt;
+</span></span><span class="line"><span class="cl">  Wolfgang&lt;Enter&gt;
+</span></span><span class="line"><span class="cl">  &lt;Enter&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Danach gibt das Programm die Auszählungen aus, etwa:</p>
 <div class="highlight"><div class="chroma">
@@ -376,8 +376,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  Korrekt weiblich erkannt: 0/4;  korrekt männlich erkannt: 5/5;  Gesamtzahl Fehler: 4.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Korrekt weiblich erkannt: 0/4;  korrekt männlich erkannt: 5/5;  Gesamtzahl Fehler: 4.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Funktioniert das Programm?</p>
 <p>Wenn du es fehlerfrei geschrieben hast, dann sollte es (bei obiger Eingabe) dieses Resultat ausgeben.  Was bedeutet das?  Das Programm hat alle männlichen Vornamen korrekt erkannt, aber alle weiblichen Vornamen falsch zugeordnet, also 4 Fehler gemacht.  Das ist ja auch kein Wunder, weil das Programm einfach immer behauptet hat, dass der Vorname nicht weiblich ist.  Das ist noch nicht gut.</p>
@@ -392,12 +392,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">isFemale</span><span class="p">(</span><span class="n">name</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;e&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;in&#34;</span><span class="p">))</span>
-      <span class="k">return</span> <span class="k">true</span>
-    <span class="k">return</span> <span class="k">false</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">isFemale</span><span class="p">(</span><span class="n">name</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;e&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;in&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="k">true</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">false</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Hier haben wir 3 neue Elemente:  <code>name.endsWith(&quot;a&quot;)</code> bedeutet, dass der Computer prüft, ob der Text im Namen auf &ldquo;a&rdquo; endet (engl. endsWith).  Hierzu ist es wichtig, dass der Name am Ende kein Leerzeichen oder Zeilenende enthält.  <code>||</code> bedeutet &ldquo;oder&rdquo;, also <code>name.endsWith(&quot;a&quot;)||name.endsWith(&quot;e&quot;)</code> ob der Name auf &ldquo;a&rdquo; oder auf &ldquo;e&rdquo; endet.</p>
 <p>Schließlich bedeutet <code>return true</code>, dass <code>true</code>, also wahr, zurückgegeben wird.  Das <code>return</code> bewirkt noch etwas anderes, nämlich, dass die Funkion hier endet.  Wenn also der Name auf &ldquo;a&rdquo;, &ldquo;e&rdquo; oder &ldquo;in&rdquo; endet, dann wird <code>true</code> zurückgegeben und die Funktion beendet.  (Der letzte Befehl <code>return false</code> wird nicht ausgeführt).</p>
@@ -408,8 +408,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  Korrekt weiblich erkannt: 4/4;  korrekt männlich erkannt: 4/5;  Gesamtzahl Fehler: 1.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Korrekt weiblich erkannt: 4/4;  korrekt männlich erkannt: 4/5;  Gesamtzahl Fehler: 1.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>D.h. die weiblichen Namen wurden alle richtig erkannt, aber ein männlicher Name wurde falsch erkannt.  Kannst du erkennen, welcher Name falsch erkannt wurde?  Immerhin hat das Programm jetzt nur noch 1 Fehler gemacht, also schon besser.</p>
 <p>Auflösung:  Der männliche Name &ldquo;Luca&rdquo; wird falsch erkannt, da wir gesagt haben, dass alle Vornamen auf &ldquo;a&rdquo; weiblich sind.  Was kann man da tun?  Wir können entweder sagen, dass 1 Fehler bei 9 Eingaben nicht so schlecht ist, oder wir müssen eine weitere Fallunterscheidung machen, z.B. so:</p>
@@ -424,14 +424,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="k">fun</span> <span class="nf">isFemale</span><span class="p">(</span><span class="n">name</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;uca&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;scha&#34;</span><span class="p">))</span>
-    <span class="k">return</span> <span class="k">false</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;e&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;in&#34;</span><span class="p">))</span>
-    <span class="k">return</span> <span class="k">true</span>
-  <span class="k">return</span> <span class="k">false</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl"><span class="k">fun</span> <span class="nf">isFemale</span><span class="p">(</span><span class="n">name</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;uca&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;scha&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">false</span>
+</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;e&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;in&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">true</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="k">false</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Wir testen also zuerst, ob der Name auf &ldquo;uca&rdquo; oder &ldquo;scha&rdquo; endet.  Das ist bei &ldquo;Luca&rdquo;, &ldquo;Sascha&rdquo; oder &ldquo;Grischa&rdquo; der Fall, alles männliche Namen.</p>
 <p>Wenn wir jetzt das Programm erneut ausführen, dann kommen wir auf:</p>
@@ -440,8 +440,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  Korrekt weiblich erkannt: 4/4;  korrekt männlich erkannt: 5/5;  Gesamtzahl Fehler: 0.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Korrekt weiblich erkannt: 4/4;  korrekt männlich erkannt: 5/5;  Gesamtzahl Fehler: 0.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Das sieht schon seht gut aus, aber stimmt es wirklich immer?</p>
 <h1 id="4-wie-gut-ist-die-erkennung-für-große-namenslisten">4. Wie gut ist die Erkennung für große Namenslisten?</h1>
@@ -461,17 +461,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">val</span> <span class="py">femalesFilename</span> <span class="p">=</span> <span class="s2">&#34;femaleNames.csv&#34;</span>
-  <span class="k">var</span> <span class="py">file</span> <span class="p">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">femalesFilename</span><span class="p">,</span> <span class="s2">&#34;rt&#34;</span><span class="p">)</span> <span class="o">?:</span> <span class="k">throw</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s2">&#34;Kann die Datei </span><span class="si">$femalesFilename</span><span class="s2"> nicht lesen.&#34;</span><span class="p">)</span>
-  <span class="k">val</span> <span class="py">bufferSize</span> <span class="p">=</span> <span class="m">128</span>
-  <span class="k">val</span> <span class="py">buffer</span> <span class="p">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">bufferSize</span><span class="p">.</span><span class="n">toULong</span><span class="p">())</span> <span class="k">as</span> <span class="n">CValuesRef</span><span class="p">&lt;</span><span class="n">ByteVar</span><span class="p">&gt;?</span> <span class="o">?:</span> <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s2">&#34;Vasamm exhausted&#34;</span><span class="p">)</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">10.</span><span class="p">.</span><span class="m">1000</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">val</span> <span class="py">line</span> <span class="p">=</span> <span class="n">fgets</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">bufferSize</span><span class="p">,</span> <span class="k">file</span><span class="p">)</span><span class="o">?.</span><span class="n">toKString</span><span class="p">()</span> <span class="o">?:</span> <span class="k">break</span>
-    <span class="k">val</span> <span class="py">name</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="n">trim</span><span class="p">()</span>
-    <span class="o">..</span><span class="p">.</span>
-  <span class="p">}</span>
-  <span class="n">fclose</span><span class="p">(</span><span class="k">file</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">femalesFilename</span> <span class="p">=</span> <span class="s2">&#34;femaleNames.csv&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="py">file</span> <span class="p">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">femalesFilename</span><span class="p">,</span> <span class="s2">&#34;rt&#34;</span><span class="p">)</span> <span class="o">?:</span> <span class="k">throw</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s2">&#34;Kann die Datei </span><span class="si">$femalesFilename</span><span class="s2"> nicht lesen.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">bufferSize</span> <span class="p">=</span> <span class="m">128</span>
+</span></span><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">buffer</span> <span class="p">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">bufferSize</span><span class="p">.</span><span class="n">toULong</span><span class="p">())</span> <span class="k">as</span> <span class="n">CValuesRef</span><span class="p">&lt;</span><span class="n">ByteVar</span><span class="p">&gt;?</span> <span class="o">?:</span> <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s2">&#34;Vasamm exhausted&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">10.</span><span class="p">.</span><span class="m">1000</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">line</span> <span class="p">=</span> <span class="n">fgets</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">bufferSize</span><span class="p">,</span> <span class="k">file</span><span class="p">)</span><span class="o">?.</span><span class="n">toKString</span><span class="p">()</span> <span class="o">?:</span> <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">name</span> <span class="p">=</span> <span class="n">line</span><span class="p">.</span><span class="n">trim</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">fclose</span><span class="p">(</span><span class="k">file</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Da sind jetzt einige neue Elemente enthalten.  Also der Reihe nach: <code>fopen(name, &quot;rt&quot;)</code> öffnet (engl. open) eine Datei (english file) zum Lesen.  Das Ergebnis ist die geöffnete Datei (oder nichts). <code>?: throw IllegalArgumentException(&quot;...&quot;)</code> bedeutet, dass wir einen Ausnahmefall (engl. exception) feststellen wollen (engl. throw heißt werfen), wenn sich die Datei nicht öffnen lässt.  Ausnahmefall bedeutet so auch, dass wir dann nicht mehr weiterarbeiten wollen (das Programm sich beendet).  Ist das gut?  Naja, der Nutzer erhält noch die Textnachricht &ldquo;&hellip;&rdquo;, bevor sich das Programm beendet.  Da steht drinnnen, dass die Datei nicht geöffnet werden kann.  Ohne die Datei mit den Namen kann das Programm nicht weiterarbeiten, deshalb habe ich beschlossen, hier einen Ausnahmefall zu werfen.</p>
 <p><code>val buffer = malloc(bufferSize)</code> legt einen Puffer (engl. buffer), also temporären Zwischenspeicher an.  Das ist notwendig, damit beim Einlesen der Namen aus der Datei diese zwischengespeichert werden können.  Leider muss man auch angeben, wieviel Platz man dafür einräumt, hier <code>val bufferSize = 128</code>, also 128 einfache Zeichen (für einen Namen).  Was bedeutet <code>as CValuesRef&lt;ByteVar&gt;?</code> und warum ist das gelb? <code>malloc</code> kommt vom Betriebssystem und dem ist es egal, welche Werte wir in dem Speicher speichern.  Kotlin aber nicht.  Mit <code>as CValuesRef&lt;ByteVar&gt;?</code> erklären wir Kotlin, dass der Speicher für Bytes von beliebiger Gesamtlänge verwendet werden soll.  Das ganze ist gelb, weil die Entwicklungsumgebung nicht recht glauben kann, dass der Speicher wirklich dafür geeignet ist.  Ich weiß aber, dass es funktioniert, probier das Programm am Ende aus.  Das <code>?: throw IllegalStateException(&quot;...&quot;)</code> kennen wir schon, es bedeutet wieder einen Ausnahmefall, wenn wir keinen Speicher bekommen haben (dann kann man auch nicht mehr weiterarbeiten).</p>
@@ -492,15 +492,15 @@
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">val</span> <span class="py">malesFilename</span> <span class="p">=</span> <span class="s2">&#34;maleNames.csv&#34;</span>
-  <span class="k">file</span> <span class="p">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">malesFilename</span><span class="p">,</span> <span class="s2">&#34;rt&#34;</span><span class="p">)</span> <span class="o">?:</span> <span class="k">throw</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s2">&#34;Kann die Datei </span><span class="si">$malesFilename</span><span class="s2"> nicht lesen.&#34;</span><span class="p">)</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">10.</span><span class="p">.</span><span class="m">1000</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">val</span> <span class="py">line</span> <span class="p">=</span> <span class="n">readLine</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">bufferSize</span><span class="p">,</span> <span class="k">file</span><span class="p">)</span> <span class="o">?:</span> <span class="k">break</span>
-    <span class="o">..</span><span class="p">.</span>
-  <span class="p">}</span>
-  <span class="n">fclose</span><span class="p">(</span><span class="k">file</span><span class="p">)</span>
-  <span class="n">free</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">malesFilename</span> <span class="p">=</span> <span class="s2">&#34;maleNames.csv&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">file</span> <span class="p">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">malesFilename</span><span class="p">,</span> <span class="s2">&#34;rt&#34;</span><span class="p">)</span> <span class="o">?:</span> <span class="k">throw</span> <span class="n">IllegalArgumentException</span><span class="p">(</span><span class="s2">&#34;Kann die Datei </span><span class="si">$malesFilename</span><span class="s2"> nicht lesen.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">10.</span><span class="p">.</span><span class="m">1000</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">line</span> <span class="p">=</span> <span class="n">readLine</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">bufferSize</span><span class="p">,</span> <span class="k">file</span><span class="p">)</span> <span class="o">?:</span> <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">fclose</span><span class="p">(</span><span class="k">file</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">free</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>free(buffer)</code> ist das Gegenstück zu <code>val buffer = malloc(...)</code>.  Es beudetet, dass wir den Pufferspeicher wieder freigeben (engl. free, frei oder befreien, freigeben).</p>
 <p>Damit das ganze funktioniert, muss man beim Herunterladen die 2 Dateien unter diesen Namen abspeichern:  die <a href="/femaleNames.csv">weiblichen Vornamen</a> unter &ldquo;femaleNames.csv&rdquo; und die <a href="/maleNames.csv">männlichen Vornamen</a> unter &ldquo;maleNames.csv&rdquo;.  Alles im Projekt-Verzeichnis.</p>
@@ -510,8 +510,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  Korrekt weiblich erkannt: 280.0/365.0;  Korrekt männlich erkannt: 315.0/345.0, Anzahl Fehler: 115.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Korrekt weiblich erkannt: 280.0/365.0;  Korrekt männlich erkannt: 315.0/345.0, Anzahl Fehler: 115.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Sicherlich ist immer noch nicht alles perfekt, aber es ist auch nicht ganz klar, ob die 115 Fehler viel oder wenig sind.  Deshalb ist es vielleicht besser, wenn wir die Raten berechnen, d.h. 280/365 teilen, 315/345 teilen und statt 115 den Durchschnitt der Fehlerraten ausgeben, etwa so:</p>
 <div class="highlight"><div class="chroma">
@@ -523,12 +523,12 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">val</span> <span class="py">tpr</span> <span class="p">=</span> <span class="n">round</span><span class="p">(</span><span class="n">truePositive</span><span class="p">/</span><span class="n">positives</span><span class="p">*</span><span class="m">100</span><span class="p">).</span><span class="n">toInt</span><span class="p">()</span>
-  <span class="k">val</span> <span class="py">tnr</span> <span class="p">=</span> <span class="n">round</span><span class="p">(</span><span class="n">trueNegative</span><span class="p">/</span><span class="n">negatives</span><span class="p">*</span><span class="m">100</span><span class="p">).</span><span class="n">toInt</span><span class="p">()</span>
-  <span class="k">val</span> <span class="py">correctness</span> <span class="p">=</span> <span class="p">(</span><span class="n">tpr</span> <span class="p">+</span><span class="n">tnr</span><span class="p">)/</span><span class="m">2</span>
-  <span class="k">val</span> <span class="py">mismatch</span> <span class="p">=</span> <span class="n">round</span><span class="p">(</span><span class="m">100</span> <span class="p">-</span> <span class="n">correctness</span><span class="p">).</span><span class="n">toInt</span><span class="p">()</span>
-  <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Rate korrekt weiblich erkannter: </span><span class="si">$tpr</span><span class="s2">%;  Rate korrekt männlich erkannter: </span><span class="si">$tnr</span><span class="s2">%;  Fehlerrate: </span><span class="si">$mismatch</span><span class="s2">%.&#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">tpr</span> <span class="p">=</span> <span class="n">round</span><span class="p">(</span><span class="n">truePositive</span><span class="p">/</span><span class="n">positives</span><span class="p">*</span><span class="m">100</span><span class="p">).</span><span class="n">toInt</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">tnr</span> <span class="p">=</span> <span class="n">round</span><span class="p">(</span><span class="n">trueNegative</span><span class="p">/</span><span class="n">negatives</span><span class="p">*</span><span class="m">100</span><span class="p">).</span><span class="n">toInt</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">correctness</span> <span class="p">=</span> <span class="p">(</span><span class="n">tpr</span> <span class="p">+</span><span class="n">tnr</span><span class="p">)/</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">mismatch</span> <span class="p">=</span> <span class="n">round</span><span class="p">(</span><span class="m">100</span> <span class="p">-</span> <span class="n">correctness</span><span class="p">).</span><span class="n">toInt</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Rate korrekt weiblich erkannter: </span><span class="si">$tpr</span><span class="s2">%;  Rate korrekt männlich erkannter: </span><span class="si">$tnr</span><span class="s2">%;  Fehlerrate: </span><span class="si">$mismatch</span><span class="s2">%.&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Hier bedeutet <code>round(...).toInt()</code>, dass auf ganze Zahlen gerundet wird. <code>...*100</code> bedeutet, dass wir die Rate in Prozent angeben (pro hundert), dementsprechend habe ich &ldquo;$tpr%;&rdquo; geschrieben.</p>
 <p>Dann sieht das Ganze so aus:</p>
@@ -537,8 +537,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  Rate korrekt weiblich erkannter: 77%; Rate korrekt männlich erkannter: 91%, Fehlerrate: 16%.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Rate korrekt weiblich erkannter: 77%; Rate korrekt männlich erkannter: 91%, Fehlerrate: 16%.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Das heißt, dass etwa 77% der weiblichen Namen erkannt werden und 91% der männlichen Namen.  Im Durchschnitt 16% Fehler, das reicht immerhin schon mal für eine 2 (gut).</p>
 <p>Man kann es noch etwas besser machen, wenn man noch ein paar weitere Endungen für weibliche Namen hinzufügt:</p>
@@ -553,22 +553,22 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">isFemale</span><span class="p">(</span><span class="n">name</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;uca&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;scha&#34;</span><span class="p">))</span>
-      <span class="k">return</span> <span class="k">false</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;e&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;in&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;i&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;th&#34;</span><span class="p">))</span>
-      <span class="k">return</span> <span class="k">true</span>
-  <span class="k">return</span> <span class="k">false</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">isFemale</span><span class="p">(</span><span class="n">name</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;uca&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;scha&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="k">false</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;a&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;e&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;in&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;i&#34;</span><span class="p">)</span><span class="o">||</span><span class="n">name</span><span class="p">.</span><span class="n">endsWith</span><span class="p">(</span><span class="s2">&#34;th&#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="k">true</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="k">false</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  Rate korrekt weiblicher Namen: 79%; Rate korrekt männlicher Namen: 88%; Fehlerrate: 16%.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Rate korrekt weiblicher Namen: 79%; Rate korrekt männlicher Namen: 88%; Fehlerrate: 16%.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Es werden mehr weibliche Namen richtig erkannt, aber auch weniger männliche Namen.  Die Fehlerrate insgesamt ist gleich geblieben.</p>
 <p>Wenn wir wissen wollen, wie gut die Erkennung für die Menschen in Deutschland ist, sollten wir vielleicht berücksichtigen, dass die Namen am Anfang der Listen häufiger sind.  Das kann man so machen:</p>
@@ -590,21 +590,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">var</span> <span class="py">truePositive</span> <span class="p">=</span> <span class="m">0.0</span><span class="p">;</span>  <span class="k">var</span> <span class="py">falseNegative</span> <span class="p">=</span> <span class="m">0.0</span>
-  <span class="o">..</span><span class="p">.</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">isFemale</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-      <span class="n">truePositive</span> <span class="o">+=</span> <span class="m">1.0</span><span class="p">/</span><span class="n">n</span>
-    <span class="k">else</span>
-      <span class="n">falseNegative</span> <span class="o">+=</span> <span class="m">1.0</span><span class="p">/</span><span class="n">n</span>
-  <span class="o">..</span><span class="p">.</span>
-  <span class="k">var</span> <span class="py">trueNegative</span> <span class="p">=</span> <span class="m">0.0</span><span class="p">;</span>  <span class="k">var</span> <span class="py">falsePositive</span> <span class="p">=</span> <span class="m">0.0</span>
-  <span class="o">..</span><span class="p">.</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!is</span><span class="n">Female</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-      <span class="n">trueNegative</span> <span class="o">+=</span> <span class="m">1.0</span><span class="p">/</span><span class="n">n</span>
-    <span class="k">else</span>
-      <span class="n">falsePositive</span> <span class="o">+=</span> <span class="m">1.0</span><span class="p">/</span><span class="n">n</span>
-  <span class="o">..</span><span class="p">.</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">var</span> <span class="py">truePositive</span> <span class="p">=</span> <span class="m">0.0</span><span class="p">;</span>  <span class="k">var</span> <span class="py">falseNegative</span> <span class="p">=</span> <span class="m">0.0</span>
+</span></span><span class="line"><span class="cl">  <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">isFemale</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="n">truePositive</span> <span class="o">+=</span> <span class="m">1.0</span><span class="p">/</span><span class="n">n</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">      <span class="n">falseNegative</span> <span class="o">+=</span> <span class="m">1.0</span><span class="p">/</span><span class="n">n</span>
+</span></span><span class="line"><span class="cl">  <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="py">trueNegative</span> <span class="p">=</span> <span class="m">0.0</span><span class="p">;</span>  <span class="k">var</span> <span class="py">falsePositive</span> <span class="p">=</span> <span class="m">0.0</span>
+</span></span><span class="line"><span class="cl">  <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!is</span><span class="n">Female</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="n">trueNegative</span> <span class="o">+=</span> <span class="m">1.0</span><span class="p">/</span><span class="n">n</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">      <span class="n">falsePositive</span> <span class="o">+=</span> <span class="m">1.0</span><span class="p">/</span><span class="n">n</span>
+</span></span><span class="line"><span class="cl">  <span class="o">..</span><span class="p">.</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>truePositive += 1.0/n</code> im Gegensatz zu <code>truePositive++</code> bedeutet, dass wir nicht konstant immer um 1 erhöhen, sondern um $1/n$.  Also beim ersten Durchlauf (<code>n=10</code>) um $1/10=0.10000$, beim zweiten Durchlauf (<code>n=11</code>) um $1/11=0.09090909&hellip;$, schon etwas weniger, und im letzten Durchlauf (<code>n=1000</code>) dann nur noch um $1/1000=0.0010000$.  Das sind zwar ziemlich kleine und krumme Zahlen, aber am Ende geben wir nur Verhältnisse aus und runden auf ganze Prozent:</p>
 <div class="highlight"><div class="chroma">
@@ -612,8 +612,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  Rate korrekt weiblicher Namen: 85%; Rate korrekt männlicher Namen: 91%;  Fehlerrate: 12%.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Rate korrekt weiblicher Namen: 85%; Rate korrekt männlicher Namen: 91%;  Fehlerrate: 12%.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Also noch etwas besser.</p>
 <p>Jetzt ist Zeit zum selber probieren:  Fällt dir noch eine Regel ein, an der man weibliche Vornamen erkennt?  Oder nicht-weibliche Vornamen?</p>
@@ -744,7 +744,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.30dad356188cdaba5047112eaa8bf5e85cb14ae7e803337403591fce94a531a0.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},

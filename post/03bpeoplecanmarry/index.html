@@ -25,7 +25,7 @@ Was sind die Voraussetzungen zum Heiraten? Man braucht einen Mann, eine Frau (od
 
 
 
-<meta name="generator" content="Hugo 0.91.2 with theme even" />
+<meta name="generator" content="Hugo 0.96.0 with theme even" />
 
 
 <link rel="canonical" href="https://melli79.github.io/post/03bpeoplecanmarry/" />
@@ -171,12 +171,12 @@ Was sind die Voraussetzungen zum Heiraten? Man braucht einen Mann, eine Frau (od
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="n">Person</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
-    <span class="o">..</span><span class="p">.</span>
-
-    <span class="k">fun</span> <span class="nf">isSingle</span><span class="p">()</span> <span class="p">=</span> <span class="n">spouse</span><span class="o">==</span><span class="k">null</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">Person</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">isSingle</span><span class="p">()</span> <span class="p">=</span> <span class="n">spouse</span><span class="o">==</span><span class="k">null</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Das bedeutet, dass <code>isSingle</code> eine Funktion ist und die wird berechnet als <code>spouse==null</code>, also dass man keine/n Ehepartner/in hat.</p>
 <p>Moment, früher haben wir doch Funktionen so geschrieben:</p>
@@ -187,10 +187,10 @@ Was sind die Voraussetzungen zum Heiraten? Man braucht einen Mann, eine Frau (od
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">isSingle</span><span class="p">(</span><span class="n">p</span> <span class="p">:</span><span class="n">Person</span><span class="p">)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="n">p</span><span class="p">.</span><span class="n">spouse</span> <span class="o">==</span> <span class="k">null</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">isSingle</span><span class="p">(</span><span class="n">p</span> <span class="p">:</span><span class="n">Person</span><span class="p">)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">p</span><span class="p">.</span><span class="n">spouse</span> <span class="o">==</span> <span class="k">null</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Ja, es gibt 2 Unterschiede:  Zum einen schreiben wir die Person davor, also <code>melli.isSingle()</code>, deshalb ist unsere Funktion innerhalb der Person definiert und nimmt kein weiteres Argument entgegen.  Solche Funktionen heißen Methoden.</p>
 <p>Zum anderen ist doch vom Ausdruck <code>spouse==null</code> klar, dass es ein <code>Boolean</code> ist und das wir den Wert zurückgeben wollen.  Zur Erinnerung <code>Boolean</code> heisst, dass es <code>true</code> (wahr) oder <code>false</code> (falsch) sein kann.  Das haben sich die Entwickler von Kotlin auch gedacht und deshalb diese verkürzte Variante der Definition von Funktionen (oder Methoden) erfunden.  Sehr praktisch, oder?</p>
@@ -215,22 +215,22 @@ Was sind die Voraussetzungen zum Heiraten? Man braucht einen Mann, eine Frau (od
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">Person</span><span class="p">.</span><span class="n">marry</span><span class="p">(</span><span class="n">s</span> <span class="p">:</span><span class="n">Person</span><span class="p">,</span> <span class="n">weddingDay</span> <span class="p">:</span><span class="n">PartialDate</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="o">!is</span><span class="n">Single</span><span class="p">())</span>
-      <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s2">&#34;Du bist nicht ledig, damit kannst du nicht mehr heiraten.&#34;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(!</span><span class="n">s</span><span class="p">.</span><span class="n">isSingle</span><span class="p">())</span>
-      <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s2">&#34;Dein/e Partner/in ist nicht ledig.  Den/die kannst du nicht heiraten.&#34;</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">age</span><span class="p">(</span><span class="n">weddingDay</span><span class="p">)&lt;</span><span class="m">18</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s2">&#34;Du bist zu jung zum Heiraten.&#34;</span><span class="p">)</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">age</span><span class="p">(</span><span class="n">weddingDay</span><span class="p">)&lt;</span><span class="m">18</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s2">&#34;Dein/e Partner/in ist zu jung zum Heiraten.&#34;</span><span class="p">)</span>
-
-    <span class="c1">// und wenn dann alles passt
-</span><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="n">spouse</span> <span class="p">=</span> <span class="n">s</span>
-    <span class="n">s</span><span class="p">.</span><span class="n">spouse</span> <span class="p">=</span> <span class="k">this</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">Person</span><span class="p">.</span><span class="n">marry</span><span class="p">(</span><span class="n">s</span> <span class="p">:</span><span class="n">Person</span><span class="p">,</span> <span class="n">weddingDay</span> <span class="p">:</span><span class="n">PartialDate</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!is</span><span class="n">Single</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">      <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s2">&#34;Du bist nicht ledig, damit kannst du nicht mehr heiraten.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(!</span><span class="n">s</span><span class="p">.</span><span class="n">isSingle</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">      <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s2">&#34;Dein/e Partner/in ist nicht ledig.  Den/die kannst du nicht heiraten.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">age</span><span class="p">(</span><span class="n">weddingDay</span><span class="p">)&lt;</span><span class="m">18</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s2">&#34;Du bist zu jung zum Heiraten.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">age</span><span class="p">(</span><span class="n">weddingDay</span><span class="p">)&lt;</span><span class="m">18</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s2">&#34;Dein/e Partner/in ist zu jung zum Heiraten.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// und wenn dann alles passt
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">this</span><span class="p">.</span><span class="n">spouse</span> <span class="p">=</span> <span class="n">s</span>
+</span></span><span class="line"><span class="cl">    <span class="n">s</span><span class="p">.</span><span class="n">spouse</span> <span class="p">=</span> <span class="k">this</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Hier haben wir einen Kompromiss, die Funktion muss nicht in der Klasse <code>Person</code> definiert werden, aber sie operiert auf einer Person.  Diese Person steht dann implizit dahinter (z.B. bei <code>isSingle()</code> oder bei <code>age()</code>).  Wenn man die Person explizit braucht, dann kann man <code>this</code> schreiben (engl. für dieses).</p>
 <p>Was bedeuten die vielen <code>IllegalStateException</code>s?  Naja, in diesem Fall kann man halt nicht einfach heiraten.</p>
@@ -253,20 +253,20 @@ Was sind die Voraussetzungen zum Heiraten? Man braucht einen Mann, eine Frau (od
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">enum</span> <span class="k">class</span> <span class="nc">FamilyNameRule</span> <span class="p">{</span>
-    <span class="n">KeepName</span><span class="p">,</span> <span class="n">SpousesName</span><span class="p">,</span> <span class="n">DoubleName</span>
-  <span class="p">}</span>
-
-  <span class="k">fun</span> <span class="nf">Person</span><span class="p">.</span><span class="n">marry</span><span class="p">(</span><span class="n">s</span> <span class="p">:</span><span class="n">Person</span><span class="p">,</span> <span class="n">weddingDay</span> <span class="p">:</span><span class="n">PartialDate</span><span class="p">,</span> <span class="n">familyNameRule</span> <span class="p">:</span><span class="n">FamilyNameRule</span> <span class="p">=</span><span class="n">FamilyNameRule</span><span class="p">.</span><span class="n">SpousesName</span><span class="p">)</span> <span class="p">{</span>
-    <span class="o">..</span><span class="p">.</span>
-
-    <span class="k">when</span> <span class="p">(</span><span class="n">familyNameRule</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">FamilyNameRule</span><span class="p">.</span><span class="n">Partners</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">familyName</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">familyName</span>
-      <span class="n">FamilyNameRule</span><span class="p">.</span><span class="n">DoubleName</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">familyName</span> <span class="o">+=</span> <span class="s2">&#34;-&#34;</span><span class="p">+</span><span class="k">this</span><span class="p">.</span><span class="n">familyName</span>
-      <span class="k">else</span> <span class="o">-&gt;</span> <span class="p">{}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">enum</span> <span class="k">class</span> <span class="nc">FamilyNameRule</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">KeepName</span><span class="p">,</span> <span class="n">SpousesName</span><span class="p">,</span> <span class="n">DoubleName</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">Person</span><span class="p">.</span><span class="n">marry</span><span class="p">(</span><span class="n">s</span> <span class="p">:</span><span class="n">Person</span><span class="p">,</span> <span class="n">weddingDay</span> <span class="p">:</span><span class="n">PartialDate</span><span class="p">,</span> <span class="n">familyNameRule</span> <span class="p">:</span><span class="n">FamilyNameRule</span> <span class="p">=</span><span class="n">FamilyNameRule</span><span class="p">.</span><span class="n">SpousesName</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">when</span> <span class="p">(</span><span class="n">familyNameRule</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">FamilyNameRule</span><span class="p">.</span><span class="n">Partners</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">familyName</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">familyName</span>
+</span></span><span class="line"><span class="cl">      <span class="n">FamilyNameRule</span><span class="p">.</span><span class="n">DoubleName</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="p">.</span><span class="n">familyName</span> <span class="o">+=</span> <span class="s2">&#34;-&#34;</span><span class="p">+</span><span class="k">this</span><span class="p">.</span><span class="n">familyName</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span> <span class="o">-&gt;</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>when</code> (wenn oder sobald) bedeutet so ähnlich wie <code>if</code>, dass es mehrere Fälle geben kann.  Die einzelnen Fälle werden dann mit <code>-&gt;</code> aufgelistet, also wenn <code>familyNameRule==FamilyRule.Partners</code>, dann <code>s.familyName = this.familyName</code>. Wenn <code>familyNameRule==FamilyNameRule.DoubleName</code>, dann &hellip; .</p>
 <h2 id="34-wie-alt-ist-eine-person">3.4 Wie alt ist eine Person?</h2>
@@ -280,12 +280,12 @@ Was sind die Voraussetzungen zum Heiraten? Man braucht einen Mann, eine Frau (od
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="n">Person</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
-    <span class="o">..</span><span class="p">.</span>
-
-    <span class="k">fun</span> <span class="nf">age</span><span class="p">(</span><span class="n">today</span> <span class="p">:</span><span class="n">PartialDate</span><span class="p">)</span> <span class="p">=</span> <span class="n">today</span><span class="p">.</span><span class="n">year</span> <span class="p">-</span> <span class="n">birthday</span><span class="p">.</span><span class="n">year</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">Person</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">age</span><span class="p">(</span><span class="n">today</span> <span class="p">:</span><span class="n">PartialDate</span><span class="p">)</span> <span class="p">=</span> <span class="n">today</span><span class="p">.</span><span class="n">year</span> <span class="p">-</span> <span class="n">birthday</span><span class="p">.</span><span class="n">year</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Aber ist das korrekt?</p>
 <p>Wenn die Person am 31.12.2010 geboren ist und heute der 1.1.2011 ist, dann ist die Person doch noch nicht 1 Jahr alt.  D.h. eigentlich müssen wir noch 1 Jahr abziehen, wenn heute (engl. today) vor dem Geburtsmonat ist.  Der 2. Versuch wäre:</p>
@@ -296,10 +296,10 @@ Was sind die Voraussetzungen zum Heiraten? Man braucht einen Mann, eine Frau (od
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">age</span><span class="p">(</span><span class="n">today</span> <span class="p">:</span><span class="n">PartialDate</span><span class="p">)</span> <span class="p">=</span> <span class="n">today</span><span class="p">.</span><span class="n">year</span> <span class="p">-</span> <span class="n">birthday</span><span class="p">.</span><span class="n">year</span> <span class="p">-</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">month</span><span class="o">!=</span><span class="k">null</span><span class="o">&amp;&amp;</span><span class="n">today</span><span class="p">.</span><span class="n">month</span><span class="o">!=</span><span class="k">null</span><span class="o">&amp;&amp;</span><span class="n">month</span><span class="p">&lt;</span><span class="n">today</span><span class="p">.</span><span class="n">month</span><span class="p">)</span> <span class="m">1</span>
-    <span class="k">else</span> <span class="m">0</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">age</span><span class="p">(</span><span class="n">today</span> <span class="p">:</span><span class="n">PartialDate</span><span class="p">)</span> <span class="p">=</span> <span class="n">today</span><span class="p">.</span><span class="n">year</span> <span class="p">-</span> <span class="n">birthday</span><span class="p">.</span><span class="n">year</span> <span class="p">-</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">month</span><span class="o">!=</span><span class="k">null</span><span class="o">&amp;&amp;</span><span class="n">today</span><span class="p">.</span><span class="n">month</span><span class="o">!=</span><span class="k">null</span><span class="o">&amp;&amp;</span><span class="n">month</span><span class="p">&lt;</span><span class="n">today</span><span class="p">.</span><span class="n">month</span><span class="p">)</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="m">0</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Ist das korrekt?</p>
 <p>Tja, wenn die Person am 31.12.2021 geboren ist und heute der 1.12.2022, dann ist die Person immer noch nicht 1 Jahr alt.  Es gibt also noch einen weiteren Fall.  3. Versuch:</p>
@@ -314,14 +314,14 @@ Was sind die Voraussetzungen zum Heiraten? Man braucht einen Mann, eine Frau (od
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">age</span><span class="p">(</span><span class="n">today</span> <span class="p">:</span><span class="n">PartialDate</span><span class="p">)</span> <span class="p">=</span> <span class="n">today</span><span class="p">.</span><span class="n">year</span> <span class="p">-</span> <span class="n">year</span> <span class="p">-</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">month</span><span class="o">!=</span><span class="k">null</span><span class="o">&amp;&amp;</span><span class="n">today</span><span class="p">.</span><span class="n">month</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">month</span><span class="p">&lt;</span><span class="n">today</span><span class="p">.</span><span class="n">month</span> <span class="o">||</span>
-          <span class="n">month</span><span class="o">==</span><span class="n">today</span><span class="p">.</span><span class="n">month</span><span class="o">&amp;&amp;</span><span class="n">day</span><span class="o">!=</span><span class="k">null</span><span class="o">&amp;&amp;</span><span class="n">today</span><span class="p">.</span><span class="n">day</span><span class="o">!=</span><span class="k">null</span><span class="o">&amp;&amp;</span><span class="n">day</span><span class="p">&lt;</span><span class="n">today</span><span class="p">.</span><span class="n">day</span><span class="p">)</span>
-        <span class="m">1</span>
-      <span class="k">else</span> <span class="m">0</span>
-    <span class="k">else</span> <span class="m">0</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">age</span><span class="p">(</span><span class="n">today</span> <span class="p">:</span><span class="n">PartialDate</span><span class="p">)</span> <span class="p">=</span> <span class="n">today</span><span class="p">.</span><span class="n">year</span> <span class="p">-</span> <span class="n">year</span> <span class="p">-</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">month</span><span class="o">!=</span><span class="k">null</span><span class="o">&amp;&amp;</span><span class="n">today</span><span class="p">.</span><span class="n">month</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">month</span><span class="p">&lt;</span><span class="n">today</span><span class="p">.</span><span class="n">month</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">          <span class="n">month</span><span class="o">==</span><span class="n">today</span><span class="p">.</span><span class="n">month</span><span class="o">&amp;&amp;</span><span class="n">day</span><span class="o">!=</span><span class="k">null</span><span class="o">&amp;&amp;</span><span class="n">today</span><span class="p">.</span><span class="n">day</span><span class="o">!=</span><span class="k">null</span><span class="o">&amp;&amp;</span><span class="n">day</span><span class="p">&lt;</span><span class="n">today</span><span class="p">.</span><span class="n">day</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="m">1</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="m">0</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Zum Glück brauchen wir nur das Alter in Jahren.</p>
 <p>Funktioniert das nun?</p>
@@ -338,16 +338,16 @@ Was sind die Voraussetzungen zum Heiraten? Man braucht einen Mann, eine Frau (od
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">val</span> <span class="py">melli</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Melchior&#34;</span><span class="p">,</span> <span class="s2">&#34;Grützmann&#34;</span><span class="p">,</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1979</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">))</span>
-    <span class="k">val</span> <span class="py">fanli</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Fanli&#34;</span><span class="p">,</span> <span class="s2">&#34;Lin&#34;</span><span class="p">,</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1991</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">17</span><span class="p">))</span>
-
-    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$melli</span><span class="s2"> heiratet </span><span class="si">$fanli</span><span class="s2">:&#34;</span><span class="p">)</span>
-    <span class="n">fanli</span><span class="p">.</span><span class="n">marry</span><span class="p">(</span><span class="n">melli</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">2050</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">FamilyNameRule</span><span class="p">.</span><span class="n">DoubleName</span><span class="p">)</span>
-
-    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$melli</span><span class="s2"> ist verheiratet mit </span><span class="si">$fanli</span><span class="s2">.&#34;</span><span class="p">)</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">melli</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Melchior&#34;</span><span class="p">,</span> <span class="s2">&#34;Grützmann&#34;</span><span class="p">,</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1979</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">fanli</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Fanli&#34;</span><span class="p">,</span> <span class="s2">&#34;Lin&#34;</span><span class="p">,</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1991</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">17</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$melli</span><span class="s2"> heiratet </span><span class="si">$fanli</span><span class="s2">:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fanli</span><span class="p">.</span><span class="n">marry</span><span class="p">(</span><span class="n">melli</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">2050</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">FamilyNameRule</span><span class="p">.</span><span class="n">DoubleName</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$melli</span><span class="s2"> ist verheiratet mit </span><span class="si">$fanli</span><span class="s2">.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -355,9 +355,9 @@ Was sind die Voraussetzungen zum Heiraten? Man braucht einen Mann, eine Frau (od
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  Herr Melchior Grützmann (*20.6.1979) heiratet Frau Fanli Lin (*17.1.1991):
-  Herr Melchior Grützmann-Lin (*20.6.1979) ist verheiratet mit Frau Fanli Lin (*17.1.1991).
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Herr Melchior Grützmann (*20.6.1979) heiratet Frau Fanli Lin (*17.1.1991):
+</span></span><span class="line"><span class="cl">  Herr Melchior Grützmann-Lin (*20.6.1979) ist verheiratet mit Frau Fanli Lin (*17.1.1991).
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="9a-selbst-experimentieren">9a. Selbst experimentieren</h2>
 <p>Ok, nun ist Zeit, selber zu probieren:</p>
@@ -495,7 +495,7 @@ Was sind die Voraussetzungen zum Heiraten? Man braucht einen Mann, eine Frau (od
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.30dad356188cdaba5047112eaa8bf5e85cb14ae7e803337403591fce94a531a0.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},

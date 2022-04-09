@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.91.2 with theme even" />
+<meta name="generator" content="Hugo 0.96.0 with theme even" />
 
 
 <link rel="canonical" href="https://melli79.github.io/post/02ifandsmurfs/" />
@@ -161,8 +161,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, ...
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, ...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>die 25 ist Schlümpf-Schlümpf.</li>
@@ -179,13 +179,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">100</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$n</span><span class="s2">, &#34;</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="n">println</span><span class="p">()</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">100</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$n</span><span class="s2">, &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="1-schlümpf">1. Schlümpf</h1>
 <p>Offenbar müssen wir bei jeder Zahl prüfen, ob sie durch 5 teilbar ist.  Das macht man so:</p>
@@ -194,8 +194,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">==</span> <span class="m">0</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">==</span> <span class="m">0</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Es bedeutet, dass man den Rest beim Dividieren von <code>n</code> durch 5 ausrechnet und dann schaut, ob der 0 ist.  Beispielsweise ist <code>1%5==1</code> also nicht gleich 0, <code>2%5==2</code>, <code>3%5==3</code>, <code>5%5==0</code>, <code>6%5==1</code> und so weiter.</p>
 <p>Falls <code>n%5==0</code>, dann müssen wir &ldquo;Schlümpf, &quot; ausgeben, ansonsten &ldquo;$n, &ldquo;.  Wie bringen wir das dem Computer bei?  Kotlin ist an Englisch anlgelehnt und im Englischen heißt falls <code>if</code> (nicht when, da ja nicht klar ist, ob die Bedingung erfüllt wird), ansonsten heißt <code>else</code>, also:</p>
@@ -207,11 +207,11 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span>
-    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Schlümpf, &#34;</span><span class="p">)</span>
-  <span class="k">else</span>
-    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$n</span><span class="s2">, &#34;</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Schlümpf, &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">else</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$n</span><span class="s2">, &#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Damit wir nicht alles ins Hauptprogramm stopfen, wollen wir das Verschlumpfen in eine Funktion stecken:</p>
 <div class="highlight"><div class="chroma">
@@ -224,13 +224,13 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">smurfify</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span>
-      <span class="k">return</span> <span class="n">n</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
-
-    <span class="k">return</span> <span class="s2">&#34;Schlümpf&#34;</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">smurfify</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">n</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;Schlümpf&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>fun</code> kennst du sicherlich noch von der ersten Lektion, <code>fun main()</code> ist das Hauptprogramm.  Unser Teilstück heißt jetzt <code>smurfify</code> (Verschlumpfen).  Dazu muss man natürlich wissen, welche Zahl verschlumpft werden soll, also übergeben wir eine Zahl <code>(n :Int)</code>.  Die Zahl heisst im Teilprogramm <code>n</code> und <code>Int</code> gibt an, dass eine ganze Zahl (also nicht $0.5$ oder &ldquo;Hallo&rdquo;) übergeben wird.</p>
 <p>Natürlich wollen wir auch das Ergebnis zurück geben, also schreiben wir <code>:String</code>, d.h. es wird am Ende Text zurück gegeben.</p>
@@ -255,21 +255,21 @@
 </span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">smurfify</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span>
-      <span class="k">return</span> <span class="n">n</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
-
-    <span class="k">return</span> <span class="s2">&#34;Schlümpf&#34;</span>
-  <span class="p">}</span>
-
-  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">30</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">val</span> <span class="py">number</span> <span class="p">=</span> <span class="n">smurfify</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$number</span><span class="s2">, &#34;</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="n">println</span><span class="p">()</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">smurfify</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">n</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;Schlümpf&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">n</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">30</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">number</span> <span class="p">=</span> <span class="n">smurfify</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$number</span><span class="s2">, &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Und das Ergebnis so:</p>
 <div class="highlight"><div class="chroma">
@@ -277,8 +277,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, Schlümpf, 11, 12, 13, 14, Schlümpf, 16, 17, 18, 19, Schlümpf, ...
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, Schlümpf, 11, 12, 13, 14, Schlümpf, 16, 17, 18, 19, Schlümpf, ...
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Immerhin, jede 5. Zahl ist durch &ldquo;Schlümpf&rdquo; ersetzt.</p>
 <h1 id="2-wie-kann-man-die-vielfache-ausgeben">2. Wie kann man die Vielfache ausgeben?</h1>
@@ -294,14 +294,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">smurfify</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span>
-      <span class="k">return</span> <span class="n">n</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
-
-    <span class="k">var</span> <span class="py">factor</span> <span class="p">=</span> <span class="n">n</span><span class="p">/</span><span class="m">5</span>
-    <span class="k">return</span> <span class="s2">&#34;</span><span class="si">$factor</span><span class="s2"> Schlümpf&#34;</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">smurfify</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">n</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">factor</span> <span class="p">=</span> <span class="n">n</span><span class="p">/</span><span class="m">5</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;</span><span class="si">$factor</span><span class="s2"> Schlümpf&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Wenn du das Programm wieder startest, dann sieht das Ergebnis so aus:</p>
 <div class="highlight"><div class="chroma">
@@ -309,8 +309,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  1, 2, 3, 4, 1 Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, 17, 18, 19, 4 Schlümpf, 21, 22, 23, 24, 5 Schlümpf, 26, 27, 28, 29, 6 Schlümpf,
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  1, 2, 3, 4, 1 Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, 17, 18, 19, 4 Schlümpf, 21, 22, 23, 24, 5 Schlümpf, 26, 27, 28, 29, 6 Schlümpf,
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="21-die-1-kann-weg">2.1 Die &ldquo;1&rdquo; kann weg</h2>
 <p>Ok, offenbar müssen wir noch einen Fall unterscheiden:  Wenn der <code>factor</code> 1 ist, dann nur &ldquo;Schlümpf&rdquo; ausgeben, also:</p>
@@ -328,17 +328,17 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">smurfify</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span>
-      <span class="k">return</span> <span class="n">n</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
-
-    <span class="k">var</span> <span class="py">factor</span> <span class="p">=</span> <span class="n">n</span><span class="p">/</span><span class="m">5</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">factor</span><span class="o">==</span><span class="m">1</span><span class="p">)</span>
-      <span class="k">return</span> <span class="s2">&#34;Schlümpf&#34;</span>
-
-    <span class="k">return</span> <span class="s2">&#34;</span><span class="si">$factor</span><span class="s2"> Schlümpf&#34;</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">smurfify</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">n</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">factor</span> <span class="p">=</span> <span class="n">n</span><span class="p">/</span><span class="m">5</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">factor</span><span class="o">==</span><span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="s2">&#34;Schlümpf&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;</span><span class="si">$factor</span><span class="s2"> Schlümpf&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Jetzt aber:</p>
 <div class="highlight"><div class="chroma">
@@ -346,8 +346,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, 17, 18, 19, 4 Schlümpf, 21, 22, 23, 24, 5 Schlümpf, 26, 27, 28, 29, 6 Schlümpf,
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, 17, 18, 19, 4 Schlümpf, 21, 22, 23, 24, 5 Schlümpf, 26, 27, 28, 29, 6 Schlümpf,
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="3-25-ist-schlümpf-schlümpf">3. &ldquo;25&rdquo; ist Schlümpf-Schlümpf</h1>
 <p>Eine Sache stört noch:  Die 25 ist nicht einfach &ldquo;5 Schlümpf&rdquo;, sondern der <code>factor</code> sollte 1 sein und die Endung &ldquo;Schlümpf-Schlümpf&rdquo;.  Das kann man so erreichen:</p>
@@ -371,23 +371,23 @@
 </span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">smurfify</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span>
-      <span class="k">return</span> <span class="n">n</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
-
-    <span class="k">var</span> <span class="py">factor</span> <span class="p">=</span> <span class="n">n</span><span class="p">/</span><span class="m">5</span>
-    <span class="k">var</span> <span class="py">suffix</span> <span class="p">=</span> <span class="s2">&#34;Schlümpf&#34;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="n">factor</span><span class="p">%</span><span class="m">5</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">factor</span> <span class="o">/=</span> <span class="m">5</span>
-      <span class="n">suffix</span> <span class="o">+=</span> <span class="s2">&#34;-Schlümpf&#34;</span>
-    <span class="p">}</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">factor</span><span class="o">==</span><span class="m">1</span><span class="p">)</span>
-      <span class="k">return</span> <span class="n">suffix</span>
-
-    <span class="k">return</span> <span class="s2">&#34;</span><span class="si">$factor</span><span class="s2"> </span><span class="si">$suffix</span><span class="s2">&#34;</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">smurfify</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="p">%</span><span class="m">5</span> <span class="o">!=</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">n</span><span class="p">.</span><span class="n">toString</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">factor</span> <span class="p">=</span> <span class="n">n</span><span class="p">/</span><span class="m">5</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">suffix</span> <span class="p">=</span> <span class="s2">&#34;Schlümpf&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">factor</span><span class="p">%</span><span class="m">5</span> <span class="o">==</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">factor</span> <span class="o">/=</span> <span class="m">5</span>
+</span></span><span class="line"><span class="cl">      <span class="n">suffix</span> <span class="o">+=</span> <span class="s2">&#34;-Schlümpf&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">factor</span><span class="o">==</span><span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">suffix</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="s2">&#34;</span><span class="si">$factor</span><span class="s2"> </span><span class="si">$suffix</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>while (bedingung) { ... }</code> bedeutet, dass die <code>bedingung</code> getestet wird.  Wenn die wahr ist, wird der Teil zwischen <code>{</code> und <code>}</code> ausgeführt.  Dann wird die Bedingung wieder getestet und so weiter, bis die Bedingung irgendwann nicht mehr erfüllt ist (engl. while heisst während, solange).</p>
 <p><code>factor /= 5</code> heisst, dass der Faktor durch 5 geteilt wird und das neue Erbegnis gespeichert wird (deshalb auch <code>var factor = ...</code>).  Entsprechend heisst <code>suffix += &quot;-Schlümpf&quot;</code>, dass einmal &ldquo;-Schlümpf&rdquo; angehängt wird.  Nach dem ersten Durchlauf ist also <code>factor</code> um einen Faktor 5 kleiner und <code>suffix == &quot;Schlümpf-Schlümpf&quot;</code>.</p>
@@ -397,8 +397,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, 17, 18, 19, 4 Schlümpf, 21, 22, 23, 24, Schlümpf-Schlümpf, 26, 27, 28, 29, 6 Schlümpf,
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, 17, 18, 19, 4 Schlümpf, 21, 22, 23, 24, Schlümpf-Schlümpf, 26, 27, 28, 29, 6 Schlümpf,
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="4-selber-probieren">4. Selber probieren</h1>
 <p>Kannst Du eine Funktion <code>fun congee(n :Int) :String</code> schreiben, die jede 3. Zahl durch &ldquo;Brei&rdquo; (engl. congee) ersetzt?</p>
@@ -521,7 +521,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.30dad356188cdaba5047112eaa8bf5e85cb14ae7e803337403591fce94a531a0.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},

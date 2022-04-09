@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.91.2 with theme even" />
+<meta name="generator" content="Hugo 0.96.0 with theme even" />
 
 
 <link rel="canonical" href="https://melli79.github.io/post/03cwomengivebirth/" />
@@ -186,10 +186,10 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">Person</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="n">givenName</span> <span class="p">:</span><span class="n">String</span><span class="p">,</span> <span class="n">birthday</span> <span class="p">:</span><span class="n">PartialDate</span><span class="p">,</span> <span class="n">gender</span> <span class="p">:</span><span class="n">Gender</span><span class="p">)</span> <span class="p">:</span><span class="n">Person</span> <span class="p">{</span>
-    <span class="o">..</span><span class="p">.</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">Person</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="n">givenName</span> <span class="p">:</span><span class="n">String</span><span class="p">,</span> <span class="n">birthday</span> <span class="p">:</span><span class="n">PartialDate</span><span class="p">,</span> <span class="n">gender</span> <span class="p">:</span><span class="n">Gender</span><span class="p">)</span> <span class="p">:</span><span class="n">Person</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Offenbar brauchen wir auch das Geschlecht und den Geburtstag des Kindes.  Das Ergebnis sollte ein Kind sein, also eine Person.</p>
 <p>Was brauchen wir für das Kind?</p>
@@ -220,27 +220,27 @@
 </span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">Person</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="n">givenName</span> <span class="p">:</span><span class="n">String</span><span class="p">,</span> <span class="n">birthday</span> <span class="p">:</span><span class="n">PartialDate</span><span class="p">,</span> <span class="n">gender</span> <span class="p">:</span><span class="n">Gender</span><span class="p">)</span> <span class="p">:</span><span class="n">Person</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">age</span><span class="p">(</span><span class="n">birthday</span><span class="p">)&lt;</span><span class="m">15</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s2">&#34;Das kann nicht sein, die Eltern sind zu jung.&#34;</span><span class="p">)</span>
-
-    <span class="k">val</span> <span class="py">mother</span> <span class="p">:</span><span class="n">Person</span><span class="p">;</span>  <span class="k">val</span> <span class="py">father</span> <span class="p">:</span><span class="n">Person</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">gender</span><span class="o">==</span><span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">mother</span> <span class="p">=</span> <span class="k">this</span>
-      <span class="n">father</span> <span class="p">=</span> <span class="n">spouse</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// sollte eigentlich nicht vorkommen
-</span><span class="c1"></span>      <span class="n">father</span> <span class="p">=</span> <span class="k">this</span>
-      <span class="n">mother</span> <span class="p">=</span> <span class="n">spouse</span>
-    <span class="p">}</span>
-
-    <span class="k">val</span> <span class="py">child</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">givenName</span><span class="p">,</span> <span class="n">familyName</span><span class="p">,</span> <span class="n">gender</span><span class="p">,</span> <span class="n">birthday</span><span class="p">,</span> <span class="n">father</span><span class="p">=</span><span class="n">father</span><span class="p">,</span> <span class="n">mother</span><span class="p">=</span><span class="n">mother</span><span class="p">)</span>
-    <span class="n">children</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">spouse</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
-      <span class="n">spouse</span><span class="o">!!</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">child</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">Person</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="n">givenName</span> <span class="p">:</span><span class="n">String</span><span class="p">,</span> <span class="n">birthday</span> <span class="p">:</span><span class="n">PartialDate</span><span class="p">,</span> <span class="n">gender</span> <span class="p">:</span><span class="n">Gender</span><span class="p">)</span> <span class="p">:</span><span class="n">Person</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">age</span><span class="p">(</span><span class="n">birthday</span><span class="p">)&lt;</span><span class="m">15</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s2">&#34;Das kann nicht sein, die Eltern sind zu jung.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">mother</span> <span class="p">:</span><span class="n">Person</span><span class="p">;</span>  <span class="k">val</span> <span class="py">father</span> <span class="p">:</span><span class="n">Person</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">gender</span><span class="o">==</span><span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">mother</span> <span class="p">=</span> <span class="k">this</span>
+</span></span><span class="line"><span class="cl">      <span class="n">father</span> <span class="p">=</span> <span class="n">spouse</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span> <span class="c1">// sollte eigentlich nicht vorkommen
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">father</span> <span class="p">=</span> <span class="k">this</span>
+</span></span><span class="line"><span class="cl">      <span class="n">mother</span> <span class="p">=</span> <span class="n">spouse</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">child</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="n">givenName</span><span class="p">,</span> <span class="n">familyName</span><span class="p">,</span> <span class="n">gender</span><span class="p">,</span> <span class="n">birthday</span><span class="p">,</span> <span class="n">father</span><span class="p">=</span><span class="n">father</span><span class="p">,</span> <span class="n">mother</span><span class="p">=</span><span class="n">mother</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">children</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">spouse</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">spouse</span><span class="o">!!</span><span class="p">.</span><span class="n">children</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">child</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">child</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Damit Kinder keine Kinder bekommen, habe ich willkürlich eine Grenze von mindestens 15 Jahren gezogen.  Man kann die auch höher ansetzen.</p>
 <p>Die Mutter muss weiblich sein, d.h. wenn die übergebene Person weiblich ist, dann ist das die Mutter, ansonsten versuchen wir die Partnerin.</p>
@@ -260,16 +260,16 @@
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">val</span> <span class="py">father</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Wolfgang Dieter&#34;</span><span class="p">,</span> <span class="s2">&#34;Grützmann&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1954</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">)</span>
-    <span class="k">val</span> <span class="py">mother</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Barbara&#34;</span><span class="p">,</span> <span class="s2">&#34;Kulisch&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1955</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span>
-    <span class="n">father</span><span class="p">.</span><span class="n">marry</span><span class="p">(</span><span class="n">mother</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1978</span><span class="p">))</span>
-    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$father</span><span class="s2"> heiratete </span><span class="si">$mother</span><span class="s2">.&#34;</span><span class="p">)</span>
-
-    <span class="k">val</span> <span class="py">melli</span> <span class="p">=</span> <span class="n">mother</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="s2">&#34;Melchior&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1979</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$melli</span><span class="s2"> war geboren.&#34;</span><span class="p">)</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">father</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Wolfgang Dieter&#34;</span><span class="p">,</span> <span class="s2">&#34;Grützmann&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1954</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">mother</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Barbara&#34;</span><span class="p">,</span> <span class="s2">&#34;Kulisch&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1955</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">father</span><span class="p">.</span><span class="n">marry</span><span class="p">(</span><span class="n">mother</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1978</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$father</span><span class="s2"> heiratete </span><span class="si">$mother</span><span class="s2">.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">melli</span> <span class="p">=</span> <span class="n">mother</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="s2">&#34;Melchior&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1979</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$melli</span><span class="s2"> war geboren.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Ausgabe:</p>
 <div class="highlight"><div class="chroma">
@@ -278,9 +278,9 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  Herr Wolfgang Dieter Grützmann (*1954) heiratet Frau Barbara Grützmann (*1955).
-  Herr Melchior Grützmann (*20.6.1979) wurde geboren.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Herr Wolfgang Dieter Grützmann (*1954) heiratet Frau Barbara Grützmann (*1955).
+</span></span><span class="line"><span class="cl">  Herr Melchior Grützmann (*20.6.1979) wurde geboren.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Also klappt es.</p>
 <h2 id="42-was-passiert-wenn-die-frau-nicht-verheiratet-ist">4.2 Was passiert, wenn die Frau nicht verheiratet ist?</h2>
@@ -295,21 +295,21 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">val</span> <span class="py">tanja</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Tanja&#34;</span><span class="p">,</span> <span class="s2">&#34;Mayer&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1978</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span>
-
-    <span class="k">val</span> <span class="py">tina</span> <span class="p">=</span> <span class="n">tanja</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="s2">&#34;Tina&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1985</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span>
-    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">${tina}</span><span class="s2">s Eltern sind </span><span class="si">${tina.mother}</span><span class="s2"> und </span><span class="si">${tina.father}</span><span class="s2">.&#34;</span><span class="p">)</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">tanja</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Tanja&#34;</span><span class="p">,</span> <span class="s2">&#34;Mayer&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1978</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">tina</span> <span class="p">=</span> <span class="n">tanja</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="s2">&#34;Tina&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1985</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">${tina}</span><span class="s2">s Eltern sind </span><span class="si">${tina.mother}</span><span class="s2"> und </span><span class="si">${tina.father}</span><span class="s2">.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  Tina Mayer (*1.1.1985)s Eltern sind Tanja Mayer (*1978) und null.
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Tina Mayer (*1.1.1985)s Eltern sind Tanja Mayer (*1978) und null.
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Hmm, irgendwie müssten wir statt &ldquo;null&rdquo; eher &ldquo;unbekannt&rdquo; schreiben.</p>
 <h1 id="5-wie-kann-man-sich-scheiden-lassen">5. Wie kann man sich scheiden lassen?</h1>
@@ -326,14 +326,14 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">Person</span><span class="p">.</span><span class="n">divorce</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">spouse</span><span class="o">==</span><span class="k">null</span><span class="p">)</span>
-      <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s2">&#34;Alleinstehende können nicht geschieden werden.&#34;</span><span class="p">)</span>
-
-    <span class="n">spouse</span><span class="o">!!</span><span class="p">.</span><span class="n">spouse</span> <span class="p">=</span> <span class="k">null</span>
-    <span class="k">this</span><span class="p">.</span><span class="n">spouse</span> <span class="p">=</span> <span class="k">null</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">Person</span><span class="p">.</span><span class="n">divorce</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">spouse</span><span class="o">==</span><span class="k">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">throw</span> <span class="n">IllegalStateException</span><span class="p">(</span><span class="s2">&#34;Alleinstehende können nicht geschieden werden.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">spouse</span><span class="o">!!</span><span class="p">.</span><span class="n">spouse</span> <span class="p">=</span> <span class="k">null</span>
+</span></span><span class="line"><span class="cl">    <span class="k">this</span><span class="p">.</span><span class="n">spouse</span> <span class="p">=</span> <span class="k">null</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>So einfach kann das im Computer gehen.</p>
 <h2 id="was-bedeutet-das-">Was bedeutet das <code>!!</code>?</h2>
@@ -357,18 +357,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">val</span> <span class="py">grandpa</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Klaus Gottfried&#34;</span><span class="p">,</span> <span class="s2">&#34;Grützmann&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1926</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">)</span>
-    <span class="k">val</span> <span class="py">grandma</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Susanne&#34;</span><span class="p">,</span> <span class="s2">&#34;Friedemann&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1929</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span>
-    <span class="n">grandpa</span><span class="p">.</span><span class="n">marry</span><span class="p">(</span><span class="n">grandma</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1953</span><span class="p">))</span>
-
-    <span class="k">val</span> <span class="py">daddy</span> <span class="p">=</span> <span class="n">grandma</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="s2">&#34;Wolfgang Dieter&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1954</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">)</span>
-    <span class="k">val</span> <span class="py">mommy</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Barbara&#34;</span><span class="p">,</span> <span class="s2">&#34;Kulisch&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1955</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span>
-    <span class="n">daddy</span><span class="p">.</span><span class="n">marry</span><span class="p">(</span><span class="n">mommy</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1978</span><span class="p">))</span>
-
-    <span class="k">val</span> <span class="py">melli</span> <span class="p">=</span> <span class="n">mommy</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="s2">&#34;Melchior&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1979</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">)</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">grandpa</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Klaus Gottfried&#34;</span><span class="p">,</span> <span class="s2">&#34;Grützmann&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1926</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">grandma</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Susanne&#34;</span><span class="p">,</span> <span class="s2">&#34;Friedemann&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1929</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">grandpa</span><span class="p">.</span><span class="n">marry</span><span class="p">(</span><span class="n">grandma</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1953</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">daddy</span> <span class="p">=</span> <span class="n">grandma</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="s2">&#34;Wolfgang Dieter&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1954</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">mommy</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Barbara&#34;</span><span class="p">,</span> <span class="s2">&#34;Kulisch&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1955</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">daddy</span><span class="p">.</span><span class="n">marry</span><span class="p">(</span><span class="n">mommy</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1978</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">melli</span> <span class="p">=</span> <span class="n">mommy</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="s2">&#34;Melchior&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1979</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Wenn du Personen nicht kennst (z.B. die Großmutter deiner Mutter), dann kannst du sie vielleicht weglassen.  Wenn du nur den Vornamen nicht kennst, kannst du vielleicht die Verwandtschaftsbeziehung schreiben, z.B. <code>Person(&quot;Oma&quot;, &quot;Haberda&quot;, ...)</code>.</p>
 <p>Also, kennst du deine Verwandten?  Kannst du sie dem Computer erklären?</p>
@@ -391,19 +391,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">Person</span><span class="p">.</span><span class="n">computeSiblings</span><span class="p">()</span> <span class="p">:</span><span class="n">Set</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="p">{</span>
-    <span class="k">val</span> <span class="py">siblings</span> <span class="p">=</span> <span class="n">mutableSetOf</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;()</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">mother</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
-      <span class="n">siblings</span><span class="p">.</span><span class="n">addAll</span><span class="p">(</span><span class="n">mother</span><span class="o">!!</span><span class="p">.</span><span class="n">children</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">father</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
-      <span class="n">siblings</span><span class="p">.</span><span class="n">addAll</span><span class="p">(</span><span class="n">father</span><span class="o">!!</span><span class="p">.</span><span class="n">children</span><span class="p">)</span>
-
-    <span class="n">siblings</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">siblings</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">Person</span><span class="p">.</span><span class="n">computeSiblings</span><span class="p">()</span> <span class="p">:</span><span class="n">Set</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">siblings</span> <span class="p">=</span> <span class="n">mutableSetOf</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">mother</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">siblings</span><span class="p">.</span><span class="n">addAll</span><span class="p">(</span><span class="n">mother</span><span class="o">!!</span><span class="p">.</span><span class="n">children</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">father</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">siblings</span><span class="p">.</span><span class="n">addAll</span><span class="p">(</span><span class="n">father</span><span class="o">!!</span><span class="p">.</span><span class="n">children</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">siblings</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">siblings</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="was-ist-ein-set">Was ist ein <code>Set</code>?</h3>
 <p>Englisch &ldquo;Set&rdquo; heisst Menge auf Deutsch.  Das benutzen wir, um jedes Geschwister nur einmal aufzuzählen.  Wenn nämlich die Eltern schon immer verheiratet waren, dann haben sie die gleichen Kinder.  Wenn wir also erst alle Kinder der Mutter und dann alle Kinder des Vaters hinzufügen, dann hätten wir jedes Kind doppelt.  Außerdem heißt <code>mutableSetOf</code>, dass wir die Menge auch verändern wollen, z.B. die verschiedenen Kinder hinzufügen.</p>
@@ -427,18 +427,18 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
-    <span class="o">..</span><span class="p">.</span>
-    <span class="k">override</span> <span class="k">fun</span> <span class="nf">equals</span><span class="p">(</span><span class="n">other</span> <span class="p">:</span><span class="n">Any</span><span class="p">?)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">other</span> <span class="o">!is</span> <span class="n">Person</span><span class="p">)</span>
-        <span class="k">return</span> <span class="k">false</span>
-
-      <span class="k">return</span> <span class="n">givenName</span><span class="o">==</span><span class="n">other</span><span class="p">.</span><span class="n">givenName</span> <span class="o">&amp;&amp;</span> <span class="n">gender</span><span class="o">==</span><span class="n">other</span><span class="p">.</span><span class="n">gender</span> <span class="o">&amp;&amp;</span> <span class="n">birthday</span><span class="o">==</span><span class="n">other</span><span class="p">.</span><span class="n">birthday</span>
-    <span class="p">}</span>
-
-    <span class="k">override</span> <span class="k">fun</span> <span class="nf">hashCode</span><span class="p">()</span> <span class="p">=</span> <span class="n">givenName</span><span class="p">.</span><span class="n">hashCode</span><span class="p">()</span> <span class="p">+</span><span class="m">31</span><span class="p">*</span><span class="n">gender</span><span class="p">.</span><span class="n">hashCode</span><span class="p">()</span> <span class="p">+</span><span class="m">997</span><span class="p">*</span><span class="n">birthday</span><span class="p">.</span><span class="n">hashCode</span><span class="p">()</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">Person</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">override</span> <span class="k">fun</span> <span class="nf">equals</span><span class="p">(</span><span class="n">other</span> <span class="p">:</span><span class="n">Any</span><span class="p">?)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">other</span> <span class="o">!is</span> <span class="n">Person</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">false</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">givenName</span><span class="o">==</span><span class="n">other</span><span class="p">.</span><span class="n">givenName</span> <span class="o">&amp;&amp;</span> <span class="n">gender</span><span class="o">==</span><span class="n">other</span><span class="p">.</span><span class="n">gender</span> <span class="o">&amp;&amp;</span> <span class="n">birthday</span><span class="o">==</span><span class="n">other</span><span class="p">.</span><span class="n">birthday</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">override</span> <span class="k">fun</span> <span class="nf">hashCode</span><span class="p">()</span> <span class="p">=</span> <span class="n">givenName</span><span class="p">.</span><span class="n">hashCode</span><span class="p">()</span> <span class="p">+</span><span class="m">31</span><span class="p">*</span><span class="n">gender</span><span class="p">.</span><span class="n">hashCode</span><span class="p">()</span> <span class="p">+</span><span class="m">997</span><span class="p">*</span><span class="n">birthday</span><span class="p">.</span><span class="n">hashCode</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Also eine Person ist gleich einem anderen Objekt, wenn das andere Objekt eine Person ist und wenn Vorname, Geschlecht und Geburtstag übereinstimmen. (<code>&amp;&amp;</code> bedeutet &lsquo;und&rsquo;, also dass zum einen das Linke wahr sein muss und dann noch getestet wird, ob das Rechte wahr ist.)</p>
 <h3 id="warum-vergleichen-wir-nicht-den-familiennamen">Warum vergleichen wir nicht den Familiennamen?</h3>
@@ -463,19 +463,19 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">class</span> <span class="nc">PartialDate</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
-    <span class="o">..</span><span class="p">.</span>
-    <span class="k">override</span> <span class="k">fun</span> <span class="nf">hashCode</span><span class="p">()</span> <span class="p">=</span> <span class="n">year</span> <span class="p">+(</span><span class="k">if</span> <span class="p">(</span><span class="n">month</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span> <span class="m">13</span><span class="p">*</span><span class="n">month</span> <span class="k">else</span> <span class="m">0</span><span class="p">)</span> <span class="p">+</span>
-            <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="n">day</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span> <span class="m">13</span><span class="p">*</span><span class="m">37</span><span class="p">*</span><span class="n">day</span> <span class="k">else</span> <span class="m">0</span><span class="p">)</span>
-
-    <span class="k">override</span> <span class="k">fun</span> <span class="nf">equals</span><span class="p">(</span><span class="n">other</span> <span class="p">:</span><span class="n">Any</span><span class="p">?)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">other</span> <span class="o">!is</span> <span class="n">PartialDate</span><span class="p">)</span>
-            <span class="k">return</span> <span class="k">false</span>
-        <span class="k">return</span> <span class="n">year</span><span class="o">==</span><span class="n">other</span><span class="p">.</span><span class="n">year</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">month</span><span class="o">==</span><span class="k">null</span><span class="o">||</span><span class="n">other</span><span class="p">.</span><span class="n">month</span><span class="o">==</span><span class="k">null</span><span class="o">||</span><span class="n">month</span><span class="o">==</span><span class="n">other</span><span class="p">.</span><span class="n">month</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
-          <span class="p">(</span><span class="n">day</span><span class="o">==</span><span class="k">null</span><span class="o">||</span><span class="n">other</span><span class="p">.</span><span class="n">day</span><span class="o">==</span><span class="k">null</span><span class="o">||</span><span class="n">day</span><span class="o">==</span><span class="n">other</span><span class="p">.</span><span class="n">day</span><span class="p">)</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">PartialDate</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">override</span> <span class="k">fun</span> <span class="nf">hashCode</span><span class="p">()</span> <span class="p">=</span> <span class="n">year</span> <span class="p">+(</span><span class="k">if</span> <span class="p">(</span><span class="n">month</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span> <span class="m">13</span><span class="p">*</span><span class="n">month</span> <span class="k">else</span> <span class="m">0</span><span class="p">)</span> <span class="p">+</span>
+</span></span><span class="line"><span class="cl">            <span class="p">(</span><span class="k">if</span> <span class="p">(</span><span class="n">day</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span> <span class="m">13</span><span class="p">*</span><span class="m">37</span><span class="p">*</span><span class="n">day</span> <span class="k">else</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">override</span> <span class="k">fun</span> <span class="nf">equals</span><span class="p">(</span><span class="n">other</span> <span class="p">:</span><span class="n">Any</span><span class="p">?)</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">other</span> <span class="o">!is</span> <span class="n">PartialDate</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="k">false</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">year</span><span class="o">==</span><span class="n">other</span><span class="p">.</span><span class="n">year</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">month</span><span class="o">==</span><span class="k">null</span><span class="o">||</span><span class="n">other</span><span class="p">.</span><span class="n">month</span><span class="o">==</span><span class="k">null</span><span class="o">||</span><span class="n">month</span><span class="o">==</span><span class="n">other</span><span class="p">.</span><span class="n">month</span><span class="p">)</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">          <span class="p">(</span><span class="n">day</span><span class="o">==</span><span class="k">null</span><span class="o">||</span><span class="n">other</span><span class="p">.</span><span class="n">day</span><span class="o">==</span><span class="k">null</span><span class="o">||</span><span class="n">day</span><span class="o">==</span><span class="n">other</span><span class="p">.</span><span class="n">day</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="was-bedeuten-die-vielen-fälle-bei-equals">Was bedeuten die vielen Fälle bei <code>equals</code>?</h3>
 <p>Wenn alle Daten vollständig bekannt sind, dann wird einfach Jahr, Monat und Tag jeweils verglichen.  Wenn der Tag in einem Datum nicht definiert ist (also <code>null</code>), dann wird der ignoriert.  Wenn der Monat in einem Datum nicht definiert ist, dann wird auch der ignoriert. <code>||</code> bedeutet &lsquo;oder&rsquo;, d.h. es wird erst das Linke überprüft und wenn es wahr ist, dann ist der ganze Ausdruck wahr, ansonsten wir noch das Rechte überprüft und wenn das wahr ist, ist das ganze wahr, ansonsten falsch.</p>
@@ -504,26 +504,26 @@
 </span><span class="lnt">19
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">Person</span><span class="p">.</span><span class="n">computeGrandparents</span><span class="p">()</span> <span class="p">:</span><span class="n">Set</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="p">{</span>
-    <span class="k">val</span> <span class="py">grandparents</span> <span class="p">=</span> <span class="n">mutableSetOf</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;()</span>
-
-        <span class="k">if</span> <span class="p">(</span><span class="n">mother</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">if</span> <span class="p">(</span><span class="n">mother</span><span class="o">!!</span><span class="p">.</span><span class="n">mother</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
-            <span class="n">grandparents</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">mother</span><span class="o">!!</span><span class="p">.</span><span class="n">mother</span><span class="o">!!</span><span class="p">)</span>
-          <span class="k">if</span> <span class="p">(</span><span class="n">mother</span><span class="o">!!</span><span class="p">.</span><span class="n">father</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
-            <span class="n">grandparents</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">mother</span><span class="o">!!</span><span class="p">.</span><span class="n">father</span><span class="o">!!</span><span class="p">)</span>
-        <span class="p">}</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="n">father</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">father</span><span class="o">!!</span><span class="p">.</span><span class="n">mother</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
-        <span class="n">grandparents</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">father</span><span class="o">!!</span><span class="p">.</span><span class="n">mother</span><span class="o">!!</span><span class="p">)</span>
-      <span class="k">if</span> <span class="p">(</span><span class="n">father</span><span class="o">!!</span><span class="p">.</span><span class="n">father</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
-        <span class="n">grandparents</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">father</span><span class="o">!!</span><span class="p">.</span><span class="n">father</span><span class="o">!!</span><span class="p">)</span>
-    <span class="p">}</span>
-
-    <span class="k">return</span> <span class="n">grandparents</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">Person</span><span class="p">.</span><span class="n">computeGrandparents</span><span class="p">()</span> <span class="p">:</span><span class="n">Set</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">grandparents</span> <span class="p">=</span> <span class="n">mutableSetOf</span><span class="p">&lt;</span><span class="n">Person</span><span class="p">&gt;()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">mother</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span><span class="n">mother</span><span class="o">!!</span><span class="p">.</span><span class="n">mother</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">grandparents</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">mother</span><span class="o">!!</span><span class="p">.</span><span class="n">mother</span><span class="o">!!</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="k">if</span> <span class="p">(</span><span class="n">mother</span><span class="o">!!</span><span class="p">.</span><span class="n">father</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">grandparents</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">mother</span><span class="o">!!</span><span class="p">.</span><span class="n">father</span><span class="o">!!</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">father</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">father</span><span class="o">!!</span><span class="p">.</span><span class="n">mother</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">grandparents</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">father</span><span class="o">!!</span><span class="p">.</span><span class="n">mother</span><span class="o">!!</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">father</span><span class="o">!!</span><span class="p">.</span><span class="n">father</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">grandparents</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">father</span><span class="o">!!</span><span class="p">.</span><span class="n">father</span><span class="o">!!</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">grandparents</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Und im Hauptprogramm schreibt man dann:</p>
 <div class="highlight"><div class="chroma">
@@ -537,22 +537,22 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="o">..</span><span class="p">.</span>
-    <span class="k">val</span> <span class="py">melli</span> <span class="p">=</span> <span class="n">mother</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="s2">&#34;Melchior&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1979</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">)</span>
-
-    <span class="k">val</span> <span class="py">grandparents</span> <span class="p">=</span> <span class="n">melli</span><span class="p">.</span><span class="n">computeGrandparents</span><span class="p">()</span>
-    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$mellis</span><span class="s2"> Großeltern sind </span><span class="si">$grandparents</span><span class="s2">.&#34;</span><span class="p">)</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">melli</span> <span class="p">=</span> <span class="n">mother</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="s2">&#34;Melchior&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1979</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">grandparents</span> <span class="p">=</span> <span class="n">melli</span><span class="p">.</span><span class="n">computeGrandparents</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$mellis</span><span class="s2"> Großeltern sind </span><span class="si">$grandparents</span><span class="s2">.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  Herr Melchior Grützmann (*20.6.1979)&#39;s Großeltern sind [Frau Irmtraud Kulisch (*1931), Frau Susanne Grützmann (*1929), Herr Klaus Gottfried Grützmann (*1926)].
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Herr Melchior Grützmann (*20.6.1979)&#39;s Großeltern sind [Frau Irmtraud Kulisch (*1931), Frau Susanne Grützmann (*1929), Herr Klaus Gottfried Grützmann (*1926)].
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="wie-sieht-es-mit-deinen-großeltern-aus">Wie sieht es mit deinen Großeltern aus?</h2>
 <p>Viel Spaß beim Probieren.</p>
@@ -582,7 +582,11 @@
 <footer class="post-footer">
       
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/00-setup-ide/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">00 Kotlin IDE Aufsetzen</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         <a class="next" href="/post/03bpeoplecanmarry/">
             <span class="next-text nav-default">03B Leute können Heiraten</span>
             <span class="next-text nav-mobile">Next</span>
@@ -671,7 +675,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.30dad356188cdaba5047112eaa8bf5e85cb14ae7e803337403591fce94a531a0.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},

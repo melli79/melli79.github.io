@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 23 Dec 2021 18:10:51 +0100</lastBuildDate><atom:link href="https://melli79.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 09 Apr 2022 11:50:55 +0200</lastBuildDate><atom:link href="https://melli79.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>00 Kotlin IDE Aufsetzen</title>
+      <link>https://melli79.github.io/post/00-setup-ide/</link>
+      <pubDate>Sat, 09 Apr 2022 11:50:55 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/00-setup-ide/</guid>
+      <description>1. Schritt: IntelliJ für Windows 64 herunterladen und installieren Als Entwicklungsumgebung für Kotlin empfehle ich IntelliJ Idea Kommunity-Version. Diese kann man von der Website von JetBrains herunterladen, wichtig ist es, auf den schwarzen Knopf (Community Version) zu klicken.
+2B. Schritt: Java 11 Development Kit installieren Das sollte aus der IntelliJ IDE heraus gehen: Datei &amp;gt; Projektstruktur &amp;gt; Projekt &amp;gt; SDK &amp;gt; Download JDK
+Im Dialog: Version 11, Oracle Open JDK auswählen.</description>
+    </item>
+    
     <item>
       <title>03C Frauen Gebären und sich Scheiden lassen</title>
       <link>https://melli79.github.io/post/03cwomengivebirth/</link>

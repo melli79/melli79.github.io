@@ -25,7 +25,7 @@ Step 1: install Hugo A. If you are using a Mac, just get accustomed to Homebrew 
 
 
 
-<meta name="generator" content="Hugo 0.91.2 with theme even" />
+<meta name="generator" content="Hugo 0.96.0 with theme even" />
 
 
 <link rel="canonical" href="https://melli79.github.io/post/setup-webpage/" />
@@ -157,8 +157,8 @@ Step 1: install Hugo A. If you are using a Mac, just get accustomed to Homebrew 
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">  brew install hugo
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">  brew install hugo
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>B. If you are using Linux it probably comes with a package manager that should have some compatible version of hugo available, e.g. on Ubuntu like systems:</p>
 <div class="highlight"><div class="chroma">
@@ -166,8 +166,8 @@ Step 1: install Hugo A. If you are using a Mac, just get accustomed to Homebrew 
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">  sudo apt-get install hugo
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">  sudo apt-get install hugo
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>If you feel that your system is too old consider updating it first.  If that is unavailable, you can try to install a second package manager, e.g. <a href="https://docs.brew.sh/Homebrew-on-Linux">LinuxBrew</a> from which you can install the latest version of Hugo as under MacOS.</p>
 <p>C. If you are stuck with Windows, consider converting your computer to Linux.  Most decent versions of Linux run much smoother than Windows, plus the user 2 user support base is much bigger.  If there is no way to get hold of Linux, then you can pimp up your Windows either with <a href="https://www.windowscentral.com/install-windows-subsystem-linux-windows-10">WSL</a> or with a package manager such as <a href="https://chocolatey.org/">Chocolatey</a> or <a href="https://scoop.sh/">Scoop</a> from which you can then install</p>
@@ -176,8 +176,8 @@ Step 1: install Hugo A. If you are using a Mac, just get accustomed to Homebrew 
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1">  <span class="n">choco</span> <span class="n">install</span> <span class="n">hugo</span> <span class="n">-confirm</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1"><span class="line"><span class="cl">  <span class="n">choco</span> <span class="n">install</span> <span class="n">hugo</span> <span class="n">-confirm</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>or</p>
 <div class="highlight"><div class="chroma">
@@ -185,8 +185,8 @@ Step 1: install Hugo A. If you are using a Mac, just get accustomed to Homebrew 
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1">  <span class="n">scoop</span> <span class="n">install</span> <span class="n">hugo</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-ps1" data-lang="ps1"><span class="line"><span class="cl">  <span class="n">scoop</span> <span class="n">install</span> <span class="n">hugo</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Once you have set up Hugo, test it via</p>
 <div class="highlight"><div class="chroma">
@@ -194,8 +194,8 @@ Step 1: install Hugo A. If you are using a Mac, just get accustomed to Homebrew 
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">  hugo version
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">  hugo version
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>which should report the installed version together with the system information on which it is running.  As of writing this summary, the current Hugo version is 0.74.3, but yours could already be much higher.</p>
 <h1 id="step-2-set-up-a-new-site-structure">Step 2: Set up a new site structure</h1>
@@ -205,8 +205,8 @@ Step 1: install Hugo A. If you are using a Mac, just get accustomed to Homebrew 
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">  hugo new site &lt;my-awesome-homepage&gt;
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">  hugo new site &lt;my-awesome-homepage&gt;
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>where <code>&lt;my-awesome-homepage&gt;</code> is the name of your home page collection.</p>
 <p>Before you start configuring the central &ldquo;config.toml&rdquo;, download the theme you like, because most of these come with quite some defaults for the &ldquo;config.toml&rdquo; to have a faster ramp up.  You can find a large collection of recent themes at <a href="https://themes.gohugo.io/">Hugo-Themes</a>, once you have decided for a theme go to its git repo and download the current content from there, either as &ldquo;<em>.zip&rdquo; archive or via <code>git clone &quot;http://...&quot; themes/&lt;name&gt;</code> where <code>&lt;name&gt;</code> is the name of the theme.
@@ -218,9 +218,9 @@ If you have cloned the theme, please remove its &ldquo;.git</em>&rdquo;, because
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">  public/
-  resources/_gen/
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  public/
+</span></span><span class="line"><span class="cl">  resources/_gen/
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>You can now start copying the proposed &ldquo;config.toml&rdquo; from the &ldquo;theme/<name>&rdquo; directory to the root directory of your home page source.  Once you have done that, you should adjust it, e.g. enter the name of your home page and maybe your eMail, github name, &hellip; .</p>
 <h1 id="step-3-show-the-current-state-of-you-home-page">Step 3: Show the current state of you Home page</h1>
@@ -230,8 +230,8 @@ If you have cloned the theme, please remove its &ldquo;.git</em>&rdquo;, because
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">  hugo server -D
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">  hugo server -D
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>in the root directory of your home page.  This will start a local http server together with a compiled version of your current sources.  The server is reachable locally under some address such as &ldquo;http://localhost:1313/&rdquo; (watch the startup message) and will update automatically if you modify the page sources.  Internal links, content and external links should be working, but integrated resources such as a visit counter may not work out of the temporary version.</p>
 <h1 id="step-4-adding-new-content">Step 4: Adding new Content</h1>
@@ -241,8 +241,8 @@ If you have cloned the theme, please remove its &ldquo;.git</em>&rdquo;, because
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">  hugo new &lt;type&gt;/&lt;title&gt;.md
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">  hugo new &lt;type&gt;/&lt;title&gt;.md
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>where type is some type such as &ldquo;posts&rdquo; and title the title of the (file containing the) page, e.g. &ldquo;todays results&rdquo;.  It does not have to coincide with the title of the page and can be changed afterwards.</p>
 <p>Hugo will then generate a minimal empty page (in Hugo-markdown) that contains some meta-information.  You can edit this file with any UTF-8 editor of your liking such as vim, atom or others.</p>
@@ -252,8 +252,8 @@ If you have cloned the theme, please remove its &ldquo;.git</em>&rdquo;, because
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">  hugo -D
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">  hugo -D
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>in the root directory.  This will compile the whole page into the subdirectory &ldquo;public&rdquo; which you should not check into the source git repository.  Instead you can upload it to the wwwroot of your web host, e.g. a repository on github.com to have your homepage hosted on &ldquo;https://<mynic>.github.io/&rdquo;.  Remember that people will see content you put up there as soon as webcrawlers like Google find it.  Please respect the copyrights of other people&rsquo;s work.</p>
 
@@ -372,7 +372,7 @@ If you have cloned the theme, please remove its &ldquo;.git</em>&rdquo;, because
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.30dad356188cdaba5047112eaa8bf5e85cb14ae7e803337403591fce94a531a0.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},

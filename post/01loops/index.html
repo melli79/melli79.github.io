@@ -25,7 +25,7 @@ Das Ziel Das Ziel soll etwa folgende Tabelle sein:
 
 
 
-<meta name="generator" content="Hugo 0.91.2 with theme even" />
+<meta name="generator" content="Hugo 0.96.0 with theme even" />
 
 
 <link rel="canonical" href="https://melli79.github.io/post/01loops/" />
@@ -198,8 +198,8 @@ In jeder Zeile die Zahl, dann ihr Doppeltes, dann das Dreifache, &hellip;, das 1
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">val</span> <span class="py">x</span> <span class="p">=</span> <span class="m">3</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">x</span> <span class="p">=</span> <span class="m">3</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Das wir eine neue Variable mit Namen x anlegen, die den Wert 3 enthält.</p>
 <p>Entsprechend wäre</p>
@@ -208,8 +208,8 @@ In jeder Zeile die Zahl, dann ihr Doppeltes, dann das Dreifache, &hellip;, das 1
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">val</span> <span class="py">name</span> <span class="p">=</span> <span class="s2">&#34;Melchior&#34;</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">name</span> <span class="p">=</span> <span class="s2">&#34;Melchior&#34;</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>eine Variable mit Namen <code>name</code>, die den Text Melchior (also meinen Namen) enthält.</p>
 <p>Natürlich wollen wir die Vielfache nicht alle von Hand eintippen, schließlich sollte ein Rechner rechnen können.  Das geht etwa so:</p>
@@ -218,8 +218,8 @@ In jeder Zeile die Zahl, dann ihr Doppeltes, dann das Dreifache, &hellip;, das 1
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="n">x</span><span class="p">*</span><span class="n">y</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">x</span><span class="p">*</span><span class="n">y</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Wenn wir davon ausgehen, dass die Variablen x und y Zahlen enthalten, dann bedeutet <code>x*y</code>, dass deren Produkt berechnet wird.  Entsprechend kann man mit <code>4+5</code> die Summe von 4 und 5 berechnen.</p>
 <h2 id="2-was-soll-mit-den-zahlen-passieren">2. Was soll mit den Zahlen passieren?</h2>
@@ -229,8 +229,8 @@ In jeder Zeile die Zahl, dann ihr Doppeltes, dann das Dreifache, &hellip;, das 1
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">)</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Alles, was zwischen ( und ) steht, wird von print ausgegeben.  Print kommt aus dem Englischen und heißt wörtlich ausdrucken.  Entsprechend kommt auch <code>val</code> von value aus dem Englischen und bedeutet Wert, d.h. <code>val x = 3</code> ist eigentlich nur ein benannter Wert.</p>
 <h2 id="3-wir-brauchen-noch-eine-zutat">3. Wir brauchen noch eine Zutat:</h2>
@@ -245,12 +245,12 @@ In jeder Zeile die Zahl, dann ihr Doppeltes, dann das Dreifache, &hellip;, das 1
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">val</span> <span class="py">y</span> <span class="p">=</span> <span class="m">5</span>
-  <span class="k">for</span> <span class="p">(</span><span class="n">x</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">)</span>
-  <span class="p">}</span>
-  <span class="n">println</span><span class="p">()</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">y</span> <span class="p">=</span> <span class="m">5</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="n">x</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">println</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>Den ersten Ausdruck kennen wir schon <code>val y = 5</code> bedeutet, dass der Name <code>y</code> für den Wert 5 steht.
 <code>for (x in 1..10)</code> bedeutet, dass der Ausdruck zwischen <code>{</code> und <code>}</code> für alle Zahlen von 1 bis 10 wiederholt wird. D.h. im ersten Durchlauf ist <code>x=1</code>, im zweiten Durchlauf <code>x=2</code> und so weiter bis einschließlich <code>x=10</code>.</p>
@@ -267,13 +267,13 @@ In jeder Zeile die Zahl, dann ihr Doppeltes, dann das Dreifache, &hellip;, das 1
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">for</span> <span class="p">(</span><span class="n">y</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">x</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
-      <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="n">println</span><span class="p">()</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="n">y</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">x</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="was-bedeutet-println">Was bedeutet <code>println()</code>?</h2>
 <p>Print gibt etwas auf der Konsole aus, <code>println()</code> gibt ein Zeilenende aus.</p>
@@ -288,10 +288,10 @@ auf 1 Zeile (bis die Zeile überläuft).</p>
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="o">..</span><span class="p">.</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p>schreiben.  Main heisst Hauptprogramm (so wie in main dish, Hauptgericht). Fun ist die Abkürzung für function, dass sind die Teile eines Programms.  Für jedes ausführbare Programm brauchen wir zumindest einen Hauptteil <code>fun main()</code>.</p>
 <p>Insgesamt muss das Programm also wie folgt aussehen:</p>
@@ -307,15 +307,15 @@ auf 1 Zeile (bis die Zeile überläuft).</p>
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="n">y</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">for</span> <span class="p">(</span><span class="n">x</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">)</span>
-      <span class="p">}</span>
-      <span class="n">println</span><span class="p">()</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">y</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">x</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="wie-kann-ich-das-programm-ausprobieren">Wie kann ich das Programm ausprobieren?</h1>
 <p>Wenn die Entwicklungsumgebung richtig eingerichtet ist und das Programm in einem neuen Projekt geschrieben wurde, dann muss man jetzt nur noch auf den grünen Pfeil am linken Rand klicken und schon wird das Programm übersetzt und ausgeführt.</p>
@@ -332,8 +332,8 @@ auf 1 Zeile (bis die Zeile überläuft).</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin">  <span class="n">print</span><span class="p">((</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">).</span><span class="n">toString</span><span class="p">().</span><span class="n">padStart</span><span class="p">(</span><span class="m">3</span><span class="p">))</span>
-</code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">print</span><span class="p">((</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">).</span><span class="n">toString</span><span class="p">().</span><span class="n">padStart</span><span class="p">(</span><span class="m">3</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>.toString(...)</code> bedeutet, dass das Argument (davor) in einen Text verwandelt wird,
 <code>.padStart(3)</code> bedeutet, dass der text auf 3 Zeichen aufgefüllt wird (von links mit Leerzeichen). Das erste sollte immer ein Leerzeichen bleiben.</p>
@@ -461,7 +461,7 @@ auf 1 Zeile (bis die Zeile überläuft).</p>
 
 
 
-<script type="text/javascript" src="/js/main.min.2517c0eb67172a0bae917de4af59b10ca2531411a009d4c0b82f5685259e5771.js"></script>
+<script type="text/javascript" src="/js/main.min.30dad356188cdaba5047112eaa8bf5e85cb14ae7e803337403591fce94a531a0.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
