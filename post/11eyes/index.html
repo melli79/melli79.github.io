@@ -52,7 +52,7 @@ Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, 
 <meta itemprop="description" content="Nachdem ihr eine Entwicklungsumgebung aufgesetzt habt, wollen wir heute etwas malen.
 Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, erstellt ihr eine Datei &gt; Neu &gt; Projekt &hellip; vom Typ Kotlin, Console Application. Ihr könnt dem Projekt einen ordentlichen Namen geben, z.B. Eyes (engl. für Augen), achtet darauf, dass das Build-System Gradle-Kotlin ist, das Projekt open JDK 11 (oder was ihr damals als Java-Umgebung installiert habt) verwendet."><meta itemprop="datePublished" content="2022-04-10T12:31:50+02:00" />
 <meta itemprop="dateModified" content="2022-04-10T12:31:50+02:00" />
-<meta itemprop="wordCount" content="2033">
+<meta itemprop="wordCount" content="2037">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="11 Augen malen"/>
 <meta name="twitter:description" content="Nachdem ihr eine Entwicklungsumgebung aufgesetzt habt, wollen wir heute etwas malen.
@@ -159,9 +159,9 @@ Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, 
     </li>
     <li><a href="#9-mehr-selbst-probieren">9. Mehr selbst probieren</a>
       <ul>
-        <li><a href="#1-bunte-augen">1. Bunte Augen</a></li>
-        <li><a href="#2-schielende-augen">2. Schielende Augen</a></li>
-        <li><a href="#3-schneemann-malen">3. Schneemann malen</a></li>
+        <li><a href="#91-bunte-augen">9.1 Bunte Augen</a></li>
+        <li><a href="#92-schielende-augen">9.2 Schielende Augen</a></li>
+        <li><a href="#93-schneemann-malen">9.3 Schneemann malen</a></li>
       </ul>
     </li>
   </ul>
@@ -352,7 +352,7 @@ Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, 
 <p><code>0.25*w</code> ist links, <code>0.75*w</code> ist rechts,</p>
 </li>
 <li>
-<p><code>-d/2</code> heißt, dass die Pupille um den halben Durchmesser links/nach oben versetzt anfängt</p>
+<p><code>-d/2</code> heißt, dass die Pupille um den halben Durchmesser nach links/nach oben versetzt anfängt</p>
 </li>
 <li>
 <p><code>, d, d</code> heißt, dass jede Pupille Durchmesser <code>d</code> hat (und rund ist, nicht oval);</p>
@@ -432,7 +432,7 @@ Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, 
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Dabei bedeutet $\Delta x_L$ (also <code>dxL</code>) die x-Verschiebung des linken Auges, $\Delta x_R$ die x-Verschiebung des rechten Auges und $\Delta y$ die y-Verschiebung der Augen.</p>
+</div><p>Dabei bedeutet $\Delta x_L$ (also <code>dxL</code>) die waagerechte Verschiebung des linken Auges, $\Delta x_R$ die waagerechte Verschiebung des rechten Auges und $\Delta y$ die senkrechte Verschiebung der Augen.</p>
 <h2 id="wie-rechnet-man-dxl-dxr-und-dy-aus">Wie rechnet man <code>dxL</code>, <code>dxR</code> und <code>dy</code> aus?</h2>
 <p>Dazu muss man die Mausposition abfragen.  Das kann man aber nicht nur einmalig beim (ersten) Malen machen, sondern muss man immer tun, wenn sich die Maus bewegt.  Dazu ergänzen wir die Augen um einen <code>MouseMotionListener</code> wie folgt:</p>
 <div class="highlight"><div class="chroma">
@@ -592,7 +592,7 @@ Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, 
 </div><p>Das war jetzt viel Theorie, probier es doch einfach mal aus (mit &lt;Strg&gt;+&lt;R&gt; starten).</p>
 <p>Wenn alles stimmt, dann sollten die 2 Augen zum Mauszeiger schauen und sich mitbewegen.  Es kann aber sein, dass du erst einmal auf das Fenster mit den Augen klicken musst (oder zumindest der Mauszeiger in diesem Fenster sein muss).</p>
 <h1 id="9-mehr-selbst-probieren">9. Mehr selbst probieren</h1>
-<h2 id="1-bunte-augen">1. Bunte Augen</h2>
+<h2 id="91-bunte-augen">9.1 Bunte Augen</h2>
 <p>Versuch doch mal, grüne Augen zu malen!</p>
 <p>Dazu gibt es 2.5 Möglichkeiten:</p>
 <ol>
@@ -650,7 +650,7 @@ Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, 
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">green</span><span class="p">.</span><span class="n">darker</span><span class="p">()</span>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">green</span><span class="p">.</span><span class="n">darker</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">d</span> <span class="p">=</span> <span class="n">min</span><span class="p">((</span><span class="m">0.275</span><span class="p">*</span><span class="n">w</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="m">0.35</span><span class="p">*</span><span class="n">h</span><span class="p">).</span><span class="n">toInt</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">fillOval</span><span class="p">((</span><span class="m">0.25</span><span class="p">*</span><span class="n">w</span> <span class="p">+</span><span class="m">0.125</span><span class="p">*</span><span class="n">w</span><span class="p">*</span><span class="n">dxL</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span> <span class="p">+</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span><span class="p">*</span><span class="n">dy</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">fillOval</span><span class="p">((</span><span class="m">0.75</span><span class="p">*</span><span class="n">w</span> <span class="p">+</span><span class="m">0.125</span><span class="p">*</span><span class="n">w</span><span class="p">*</span><span class="n">dxR</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span> <span class="p">+</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span><span class="p">*</span><span class="n">dy</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
@@ -662,7 +662,7 @@ Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, 
 </div>
 </div><p>Verstehst du den Unterschied zwischen 1, 2 und 3?</p>
 <p>Was must du tun, wenn die rechte Iris blau sein soll?</p>
-<h2 id="2-schielende-augen">2. Schielende Augen</h2>
+<h2 id="92-schielende-augen">9.2 Schielende Augen</h2>
 <p>Da gibt es einige Möglichkeiten.  Am Einfachsten ist es wohl, wenn du ein Auge etwas höher blicken lässt, z.B. so:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -673,7 +673,7 @@ Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, 
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Die y-Koordinate zählt von oben, also $y=0$ ist am oberen Rand des Fensters, $y=0.5*h$ in der Mitte und $y=h$ am unteren Rand.  Wenn du nun statt $y=0.5*h$ einfach $y=0.4*h$ wählst, dann ist das etwas höher als die Mitte.  Und wenn du das nur bei einem Auge machst, dann blickt das höher als das andere.</p>
-<h2 id="3-schneemann-malen">3. Schneemann malen</h2>
+<h2 id="93-schneemann-malen">9.3 Schneemann malen</h2>
 <p>Kannst du die Malroutine (<code>fun paint(g :Graphics?)</code>) so abändern, dass anstatt von 2 Augen 3 Kugeln übereinander gemalt werden?</p>
 <p>Hinweis:  Jede Kugel sollte den Durchmesser <code>val d = h/3</code> haben und die erste Kugel beginnt oben ($y=0$), die zweite nach 1/3 ($y=h/3$) und die dritte nach 2/3 ($y=2*h/3$).</p>
 <p>Viel Spaß beim Ausprobieren und bitte sag Bescheid, wenn es Probleme gibt.</p>

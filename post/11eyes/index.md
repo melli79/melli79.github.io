@@ -114,7 +114,7 @@ Wenn ihr alles richtig abgetippt/kopiert habt, dann könnt ihr jetzt das Program
 
 5. `0.25*w` ist links, `0.75*w` ist rechts,
 
-6. `-d/2` heißt, dass die Pupille um den halben Durchmesser links/nach oben versetzt anfängt
+6. `-d/2` heißt, dass die Pupille um den halben Durchmesser nach links/nach oben versetzt anfängt
 
 7. `, d, d` heißt, dass jede Pupille Durchmesser `d` hat (und rund ist, nicht oval);
 
@@ -170,7 +170,7 @@ Der eigentliche Trick an Augen ist es, dass sie sich bewegen, z.B. einem Objekt 
     }
   }
 ```
-Dabei bedeutet $\Delta x_L$ (also `dxL`) die x-Verschiebung des linken Auges, $\Delta x_R$ die x-Verschiebung des rechten Auges und $\Delta y$ die y-Verschiebung der Augen.
+Dabei bedeutet $\Delta x_L$ (also `dxL`) die waagerechte Verschiebung des linken Auges, $\Delta x_R$ die waagerechte Verschiebung des rechten Auges und $\Delta y$ die senkrechte Verschiebung der Augen.
 
 ## Wie rechnet man `dxL`, `dxR` und `dy` aus?
 
@@ -251,6 +251,7 @@ Dabei musst du noch die Funktion `sqrt` importieren, also \<Alt\>+\<Enter\> und 
 
 9. `repaint()` bedeutet, dass wir dem Computer sagen, dass er die Augen neu malen muss.  Wir können nicht einfach `paint(g :Graphics?)` aufrufen, weil der Computer vielleicht gar nicht bereit ist zum Malen (wir kennen `g` noch nicht);
 
+
 ## Eine Sache fehlt noch
 
 Wir müssen dem Fenster noch sagen, dass wir benachrichtigt werden wollen, wenn sich die Maus bewegt.  Das geht so:  In der Datei "Main.kt" ersetzen wir die Zeile
@@ -270,7 +271,7 @@ Wenn alles stimmt, dann sollten die 2 Augen zum Mauszeiger schauen und sich mitb
 
 # 9. Mehr selbst probieren
 
-## 1. Bunte Augen
+## 9.1 Bunte Augen
 
 Versuch doch mal, grüne Augen zu malen!
 
@@ -296,7 +297,7 @@ Dazu gibt es 2.5 Möglichkeiten:
 
 3. Du malst zwischen Augenhintergrund (die weißen Ovale) und Pupillen (die schwarzen Ovale) noch eine grüne Iris, z.B. so
   ```Kotlin
-    g.color = green.darker()
+    g.color = Color.green.darker()
     val d = min((0.275*w).toInt(), (0.35*h).toInt())
     g.fillOval((0.25*w +0.125*w*dxL -d/2).toInt(), (0.5*h +0.5*h*dy -d/2).toInt(), d, d)
     g.fillOval((0.75*w +0.125*w*dxR -d/2).toInt(), (0.5*h +0.5*h*dy -d/2).toInt(), d, d)
@@ -311,7 +312,7 @@ Verstehst du den Unterschied zwischen 1, 2 und 3?
 Was must du tun, wenn die rechte Iris blau sein soll?
 
 
-## 2. Schielende Augen
+## 9.2 Schielende Augen
 
 Da gibt es einige Möglichkeiten.  Am Einfachsten ist es wohl, wenn du ein Auge etwas höher blicken lässt, z.B. so:
 ```Kotlin
@@ -321,7 +322,7 @@ Da gibt es einige Möglichkeiten.  Am Einfachsten ist es wohl, wenn du ein Auge 
 Die y-Koordinate zählt von oben, also $y=0$ ist am oberen Rand des Fensters, $y=0.5\*h$ in der Mitte und $y=h$ am unteren Rand.  Wenn du nun statt $y=0.5\*h$ einfach $y=0.4\*h$ wählst, dann ist das etwas höher als die Mitte.  Und wenn du das nur bei einem Auge machst, dann blickt das höher als das andere.
 
 
-## 3. Schneemann malen
+## 9.3 Schneemann malen
 
 Kannst du die Malroutine (`fun paint(g :Graphics?)`) so abändern, dass anstatt von 2 Augen 3 Kugeln übereinander gemalt werden?
 
