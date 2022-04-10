@@ -1,7 +1,7 @@
 Nachdem ihr eine [Entwicklungsumgebung aufgesetzt](../00-setup-ide/) habt, wollen wir heute etwas malen.
 
 # Das Ziel
-![(.)(.)](/eyes.png "100x50")
+![(.)(.)](/img/eyes.png "100x50")
 
 # 1. Projekt aufsetzen
 
