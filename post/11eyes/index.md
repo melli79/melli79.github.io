@@ -296,7 +296,7 @@ Dazu gibt es 2.5 Möglichkeiten:
 
 3. Du malst zwischen Augenhintergrund (die weißen Ovale) und Pupillen (die schwarzen Ovale) noch eine grüne Iris, z.B. so
   ```Kotlin
-    g.color = green.darker()
+    g.color = Color.green.darker()
     val d = min((0.275*w).toInt(), (0.35*h).toInt())
     g.fillOval((0.25*w +0.125*w*dxL -d/2).toInt(), (0.5*h +0.5*h*dy -d/2).toInt(), d, d)
     g.fillOval((0.75*w +0.125*w*dxR -d/2).toInt(), (0.5*h +0.5*h*dy -d/2).toInt(), d, d)
