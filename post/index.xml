@@ -6,7 +6,17 @@
     <description>Recent content in Posts on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 09 Apr 2022 11:50:55 +0200</lastBuildDate><atom:link href="https://melli79.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Apr 2022 12:31:50 +0200</lastBuildDate><atom:link href="https://melli79.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>11 Augen malen</title>
+      <link>https://melli79.github.io/post/11eyes/</link>
+      <pubDate>Sun, 10 Apr 2022 12:31:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/11eyes/</guid>
+      <description>Nachdem ihr eine Entwicklungsumgebung aufgesetzt habt, wollen wir heute etwas malen.
+Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, erstellt ihr eine Datei &amp;gt; Neu &amp;gt; Projekt &amp;hellip; vom Typ Kotlin, Console Application. Ihr könnt dem Projekt einen ordentlichen Namen geben, z.B. Eyes (engl. für Augen), achtet darauf, dass das Build-System Gradle-Kotlin ist, das Projekt open JDK 11 (oder was ihr damals als Java-Umgebung installiert habt) verwendet.</description>
+    </item>
+    
     <item>
       <title>00 Kotlin IDE Aufsetzen</title>
       <link>https://melli79.github.io/post/00-setup-ide/</link>

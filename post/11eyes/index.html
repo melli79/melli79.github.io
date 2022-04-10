@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>11 Augen malen - Melchior&#39;s Homepage</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="melli79" /><meta name="description" content="Nachdem ihr eine Entwicklungsumgebung aufgesetzt habt, wollen wir heute etwas malen.
+Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, erstellt ihr eine Datei &amp;gt; Neu &amp;gt; Projekt &amp;hellip; vom Typ Kotlin, Console Application. Ihr könnt dem Projekt einen ordentlichen Namen geben, z.B. Eyes (engl. für Augen), achtet darauf, dass das Build-System Gradle-Kotlin ist, das Projekt open JDK 11 (oder was ihr damals als Java-Umgebung installiert habt) verwendet." />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.96.0 with theme even" />
+
+
+<link rel="canonical" href="https://melli79.github.io/post/11eyes/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78d3a03abaed5d3c468bdf402fc110f36c046abf091a63421b9ce0a5a63db941.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="11 Augen malen" />
+<meta property="og:description" content="Nachdem ihr eine Entwicklungsumgebung aufgesetzt habt, wollen wir heute etwas malen.
+Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, erstellt ihr eine Datei &gt; Neu &gt; Projekt &hellip; vom Typ Kotlin, Console Application. Ihr könnt dem Projekt einen ordentlichen Namen geben, z.B. Eyes (engl. für Augen), achtet darauf, dass das Build-System Gradle-Kotlin ist, das Projekt open JDK 11 (oder was ihr damals als Java-Umgebung installiert habt) verwendet." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://melli79.github.io/post/11eyes/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-04-10T12:31:50+02:00" />
+<meta property="article:modified_time" content="2022-04-10T12:31:50+02:00" />
+
+<meta itemprop="name" content="11 Augen malen">
+<meta itemprop="description" content="Nachdem ihr eine Entwicklungsumgebung aufgesetzt habt, wollen wir heute etwas malen.
+Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, erstellt ihr eine Datei &gt; Neu &gt; Projekt &hellip; vom Typ Kotlin, Console Application. Ihr könnt dem Projekt einen ordentlichen Namen geben, z.B. Eyes (engl. für Augen), achtet darauf, dass das Build-System Gradle-Kotlin ist, das Projekt open JDK 11 (oder was ihr damals als Java-Umgebung installiert habt) verwendet."><meta itemprop="datePublished" content="2022-04-10T12:31:50+02:00" />
+<meta itemprop="dateModified" content="2022-04-10T12:31:50+02:00" />
+<meta itemprop="wordCount" content="2033">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="11 Augen malen"/>
+<meta name="twitter:description" content="Nachdem ihr eine Entwicklungsumgebung aufgesetzt habt, wollen wir heute etwas malen.
+Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, erstellt ihr eine Datei &gt; Neu &gt; Projekt &hellip; vom Typ Kotlin, Console Application. Ihr könnt dem Projekt einen ordentlichen Namen geben, z.B. Eyes (engl. für Augen), achtet darauf, dass das Build-System Gradle-Kotlin ist, das Projekt open JDK 11 (oder was ihr damals als Java-Umgebung installiert habt) verwendet."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Melchior&#39;s Homepage</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Themes</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Melchior&#39;s Homepage</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Themes</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">11 Augen malen</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-04-10 </span>
+        <div class="post-category">
+            <a href="/categories/kotlin/"> Kotlin </a>
+            <a href="/categories/programming/"> Programming </a>
+            <a href="/categories/swing/"> Swing </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#das-ziel">Das Ziel</a></li>
+    <li><a href="#1-projekt-aufsetzen">1. Projekt aufsetzen</a>
+      <ul>
+        <li><a href="#bedeutung">Bedeutung</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-augen-malen">2. Augen Malen</a>
+      <ul>
+        <li><a href="#was-bedeutet-das">Was bedeutet das?</a></li>
+        <li><a href="#mein-programm-kompiliert-nicht-mehr">Mein Programm kompiliert nicht mehr</a></li>
+        <li><a href="#das-weiße-der-augen-ist-rechteckig">Das Weiße der Augen ist Rechteckig</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-augen-bewegen">3. Augen bewegen</a>
+      <ul>
+        <li><a href="#wie-rechnet-man-dxl-dxr-und-dy-aus">Wie rechnet man <code>dxL</code>, <code>dxR</code> und <code>dy</code> aus?</a></li>
+        <li><a href="#was-bedeutet-das-1">Was bedeutet das?</a></li>
+        <li><a href="#eine-sache-fehlt-noch">Eine Sache fehlt noch</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-mehr-selbst-probieren">9. Mehr selbst probieren</a>
+      <ul>
+        <li><a href="#1-bunte-augen">1. Bunte Augen</a></li>
+        <li><a href="#2-schielende-augen">2. Schielende Augen</a></li>
+        <li><a href="#3-schneemann-malen">3. Schneemann malen</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Nachdem ihr eine <a href="../00-setup-ide/">Entwicklungsumgebung aufgesetzt</a> habt, wollen wir heute etwas malen.</p>
+<h1 id="das-ziel">Das Ziel</h1>
+<p><img src="/eyes.png" alt="(.)(.)" title="100x50"></p>
+<h1 id="1-projekt-aufsetzen">1. Projekt aufsetzen</h1>
+<p>So, wie in der Anleitung im Schritt 2B angegeben, erstellt ihr eine Datei &gt; Neu &gt; Projekt &hellip; vom Typ Kotlin, Console Application.  Ihr könnt dem Projekt einen ordentlichen Namen geben, z.B. Eyes (engl. für Augen), achtet darauf, dass das Build-System Gradle-Kotlin ist, das Projekt open JDK 11 (oder was ihr damals als Java-Umgebung installiert habt) verwendet.  Der Rest kann bei den Standardwerten bleiben.</p>
+<p>Nach einer Weile öffnet die IDE (Entwicklungsumgebung) die Datei &ldquo;Main.kt&rdquo; mit einem minimalen Hauptprogramm <code>fun main(args :Array&lt;String) {...}</code>.  Dieses ändert ihr jetzt wie folgt ab:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">contentPane</span> <span class="p">:</span><span class="n">Eyes</span><span class="p">)</span> <span class="p">:</span><span class="n">JFrame</span><span class="p">(</span><span class="s2">&#34;Eyes&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">init</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">layout</span> <span class="p">=</span> <span class="n">BorderLayout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">this</span><span class="p">.</span><span class="n">contentPane</span> <span class="p">=</span> <span class="n">contentPane</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">setSize</span><span class="p">(</span><span class="m">600</span><span class="p">,</span> <span class="m">400</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">defaultCloseOperation</span> <span class="p">=</span> <span class="n">EXIT_ON_CLOSE</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// hier kommt noch etwas
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span> <span class="p">:</span><span class="n">Array</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">window</span> <span class="p">=</span> <span class="n">MainWindow</span><span class="p">(</span><span class="n">Eyes</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">window</span><span class="p">.</span><span class="n">isVisible</span> <span class="p">=</span> <span class="k">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wenn ihr das eingefügt/eingegeben habt, sollten <code>:Eyes</code>, <code>BorderLayout</code> und <code>JFrame</code> rot markiert sein.  Das liegt daran, dass diese noch importiert/implementiert werden müssen.  Stellt den Cursor auf <code>JFrame</code> und drückt &lt;Alt&gt;+&lt;Enter&gt;:  Es sollte die Zeile</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">import</span> <span class="nn">javax.swing.JFrame</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>ganz oben eingefügt werden.  (Falls keine Zeile eingefügt werden kann, habt ihr vielleicht nicht &ldquo;Konsolen-Applikation&rdquo; ausgewählt oder noch kein JDK, dann müsstet ihr das Projekt nochmal aufsetzen/anpassen.)</p>
+<p>Entsprechend stellt ihr euch auf <code>BorderLayout</code> und drückt nochmal &lt;Alt&gt;+&lt;Enter&gt;.  Dabei sollte die Zeile</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">import</span> <span class="nn">java.awt.BorderLayout</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>eingefügt werden (über der Zeile mit <code>JFrame</code>).</p>
+<h2 id="bedeutung">Bedeutung</h2>
+<p>Was bedeuten diese Zeilen?  Es wird ein Fenster (in der Größe 600x400 Pixel) erzeugt und ein Objekt vom Typ <code>Eyes</code> als Inhalt (engl. content pane) gesetzt.  Leider funktioniert das Programm noch nicht, weil die Klasse <code>Eyes</code> noch nicht implementiert ist. (Notfalls könnt ihr <code>contentPane :Eyes</code> und <code>this.contentPane = ...</code> entfernen, dann sollte das Programm kompilieren und starten mit &lt;Strg&gt;+&lt;R&gt;.)</p>
+<h1 id="2-augen-malen">2. Augen Malen</h1>
+<p>Wie malt man nun etwas in das Fenster?</p>
+<p>Dazu muss man eine eigene Klasse schreiben, die die Klasse <code>JComponent</code> erweitert.</p>
+<p>Das erreicht ihr, indem ihr im Hauprprogramm auf <code>Eyes</code> zeigt und &lt;Alt&gt;+&lt;Enter&gt; drückt.  Dabei sollte ein Menü erscheinen, in dem ihr &ldquo;Klasse erstellen&rdquo; und dann &ldquo;in eigener Datei&rdquo; auswählt.  Danach sollte ein weiteres Editor-Tab aufgehen mit Namen &ldquo;Eyes.kt&rdquo; und Inhalt:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">Eyes</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Dort ergänzt ihr jetzt zu</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">Eyes</span> <span class="p">:</span><span class="n">JComponent</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>zeigt auf <code>JComponent</code> und drückt erneut &lt;Alt&gt;+&lt;Enter&gt;.  Dann sollte die Zeile</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">import</span> <span class="nn">javax.swing.JComponent</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>oben eingefügt werden.</p>
+<p>Jetzt könnt ihr das Programm compilieren und ausführen (auch wenn ihr vorher nicht <code>contentPane :Eyes</code> entfernt habt).  Leider sieht man noch immer keine Augen.</p>
+<p>Das bringen wir jetzt dem Computer bei:  In den Leer-Raum zwischen <code>{</code> und <code>}</code> stellt ihr den Cursor und tippt <code>overri</code>.  Dabei sollte ein Kontextmenü aufgehen, in dem ihr <code>override fun paint(g :Graphics?)</code> sucht und &lt;Enter&gt; drückt.  Das ist die Methode, die das Bild malen soll.  Das Grundgerüst (welches eingefügt wird) sieht etwa so aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">fun</span> <span class="nf">paint</span><span class="p">(</span><span class="n">g</span> <span class="p">:</span><span class="n">Graphics</span><span class="p">?)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">super</span><span class="p">.</span><span class="n">paint</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Falls <code>Graphics</code> rot dargestellt ist, müsstet ihr darauf zeigen und &lt;Alt&gt;+&lt;Enter&gt; drücken.  Spätestens dann wird die Zeile</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">import</span> <span class="nn">java.awt.Graphics</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>oben eingefügt.  (Falls es mehrere Optionen zur Wahl gibt, müsstet ihr <code>Graphics</code> im Paket &ldquo;java.awt&rdquo; wählen).</p>
+<p>Jetzt ändert ihr die Methode wie folgt ab:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">fun</span> <span class="nf">paint</span><span class="p">(</span><span class="n">g</span> <span class="p">:</span><span class="n">Graphics</span><span class="p">?)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">g</span><span class="o">==</span><span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">super</span><span class="p">.</span><span class="n">paint</span><span class="p">(</span><span class="k">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">w</span> <span class="p">=</span> <span class="n">width</span><span class="p">;</span>  <span class="k">val</span> <span class="py">h</span> <span class="p">=</span> <span class="n">height</span>
+</span></span><span class="line"><span class="cl">    <span class="n">g</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">white</span>
+</span></span><span class="line"><span class="cl">    <span class="n">g</span><span class="p">.</span><span class="n">fillOval</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">w</span><span class="p">/</span><span class="m">2</span><span class="p">-</span><span class="m">5</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">g</span><span class="p">.</span><span class="n">fillOval</span><span class="p">(</span><span class="n">w</span><span class="p">/</span><span class="m">2</span><span class="p">+</span><span class="m">5</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">w</span><span class="p">/</span><span class="m">2</span><span class="p">-</span><span class="m">5</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">g</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">black</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">d</span> <span class="p">=</span> <span class="n">min</span><span class="p">((</span><span class="m">0.275</span><span class="p">*</span><span class="n">w</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="m">0.35</span><span class="p">*</span><span class="n">h</span><span class="p">).</span><span class="n">toInt</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">g</span><span class="p">.</span><span class="n">fillOval</span><span class="p">((</span><span class="m">0.25</span><span class="p">*</span><span class="n">w</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">g</span><span class="p">.</span><span class="n">fillOval</span><span class="p">((</span><span class="m">0.75</span><span class="p">*</span><span class="n">w</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wenn ihr alles richtig abgetippt/kopiert habt, dann könnt ihr jetzt das Programm kompilieren und ausführen durch &lt;Strg&gt;+&lt;R&gt;.</p>
+<h2 id="was-bedeutet-das">Was bedeutet das?</h2>
+<ol>
+<li>
+<p><code>g.color = Color.black</code> und <code>g.color = Color.white</code> bedeutet, dass die nächsten Objekte in Schwarz (engl. black) oder Weiß (white) gemalt werden.</p>
+</li>
+<li>
+<p><code>width</code>, <code>height</code> ist die Breite und Höhe des Fensters.  Die braucht man, damit sich das Gemälde der Größe des Fensters anpassen kann.</p>
+</li>
+<li>
+<p><code>g.fillOval(x,y, w,h)</code> malt eine Ellipse die bei <code>(x,y)</code> (links oben) anfängt und $w\times h$ groß ist. Wenn $w=h$ ist, dann ist es eine runde Scheibe;</p>
+</li>
+<li>
+<p><code>d</code> ist der Durchmesser der Pupillen;</p>
+</li>
+<li>
+<p><code>0.25*w</code> ist links, <code>0.75*w</code> ist rechts,</p>
+</li>
+<li>
+<p><code>-d/2</code> heißt, dass die Pupille um den halben Durchmesser links/nach oben versetzt anfängt</p>
+</li>
+<li>
+<p><code>, d, d</code> heißt, dass jede Pupille Durchmesser <code>d</code> hat (und rund ist, nicht oval);</p>
+</li>
+<li>
+<p><code>(...).toInt()</code> ist eine Anpassung aus folgendem Grund:  Wenn man <code>0.25*w</code> ausrechnet, kommt eine gebrochene Zahl heraus, z.B. 10.25.  Die Position und Größe der Ellipse muss aber in ganzen Zahlen angegeben werden, also verwandeln wir einfach die gebrochene Zahl in die nächste ganze Zahl, z.B. 10.25 in 10.</p>
+</li>
+</ol>
+<p>Wenn du alles fehlerfrei abgetippt hast, sollte das Programm jetzt wieder kompilieren und nach dem Start dich 2 schwarze Pupillen anstarren.</p>
+<h2 id="mein-programm-kompiliert-nicht-mehr">Mein Programm kompiliert nicht mehr</h2>
+<p>Wenn du eine Fehlermeldung wie &ldquo;&rsquo;)&rsquo; expected&rdquo; erhälst und sich das Fenster mit den schwarzen Pupillen nicht öffnet, dann hast du leider einen Tippfehler.  Schau mal in die Zeile mit der Fehlermeldung und zähle die Anzahl öffnender &lsquo;(&rsquo; und schließender &lsquo;)&rsquo; Klammern, irgendeine fehlt da.</p>
+<p>Ein paar Tipps:</p>
+<ul>
+<li>alle Klammern müssen rund &lsquo;(&rsquo; und &lsquo;)&rsquo; sein;</li>
+<li>der Dezimalpunkt muss ein Punkt sein, also <code>0.25</code> nicht <code>0,25</code>;</li>
+<li>jeder Aufruf von <code>g.fillOval()</code> braucht 4 Parameter, also 3 Kommas und zwischen den Kommas müssen alle geöffneten Klammern auch wieder geschlossen werden;</li>
+<li>das zweite <code>g.color = Color.black</code> nicht vergessen, sonst hast du weiße Pupillen in weißen Augenrändern (unsichtbar);</li>
+<li>falls <code>Color</code> und <code>min(</code> noch rot dargestellt werden, musst du die importieren, also mit dem Cursor darauf zeigen und &lt;Alt&gt;+&lt;Enter&gt; drücken.  Bei <code>min(</code> gibt es vielleicht mehrere Auswahlmöglichkeiten, dort eine aus dem Paket &ldquo;kotlin.math&rdquo; wählen (den korrekten Typ passt er beim Kompilieren an).</li>
+</ul>
+<h2 id="das-weiße-der-augen-ist-rechteckig">Das Weiße der Augen ist Rechteckig</h2>
+<p>Das liegt daran, dass der Hintergrund auch weiß ist.  Du kannst das korrigieren, indem du die folgende Methode einfügst:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">Eyes</span> <span class="p">:</span><span class="n">JComponent</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">init</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">background</span> <span class="p">=</span> <span class="n">Color</span><span class="p">(</span><span class="m">255</span><span class="p">,</span> <span class="m">231</span><span class="p">,</span> <span class="m">214</span><span class="p">)</span> <span class="c1">// skin color
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="3-augen-bewegen">3. Augen bewegen</h1>
+<p>Der eigentliche Trick an Augen ist es, dass sie sich bewegen, z.B. einem Objekt folgen.  Das kann man wie folgt erreichen:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">Eyes</span> <span class="p">:</span><span class="n">JComponent</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">var</span> <span class="py">dxL</span> <span class="p">=</span> <span class="m">0.0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">var</span> <span class="py">dxR</span> <span class="p">=</span> <span class="m">0.0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">var</span> <span class="py">dy</span> <span class="p">=</span> <span class="m">0.0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">init</span> <span class="p">{</span><span class="o">..</span><span class="p">.}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">override</span> <span class="k">fun</span> <span class="nf">paint</span><span class="p">(</span><span class="n">g</span> <span class="p">:</span><span class="n">Graphics</span><span class="p">?)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">      <span class="n">g</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">black</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">d</span> <span class="p">=</span> <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">      <span class="n">g</span><span class="p">.</span><span class="n">fillOval</span><span class="p">((</span><span class="m">0.25</span><span class="p">*</span><span class="n">w</span> <span class="p">+</span><span class="m">0.125</span><span class="p">*</span><span class="n">w</span><span class="p">*</span><span class="n">dxL</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span> <span class="p">+</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span><span class="p">*</span><span class="n">dy</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">g</span><span class="p">.</span><span class="n">fillOval</span><span class="p">((</span><span class="m">0.75</span><span class="p">*</span><span class="n">w</span> <span class="p">+</span><span class="m">0.125</span><span class="p">*</span><span class="n">w</span><span class="p">*</span><span class="n">dxR</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span> <span class="p">+</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span><span class="p">*</span><span class="n">dy</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Dabei bedeutet $\Delta x_L$ (also <code>dxL</code>) die x-Verschiebung des linken Auges, $\Delta x_R$ die x-Verschiebung des rechten Auges und $\Delta y$ die y-Verschiebung der Augen.</p>
+<h2 id="wie-rechnet-man-dxl-dxr-und-dy-aus">Wie rechnet man <code>dxL</code>, <code>dxR</code> und <code>dy</code> aus?</h2>
+<p>Dazu muss man die Mausposition abfragen.  Das kann man aber nicht nur einmalig beim (ersten) Malen machen, sondern muss man immer tun, wenn sich die Maus bewegt.  Dazu ergänzen wir die Augen um einen <code>MouseMotionListener</code> wie folgt:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">Eyes</span> <span class="p">:</span><span class="n">JComponent</span><span class="p">(),</span> <span class="n">MouseMotionListener</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Dann musst du wieder &lt;Alt&gt;+&lt;Enter&gt; auf dem <code>MouseMotionListener</code> drücken und das Symbol aus dem Paket &ldquo;java.awt.event&rdquo; importieren.</p>
+<p>Jetzt wird <code>class Eyes</code> rot unterstrichen, weil 2 Methoden fehlen.  Dazu stellst du den Cursor auf <code>class Eyes</code> und drückst wieder &lt;Alt&gt;+&lt;Enter&gt;.  Im Menü sollte es den Punkt &ldquo;Methoden Implementieren&rdquo; geben, den du auswählst.  Aus dem folgenden Dialog wählst du alle Methoden aus, also <code>mouseMoved(MouseEvent?)</code> und <code>mouseDragged(MouseEvent?)</code> und drückst &ldquo;Ok&rdquo;.</p>
+<p>Danach sollte der folgende Quelltext entstanden sein:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">Eyes</span> <span class="p">:</span><span class="o">..</span><span class="p">.</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">var</span> <span class="err">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">override</span> <span class="k">fun</span> <span class="nf">mouseDragged</span><span class="p">(</span><span class="n">e</span> <span class="p">:</span><span class="n">MouseEvent</span><span class="p">?)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">super</span><span class="p">.</span><span class="n">mouseDragged</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">override</span> <span class="k">fun</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="n">e</span> <span class="p">:</span><span class="n">MouseEvent</span><span class="p">?)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">super</span><span class="p">.</span><span class="n">mouseMoved</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Diese neuen Methoden änderst du nun wie folgt:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">fun</span> <span class="nf">mouseDragged</span><span class="p">(</span><span class="n">event</span> <span class="p">:</span><span class="n">MouseEvent</span><span class="p">?)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">event</span><span class="o">!=</span><span class="k">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">mouseMoved</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">fun</span> <span class="nf">mouseMoved</span><span class="p">(</span><span class="n">event</span> <span class="p">:</span><span class="n">MouseEvent</span><span class="p">?)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">event</span><span class="o">==</span><span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">super</span><span class="p">.</span><span class="n">mouseMoved</span><span class="p">(</span><span class="k">null</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">xL</span> <span class="p">=</span> <span class="n">event</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span><span class="n">width</span><span class="p">/</span><span class="m">4</span><span class="p">;</span>  <span class="k">val</span> <span class="py">xR</span> <span class="p">=</span> <span class="n">event</span><span class="p">.</span><span class="n">x</span> <span class="p">-</span><span class="m">3</span><span class="p">*</span><span class="n">width</span><span class="p">/</span><span class="m">4</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">y</span> <span class="p">=</span> <span class="n">event</span><span class="p">.</span><span class="n">y</span> <span class="p">-</span><span class="n">height</span><span class="p">/</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">r2L</span> <span class="p">=</span> <span class="n">sqr</span><span class="p">(</span><span class="n">xL</span><span class="p">)</span> <span class="p">+</span><span class="n">sqr</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">+</span><span class="m">10</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">r2R</span> <span class="p">=</span> <span class="n">sqr</span><span class="p">(</span><span class="n">xR</span><span class="p">)</span> <span class="p">+</span><span class="n">sqr</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="p">+</span><span class="m">10</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">fL</span> <span class="p">=</span> <span class="m">1</span><span class="p">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r2L</span><span class="p">.</span><span class="n">toDouble</span><span class="p">());</span>  <span class="k">val</span> <span class="py">fR</span> <span class="p">=</span> <span class="m">1</span><span class="p">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">r2R</span><span class="p">.</span><span class="n">toDouble</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dxL</span> <span class="p">=</span> <span class="n">xL</span><span class="p">*</span><span class="n">fL</span><span class="p">;</span>  <span class="n">dy</span> <span class="p">=</span> <span class="n">y</span><span class="p">*(</span><span class="n">fL</span><span class="p">+</span><span class="n">fR</span><span class="p">)/</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">    <span class="n">dxR</span> <span class="p">=</span> <span class="n">xR</span><span class="p">*</span><span class="n">fR</span>
+</span></span><span class="line"><span class="cl">    <span class="n">repaint</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">fun</span> <span class="nf">sqr</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">=</span> <span class="n">x</span><span class="p">*</span><span class="n">x</span>
+</span></span><span class="line"><span class="cl"><span class="k">fun</span> <span class="nf">sqr</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">=</span> <span class="n">x</span><span class="p">*</span><span class="n">x</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Dabei musst du noch die Funktion <code>sqrt</code> importieren, also &lt;Alt&gt;+&lt;Enter&gt; und irgendeine aus dem Paket &ldquo;kotlin.math&rdquo; auswählen.</p>
+<h2 id="was-bedeutet-das-1">Was bedeutet das?</h2>
+<ol>
+<li>
+<p>$x_L = \mathrm{event}.x - \mathrm{width}/4$ ist der x-Abstand der Mausposition (<code>event.x, event.y</code>) von der Mitte des linken Auges &ndash; also $x_L&lt;0$ wenn die Maus links von (der Mitte des) linken Auges ist und $x_L&gt;0$ wenn die Maus rechts von (der Mitte des linken) Auges ist;</p>
+</li>
+<li>
+<p>$x_R = \mathrm{event}.x - {}^3/_4*\mathrm{width}$ ist der x-Abstand der Mausposition von der Mitte des rechten Auges;</p>
+</li>
+<li>
+<p>$y = \mathrm{event}.y -\mathrm{height}/2$ ist der y-Abstand der Mausposition von der Mitte der Augen;</p>
+</li>
+<li>
+<p><code>fun sqr(x :Int) = x*x</code> ist das Quadrat (engl. square) und $r^2_L$ das Quadrat des Abstands der Mausposition von der Mitte des linken Auges (s.a. Satz des Pythagoras);</p>
+</li>
+<li>
+<p><code>+10</code> ist ein Sicherheitsabstand, d.h. dass der Abstand mindestens 10 ist (weil wir gleich durch diesen Abstand dividieren);</p>
+</li>
+<li>
+<p>$ \Delta x_L = x_L*f_L$; $ \Delta x_R = x_R*f_R$ bedeutet, dass sich das Auge etwas in Richtung des Mauszeigers bewegt, aber nur um einen kleinen Faktor;</p>
+</li>
+<li>
+<p>$f_L = 1/\sqrt{r^2_L}$ und $f_R = 1/\sqrt{r^2_R}$ ist dieser kleine Faktor, <code>sqrt</code> bedeutet Quadratwurzel (engl. square root), das hängt mit dem Satz des Pythagoras zusammen (wir haben oben ja $r^2_L$ und $r^2_R$ ausgerechnet);</p>
+</li>
+<li>
+<p>$\Delta y = y*(f_L+f_R)/2$ für die Höhenverschiebung der Augen verwenden wir den durchschnittlichen Faktor, insbesondere schauen beide Augen immer gleich hoch (sonst würden sie ja schielen);</p>
+</li>
+<li>
+<p><code>repaint()</code> bedeutet, dass wir dem Computer sagen, dass er die Augen neu malen muss.  Wir können nicht einfach <code>paint(g :Graphics?)</code> aufrufen, weil der Computer vielleicht gar nicht bereit ist zum Malen (wir kennen <code>g</code> noch nicht);</p>
+</li>
+</ol>
+<h2 id="eine-sache-fehlt-noch">Eine Sache fehlt noch</h2>
+<p>Wir müssen dem Fenster noch sagen, dass wir benachrichtigt werden wollen, wenn sich die Maus bewegt.  Das geht so:  In der Datei &ldquo;Main.kt&rdquo; ersetzen wir die Zeile</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="c1">// hier kommt noch etwas
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>durch folgendes:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">addMouseMotionListener</span><span class="p">(</span><span class="n">contentPane</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Das war jetzt viel Theorie, probier es doch einfach mal aus (mit &lt;Strg&gt;+&lt;R&gt; starten).</p>
+<p>Wenn alles stimmt, dann sollten die 2 Augen zum Mauszeiger schauen und sich mitbewegen.  Es kann aber sein, dass du erst einmal auf das Fenster mit den Augen klicken musst (oder zumindest der Mauszeiger in diesem Fenster sein muss).</p>
+<h1 id="9-mehr-selbst-probieren">9. Mehr selbst probieren</h1>
+<h2 id="1-bunte-augen">1. Bunte Augen</h2>
+<p>Versuch doch mal, grüne Augen zu malen!</p>
+<p>Dazu gibt es 2.5 Möglichkeiten:</p>
+<ol>
+<li>Du ersetzt die Zeile</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">white</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>durch</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">green</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>oder du ersetzt die Zeile</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">black</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>durch</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">green</span><span class="p">.</span><span class="n">darker</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>Du malst zwischen Augenhintergrund (die weißen Ovale) und Pupillen (die schwarzen Ovale) noch eine grüne Iris, z.B. so</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">green</span><span class="p">.</span><span class="n">darker</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">d</span> <span class="p">=</span> <span class="n">min</span><span class="p">((</span><span class="m">0.275</span><span class="p">*</span><span class="n">w</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="m">0.35</span><span class="p">*</span><span class="n">h</span><span class="p">).</span><span class="n">toInt</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">fillOval</span><span class="p">((</span><span class="m">0.25</span><span class="p">*</span><span class="n">w</span> <span class="p">+</span><span class="m">0.125</span><span class="p">*</span><span class="n">w</span><span class="p">*</span><span class="n">dxL</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span> <span class="p">+</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span><span class="p">*</span><span class="n">dy</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">fillOval</span><span class="p">((</span><span class="m">0.75</span><span class="p">*</span><span class="n">w</span> <span class="p">+</span><span class="m">0.125</span><span class="p">*</span><span class="n">w</span><span class="p">*</span><span class="n">dxR</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span> <span class="p">+</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span><span class="p">*</span><span class="n">dy</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">black</span>
+</span></span><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">fillOval</span><span class="p">((</span><span class="m">0.25</span><span class="p">*</span><span class="n">w</span> <span class="p">+</span><span class="m">0.125</span><span class="p">*</span><span class="n">w</span><span class="p">*</span><span class="n">dxL</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">4</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span> <span class="p">+</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span><span class="p">*</span><span class="n">dy</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">4</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">fillOval</span><span class="p">((</span><span class="m">0.75</span><span class="p">*</span><span class="n">w</span> <span class="p">+</span><span class="m">0.125</span><span class="p">*</span><span class="n">w</span><span class="p">*</span><span class="n">dxR</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">4</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span> <span class="p">+</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span><span class="p">*</span><span class="n">dy</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">4</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">,</span> <span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Verstehst du den Unterschied zwischen 1, 2 und 3?</p>
+<p>Was must du tun, wenn die rechte Iris blau sein soll?</p>
+<h2 id="2-schielende-augen">2. Schielende Augen</h2>
+<p>Da gibt es einige Möglichkeiten.  Am Einfachsten ist es wohl, wenn du ein Auge etwas höher blicken lässt, z.B. so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="n">g</span><span class="p">.</span><span class="n">fillOval</span><span class="p">((</span><span class="m">0.75</span><span class="p">*</span><span class="n">w</span> <span class="p">+</span><span class="m">0.125</span><span class="p">*</span><span class="n">w</span><span class="p">*</span><span class="n">dxR</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="p">(</span><span class="m">0.4</span><span class="p">*</span><span class="n">h</span> <span class="p">+</span><span class="m">0.5</span><span class="p">*</span><span class="n">h</span><span class="p">*</span><span class="n">dy</span> <span class="p">-</span><span class="n">d</span><span class="p">/</span><span class="m">2</span><span class="p">).</span><span class="n">toInt</span><span class="p">(),</span> <span class="n">d</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Die y-Koordinate zählt von oben, also $y=0$ ist am oberen Rand des Fensters, $y=0.5*h$ in der Mitte und $y=h$ am unteren Rand.  Wenn du nun statt $y=0.5*h$ einfach $y=0.4*h$ wählst, dann ist das etwas höher als die Mitte.  Und wenn du das nur bei einem Auge machst, dann blickt das höher als das andere.</p>
+<h2 id="3-schneemann-malen">3. Schneemann malen</h2>
+<p>Kannst du die Malroutine (<code>fun paint(g :Graphics?)</code>) so abändern, dass anstatt von 2 Augen 3 Kugeln übereinander gemalt werden?</p>
+<p>Hinweis:  Jede Kugel sollte den Durchmesser <code>val d = h/3</code> haben und die erste Kugel beginnt oben ($y=0$), die zweite nach 1/3 ($y=h/3$) und die dritte nach 2/3 ($y=2*h/3$).</p>
+<p>Viel Spaß beim Ausprobieren und bitte sag Bescheid, wenn es Probleme gibt.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">melli79</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-04-10
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">Markdown</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://melli79.github.io/post/11eyes/index.md" target="_blank">The Markdown version »</a></span>
+    </p>
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/00-setup-ide/">
+            <span class="next-text nav-default">00 Kotlin IDE Aufsetzen</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2022-04-10 12:31:50 \u002b0200 CEST',
+        title: '11 Augen malen',
+        link: decodeURI(location.href),
+        desc: 'Nachdem ihr eine Entwicklungsumgebung aufgesetzt habt, wollen wir heute etwas malen.\nDas Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, erstellt ihr eine Datei \u0026gt; Neu \u0026gt; Projekt \u0026hellip; vom Typ Kotlin, Console Application. Ihr könnt dem Projekt einen ordentlichen Namen geben, z.B. Eyes (engl. für Augen), achtet darauf, dass das Build-System Gradle-Kotlin ist, das Projekt open JDK 11 (oder was ihr damals als Java-Umgebung installiert habt) verwendet.',
+        owner: 'melli79',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="melli79/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:melchiorG@gMail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://melli79.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">melli79</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.30dad356188cdaba5047112eaa8bf5e85cb14ae7e803337403591fce94a531a0.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
