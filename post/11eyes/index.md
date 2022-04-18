@@ -215,8 +215,8 @@ Diese neuen Methoden änderst du nun wie folgt:
 
     val xL = event.x -width/4;  val xR = event.x -3*width/4
     val y = event.y -height/2
-    val r2L = sqr(xL) +sqr(y) +10
-    val r2R = sqr(xR) +sqr(y) +10
+    val r2L = sqr(xL) +sqr(y) +sqr(width/4) +sqr(height/2)
+    val r2R = sqr(xR) +sqr(y) +sqr(width/4) +sqr(height/2)
     val fL = 1/sqrt(r2L.toDouble());  val fR = 1/sqrt(r2R.toDouble())
     dxL = xL*fL;  dy = y*(fL+fR)/2
     dxR = xR*fR
