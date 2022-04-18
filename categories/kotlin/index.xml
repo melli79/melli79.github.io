@@ -13,7 +13,7 @@
       <pubDate>Mon, 18 Apr 2022 16:05:50 +0200</pubDate>
       
       <guid>https://melli79.github.io/post/12modernart/</guid>
-      <description>Nachdem letzte Woche Augen gemalt haben, wollen wir heute moderne Kunst produzieren.
+      <description>Nachdem wir letzte Woche Augen gemalt haben, wollen wir heute moderne Kunst produzieren.
 Das Ziel 1. Projekt aufsetzen Das geht so ähnlich wie beim letzten Projekt: Unter Datei &amp;gt; Neu &amp;gt; Projekt &amp;hellip; ein Kotlin-Projekt mit Namen &amp;ldquo;Modern Art&amp;rdquo; aufsetzen mit dem gleichen JDK wie beim letzten Mal.
 Dann im Hauptprogramm &amp;ldquo;Main.kt&amp;rdquo;:
 1 2 3 4 5 6 7 8 9 10 11 12 13 14  class MainWindow(contentPane :JComponent) :JFrame(&amp;#34;Modern Art&amp;#34;) { init { this.</description>

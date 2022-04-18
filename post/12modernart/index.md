@@ -1,4 +1,4 @@
-Nachdem letzte Woche Augen gemalt haben, wollen wir heute moderne Kunst produzieren.
+Nachdem wir letzte Woche Augen gemalt haben, wollen wir heute moderne Kunst produzieren.
 
 # Das Ziel
 ![Korbstuhl, mit freundlicher Werbung für rattani.de](/img/Korbstuhl.jpg "100x150")
