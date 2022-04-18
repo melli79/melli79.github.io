@@ -124,7 +124,7 @@ können wir mit folgenden Zeilen:
   val x = 0.5;  val y = 0.0
   for (k in 1..6) {
     g.drawLine(x0+vx+(d*(0.5-x)).toInt(), y0+vx+(d*(0.5-y)).toInt(),
-      x0+vx+(d*(0.5+x)).toInt(), y0+vx+(d((0.5+y))).toInt())
+      x0+vx+(d*(0.5+x)).toInt(), y0+vx+(d*(0.5+y)).toInt())
     val x1 = x
     x = c*x -s*y
     y = c*y +s*x1
