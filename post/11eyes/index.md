@@ -241,7 +241,7 @@ Dabei musst du noch die Funktion `sqrt` importieren, also \<Alt\>+\<Enter\> und 
 
 4. `fun sqr(x :Int) = x*x` ist das Quadrat (engl. square) und $r^2_L$ das Quadrat des Abstands der Mausposition von der Mitte des linken Auges (s.a. Satz des Pythagoras);
 
-5. `+10` ist ein Sicherheitsabstand, d.h. dass der Abstand mindestens 10 ist (weil wir gleich durch diesen Abstand dividieren);
+5. `+sqr(width/4) +sqr(height/2)` ist ein Sicherheitsabstand, d.h. dass der Abstand mindestens $(w/4)^2 +(h/2)^2$ ist (weil wir gleich durch diesen Abstand dividieren);
 
 6. $ \Delta x_L = x_L\*f_L$; $ \Delta x_R = x_R\*f_R$ bedeutet, dass sich das Auge etwas in Richtung des Mauszeigers bewegt, aber nur um einen kleinen Faktor;
 
