@@ -2,49 +2,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://melli79.github.io/post/12modernart/</loc>
-    <lastmod>2022-04-18T16:05:50+02:00</lastmod>
+    <loc>https://melli79.github.io/post/13mandebrot/</loc>
+    <lastmod>2022-06-25T12:35:50+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://melli79.github.io/categories/</loc>
-    <lastmod>2022-04-18T16:05:50+02:00</lastmod>
+    <lastmod>2022-06-25T12:35:50+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://melli79.github.io/categories/fraktal/</loc>
+    <lastmod>2022-06-25T12:35:50+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://melli79.github.io/categories/kotlin/</loc>
-    <lastmod>2022-04-18T16:05:50+02:00</lastmod>
+    <lastmod>2022-06-25T12:35:50+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://melli79.github.io/</loc>
-    <lastmod>2022-04-18T16:05:50+02:00</lastmod>
+    <lastmod>2022-06-25T12:35:50+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://melli79.github.io/post/</loc>
-    <lastmod>2022-04-18T16:05:50+02:00</lastmod>
+    <lastmod>2022-06-25T12:35:50+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://melli79.github.io/categories/programming/</loc>
-    <lastmod>2022-04-18T16:05:50+02:00</lastmod>
+    <lastmod>2022-06-25T12:35:50+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://melli79.github.io/categories/swing/</loc>
+    <lastmod>2022-06-25T12:35:50+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://melli79.github.io/post/12modernart/</loc>
     <lastmod>2022-04-18T16:05:50+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

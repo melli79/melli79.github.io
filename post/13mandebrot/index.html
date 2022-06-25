@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>13 Mandelbrot (Apfelmännchen) - Melchior&#39;s Homepage</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="melli79" /><meta name="description" content="Nachdem wir letzte Woche Korbmuster gemalt haben, wollen wir heute weitere mathematische Kunst produzieren.
+Das Ziel  0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neues Kotlin/JVM-Projekt an und schreibst das Hauptprogramm etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14  class MainWindow(contentPane :JComponent) :JFrame(&amp;#34;Mandelbrot&amp;#34;) { init { this.layout = BorderLayout() this.contentPane = contentPane this.setSize(500, 500) defaultCloseOperation = EXIT_ON_CLOSE } } fun main(args :Array&amp;lt;String&amp;gt;) { val window = MainWindow(Mandelbrot()) window." />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.96.0 with theme even" />
+
+
+<link rel="canonical" href="https://melli79.github.io/post/13mandebrot/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78d3a03abaed5d3c468bdf402fc110f36c046abf091a63421b9ce0a5a63db941.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="13 Mandelbrot (Apfelmännchen)" />
+<meta property="og:description" content="Nachdem wir letzte Woche Korbmuster gemalt haben, wollen wir heute weitere mathematische Kunst produzieren.
+Das Ziel  0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neues Kotlin/JVM-Projekt an und schreibst das Hauptprogramm etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14  class MainWindow(contentPane :JComponent) :JFrame(&#34;Mandelbrot&#34;) { init { this.layout = BorderLayout() this.contentPane = contentPane this.setSize(500, 500) defaultCloseOperation = EXIT_ON_CLOSE } } fun main(args :Array&lt;String&gt;) { val window = MainWindow(Mandelbrot()) window." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://melli79.github.io/post/13mandebrot/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-06-25T12:35:50+02:00" />
+<meta property="article:modified_time" content="2022-06-25T12:35:50+02:00" />
+
+<meta itemprop="name" content="13 Mandelbrot (Apfelmännchen)">
+<meta itemprop="description" content="Nachdem wir letzte Woche Korbmuster gemalt haben, wollen wir heute weitere mathematische Kunst produzieren.
+Das Ziel  0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neues Kotlin/JVM-Projekt an und schreibst das Hauptprogramm etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14  class MainWindow(contentPane :JComponent) :JFrame(&#34;Mandelbrot&#34;) { init { this.layout = BorderLayout() this.contentPane = contentPane this.setSize(500, 500) defaultCloseOperation = EXIT_ON_CLOSE } } fun main(args :Array&lt;String&gt;) { val window = MainWindow(Mandelbrot()) window."><meta itemprop="datePublished" content="2022-06-25T12:35:50+02:00" />
+<meta itemprop="dateModified" content="2022-06-25T12:35:50+02:00" />
+<meta itemprop="wordCount" content="1511">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="13 Mandelbrot (Apfelmännchen)"/>
+<meta name="twitter:description" content="Nachdem wir letzte Woche Korbmuster gemalt haben, wollen wir heute weitere mathematische Kunst produzieren.
+Das Ziel  0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neues Kotlin/JVM-Projekt an und schreibst das Hauptprogramm etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14  class MainWindow(contentPane :JComponent) :JFrame(&#34;Mandelbrot&#34;) { init { this.layout = BorderLayout() this.contentPane = contentPane this.setSize(500, 500) defaultCloseOperation = EXIT_ON_CLOSE } } fun main(args :Array&lt;String&gt;) { val window = MainWindow(Mandelbrot()) window."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Melchior&#39;s Homepage</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Themes</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Melchior&#39;s Homepage</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Themes</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">13 Mandelbrot (Apfelmännchen)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-06-25 </span>
+        <div class="post-category">
+            <a href="/categories/kotlin/"> Kotlin </a>
+            <a href="/categories/programming/"> Programming </a>
+            <a href="/categories/swing/"> Swing </a>
+            <a href="/categories/fraktal/"> Fraktal </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#das-ziel">Das Ziel</a></li>
+    <li><a href="#0-programm-aufsetzen">0. Programm Aufsetzen</a></li>
+    <li><a href="#1-mandelbrot-definieren">1. Mandelbrot definieren</a>
+      <ul>
+        <li><a href="#12-was-bedeutet-eine-iteration">1.2 Was bedeutet eine Iteration?</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-wie-malt-man-das">2. Wie malt man das?</a>
+      <ul>
+        <li><a href="#21-wie-entscheidet-man-beschränkt-bleibt">2.1 Wie entscheidet man “beschränkt bleibt”?</a></li>
+        <li><a href="#22-wie-bekommt-man-farben">2.2 Wie bekommt man Farben?</a>
+          <ul>
+            <li><a href="#das-sind-doch-aber-zahlen-keine-farben">Das sind doch aber Zahlen, keine Farben!</a></li>
+          </ul>
+        </li>
+        <li><a href="#23-und-wie-bekomme-ich-jetzt-ein-ganzes-bild">2.3 Und wie bekomme ich jetzt ein ganzes Bild?</a></li>
+        <li><a href="#24-was-ist-ein-rect">2.4 Was ist ein <code>Rect</code>?</a>
+          <ul>
+            <li><a href="#a-wie-rechnet-man-die-bildschirm-koordinaten-in-komplexe-zahlen-um">a) Wie rechnet man die Bildschirm-Koordinaten in komplexe Zahlen um?</a></li>
+            <li><a href="#b-wie-kommen-wir-an-die-randpunkte-x0-y0-heran">b) Wie kommen wir an die Randpunkte <code>(x0, y0)</code> heran?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#9-selber-probieren">9. Selber Probieren</a>
+      <ul>
+        <li><a href="#90-funktioniert-das-programm-bei-dir">9.0 Funktioniert das Programm bei dir?</a></li>
+        <li><a href="#91-kannst-du-den-farbverlauf-ändern">9.1 Kannst du den Farbverlauf ändern?</a></li>
+        <li><a href="#92-wie-kann-man-einen-ausschnitt-vom-mandelbrot-malen">9.2 Wie kann man einen Ausschnitt vom Mandelbrot malen?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Nachdem wir letzte Woche Korbmuster gemalt haben, wollen wir heute weitere mathematische Kunst produzieren.</p>
+<h1 id="das-ziel">Das Ziel</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/b005iHf8Z3g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h1 id="0-programm-aufsetzen">0. Programm Aufsetzen</h1>
+<p>Das kennst du vielleicht schon:  Du legst ein neues Kotlin/JVM-Projekt an und schreibst das Hauptprogramm etwa so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">contentPane</span> <span class="p">:</span><span class="n">JComponent</span><span class="p">)</span> <span class="p">:</span><span class="n">JFrame</span><span class="p">(</span><span class="s2">&#34;Mandelbrot&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">init</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="n">layout</span> <span class="p">=</span> <span class="n">BorderLayout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="n">contentPane</span> <span class="p">=</span> <span class="n">contentPane</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="n">setSize</span><span class="p">(</span><span class="m">500</span><span class="p">,</span> <span class="m">500</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">defaultCloseOperation</span> <span class="p">=</span> <span class="n">EXIT_ON_CLOSE</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">(</span><span class="n">args</span> <span class="p">:</span><span class="n">Array</span><span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">window</span> <span class="p">=</span> <span class="n">MainWindow</span><span class="p">(</span><span class="n">Mandelbrot</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">window</span><span class="p">.</span><span class="n">isVisible</span> <span class="p">=</span> <span class="k">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Danach musst du wieder die zahlreichen Symbole importieren: <code>JComponent</code>, <code>JFrame</code>, <code>BorderLayout</code>, &hellip;; jeweils mit &lt;Alt&gt;+&lt;Enter&gt; und dort import aus einem Unterpaket von <code>javax.swing</code> wählen.</p>
+<h1 id="1-mandelbrot-definieren">1. Mandelbrot definieren</h1>
+<p>Wie malt man nun ein Mandelbrot?</p>
+<p>Der Kern ist folgende Iteration:</p>
+<p>$$ z_{n+1} = z_n^2+c $$</p>
+<p>D.h. man wählt einen komplexen Parameter $c=(c_x, c_y)$ und einen Startpunkt $z_0=(0,0)$ und berechnet dann in komplexen Koordinaten das Quadrat vom letzten $z_n$ und addiert $c=(c_x,c_y)$.</p>
+<p>Wenn du Glück hast, erzählt dir der Mathelehrer im Abitur, was komplexe Zahlen sind.  Für unsere Zwecke reicht es zu wisssen, dass die komplexe Zahl $z_n=(x,y)$ aus 2 reellen (lies gewöhnlichen) Zahlen besteht.  Die addiert man dann komponentenweise, also so
+$$ z+c = (x+c_x, y+c_y). $$</p>
+<p>Multiplizieren ist etwas komplizierter, denn es soll ja $zw$ nur 0 sein, wenn $z$ oder $w$ null ist.  Dazu merkt man sich die Regel $\mathsf{i}^2=-1$ und $1=(1,0)$ und $\mathsf{i}=(0,1)$, also
+$$ zw = xw_x + \mathsf{i}(xw_y+yw_x) +\mathsf{i}^2yw_y = (xw_x-yw_y, xw_y+yw_x). $$</p>
+<p>Für das Quadrat bedeutet das
+$$ z^2 = (x^2-y^2, 2xy). $$</p>
+<p>Bei der Implementierung müssen wir noch aufpassen, dass wir für $z_{n+1}= z_n^2+c$ an allen Stellen die alten Werte für $z_n=(x,y)$ einsetzen, etwa so</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">var</span> <span class="py">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">cx</span><span class="p">,</span><span class="n">cy</span> <span class="p">=</span> <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">x1</span> <span class="p">=</span> <span class="n">x</span><span class="p">*</span><span class="n">x</span><span class="p">-</span><span class="n">y</span><span class="p">*</span><span class="n">y</span> <span class="p">+</span> <span class="n">cx</span>
+</span></span><span class="line"><span class="cl">  <span class="n">y</span> <span class="p">=</span> <span class="m">2</span><span class="p">*</span><span class="n">x</span><span class="p">*</span><span class="n">y</span> <span class="p">+</span> <span class="n">cy</span>
+</span></span><span class="line"><span class="cl">  <span class="n">x</span> <span class="p">=</span> <span class="n">x1</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="12-was-bedeutet-eine-iteration">1.2 Was bedeutet eine Iteration?</h2>
+<p>Die obigen Formeln sagen, dass man $z_1= z_0^2+c$ ausrechnen kann.  Dann $z_2=z_1^2+c$, $z_3=z_2^2+c$ und so weiter.  Das heißt, dass man eine ganze Folge von (komplexen) Zahlen bekommt: $z_0$, $z_1$, $z_2$, $z_3$, &hellip;</p>
+<p>Leider kann man nicht unendlich viele Zahlen malen (oder auch nur ausrechnen).  Stattdessen hat Bernoît Mandelbrot herausgefunden, dass man ein interessantes Muster bekommt, wenn man zu <em>jeder</em> Zahl $c=(c_x,c_y)$ einträgt, ob die Folge beschränkt bleibt.</p>
+<p>Im 2-dimensionalen ($z=(x,y)$) sind die Schranken Kreise um den Ursprung, also $r=\sqrt{x^2+y^2}$ und die Erfahrung lehrt, dass man etwa bis $r\le2$ gehen muss.  Um die Berechnung der Quadratwurzel zu sparen, bildet man einfach $r^2=x^2+y^2$ und vergleicht $r^2\le4$.</p>
+<h1 id="2-wie-malt-man-das">2. Wie malt man das?</h1>
+<h2 id="21-wie-entscheidet-man-beschränkt-bleibt">2.1 Wie entscheidet man “beschränkt bleibt”?</h2>
+<p>Wie gesagt, die Erfahrung lehrt, dass man auf $r^2\le4$ testen muss.  Aber man kann auch nicht unendlich viele Folgenelemente ausrechnen.  Stattdessen entscheidet man sich für eine Grenze <code>MAX_COLORS=256</code> und rechnet maximal 256 Folgenelemente aus und schaut, dass jeweils $r^2=x^2+y^2\le4$ bleibt.  Wenn das bis <code>MAX_COLORS</code> so bleibt, dann gehört der Punkt $c=(c_x, c_y)$ zum Mandelbrot und wird schwarz (engl. <code>BLACK</code>) gezeichnet.</p>
+<h2 id="22-wie-bekommt-man-farben">2.2 Wie bekommt man Farben?</h2>
+<p>In der Beispielanimation wurde nicht nur schwarz-weiß gemalt, sondern man hat die Punkte am Rand auch farbig gemalt.  Die Farben kann man etwa so bestimmen:  Wenn bereits der erste Punkt ($z_1=c=(c_x, c_y)$) außerhalb von $r\le2$ liegt, dann wird er mit Farbe 1 gemalt (z.B. blau), wenn der erste Punkt drinne, aber der zweite Punkt $z_2=(x,y)$ außerhalb liegt, dann wird $(c_x, c_y)$ mit Farbe 2 gemalt (z.B. grün), und so weiter.</p>
+<p>Was wir also brauchen, ist folgende Funktion:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">MAX</span><span class="n">_COLORS</span> <span class="p">=</span> <span class="m">256</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">iterate</span><span class="p">(</span><span class="n">x0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="n">y0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="n">cx</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="n">cy</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">:</span><span class="n">UInt</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">x</span><span class="p">=</span><span class="n">x0</span><span class="p">;</span>  <span class="k">var</span> <span class="py">y</span><span class="p">=</span><span class="n">y0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">x2</span> <span class="p">=</span> <span class="n">x</span><span class="p">*</span><span class="n">x</span><span class="p">;</span>  <span class="k">var</span> <span class="py">y2</span> <span class="p">=</span> <span class="n">y</span><span class="p">*</span><span class="n">y</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">color</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="n">MAX_COLORS</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">x2</span><span class="p">+</span><span class="n">y2</span><span class="p">&gt;</span><span class="m">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">color</span><span class="p">.</span><span class="n">toUInt</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="n">y</span> <span class="p">=</span> <span class="m">2</span><span class="p">*</span><span class="n">x</span><span class="p">*</span><span class="n">y</span> <span class="p">+</span><span class="n">cy</span>
+</span></span><span class="line"><span class="cl">      <span class="n">x</span> <span class="p">=</span> <span class="n">x2</span><span class="p">-</span><span class="n">y2</span> <span class="p">+</span><span class="n">cx</span>
+</span></span><span class="line"><span class="cl">      <span class="n">x2</span> <span class="p">=</span> <span class="n">x</span><span class="p">*</span><span class="n">x</span><span class="p">;</span>  <span class="n">y2</span> <span class="p">=</span> <span class="n">y</span><span class="p">*</span><span class="n">y</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="m">0u</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="das-sind-doch-aber-zahlen-keine-farben">Das sind doch aber Zahlen, keine Farben!</h3>
+<p>Na dann muss man halt beim Malen noch die Zahlen in Farben umwandeln, z.B. so</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">colorize</span><span class="p">(</span><span class="n">color</span> <span class="p">:</span><span class="n">UInt</span><span class="p">)</span> <span class="p">:</span><span class="n">Color</span> <span class="p">=</span> <span class="k">when</span> <span class="p">(</span><span class="n">color</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="m">0u</span> <span class="o">-&gt;</span> <span class="n">Color</span><span class="p">.</span><span class="n">BLACK</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="o">-&gt;</span> <span class="n">Color</span><span class="p">(</span><span class="n">color</span><span class="p">%</span><span class="m">256u</span><span class="p">,</span> <span class="m">128</span><span class="p">,</span> <span class="m">255</span> <span class="p">-</span><span class="n">color</span><span class="p">%</span><span class="m">256u</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Dabei bedeutet <code>0u -&gt; Color.BLACK</code>, dass 0 in die Farbe Schwarz (engl. black) umgewandelt wird.
+<code>color%256u</code> bedeutet, dass der Farbwert modulo 256 berechnet wird, also $1\mapsto1$, $2\mapsto2$, &hellip;, $256\mapsto0$, $257\mapsto1$, &hellip;  <code>Color(v,128,255-v)</code> bedeutet, dass die Farben von $(1,128,254)$ (hellblau) über $(128,128,128)$ (grau) bis $(255,128,0)$ (hellrot) verlaufen.  Das liegt daran, dass man dem Computer eine beliebige Farbe im Rot-Grün-Blau-Anteilen gibt, also <code>Color(255,0,0)</code> ist Rot, <code>Color(0,255,0)</code> ist Grün, <code>Color(128,128,128)</code> ist Grau, <code>Color(255,0,255)</code> ist Lila, <code>Color(255,255,0)</code> ist Gelb, <code>Color(255,255,255)</code> ist Weiß und so weiter.</p>
+<h2 id="23-und-wie-bekomme-ich-jetzt-ein-ganzes-bild">2.3 Und wie bekomme ich jetzt ein ganzes Bild?</h2>
+<p>Dazu bedienen wir uns eines Tricks aus dem Fernsehen: statt alle Punkte zugleich auszurechnen, laufen wir durch das Bild von links-oben bis rechts-unten zeilenweise und berechnen für jeden Punkt die Farbe und zeichnen sie ein, etwa so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">base</span> <span class="p">=</span> <span class="n">Rect</span><span class="p">.</span><span class="n">of</span><span class="p">(-</span><span class="m">2.0</span><span class="p">,</span> <span class="p">-</span><span class="m">4.0</span><span class="p">/</span><span class="m">3.0</span><span class="p">,</span> <span class="m">0.5</span><span class="p">,</span> <span class="m">4.0</span><span class="p">/</span><span class="m">3.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">scale</span> <span class="p">:</span><span class="n">Rect</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">paint</span><span class="p">(</span><span class="n">g</span> <span class="p">:</span><span class="n">Graphics</span><span class="p">?)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">g</span> <span class="o">?:</span> <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scale</span> <span class="p">=</span> <span class="n">scaling</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">cy</span> <span class="p">=</span> <span class="n">scale</span><span class="p">.</span><span class="n">toY</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">py</span> <span class="k">in</span> <span class="m">0</span> <span class="n">until</span> <span class="n">height</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">var</span> <span class="py">cx</span> <span class="p">=</span> <span class="n">scale</span><span class="p">.</span><span class="n">toX</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">px</span> <span class="k">in</span> <span class="m">0</span> <span class="n">until</span> <span class="n">width</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">c</span> <span class="p">=</span> <span class="n">iterate</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">g</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">colorize</span><span class="p">(</span><span class="n">c</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">g</span><span class="p">.</span><span class="n">fillRect</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">px</span><span class="p">+</span><span class="m">1</span><span class="p">,</span> <span class="n">py</span><span class="p">+</span><span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cx</span> <span class="o">+=</span> <span class="n">scale</span><span class="p">.</span><span class="n">dx</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cy</span> <span class="o">+=</span> <span class="n">scale</span><span class="p">.</span><span class="n">dy</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>for (py in 0 until height)</code> ist wieder eine for-Schleife für die Variable <code>py</code>.  Die Schleife beginnt bei 0, dann 1, &hellip;, geht aber bis (engl. until) ausschließlich <code>height</code>, d.h. der letzte Wert ist <code>height-1</code>.  Das liegt daran, dass das Fenster <code>height</code> Punkte hoch ist, die aber von 0 bis <code>height-1</code> reichen.</p>
+<p>Entsprechend ist das bei <code>px</code>.</p>
+<p>Am Ende jeder Schleife steht noch <code>cx += scale.dx</code> (oder für <code>cy</code> entsprechend).  Das brauchen wir, um auch $c=(c_x, c_y)$ auf den nächsten Punkt zu setzen.  Vor jeder Schleife definieren wir <code>var cx = scale.toX(0)</code>, d.h. wir rechnen den linken (oberen) Rand in die entsprechende Koordinate um.</p>
+<h2 id="24-was-ist-ein-rect">2.4 Was ist ein <code>Rect</code>?</h2>
+<p>Das kommt vom englischen Wort rectangle, also Rechteck.  Ein Rechteck besteht aus 4 Punkten und wenn es parallel zu den Achsen ist, kann man es mit 1 Punkt <code>(x0, y0)</code> und Breite <code>dx</code> und Höhe <code>dy</code> ausdrücken.  In Kotlin etwa so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">data</span> <span class="k">class</span> <span class="nc">Rect</span><span class="p">(</span><span class="k">val</span> <span class="py">x0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">y0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">dx</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">dy</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">fun</span> <span class="nf">of</span><span class="p">(</span><span class="k">val</span> <span class="py">x0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">y0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">x1</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">y1</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">=</span> <span class="n">Rect</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">-</span><span class="n">x0</span><span class="p">,</span> <span class="n">y1</span><span class="p">-</span><span class="n">y0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="a-wie-rechnet-man-die-bildschirm-koordinaten-in-komplexe-zahlen-um">a) Wie rechnet man die Bildschirm-Koordinaten in komplexe Zahlen um?</h3>
+<p>Das hängt von der aktuellen Bildschirmskalierung (engl. <code>scale</code>) ab.  Im Prinzip lauten die Formeln:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">data</span> <span class="k">class</span> <span class="nc">Rect</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">toX</span><span class="p">(</span><span class="n">px</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">=</span> <span class="n">x0</span> <span class="p">+</span><span class="n">px</span><span class="p">*</span><span class="n">dx</span>
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">toY</span><span class="p">(</span><span class="n">py</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">=</span> <span class="n">y0</span> <span class="p">+</span><span class="n">py</span><span class="p">*</span><span class="n">dy</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Jetzt muss man nur noch die aktuelle Skala ausrechnen.  Dazu können wir die aktuelle Fenstergröße abfragen <code>(width, height)</code>.  Wichtig ist jetzt, dass das Mandelbrot immer im gleichen Seitenverhältnis abgebildet wird, d.h. wir müssen am Ende $|dx|=|dy|$ wählen.  Die Basisgröße (engl. <code>base</code>) des Mandelbrots ist $(-2, -1.2)$&ndash;$(0.5, 1.2)$.  Prinzipiell wollen wir die Skalen <code>dx/width</code> und <code>dy/height</code> verwenden.  Wenn die aber verschieden sind, dann müssen wir für beide Achsen die größere Skala (sic!) verwenden, also</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">dx</span> <span class="p">=</span> <span class="n">max</span><span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">dx</span><span class="p">/</span><span class="n">width</span><span class="p">,</span> <span class="n">base</span><span class="p">.</span><span class="n">dy</span><span class="p">/</span><span class="n">height</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">Rect</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="p">-</span><span class="n">dx</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Tatsächlich müssen wir die y-Skala umdrehen, weil auf dem Bildschirm die Achse nach unten zeigt, aber im mathematischen Koordinatensystem die y-Achse nach oben zeigen soll, also <code>-dx</code>.</p>
+<h3 id="b-wie-kommen-wir-an-die-randpunkte-x0-y0-heran">b) Wie kommen wir an die Randpunkte <code>(x0, y0)</code> heran?</h3>
+<p>Im Prinzip wollen wir <code>base.x0</code> und <code>base.y0</code> verwenden, aber dabei gibt es 2 Probleme:</p>
+<ol>
+<li>
+<p>Wenn <code>base.dy/height &gt; base.dx/width</code> ist, dann müssen wir links (und rechts) noch etwas auffüllen, also <code>val x0 = base.x0 -(dx*width-base.dx)/2</code></p>
+</li>
+<li>
+<p>Da die y-Achse eine negative Skala hat (<code>dy &lt; 0</code>), muss man hier <code>y1 = base.y0 +base.dy</code> verwenden und entsprechend das Offset addieren, also <code>val y0 = base.y1 +(dx*height-base.dy)/2</code></p>
+</li>
+</ol>
+<p>Die Formeln sind nicht ganz einfach und am besten überprüft man sie noch einmal, z.B. indem man schaut, ob das richtige Mandelbrot auf dem Bildschirm ist (oder etwa nur eine blaue Fläche).</p>
+<p>Insgesamt sieht die Funktion so aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">scaling</span><span class="p">(</span><span class="n">width</span> <span class="p">:</span><span class="n">Int</span><span class="p">,</span> <span class="n">height</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">Rect</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">dx</span> <span class="p">=</span> <span class="n">max</span><span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">dx</span><span class="p">/</span><span class="n">width</span><span class="p">,</span> <span class="n">base</span><span class="p">.</span><span class="n">dy</span><span class="p">/</span><span class="n">height</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">x0</span> <span class="p">=</span> <span class="n">base</span><span class="p">.</span><span class="n">x0</span> <span class="p">-(</span><span class="n">dx</span><span class="p">*</span><span class="n">width</span><span class="p">-</span><span class="n">base</span><span class="p">.</span><span class="n">dx</span><span class="p">)/</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">y0</span> <span class="p">=</span> <span class="n">base</span><span class="p">.</span><span class="n">y1</span> <span class="p">+(</span><span class="n">dx</span><span class="p">*</span><span class="n">height</span><span class="p">-</span><span class="n">base</span><span class="p">.</span><span class="n">dy</span><span class="p">)/</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Rect</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="p">-</span><span class="n">dx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">data</span> <span class="k">class</span> <span class="nc">Rect</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">y1</span> <span class="p">=</span> <span class="n">y0</span><span class="p">+</span><span class="n">dy</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="9-selber-probieren">9. Selber Probieren</h1>
+<p>Jetzt bist du dran.  Wenn du das ganze Programm fehlerfrei abgetippt hast, dann sollte es starten und ein Mandelbrot (der Anfang von obigem Video) malen.</p>
+<h2 id="90-funktioniert-das-programm-bei-dir">9.0 Funktioniert das Programm bei dir?</h2>
+<h2 id="91-kannst-du-den-farbverlauf-ändern">9.1 Kannst du den Farbverlauf ändern?</h2>
+<p>Aktuell wird in Lilatönen gemalt.  Was musst du (wie) ändern, damit die Farben von Rot über Gelb bis Grün verlaufen?</p>
+<p>Hinweis:  Du musst die Funktion <code>colorize(color :UInt)</code> ändern.</p>
+<h2 id="92-wie-kann-man-einen-ausschnitt-vom-mandelbrot-malen">9.2 Wie kann man einen Ausschnitt vom Mandelbrot malen?</h2>
+<p>Hinweis: <code>val base = Rect.of(...)</code> bestimmt diesen Ausschnitt.</p>
+<p>Wie kann man auf die Kugel links am Mandelbrot zoomen?</p>
+<p>Viel Spaß beim Probieren.  Im Zweifelsfall einfach die alten Werte wieder herstellen, dann sollte das original Mandelbrot (in Lilatönen) erscheinen.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">melli79</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-06-25
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">Markdown</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://melli79.github.io/post/13mandebrot/index.md" target="_blank">The Markdown version »</a></span>
+    </p>
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/12modernart/">
+            <span class="next-text nav-default">12 Moderne Kunst</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2022-06-25 12:35:50 \u002b0200 CEST',
+        title: '13 Mandelbrot (Apfelmännchen)',
+        link: decodeURI(location.href),
+        desc: 'Nachdem wir letzte Woche Korbmuster gemalt haben, wollen wir heute weitere mathematische Kunst produzieren.\nDas Ziel  0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neues Kotlin\/JVM-Projekt an und schreibst das Hauptprogramm etwa so:\n1 2 3 4 5 6 7 8 9 10 11 12 13 14  class MainWindow(contentPane :JComponent) :JFrame(\u0026#34;Mandelbrot\u0026#34;) { init { this.layout = BorderLayout() this.contentPane = contentPane this.setSize(500, 500) defaultCloseOperation = EXIT_ON_CLOSE } } fun main(args :Array\u0026lt;String\u0026gt;) { val window = MainWindow(Mandelbrot()) window.',
+        owner: 'melli79',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="melli79/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:melchiorG@gMail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://melli79.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">melli79</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.30dad356188cdaba5047112eaa8bf5e85cb14ae7e803337403591fce94a531a0.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
