@@ -9,10 +9,10 @@
     <lastBuildDate>Sat, 25 Jun 2022 12:35:50 +0200</lastBuildDate><atom:link href="https://melli79.github.io/categories/kotlin/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>13 Mandelbrot (Apfelmännchen)</title>
-      <link>https://melli79.github.io/post/13mandebrot/</link>
+      <link>https://melli79.github.io/post/13mandelbrot/</link>
       <pubDate>Sat, 25 Jun 2022 12:35:50 +0200</pubDate>
       
-      <guid>https://melli79.github.io/post/13mandebrot/</guid>
+      <guid>https://melli79.github.io/post/13mandelbrot/</guid>
       <description>Nachdem wir letzte Woche Korbmuster gemalt haben, wollen wir heute weitere mathematische Kunst produzieren.
 Das Ziel  0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neues Kotlin/JVM-Projekt an und schreibst das Hauptprogramm etwa so:
 1 2 3 4 5 6 7 8 9 10 11 12 13 14  class MainWindow(contentPane :JComponent) :JFrame(&amp;#34;Mandelbrot&amp;#34;) { init { this.layout = BorderLayout() this.contentPane = contentPane this.setSize(500, 500) defaultCloseOperation = EXIT_ON_CLOSE } } fun main(args :Array&amp;lt;String&amp;gt;) { val window = MainWindow(Mandelbrot()) window.</description>
