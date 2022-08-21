@@ -6,7 +6,29 @@
     <description>Recent content in Fraktal on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 25 Jun 2022 12:35:50 +0200</lastBuildDate><atom:link href="https://melli79.github.io/categories/fraktal/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Aug 2022 12:35:50 +0200</lastBuildDate><atom:link href="https://melli79.github.io/categories/fraktal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>15 Iterierte Funktionssysteme</title>
+      <link>https://melli79.github.io/post/15iteratedfunctionsystems/</link>
+      <pubDate>Sun, 21 Aug 2022 12:35:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/15iteratedfunctionsystems/</guid>
+      <description>Nachdem wir letzte Wochen das Mandelbrot und den Baum des Pythagoras gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&amp;#34;Iteriertes Funktionensystem&amp;#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(IFS(System.</description>
+    </item>
+    
+    <item>
+      <title>14 Baum des Pythagoras</title>
+      <link>https://melli79.github.io/post/14baumdespythagoras/</link>
+      <pubDate>Fri, 19 Aug 2022 18:35:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/14baumdespythagoras/</guid>
+      <description>Nachdem wir letzte Woche das Mandelbrot und Julia-Mengen gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&amp;#34;Baum des Pythagoras&amp;#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(TreeOfPythagoras()) window.</description>
+    </item>
+    
     <item>
       <title>13 Mandelbrot (Apfelmännchen)</title>
       <link>https://melli79.github.io/post/13mandelbrot/</link>
@@ -14,8 +36,8 @@
       
       <guid>https://melli79.github.io/post/13mandelbrot/</guid>
       <description>Nachdem wir letzte Woche Korbmuster gemalt haben, wollen wir heute weitere mathematische Kunst produzieren.
-Das Ziel  0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neues Kotlin/JVM-Projekt an und schreibst das Hauptprogramm etwa so:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  class MainWindow(contentPane :JComponent) :JFrame(&amp;#34;Mandelbrot&amp;#34;) { init { this.layout = BorderLayout() this.contentPane = contentPane this.setSize(500, 500) defaultCloseOperation = EXIT_ON_CLOSE } } fun main(args :Array&amp;lt;String&amp;gt;) { val window = MainWindow(Mandelbrot()) window.</description>
+Das Ziel 0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neues Kotlin/JVM-Projekt an und schreibst das Hauptprogramm etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 class MainWindow(contentPane :JComponent) :JFrame(&amp;#34;Mandelbrot&amp;#34;) { init { this.layout = BorderLayout() this.contentPane = contentPane this.setSize(500, 500) defaultCloseOperation = EXIT_ON_CLOSE } } fun main(args :Array&amp;lt;String&amp;gt;) { val window = MainWindow(Mandelbrot()) window.</description>
     </item>
     
   </channel>

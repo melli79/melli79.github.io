@@ -6,7 +6,29 @@
     <description>Recent content on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 25 Jun 2022 12:35:50 +0200</lastBuildDate><atom:link href="https://melli79.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 21 Aug 2022 12:35:50 +0200</lastBuildDate><atom:link href="https://melli79.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>15 Iterierte Funktionssysteme</title>
+      <link>https://melli79.github.io/post/15iteratedfunctionsystems/</link>
+      <pubDate>Sun, 21 Aug 2022 12:35:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/15iteratedfunctionsystems/</guid>
+      <description>Nachdem wir letzte Wochen das Mandelbrot und den Baum des Pythagoras gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&amp;#34;Iteriertes Funktionensystem&amp;#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(IFS(System.</description>
+    </item>
+    
+    <item>
+      <title>14 Baum des Pythagoras</title>
+      <link>https://melli79.github.io/post/14baumdespythagoras/</link>
+      <pubDate>Fri, 19 Aug 2022 18:35:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/14baumdespythagoras/</guid>
+      <description>Nachdem wir letzte Woche das Mandelbrot und Julia-Mengen gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&amp;#34;Baum des Pythagoras&amp;#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(TreeOfPythagoras()) window.</description>
+    </item>
+    
     <item>
       <title>13 Mandelbrot (Apfelmännchen)</title>
       <link>https://melli79.github.io/post/13mandelbrot/</link>
@@ -14,8 +36,8 @@
       
       <guid>https://melli79.github.io/post/13mandelbrot/</guid>
       <description>Nachdem wir letzte Woche Korbmuster gemalt haben, wollen wir heute weitere mathematische Kunst produzieren.
-Das Ziel  0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neues Kotlin/JVM-Projekt an und schreibst das Hauptprogramm etwa so:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  class MainWindow(contentPane :JComponent) :JFrame(&amp;#34;Mandelbrot&amp;#34;) { init { this.layout = BorderLayout() this.contentPane = contentPane this.setSize(500, 500) defaultCloseOperation = EXIT_ON_CLOSE } } fun main(args :Array&amp;lt;String&amp;gt;) { val window = MainWindow(Mandelbrot()) window.</description>
+Das Ziel 0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neues Kotlin/JVM-Projekt an und schreibst das Hauptprogramm etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 class MainWindow(contentPane :JComponent) :JFrame(&amp;#34;Mandelbrot&amp;#34;) { init { this.layout = BorderLayout() this.contentPane = contentPane this.setSize(500, 500) defaultCloseOperation = EXIT_ON_CLOSE } } fun main(args :Array&amp;lt;String&amp;gt;) { val window = MainWindow(Mandelbrot()) window.</description>
     </item>
     
     <item>
@@ -27,7 +49,7 @@ Das Ziel  0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neu
       <description>Nachdem wir letzte Woche Augen gemalt haben, wollen wir heute moderne Kunst produzieren.
 Das Ziel 1. Projekt aufsetzen Das geht so ähnlich wie beim letzten Projekt: Unter Datei &amp;gt; Neu &amp;gt; Projekt &amp;hellip; ein Kotlin-Projekt mit Namen &amp;ldquo;Modern Art&amp;rdquo; aufsetzen mit dem gleichen JDK wie beim letzten Mal.
 Dann im Hauptprogramm &amp;ldquo;Main.kt&amp;rdquo;:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  class MainWindow(contentPane :JComponent) :JFrame(&amp;#34;Modern Art&amp;#34;) { init { this.</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 class MainWindow(contentPane :JComponent) :JFrame(&amp;#34;Modern Art&amp;#34;) { init { this.</description>
     </item>
     
     <item>
@@ -60,7 +82,7 @@ Im Dialog: Version 11, Oracle Open JDK auswählen.</description>
       <description>4. Frauen Gebären Woher kommen die Kinder?
 Das soll jetzt kein Vortrag über das Kinderkriegen werden, aber wenn unser Modell Menschen beschreibt, dann sollte es auch Kinder produzieren können.
 Im Einfachsten Fall bekommt eine Frau ein Kind und ihr Ehepartner ist der Vater. Die Signatur sieht etwa so aus:
-1 2 3  fun Person.giveBirth(givenName :String, birthday :PartialDate, gender :Gender) :Person { ... }   Offenbar brauchen wir auch das Geschlecht und den Geburtstag des Kindes.</description>
+1 2 3 fun Person.giveBirth(givenName :String, birthday :PartialDate, gender :Gender) :Person { ... } Offenbar brauchen wir auch das Geschlecht und den Geburtstag des Kindes.</description>
     </item>
     
     <item>
@@ -84,7 +106,7 @@ Was sind die Voraussetzungen zum Heiraten? Man braucht einen Mann, eine Frau (od
 1. Was ist uns an Leuten wichtig? Ein echter Mensch ist 2&amp;ndash;200 kg schwer, besteht aus Haut, Muskeln, Knochen, &amp;hellip;, trägt Kleidung, &amp;hellip; . Die werden wahrscheinlich nicht in den Computer passen.
 Stattdessen überlegen wir uns, was wir von einem Menschen darstellen wollen, d.h. wir bilden uns ein Modell.
 Also ein Mensch hat
- einen festen Vornamen, einen Familiennamen, ein Geburtsdatum, ein Geschlecht, einen Vater, eine Mutter, vielleicht eine/n Ehepartner/in, vielleicht Kinder.</description>
+einen festen Vornamen, einen Familiennamen, ein Geburtsdatum, ein Geschlecht, einen Vater, eine Mutter, vielleicht eine/n Ehepartner/in, vielleicht Kinder.</description>
     </item>
     
     <item>
@@ -94,9 +116,9 @@ Also ein Mensch hat
       
       <guid>https://melli79.github.io/post/02ifandsmurfs/</guid>
       <description>Heute wollen wir Schlümpfe zählen. Das geht so:
- Wir fangen mit den normalen Zahlen bei 1 an: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, &amp;hellip;
-  Dann ersetzen wir jede 5. Zahl durch Schlümpf entsprechend ihrem Vielfache:
-  1  1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, ...   die 25 ist Schlümpf-Schlümpf.</description>
+Wir fangen mit den normalen Zahlen bei 1 an: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, &amp;hellip;
+Dann ersetzen wir jede 5. Zahl durch Schlümpf entsprechend ihrem Vielfache:
+1 1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, ... die 25 ist Schlümpf-Schlümpf. 0. Zahlenreihe Vom ersten Post erinnerst du dich bestimmt noch an for-Schleifen, mit denen man durchzählen kann, etwa so:</description>
     </item>
     
     <item>
@@ -118,7 +140,7 @@ Auch ist es nicht immer ganz eindeutig, ob jemand Mann oder Frau ist, z.</descri
       <guid>https://melli79.github.io/post/01loops/</guid>
       <description>Nachdem Ihr die Programmierumgebung aufgesetzt habt, fangen wir heute mit einem ersten kleinen Programm an: Das kleine 1x1.
 Das Ziel Das Ziel soll etwa folgende Tabelle sein:
- 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21 24 27 30 4 8 12 16 20 24 28 32 36 40 5 10 15 20 25 30 35 40 45 50 6 12 18 24 30 36 42 48 54 60 7 14 21 28 35 42 49 56 63 70 8 16 24 32 40 48 56 64 72 80 9 18 27 36 45 54 63 72 81 90 10 20 30 40 50 60 70 80 90 100  Was wollen wir haben: Zeilen 1.</description>
+1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21 24 27 30 4 8 12 16 20 24 28 32 36 40 5 10 15 20 25 30 35 40 45 50 6 12 18 24 30 36 42 48 54 60 7 14 21 28 35 42 49 56 63 70 8 16 24 32 40 48 56 64 72 80 9 18 27 36 45 54 63 72 81 90 10 20 30 40 50 60 70 80 90 100 Was wollen wir haben: Zeilen 1.</description>
     </item>
     
     <item>
@@ -129,7 +151,8 @@ Das Ziel Das Ziel soll etwa folgende Tabelle sein:
       <guid>https://melli79.github.io/post/setup-webpage/</guid>
       <description>There is a considerable easy way to set up a web page similar to this one.
 Step 1: install Hugo A. If you are using a Mac, just get accustomed to Homebrew and install hugo via
-1  brew install hugo   B. If you are using Linux it probably comes with a package manager that should have some compatible version of hugo available, e.g. on Ubuntu like systems:</description>
+1 brew install hugo B. If you are using Linux it probably comes with a package manager that should have some compatible version of hugo available, e.g. on Ubuntu like systems:
+1 sudo apt-get install hugo If you feel that your system is too old consider updating it first.</description>
     </item>
     
   </channel>

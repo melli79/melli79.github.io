@@ -15,7 +15,8 @@
       <guid>https://melli79.github.io/post/setup-webpage/</guid>
       <description>There is a considerable easy way to set up a web page similar to this one.
 Step 1: install Hugo A. If you are using a Mac, just get accustomed to Homebrew and install hugo via
-1  brew install hugo   B. If you are using Linux it probably comes with a package manager that should have some compatible version of hugo available, e.g. on Ubuntu like systems:</description>
+1 brew install hugo B. If you are using Linux it probably comes with a package manager that should have some compatible version of hugo available, e.g. on Ubuntu like systems:
+1 sudo apt-get install hugo If you feel that your system is too old consider updating it first.</description>
     </item>
     
   </channel>

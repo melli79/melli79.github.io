@@ -84,13 +84,13 @@ Dann wird offenbar kein Vater zugewiesen.  Das ist aber kein Problem, da man den
   fun main() {
     val tanja = Person("Tanja", "Mayer", PartialDate(1978), Gender.Female)
 
-    val tina = tanja.giveBirth("Tina", PartialDate(1985, 1, 1), Gender.Female)
+    val tina = tanja.giveBirth("Tina", PartialDate(1995, 1, 1), Gender.Female)
     println("${tina}s Eltern sind ${tina.mother} und ${tina.father}.")
   }
 ```
 
 ```log
-  Tina Mayer (*1.1.1985)s Eltern sind Tanja Mayer (*1978) und null.
+  Tina Mayer (*1.1.1995)s Eltern sind Tanja Mayer (*1978) und null.
 ```
 
 Hmm, irgendwie müssten wir statt "null" eher "unbekannt" schreiben.

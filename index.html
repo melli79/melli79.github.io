@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.96.0 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://melli79.github.io/" />
@@ -112,6 +112,58 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/15iteratedfunctionsystems/">15 Iterierte Funktionssysteme</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-08-21 </span>
+      <div class="post-category">
+          <a href="/categories/kotlin/"> Kotlin </a>
+          <a href="/categories/programming/"> Programming </a>
+          <a href="/categories/swing/"> Swing </a>
+          <a href="/categories/fraktal/"> Fraktal </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Nachdem wir letzte Wochen das Mandelbrot und den Baum des Pythagoras gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&#34;Iteriertes Funktionensystem&#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(IFS(System.
+    </div>
+    <div class="read-more">
+      <a href="/post/15iteratedfunctionsystems/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/14baumdespythagoras/">14 Baum des Pythagoras</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-08-19 </span>
+      <div class="post-category">
+          <a href="/categories/kotlin/"> Kotlin </a>
+          <a href="/categories/programming/"> Programming </a>
+          <a href="/categories/swing/"> Swing </a>
+          <a href="/categories/fraktal/"> Fraktal </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Nachdem wir letzte Woche das Mandelbrot und Julia-Mengen gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&#34;Baum des Pythagoras&#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(TreeOfPythagoras()) window.
+    </div>
+    <div class="read-more">
+      <a href="/post/14baumdespythagoras/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/13mandelbrot/">13 Mandelbrot (Apfelmännchen)</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2022-06-25 </span>
@@ -127,8 +179,8 @@
   <div class="post-content">
     <div class="post-summary">
       Nachdem wir letzte Woche Korbmuster gemalt haben, wollen wir heute weitere mathematische Kunst produzieren.
-Das Ziel  0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neues Kotlin/JVM-Projekt an und schreibst das Hauptprogramm etwa so:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  class MainWindow(contentPane :JComponent) :JFrame(&#34;Mandelbrot&#34;) { init { this.layout = BorderLayout() this.contentPane = contentPane this.setSize(500, 500) defaultCloseOperation = EXIT_ON_CLOSE } } fun main(args :Array&lt;String&gt;) { val window = MainWindow(Mandelbrot()) window.
+Das Ziel 0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neues Kotlin/JVM-Projekt an und schreibst das Hauptprogramm etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 class MainWindow(contentPane :JComponent) :JFrame(&#34;Mandelbrot&#34;) { init { this.layout = BorderLayout() this.contentPane = contentPane this.setSize(500, 500) defaultCloseOperation = EXIT_ON_CLOSE } } fun main(args :Array&lt;String&gt;) { val window = MainWindow(Mandelbrot()) window.
     </div>
     <div class="read-more">
       <a href="/post/13mandelbrot/" class="read-more-link">Read more...</a>
@@ -154,7 +206,7 @@ Das Ziel  0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neu
       Nachdem wir letzte Woche Augen gemalt haben, wollen wir heute moderne Kunst produzieren.
 Das Ziel 1. Projekt aufsetzen Das geht so ähnlich wie beim letzten Projekt: Unter Datei &gt; Neu &gt; Projekt &hellip; ein Kotlin-Projekt mit Namen &ldquo;Modern Art&rdquo; aufsetzen mit dem gleichen JDK wie beim letzten Mal.
 Dann im Hauptprogramm &ldquo;Main.kt&rdquo;:
-1 2 3 4 5 6 7 8 9 10 11 12 13 14  class MainWindow(contentPane :JComponent) :JFrame(&#34;Modern Art&#34;) { init { this.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 class MainWindow(contentPane :JComponent) :JFrame(&#34;Modern Art&#34;) { init { this.
     </div>
     <div class="read-more">
       <a href="/post/12modernart/" class="read-more-link">Read more...</a>
@@ -182,55 +234,6 @@ Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, 
     </div>
     <div class="read-more">
       <a href="/post/11eyes/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/00-setup-ide/">00 Kotlin IDE Aufsetzen</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2022-04-09 </span>
-      <div class="post-category">
-          <a href="/categories/programming/"> programming </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      1. Schritt: IntelliJ für Windows 64 herunterladen und installieren Als Entwicklungsumgebung für Kotlin empfehle ich IntelliJ Idea Kommunity-Version. Diese kann man von der Website von JetBrains herunterladen, wichtig ist es, auf den schwarzen Knopf (Community Version) zu klicken.
-2A. Schritt: Java 11 Development Kit installieren Das sollte aus der IntelliJ IDE heraus gehen: Datei &gt; Projektstruktur &gt; Projekt &gt; SDK &gt; Download JDK
-Im Dialog: Version 11, Oracle Open JDK auswählen.
-    </div>
-    <div class="read-more">
-      <a href="/post/00-setup-ide/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/03cwomengivebirth/">03C Frauen Gebären und sich Scheiden lassen</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-12-23 </span>
-      <div class="post-category">
-          <a href="/categories/programming/"> programming </a>
-          <a href="/categories/kotlin/"> Kotlin </a>
-          <a href="/categories/deutsch/"> deutsch </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      4. Frauen Gebären Woher kommen die Kinder?
-Das soll jetzt kein Vortrag über das Kinderkriegen werden, aber wenn unser Modell Menschen beschreibt, dann sollte es auch Kinder produzieren können.
-Im Einfachsten Fall bekommt eine Frau ein Kind und ihr Ehepartner ist der Vater. Die Signatur sieht etwa so aus:
-1 2 3  fun Person.giveBirth(givenName :String, birthday :PartialDate, gender :Gender) :Person { ... }   Offenbar brauchen wir auch das Geschlecht und den Geburtstag des Kindes.
-    </div>
-    <div class="read-more">
-      <a href="/post/03cwomengivebirth/" class="read-more-link">Read more...</a>
     </div>
   </div>
 </article>
@@ -294,7 +297,7 @@ Im Einfachsten Fall bekommt eine Frau ein Kind und ihr Ehepartner ist der Vater.
 
 
 
-<script type="text/javascript" src="/js/main.min.30dad356188cdaba5047112eaa8bf5e85cb14ae7e803337403591fce94a531a0.js"></script>
+<script type="text/javascript" src="/js/main.min.1c70606d1b733282f06230615f5561b5894924b6f9930ba2ab99cf1254f75a1a.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},

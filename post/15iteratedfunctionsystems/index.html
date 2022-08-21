@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>15 Iterierte Funktionssysteme - Melchior&#39;s Homepage</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="melli79" /><meta name="description" content="Nachdem wir letzte Wochen das Mandelbrot und den Baum des Pythagoras gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&amp;#34;Iteriertes Funktionensystem&amp;#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(IFS(System." />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://melli79.github.io/post/15iteratedfunctionsystems/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78d3a03abaed5d3c468bdf402fc110f36c046abf091a63421b9ce0a5a63db941.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="15 Iterierte Funktionssysteme" />
+<meta property="og:description" content="Nachdem wir letzte Wochen das Mandelbrot und den Baum des Pythagoras gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&#34;Iteriertes Funktionensystem&#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(IFS(System." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://melli79.github.io/post/15iteratedfunctionsystems/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-08-21T12:35:50+02:00" />
+<meta property="article:modified_time" content="2022-08-21T12:35:50+02:00" />
+
+<meta itemprop="name" content="15 Iterierte Funktionssysteme">
+<meta itemprop="description" content="Nachdem wir letzte Wochen das Mandelbrot und den Baum des Pythagoras gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&#34;Iteriertes Funktionensystem&#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(IFS(System."><meta itemprop="datePublished" content="2022-08-21T12:35:50+02:00" />
+<meta itemprop="dateModified" content="2022-08-21T12:35:50+02:00" />
+<meta itemprop="wordCount" content="1796">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="15 Iterierte Funktionssysteme"/>
+<meta name="twitter:description" content="Nachdem wir letzte Wochen das Mandelbrot und den Baum des Pythagoras gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&#34;Iteriertes Funktionensystem&#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(IFS(System."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Melchior&#39;s Homepage</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Themes</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Melchior&#39;s Homepage</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Themes</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">15 Iterierte Funktionssysteme</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-08-21 </span>
+        <div class="post-category">
+            <a href="/categories/kotlin/"> Kotlin </a>
+            <a href="/categories/programming/"> Programming </a>
+            <a href="/categories/swing/"> Swing </a>
+            <a href="/categories/fraktal/"> Fraktal </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#das-ziel">Das Ziel</a></li>
+    <li><a href="#0-programm-aufsetzen">0. Programm aufsetzen</a></li>
+    <li><a href="#1-komponente-zum-malen">1. Komponente zum Malen</a></li>
+    <li><a href="#1-lineareaffine-abbildungen">1. Lineare/Affine Abbildungen</a>
+      <ul>
+        <li><a href="#affine-abblidungen">Affine Abblidungen</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-fraktale-erzeugen">2. Fraktale erzeugen</a></li>
+    <li><a href="#3-größe-des-fraktals-abschätzen">3. Größe des Fraktals abschätzen</a></li>
+    <li><a href="#9-selber-probieren">9. Selber Probieren</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Nachdem wir letzte Wochen das Mandelbrot und den Baum des Pythagoras gemalt haben, wollen
+wir heute weitere Fraktale produzieren.</p>
+<h1 id="das-ziel">Das Ziel</h1>
+<p><img src="/img/ifs.png" alt="Iteriertes Funktionensystem"></p>
+<h1 id="0-programm-aufsetzen">0. Programm aufsetzen</h1>
+<p>Das kennst du schon:  Ein neues Kotlin-Projekt anlegen und das Hauptprogramm
+ausfüllen, etwa so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">MyWindow</span><span class="p">(</span><span class="n">content</span> <span class="p">:</span><span class="n">JComponent</span><span class="p">)</span> <span class="p">:</span><span class="n">JFrame</span><span class="p">(</span><span class="s2">&#34;Iteriertes Funktionensystem&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">init</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="n">layout</span> <span class="p">=</span> <span class="n">BorderLayout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">       <span class="n">contentPane</span> <span class="p">=</span> <span class="n">content</span>
+</span></span><span class="line"><span class="cl">       <span class="n">defaultCloseOperation</span> <span class="p">=</span> <span class="n">EXIT_ON_CLOSE</span>
+</span></span><span class="line"><span class="cl">       <span class="n">setSize</span><span class="p">(</span><span class="m">800</span><span class="p">,</span> <span class="m">600</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="k">val</span> <span class="py">window</span> <span class="p">=</span> <span class="n">MyWindow</span><span class="p">(</span><span class="n">IFS</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">currentTimeMillis</span><span class="p">()))</span>
+</span></span><span class="line"><span class="cl">     <span class="n">window</span><span class="p">.</span><span class="n">isVisible</span> <span class="p">=</span> <span class="k">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="1-komponente-zum-malen">1. Komponente zum Malen</h1>
+<p>Auch diesen Teil solltest du schon einmal gesehen haben.  Wir fangen etwa so an:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">IFS</span><span class="p">(</span><span class="k">val</span> <span class="py">seed</span> <span class="p">:</span><span class="n">Long</span><span class="p">)</span> <span class="p">:</span><span class="n">JComponent</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">random</span> <span class="p">=</span> <span class="n">Random</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">n</span> <span class="p">=</span> <span class="m">3</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">fs</span> <span class="p">:</span><span class="n">List</span><span class="p">&lt;</span><span class="n">Aff</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">ps</span> <span class="p">:</span><span class="n">List</span><span class="p">&lt;</span><span class="n">Double</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">size</span> <span class="p">:</span><span class="n">Rect</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">scale</span> <span class="p">:</span><span class="n">Rect</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">var</span> <span class="py">p</span> <span class="p">=</span> <span class="n">Point2D</span><span class="p">.</span><span class="n">origin</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">init</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">fs</span> <span class="p">=</span> <span class="p">(</span><span class="m">1.</span><span class="p">.</span><span class="n">n</span><span class="p">).</span><span class="n">map</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">var</span> <span class="py">f</span> <span class="p">=</span> <span class="n">random</span><span class="p">.</span><span class="n">nextAff</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="n">ps</span> <span class="p">=</span> <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="n">_000</span><span class="p">).</span><span class="n">forEach</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="p">=</span> <span class="n">iterate</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="n">size</span> <span class="p">=</span> <span class="n">bbox</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">iterate</span><span class="p">(</span><span class="n">p</span> <span class="p">:</span><span class="n">Point2D</span><span class="p">)</span> <span class="p">:</span><span class="n">Point2D</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">override</span> <span class="k">fun</span> <span class="nf">paint</span><span class="p">(</span><span class="n">g</span> <span class="p">:</span><span class="n">Graphics</span><span class="p">?)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">g</span> <span class="o">?:</span> <span class="k">return</span>
+</span></span><span class="line"><span class="cl">      <span class="n">scale</span> <span class="p">=</span> <span class="n">scaling</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">(</span><span class="m">1.</span><span class="p">.</span><span class="n">width</span><span class="p">*</span><span class="n">height</span><span class="p">/</span><span class="m">10</span><span class="p">).</span><span class="n">forEach</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="p">=</span> <span class="n">iterate</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">g</span><span class="p">.</span><span class="n">drawRect</span><span class="p">(</span><span class="n">scale</span><span class="p">.</span><span class="n">px</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">scaling</span><span class="p">(</span><span class="n">size</span> <span class="p">:</span><span class="n">Rect</span><span class="p">,</span> <span class="n">width</span> <span class="p">:</span><span class="n">Int</span><span class="p">,</span> <span class="n">height</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">:</span><span class="n">Rect</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">dx</span> <span class="p">=</span> <span class="n">min</span><span class="p">(</span><span class="n">width</span><span class="p">/</span><span class="n">size</span><span class="p">.</span><span class="n">dx</span><span class="p">,</span> <span class="n">height</span><span class="p">/</span><span class="n">size</span><span class="p">.</span><span class="n">dy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">Rect</span><span class="p">(</span><span class="n">size</span><span class="p">.</span><span class="n">x0</span><span class="p">-(</span><span class="n">size</span><span class="p">.</span><span class="n">dx</span><span class="p">-</span><span class="n">dx</span><span class="p">/</span><span class="n">width</span><span class="p">)/</span><span class="m">2</span><span class="p">,</span> <span class="n">size</span><span class="p">.</span><span class="n">y1</span><span class="p">+(</span><span class="n">size</span><span class="p">.</span><span class="n">dy</span><span class="p">-</span><span class="n">dx</span><span class="p">/</span><span class="n">height</span><span class="p">)/</span><span class="m">2</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="p">-</span><span class="n">dx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">data</span> <span class="k">class</span> <span class="nc">Rect</span><span class="p">(</span><span class="k">val</span> <span class="py">x0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">y0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">dx</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">dy</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">y1</span> <span class="p">=</span> <span class="n">y0</span><span class="p">+</span><span class="n">dy</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">fun</span> <span class="nf">px</span><span class="p">(</span><span class="n">p</span> <span class="p">:</span><span class="n">Point</span><span class="p">)</span> <span class="p">=</span> <span class="p">((</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">-</span><span class="n">x0</span><span class="p">)*</span><span class="n">dx</span><span class="p">).</span><span class="n">roundToInt</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="k">fun</span> <span class="nf">py</span><span class="p">(</span><span class="n">p</span> <span class="p">:</span><span class="n">Point</span><span class="p">)</span> <span class="p">=</span> <span class="p">((</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">-</span><span class="n">y0</span><span class="p">)*</span><span class="n">dy</span><span class="p">).</span><span class="n">roundToInt</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">data</span> <span class="k">class</span> <span class="nc">Point2D</span><span class="p">(</span><span class="k">val</span> <span class="py">x</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">y</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">origin</span> <span class="p">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Also die Hälfte davon sollte dir bekannt vorkommen.  <code>Rect</code> stellt ein (axenparalleles) Rechteck dar, mit dem sowohl die wahre Größe des Fraktals <code>size</code> (engl. für Größe) als auch die Umrechnung von virtuellen Koordinaten in Bildschirmkoordinaten erfolgt (<code>px</code> und <code>py</code>).</p>
+<p>Mit <code>paint</code> wird wieder etwas gemalt.  Das Malen besteht darin, dass wir 10% der Anzahl maximal möglicher Punkte im Fenster berechnen (einer nach dem anderen) und diese dann im Fenster als kleine Quadrate eingezeichnet werden.  D.h. dass wir für größeres Fenster mehr Punkte berechnen (und bei kleinerem Fenster uns die Arbeit sparen).</p>
+<p>Interessant ist, dass wir die Klasse selbst noch initialisieren müssen:  Das geschieht in der Methode <code>init</code> (Achtung: ohne Klammern <code>()</code>).  Zunächst rechnen wir eine handvoll Abbildungen aus, dann ein paar Wahrscheinlichkeiten <code>ps</code>, anschließend initialisieren wir den Punkt <code>p</code>, indem wir 10'000 mal iterieren.  Am Schluss bestimmen wir noch die Größe (<code>bbox</code> ist englisch für bounding box und heißt umspannendes Rechteck).</p>
+<h1 id="1-lineareaffine-abbildungen">1. Lineare/Affine Abbildungen</h1>
+<p>Iteriertes Funktionensystem heißt, dass wir eine hanvoll Abbildungen der Ebene auf sich selbst haben, die dann in zufälliger Reihenfolge auf einen Punkt angewendet werden.  Wenn der Punkt im Fraktal liegt (z.B. nach ca. 10'000 Anfangs-Iterationen), dann hüpft er zufällig durch das ganze Fraktal.  Man kann das Fraktal erkennen, wenn man den Weg des Punktes einzeichnet.</p>
+<h2 id="affine-abblidungen">Affine Abblidungen</h2>
+<p>Im einfachsten Fall entscheiden wir uns dafür, affine/lineare Abbildungen zu verwenden.  Wenn wir den Punkt in der Ebene mit 2 Koordinaten $p=(x, y)$ beschreiben, dann ist eine affine Abbildung eine affine Kombination dieser 2 Koordinaten:
+$$ (x,y) \mapsto (a_{00}x+a_{01}y+b_0, a_{10}x+a_{11}y+b_1) $$</p>
+<p>In der Schule nennt man dies manchmal lineare Abbildung, da der 1-dimensionale Fall $x\mapsto ax+b$ eine Gerade darstellt (Anstieg $a$ und kreuzt die y-Achse bei $y=b$), aber das ist nicht richtig, weil linear eigentlich heißt, dass $f(x+x&rsquo;)=f(x)+f(x&rsquo;)$ und $f(cx)=c\,f(x)$.  Das wäre nur für $b=0$ erfüllt.</p>
+<p>D.h. eine affine Abbildung hat 6 Parameter und man muss diese 2 Formeln verwenden.  Das sieht in Kotlin etwa so aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">IFS</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">:</span><span class="n">JComponent</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">data</span> <span class="k">class</span> <span class="nc">Aff</span><span class="p">(</span><span class="k">val</span> <span class="py">a00</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">a01</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">a10</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">a11</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">b0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">b1</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">id</span> <span class="p">=</span> <span class="n">Aff</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">fun</span> <span class="nf">translate</span><span class="p">(</span><span class="n">vx</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="n">vy</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">=</span> <span class="n">Aff</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span> <span class="m">1.0</span><span class="p">,</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">private</span> <span class="k">fun</span> <span class="nf">rotate</span><span class="p">(</span><span class="n">c</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="n">s</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">=</span> <span class="n">Aff</span><span class="p">(</span><span class="n">c</span><span class="p">,-</span><span class="n">s</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span><span class="n">c</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">fun</span> <span class="nf">rotate</span><span class="p">(</span><span class="n">alpha</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">cos</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">flipX</span> <span class="p">=</span> <span class="n">Aff</span><span class="p">(-</span><span class="m">1.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">flipY</span> <span class="p">=</span> <span class="n">Aff</span><span class="p">(</span><span class="m">1.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">,-</span><span class="m">1.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span><span class="m">0.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">det</span> <span class="p">=</span> <span class="n">a00</span><span class="p">*</span><span class="n">a11</span> <span class="p">-</span><span class="n">a01</span><span class="p">*</span><span class="n">a10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">fun</span> <span class="nf">map</span><span class="p">(</span><span class="n">p</span> <span class="p">:</span><span class="n">Point2D</span><span class="p">)</span> <span class="p">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="n">a00</span><span class="p">*</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="n">a01</span><span class="p">*</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">+</span><span class="n">b0</span><span class="p">,</span> <span class="n">a10</span><span class="p">*</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">+</span><span class="n">a11</span><span class="p">*</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">+</span><span class="n">b1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">fun</span> <span class="nf">chain</span><span class="p">(</span><span class="n">b</span> <span class="p">:</span><span class="n">Aff</span><span class="p">)</span> <span class="p">=</span> <span class="n">Aff</span><span class="p">(</span><span class="n">a00</span><span class="p">*</span><span class="n">b</span><span class="p">.</span><span class="n">a00</span><span class="p">+</span><span class="n">a01</span><span class="p">*</span><span class="n">b</span><span class="p">.</span><span class="n">a10</span><span class="p">,</span> <span class="n">a00</span><span class="p">*</span><span class="n">b</span><span class="p">.</span><span class="n">a10</span><span class="p">+</span><span class="n">a01</span><span class="p">*</span><span class="n">b</span><span class="p">.</span><span class="n">a11</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="n">a10</span><span class="p">*</span><span class="n">b</span><span class="p">.</span><span class="n">a00</span><span class="p">+</span><span class="n">a11</span><span class="p">*</span><span class="n">b</span><span class="p">.</span><span class="n">a10</span><span class="p">,</span> <span class="n">a11</span><span class="p">*</span><span class="n">b</span><span class="p">.</span><span class="n">a11</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">          <span class="n">b0</span> <span class="p">+</span><span class="n">a00</span><span class="p">*</span><span class="n">b</span><span class="p">.</span><span class="n">b0</span><span class="p">+</span><span class="n">a01</span><span class="p">*</span><span class="n">b</span><span class="p">.</span><span class="n">b1</span><span class="p">,</span> <span class="n">b1</span> <span class="p">+</span><span class="n">a10</span><span class="p">*</span><span class="n">b</span><span class="p">.</span><span class="n">b0</span><span class="p">+</span><span class="n">a11</span><span class="p">*</span><span class="n">b</span><span class="p">.</span><span class="n">b1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">Random</span><span class="p">.</span><span class="n">nextAff</span><span class="p">()</span> <span class="p">=</span> <span class="n">Aff</span><span class="p">(</span><span class="m">2.2</span><span class="p">*</span><span class="n">nextDouble</span><span class="p">()-</span><span class="m">1.1</span><span class="p">,</span> <span class="m">2.2</span><span class="p">*</span><span class="n">nextDouble</span><span class="p">()-</span><span class="m">1.1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="m">2.2</span><span class="p">*</span><span class="n">nextDouble</span><span class="p">()-</span><span class="m">1.1</span><span class="p">,</span> <span class="m">2.2</span><span class="p">*</span><span class="n">nextDouble</span><span class="p">()-</span><span class="m">1.1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="m">20</span><span class="p">*</span><span class="n">nextDouble</span><span class="p">()-</span><span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">*</span><span class="n">nextDouble</span><span class="p">()-</span><span class="m">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ich habe noch 2 weitere Operationen programmiert:  Zum einen <code>chain</code>, eine Verkettung zweier solcher Abbildungen und zum anderen <code>det</code> die Determinante der Abbildung.  Die Determinante gibt an, wie groß das Bild wird (im Vergleich zum Original), d.h. eine Determinante von $&gt;1$ bedeutet, dass die Abbildung (insgesamt) vergrößert, eine Determinante zwischen 0 und 1, dass sie verkleinert, eine Determinante $&lt;0$, dass sie umkehrt und eine Determinante von $1$,
+dass sie insgesamt in Originalgröße abbildet.  Dabei kann es aber sein, dass sie in manchen Richtungen verkleinert und dafür in anderen Richtungen vergrößert.</p>
+<p>Die einfachste Abbildung ist $1\!\!1=$<code>Aff.id</code>, die Identitätsabbildung, die jeden Punkt auf sich selbst abbildet.  Die nächsteinfachen sind die Verschiebungen (engl. translations), für die man eine Verschiebung in $x$- und in $y$-Richtung angibt.  Etwas trickreicher sind die Drehungen <code>rotate(alpha)</code>, die alle Punkte um den Ursprung $(0, 0)$ (engl. <code>origin</code>) um einen Winkel $\alpha$ drehen.</p>
+<p>Trickreicher sind auch die Spiegelungen <code>flipX</code> und <code>flipY</code>, die jeweils die $x$- oder die $y$-Achse umkehren, die jeweils andere Achse aber so belassen.  Die letzten beiden haben beide Determinante -1, alle anderen Determinante 1.</p>
+<p>Es gibt jedoch auch noch andere affine Abbildungen, die aber hier nicht alle einzeln explizit konstruiert werden sollen.  Stattdessen gibt es eine Funktion <code>nextAff()</code> mit der man eine zufällige affine Transformation erzeugen kann.  Dazu braucht man lediglich einen Zufallsgenerator, den wir am Anfang der Klasse (<code>val random = Random(seed)</code>, engl. für Zufall) angelegt haben.  Da der Computer keinen echten Zufall erzeugen kann, gibt man einen Startwert (engl. <code>seed</code> Futter/Samen) vor und von dort an springt der Generator chaotisch durch die ganzen Zahlen.</p>
+<p>Der Ausdruck <code>random.nextDouble()</code> liefert eine zufällige reelle Zahl zwishen 0 und 1.  Wenn man die mit 2.2 multipliziert und 1.1 abzieht, erhält man eine zufällige reelle Zahl zwischen -1.1 und 1.1.  Entsprechend funktioniert das mit <code>20*random.nextDouble()-10</code>.</p>
+<h1 id="2-fraktale-erzeugen">2. Fraktale erzeugen</h1>
+<p>Wenn man statt einer affinen Abbildung gleich 2 oder 3 verwendet, dann kann man ein Fraktal erhalten.  Dazu muss aber jede Abbildung kontrahierend sein $-1&lt;\mathrm{det}&lt;1$.  Man kann das Fraktal rekonstruieren, indem man zufällig einige dieser Transformationen anwendet.  Um die Fläche des Fraktals gleichmäßig abzulaufen, sollte man die Transformation $A$ mit einer Wahrscheinlichkeit $p(A)\sim|\det A|$ wählen.  Insgesamt müssen sich alle Wahrscheinlichkeiten zu 1 addieren.  Das kann man so erreichen:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">IFS</span> <span class="p">:</span><span class="n">JComponent</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">init</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">fs</span> <span class="p">=</span> <span class="p">(</span><span class="m">1.</span><span class="p">.</span><span class="n">n</span><span class="p">).</span><span class="n">map</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">var</span> <span class="py">f</span> <span class="p">=</span> <span class="n">random</span><span class="p">.</span><span class="n">nextAff</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">det</span><span class="p">)</span><span class="o">&gt;=</span><span class="m">1.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="n">f</span> <span class="p">=</span> <span class="n">random</span><span class="p">.</span><span class="n">nextAff</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">ps</span> <span class="p">=</span> <span class="n">fs</span><span class="p">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">f</span> <span class="o">-&gt;</span> <span class="n">abs</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">det</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">f</span> <span class="p">=</span> <span class="m">1.0</span><span class="p">/</span><span class="n">ps</span><span class="p">.</span><span class="n">sum</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="k">this</span><span class="p">.</span><span class="n">ps</span> <span class="p">=</span> <span class="n">ps</span><span class="p">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">p</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="p">*</span><span class="n">f</span> <span class="p">}.</span><span class="n">cumsum</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">iterate</span><span class="p">(</span><span class="n">pt</span> <span class="p">:</span><span class="n">Point2D</span><span class="p">)</span> <span class="p">:</span><span class="n">Point2D</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">p</span> <span class="p">=</span> <span class="n">random</span><span class="p">.</span><span class="n">nextDouble</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">k</span> <span class="p">=</span> <span class="n">ps</span><span class="p">.</span><span class="n">firstOrNull</span> <span class="p">{</span> <span class="n">p1</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="o">&lt;=</span><span class="n">p1</span> <span class="p">}</span> <span class="o">?:</span> <span class="n">fs</span><span class="p">.</span><span class="n">size</span><span class="p">-</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">fs</span><span class="p">[</span><span class="n">k</span><span class="p">].</span><span class="n">map</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">Iterable</span><span class="p">&lt;</span><span class="n">Double</span><span class="p">&gt;.</span><span class="n">cumSum</span><span class="p">()</span> <span class="p">:</span><span class="n">List</span><span class="p">&lt;</span><span class="n">Double</span><span class="p">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">sum</span> <span class="p">=</span> <span class="m">0.0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">map</span> <span class="p">{</span> <span class="n">v</span> <span class="o">-&gt;</span> <span class="n">sum</span><span class="o">+=</span><span class="n">v</span><span class="p">;</span> <span class="n">sum</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wie gesagt, wir müssen sicherstellen, dass jede affine Abbildung $f$ eine Determinante vom Betrag (engl. absolute value) $&lt; 1$ hat.  Dann weisen wir zunächst jeder Abbildung den Betrag der Determinante zu und schließlich teilen wir noch durch die Summe der Determinanten und bilden die kumulativen Summen, d.h. wenn die Determinanten $0.9$, $0.6$ und $-0.5$ sind, dann wird zunächst $[0.9, 0.6, 0.5]$ daraus, was sich zu $2.0$ summiert, also ist der Skalierungsfaktor $1/2.0=0.5$ und somit auf $[0.45, 0.3, 0.25]$ abgebildet und anschließend zu $[0.45, 0.75, 1.0]$ kumuliert.  Die Höhe der jeweiligen Stufen ist proportional zum Betrag der jeweiligen Determinante und die Gesamthöhe ist 1.  Offenbar ist das nicht Bestandteil der Kotlin Standard-Bibliothek.  Deshalb steht am Ende, wie man das für reelle Zahlen berechnet.</p>
+<p>Die Iteration wählt nun eine zufällige affine Abbildung aus, indem zunächst eine Zahl zwischen 0 und 1 gewählt wird (gleichverteilt) und anschließend die entsprechende Stufe gefunden wird.  Als letzten Schritt muss man nur noch den Punkt <code>pt</code> mit dieser affinen Abbildung abbilden (engl. <code>map</code>).</p>
+<h1 id="3-größe-des-fraktals-abschätzen">3. Größe des Fraktals abschätzen</h1>
+<p>Das ist komplizierter als es erst aussieht:  Leider kann man aus den 2&ndash;3 Transformationen nicht einfach abschätzen, wie groß das Fraktal am Ende wird.  Stattdessen kann man jedoch einfach einige Punkte des Fraktals ausrechnen und schauen, bis wohin die wachsen.  Das kann man etwa so tun:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">bbox</span><span class="p">()</span> <span class="p">:</span><span class="n">Rect</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">x0</span> <span class="p">=</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>  <span class="k">var</span> <span class="py">x1</span> <span class="p">=</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">y0</span> <span class="p">=</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>  <span class="k">var</span> <span class="py">y1</span> <span class="p">=</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span>
+</span></span><span class="line"><span class="cl">    <span class="p">(</span><span class="m">1.</span><span class="p">.</span><span class="m">10</span><span class="n">_000</span><span class="p">).</span><span class="n">forEach</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">p</span> <span class="p">=</span> <span class="n">iterate</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">&lt;</span><span class="n">x0</span><span class="p">)</span>  <span class="n">x0</span> <span class="p">=</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">x1</span><span class="p">&lt;</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">)</span>  <span class="n">x1</span> <span class="p">=</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">&lt;</span><span class="n">y0</span><span class="p">)</span>  <span class="n">y0</span> <span class="p">=</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">y1</span><span class="p">&lt;</span><span class="n">p</span><span class="p">.</span><span class="n">y</span><span class="p">)</span>  <span class="n">y1</span> <span class="p">=</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">dx</span> <span class="p">=</span> <span class="n">x1</span><span class="p">-</span><span class="n">x0</span><span class="p">;</span>  <span class="k">val</span> <span class="py">dy</span> <span class="p">=</span> <span class="n">y1</span><span class="p">-</span><span class="n">y0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Rect</span><span class="p">(</span><span class="n">x0</span><span class="p">-</span><span class="m">0.05</span><span class="p">*</span><span class="n">dx</span><span class="p">,</span> <span class="n">y0</span><span class="p">-</span><span class="m">0.05</span><span class="p">*</span><span class="n">dy</span><span class="p">,</span> <span class="m">1.1</span><span class="p">*</span><span class="n">dx</span><span class="p">,</span> <span class="m">1.1</span><span class="p">*</span><span class="n">dy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wir berechnen einfach 10'000 Punkte und schauen für jeden von diesen, ob die x-Koordinate kleiner als $x_0$ ist, dann wird $x_0$ aktualisiert, ob $x_1$ kleiner als die x-Koordinate ist, dann wird $x_1$ aktualisiert, dann nochmal das Entsprechende für die y-Koordinate und $y_0$ und $y_1$.  Das Ergebnins ist, dass $x_0$ die kleinstmögliche x-Koordinate der 10'000 Punkte ist, $x_1$ die größtmögliche, $y_0$ die kleinstmögliche y-Koordinate und $y_1$ die größtmögliche.  Damit ist auch klar, dass das umspannende Rechteck die Breite $\Delta x = x_1-x_0$ und die Höhe $\Delta y = y_1-y_0$ hat.  Tatsächlich sollten wir aber nicht zu knapp schätzen, da ein paar wenige Punkte später noch außerhalb dieser Grenzen liegen können.  Also geben wir lieber 10% in x- und in y-Richtung dazu ($1.1\Delta x$, $1.1\Delta y$).  Damit die Mitte in der Mitte bleibt, müssen wir den linken Punkt um $0.05\Delta x$ nach links und den unteren Punkt um $0.05\Delta y$ nach unten verschieben.</p>
+<h1 id="9-selber-probieren">9. Selber Probieren</h1>
+<p>So wie das Programm geschrieben ist, erzeugt es jedes Mal ein zufälliges anderes Fraktal.  Wenn du immer das gleiche Fraktal erzeugen willst, musst du den Zufallsgenerator immer gleich initialisieren, z.B. so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">window</span> <span class="p">=</span> <span class="n">MyWindow</span><span class="p">(</span><span class="n">IFS</span><span class="p">(</span><span class="m">42L</span><span class="p">))</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Was musst du am Programm ändern, wenn es 4 affine Transformationen statt 3 verwenden soll?  Wie kannst du die Farbe der Punkte von schwarz auf blau (engl. <code>blue</code>) ändern?</p>
+<p>Wie kann man das Programm dynamisch machen?  Z.B. alle 1s (<code>Thread.sleep(1000)</code> wartet 1s) das Iterierte Funktionssystem neu initialisieren (mit einem anderen Wert) und dann das Fenster nochmal neu sichtbar machen.</p>
+<p>Viel Spaß beim Probieren!</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">melli79</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-08-21
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">Markdown</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://melli79.github.io/post/15iteratedfunctionsystems/index.md" target="_blank">The Markdown version »</a></span>
+    </p>
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/14baumdespythagoras/">
+            <span class="next-text nav-default">14 Baum des Pythagoras</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2022-08-21 12:35:50 \u002b0200 CEST',
+        title: '15 Iterierte Funktionssysteme',
+        link: decodeURI(location.href),
+        desc: 'Nachdem wir letzte Wochen das Mandelbrot und den Baum des Pythagoras gemalt haben, wollen wir heute weitere Fraktale produzieren.\nDas Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:\n1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(\u0026#34;Iteriertes Funktionensystem\u0026#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(IFS(System.',
+        owner: 'melli79',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="melli79/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:melchiorG@gMail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://melli79.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">melli79</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.1c70606d1b733282f06230615f5561b5894924b6f9930ba2ab99cf1254f75a1a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

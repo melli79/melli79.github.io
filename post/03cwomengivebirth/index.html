@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.96.0 with theme even" />
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
 
 
 <link rel="canonical" href="https://melli79.github.io/post/03cwomengivebirth/" />
@@ -49,7 +49,7 @@
 <meta itemprop="name" content="03C Frauen Gebären und sich Scheiden lassen">
 <meta itemprop="description" content="03C women give birth"><meta itemprop="datePublished" content="2021-12-23T18:10:51+01:00" />
 <meta itemprop="dateModified" content="2021-12-23T18:10:51+01:00" />
-<meta itemprop="wordCount" content="1467">
+<meta itemprop="wordCount" content="1471">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="03C Frauen Gebären und sich Scheiden lassen"/>
 <meta name="twitter:description" content="03C women give birth"/>
@@ -298,7 +298,7 @@
 <pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">tanja</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Tanja&#34;</span><span class="p">,</span> <span class="s2">&#34;Mayer&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1978</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">tina</span> <span class="p">=</span> <span class="n">tanja</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="s2">&#34;Tina&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1985</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">tina</span> <span class="p">=</span> <span class="n">tanja</span><span class="p">.</span><span class="n">giveBirth</span><span class="p">(</span><span class="s2">&#34;Tina&#34;</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1995</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Female</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">${tina}</span><span class="s2">s Eltern sind </span><span class="si">${tina.mother}</span><span class="s2"> und </span><span class="si">${tina.father}</span><span class="s2">.&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -308,7 +308,7 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Tina Mayer (*1.1.1985)s Eltern sind Tanja Mayer (*1978) und null.
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Tina Mayer (*1.1.1995)s Eltern sind Tanja Mayer (*1978) und null.
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Hmm, irgendwie müssten wir statt &ldquo;null&rdquo; eher &ldquo;unbekannt&rdquo; schreiben.</p>
@@ -604,7 +604,7 @@
         id: '2021-12-23 18:10:51 \u002b0100 CET',
         title: '03C Frauen Gebären und sich Scheiden lassen',
         link: decodeURI(location.href),
-        desc: '4. Frauen Gebären Woher kommen die Kinder?\nDas soll jetzt kein Vortrag über das Kinderkriegen werden, aber wenn unser Modell Menschen beschreibt, dann sollte es auch Kinder produzieren können.\nIm Einfachsten Fall bekommt eine Frau ein Kind und ihr Ehepartner ist der Vater. Die Signatur sieht etwa so aus:\n1 2 3  fun Person.giveBirth(givenName :String, birthday :PartialDate, gender :Gender) :Person { ... }   Offenbar brauchen wir auch das Geschlecht und den Geburtstag des Kindes.',
+        desc: '4. Frauen Gebären Woher kommen die Kinder?\nDas soll jetzt kein Vortrag über das Kinderkriegen werden, aber wenn unser Modell Menschen beschreibt, dann sollte es auch Kinder produzieren können.\nIm Einfachsten Fall bekommt eine Frau ein Kind und ihr Ehepartner ist der Vater. Die Signatur sieht etwa so aus:\n1 2 3 fun Person.giveBirth(givenName :String, birthday :PartialDate, gender :Gender) :Person { ... } Offenbar brauchen wir auch das Geschlecht und den Geburtstag des Kindes.',
         owner: 'melli79',
         repo: '',
         oauth: {
@@ -675,7 +675,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.30dad356188cdaba5047112eaa8bf5e85cb14ae7e803337403591fce94a531a0.js"></script>
+<script type="text/javascript" src="/js/main.min.1c70606d1b733282f06230615f5561b5894924b6f9930ba2ab99cf1254f75a1a.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},

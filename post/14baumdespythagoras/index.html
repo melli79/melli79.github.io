@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>14 Baum des Pythagoras - Melchior&#39;s Homepage</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="melli79" /><meta name="description" content="Nachdem wir letzte Woche das Mandelbrot und Julia-Mengen gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&amp;#34;Baum des Pythagoras&amp;#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(TreeOfPythagoras()) window." />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.101.0 with theme even" />
+
+
+<link rel="canonical" href="https://melli79.github.io/post/14baumdespythagoras/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78d3a03abaed5d3c468bdf402fc110f36c046abf091a63421b9ce0a5a63db941.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="14 Baum des Pythagoras" />
+<meta property="og:description" content="Nachdem wir letzte Woche das Mandelbrot und Julia-Mengen gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&#34;Baum des Pythagoras&#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(TreeOfPythagoras()) window." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://melli79.github.io/post/14baumdespythagoras/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-08-19T18:35:50+02:00" />
+<meta property="article:modified_time" content="2022-08-19T18:35:50+02:00" />
+
+<meta itemprop="name" content="14 Baum des Pythagoras">
+<meta itemprop="description" content="Nachdem wir letzte Woche das Mandelbrot und Julia-Mengen gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&#34;Baum des Pythagoras&#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(TreeOfPythagoras()) window."><meta itemprop="datePublished" content="2022-08-19T18:35:50+02:00" />
+<meta itemprop="dateModified" content="2022-08-19T18:35:50+02:00" />
+<meta itemprop="wordCount" content="1249">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="14 Baum des Pythagoras"/>
+<meta name="twitter:description" content="Nachdem wir letzte Woche das Mandelbrot und Julia-Mengen gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&#34;Baum des Pythagoras&#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(TreeOfPythagoras()) window."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Melchior&#39;s Homepage</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Themes</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Melchior&#39;s Homepage</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Themes</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">14 Baum des Pythagoras</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-08-19 </span>
+        <div class="post-category">
+            <a href="/categories/kotlin/"> Kotlin </a>
+            <a href="/categories/programming/"> Programming </a>
+            <a href="/categories/swing/"> Swing </a>
+            <a href="/categories/fraktal/"> Fraktal </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#das-ziel">Das Ziel</a></li>
+    <li><a href="#0-programm-aufsetzen">0. Programm aufsetzen</a></li>
+    <li><a href="#1-komponente-zum-malen">1. Komponente zum Malen</a></li>
+    <li><a href="#2-das-basiselement">2. Das Basiselement</a>
+      <ul>
+        <li><a href="#wo-liegt-nun-die-spitze">Wo liegt nun die Spitze?</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-iterum-iterumque-wieder-und-wieder">3. Iterum, Iterumque (Wieder und wieder)</a></li>
+    <li><a href="#4-variationen">4. Variationen</a>
+      <ul>
+        <li><a href="#41-hellbraune-zweige-und-grüne-blätter">4.1 hellbraune Zweige und grüne Blätter</a></li>
+        <li><a href="#42-zufällige-drehung">4.2 Zufällige Drehung</a></li>
+        <li><a href="#43-weniger-zweige">4.3 Weniger Zweige</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-selber-probieren">9. Selber Probieren</a>
+      <ul>
+        <li><a href="#92-anderes-dreieck">9.2 Anderes Dreieck</a></li>
+        <li><a href="#93-3-zweige">9.3 3 Zweige</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Nachdem wir letzte Woche das Mandelbrot und Julia-Mengen gemalt haben, wollen
+wir heute weitere Fraktale produzieren.</p>
+<h1 id="das-ziel">Das Ziel</h1>
+<p><img src="/img/pythagorasTree.png" alt="Baum des Pythagoras"></p>
+<h1 id="0-programm-aufsetzen">0. Programm aufsetzen</h1>
+<p>Das kennst du schon:  Ein neues Kotlin-Projekt anlegen und das Hauptprogramm
+ausfüllen, etwa so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">MyWindow</span><span class="p">(</span><span class="n">content</span> <span class="p">:</span><span class="n">JComponent</span><span class="p">)</span> <span class="p">:</span><span class="n">JFrame</span><span class="p">(</span><span class="s2">&#34;Baum des Pythagoras&#34;</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">init</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">       <span class="n">layout</span> <span class="p">=</span> <span class="n">BorderLayout</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">       <span class="n">contentPane</span> <span class="p">=</span> <span class="n">content</span>
+</span></span><span class="line"><span class="cl">       <span class="n">defaultCloseOperation</span> <span class="p">=</span> <span class="n">EXIT_ON_CLOSE</span>
+</span></span><span class="line"><span class="cl">       <span class="n">setSize</span><span class="p">(</span><span class="m">800</span><span class="p">,</span> <span class="m">600</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">     <span class="k">val</span> <span class="py">window</span> <span class="p">=</span> <span class="n">MyWindow</span><span class="p">(</span><span class="n">TreeOfPythagoras</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">     <span class="n">window</span><span class="p">.</span><span class="n">isVisible</span> <span class="p">=</span> <span class="k">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="1-komponente-zum-malen">1. Komponente zum Malen</h1>
+<p>Auch diesen Teil solltest du schon einmal gesehen haben.  Wir fangen etwa so an:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">TreeOfPythagoras</span><span class="p">()</span> <span class="p">:</span><span class="n">JComponent</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">base</span> <span class="p">=</span> <span class="n">Square</span><span class="p">(</span><span class="m">0.525</span><span class="p">,</span> <span class="m">0.01</span><span class="p">,</span> <span class="m">0.125</span><span class="p">,</span> <span class="m">0.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">twigSize2</span> <span class="p">=</span> <span class="m">0.01</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">leafSize2</span> <span class="p">=</span> <span class="m">0.0025</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">cutoffSize2</span> <span class="p">=</span> <span class="m">1e-6</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">DARK</span><span class="n">_BROWN</span> <span class="p">=</span> <span class="n">Color</span><span class="p">(</span><span class="m">96</span><span class="p">,</span> <span class="m">64</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">LIGHT</span><span class="n">_BROWN</span> <span class="p">=</span> <span class="n">Color</span><span class="p">(</span><span class="m">192</span><span class="p">,</span> <span class="m">128</span><span class="p">,</span> <span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">DARK</span><span class="n">_GREEN</span> <span class="p">=</span> <span class="n">Color</span><span class="p">.</span><span class="n">GREEN</span><span class="p">.</span><span class="n">darker</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">lateinit</span> <span class="k">var</span> <span class="py">scale</span> <span class="p">:</span><span class="n">Scale</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">override</span> <span class="k">fun</span> <span class="nf">paint</span><span class="p">(</span><span class="n">g</span> <span class="p">:</span><span class="n">Graphics</span><span class="p">?)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">g</span> <span class="o">?:</span> <span class="k">return</span>
+</span></span><span class="line"><span class="cl">      <span class="n">scale</span> <span class="p">=</span> <span class="n">Scale</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="n">width</span><span class="p">.</span><span class="n">toDouble</span><span class="p">(),</span> <span class="n">height</span><span class="p">.</span><span class="n">toDouble</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">      <span class="n">g</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="n">DARK_BROWN</span>
+</span></span><span class="line"><span class="cl">      <span class="n">drawline</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">base</span><span class="p">.</span><span class="n">p0</span><span class="p">,</span> <span class="n">base</span><span class="p">.</span><span class="n">p1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">branch</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">branch</span><span class="p">(</span><span class="n">base</span> <span class="p">:</span><span class="n">Square</span><span class="p">,</span> <span class="n">g</span> <span class="p">:</span><span class="n">Graphics</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">drawLine</span><span class="p">(</span><span class="n">g</span> <span class="p">:</span><span class="n">Graphics</span><span class="p">,</span> <span class="n">p0</span> <span class="p">:</span><span class="n">Point2D</span><span class="p">,</span> <span class="n">p1</span> <span class="p">:</span><span class="n">Point2D</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">g</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">scale</span><span class="p">.</span><span class="n">px</span><span class="p">(</span><span class="n">p0</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="n">p0</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">px</span><span class="p">(</span><span class="n">p1</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="n">p1</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">data</span> <span class="k">class</span> <span class="nc">Scale</span><span class="p">(</span><span class="k">val</span> <span class="py">x0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">y0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">dx</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">dy</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">fun</span> <span class="nf">of</span><span class="p">(</span><span class="n">width</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="n">height</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">:</span><span class="n">Scale</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="k">val</span> <span class="py">dx</span> <span class="p">=</span> <span class="n">min</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span> <span class="n">Scale</span><span class="p">((</span><span class="n">width</span><span class="p">-</span><span class="n">dx</span><span class="p">)/</span><span class="m">2</span><span class="p">,</span> <span class="n">height</span> <span class="p">-(</span><span class="n">height</span><span class="p">-</span><span class="n">dy</span><span class="p">)/</span><span class="m">2</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="p">-</span><span class="n">dx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">data</span> <span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="k">val</span> <span class="py">x0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">y0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="n">dx</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="n">dy</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">companion</span> <span class="n">Object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">fun</span> <span class="nf">of</span><span class="p">(</span><span class="n">x0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="n">y0</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="n">x1</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="n">y1</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">p0</span> <span class="p">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">p1</span> <span class="p">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="n">x0</span><span class="p">+</span><span class="n">dx</span><span class="p">,</span> <span class="n">y0</span><span class="p">+</span><span class="n">dy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">data</span> <span class="k">class</span> <span class="nc">Point2D</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Die Verwendung von <code>scale</code> sollte dir bekannt vorkommen: Zum Malen müssen wir stets die vituellen Koordinaten in Bildschirm-Koordinaten umrechnen.  Dazu legen wir einen gemeinsamen Skalierungsfaktor in $x$- und in $y$-Richtung fest und zentrieren die Ausgabe.  Um 2 virtuelle Punkte zu einer Linie auf dem Bildschirm zu verbinden, gibt es die Methode <code>drawLine</code>.</p>
+<p>Die Klasse <code>Square</code> beschreibt die Größe des Basiselementes.  Dieses besteht aus einem Quadrat (engl. square).  Das wiederum besteht aus dem linken unteren Punkt sowie der Richtung der ersten Seite (<code>dx</code> Schritte nach rechts und <code>dy</code> Schritte nach oben).  Wir fangen mit einer Standardgröße an, die nur 12.5% des Bildschirms (in jeder Richtung) füllt.</p>
+<h1 id="2-das-basiselement">2. Das Basiselement</h1>
+<p>Wenn wir uns das Zielbild anschauen, erkennen wir, dass der Baum aus einer wiederholten Konstruktion des folgenden Elements besteht:</p>
+<p><img src="/img/trunkAndFork.png" alt="Stamm und Astgabel."></p>
+<p>Genau damit fangen wir in der Methode <code>branch</code> (engl. für Zweig/verzweigen) an.  Das Stück Stamm ist ein Quadrat, d.h. alle 4 Seitenlängen sind gleichgroß und wir müssen über der gegebenen unteren Seite eine linke, eine obere und eine rechte Seite malen (braune Linien).  Dazu ergänzen wir 2 weitere Punkte <code>p2</code> und <code>p3</code> in der Definition von <code>Square</code>.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">TreeOfPythagoras</span> <span class="p">:</span><span class="n">JComponent</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">fun</span> <span class="nf">branch</span><span class="p">(</span><span class="n">base</span> <span class="p">:</span><span class="n">Square</span><span class="p">,</span> <span class="n">g</span> <span class="p">:</span><span class="n">Graphics</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">p2</span> <span class="p">=</span> <span class="n">base</span><span class="p">.</span><span class="n">p2</span>
+</span></span><span class="line"><span class="cl">      <span class="n">drawLine</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">base</span><span class="p">.</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">p3</span> <span class="p">=</span> <span class="n">base</span><span class="p">.</span><span class="n">p3</span>
+</span></span><span class="line"><span class="cl">      <span class="n">drawLine</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">drawLine</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">base</span><span class="p">.</span><span class="n">p0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">data</span> <span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">p2</span> <span class="p">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="n">x0</span><span class="p">+</span><span class="n">dx</span><span class="p">-</span><span class="n">dy</span><span class="p">,</span> <span class="n">y0</span><span class="p">+</span><span class="n">dy</span><span class="p">+</span><span class="n">dx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">p3</span> <span class="p">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="n">x0</span><span class="p">-</span><span class="n">dy</span><span class="p">,</span> <span class="n">y0</span><span class="p">+</span><span class="n">dx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Dann setzt ein Verzweigungselement auf dem Stück Stamm auf.  Das besteht aus einem rechtwinkligen Dreieck.  Das einfachste rechtwinklige Dreieck, welches mir einfällt, hat Seitenlängen 3, 4 und 5. D.h. die längste Seite (Hypothenuse) hat Länge 5 und die beiden anderen Seiten Längen 3 und 4, entsprechend.  Damit ist tatsächlich $3^2+4^2=9+16=25=5^2$, also ist es ein rechtwinkliges Dreieck.</p>
+<h2 id="wo-liegt-nun-die-spitze">Wo liegt nun die Spitze?</h2>
+<p>Die Seite vom linken-oberen Punkt des Quadrates zur Spitze hat die Länge $0.8l$, wobei $l$ die Länge der Seite des Quadrates ist.  Wenn das Quadrat $\Delta x$ breit ist, müssen wir $x_0$ um $0.8\cdot0.8\Delta x$ verschieben.  Wenn die Grundseite noch um $\Delta y$ rechts angehoben ist, dann muss man die $x$-Koordinate noch um $-0.8\cdot0.6\Delta y$ korrigieren.</p>
+<p>Die $y$-Koordinate ist $0.6$ von der Dreiecksseiten-Länge, also $0.8\cdot0.6\Delta x$, wenn die Seite waagerecht liegt.  Wenn die Grundseite noch um $\Delta y$ rechts angehoben ist, dann muss die Spitze um $0.8\cdot0.8\Delta y$ zusätzlich angehoben werden.</p>
+<p>Insgesamt zeichnet man das Verzweigungselement mittels</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">branch</span><span class="p">(</span><span class="n">base</span> <span class="p">:</span><span class="n">Square</span><span class="p">,</span> <span class="n">g</span> <span class="p">:</span><span class="n">Graphics</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">drawLine</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">p0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">pT</span> <span class="p">=</span> <span class="n">base</span><span class="p">.</span><span class="n">pT</span>
+</span></span><span class="line"><span class="cl">    <span class="n">drawline</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">p3</span><span class="p">,</span> <span class="n">pT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">drawLine</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">pT</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">data</span> <span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">companion</span> <span class="k">object</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">fun</span> <span class="nf">of</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">:</span><span class="n">Square</span> <span class="p">{</span><span class="o">..</span><span class="p">.}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">c</span> <span class="p">=</span> <span class="m">4.0</span><span class="p">/</span><span class="m">5</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">s</span> <span class="p">=</span> <span class="m">3.0</span><span class="p">/</span><span class="m">5</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">xT</span> <span class="p">=</span> <span class="n">x0</span> <span class="p">+</span><span class="n">c</span><span class="p">*(</span><span class="n">c</span><span class="p">*</span><span class="n">dx</span> <span class="p">-</span><span class="n">s</span><span class="p">*</span><span class="n">dy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">yT</span> <span class="p">=</span> <span class="n">y0</span><span class="p">+</span><span class="n">dx</span> <span class="p">+</span><span class="n">c</span><span class="p">*(</span><span class="n">s</span><span class="p">*</span><span class="n">dx</span><span class="p">+</span><span class="n">c</span><span class="p">*</span><span class="n">dy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">pT</span> <span class="p">=</span> <span class="n">Point2D</span><span class="p">(</span><span class="n">xT</span><span class="p">,</span> <span class="n">yT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="3-iterum-iterumque-wieder-und-wieder">3. Iterum, Iterumque (Wieder und wieder)</h1>
+<p>Wie kommt man jetzt zu dem gesamten Baum?  Dazu muss man auf dem Zweig 2 Zweigelemente aufsetzen.  Das kann man wie folgt erreichen:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">branch</span><span class="p">(</span><span class="n">base</span> <span class="p">:</span><span class="n">Square</span><span class="p">,</span> <span class="n">g</span> <span class="p">:</span><span class="n">Graphics</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">size2</span><span class="p">&lt;</span><span class="n">cutoffSize2</span><span class="p">)</span>  <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">branch</span><span class="p">(</span><span class="n">Square</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="n">p3</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">p3</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pT</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">pT</span><span class="p">.</span><span class="n">y</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">branch</span><span class="p">(</span><span class="n">Square</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="n">pT</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">pT</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p2</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">p2</span><span class="p">.</span><span class="n">y</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">data</span> <span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">size2</span> <span class="p">=</span> <span class="n">dx</span><span class="p">*</span><span class="n">dx</span> <span class="p">+</span><span class="n">dy</span><span class="p">*</span><span class="n">dy</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Die unteren 2 Zeilen malen je Element 2 Kind-Elemente, eines nach links und eines nach rechts.  Die obere Zeile braucht man, da sonst das Malen nie fertig wird (unendliche Rekursion).  Die Abbruchbedingung ist, dass das Element zu klein ist, um es noch zu sehen.</p>
+<h1 id="4-variationen">4. Variationen</h1>
+<h2 id="41-hellbraune-zweige-und-grüne-blätter">4.1 hellbraune Zweige und grüne Blätter</h2>
+<p>Das kann man dadurch erreichen, dass man bei Eintritt in die <code>branch</code>-Methode die Malfarbe entsprechend der aktuellen Größe setzt, also etwa so</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">branch</span><span class="p">(</span><span class="n">base</span> <span class="p">:</span><span class="n">Square</span><span class="p">,</span> <span class="n">g</span> <span class="p">:</span><span class="n">Graphics</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">size2</span><span class="p">&lt;</span><span class="n">cutoffSize2</span><span class="p">)</span>  <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="n">g</span><span class="p">.</span><span class="n">color</span> <span class="p">=</span> <span class="k">when</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">base</span><span class="p">.</span><span class="n">size2</span><span class="p">&lt;</span><span class="n">leafSize2</span> <span class="o">-&gt;</span> <span class="n">DARK_GREEN</span>
+</span></span><span class="line"><span class="cl">      <span class="n">base</span><span class="p">.</span><span class="n">size2</span><span class="p">&lt;</span><span class="n">twigSize2</span> <span class="o">-&gt;</span> <span class="n">LIGHT_BROWN</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span> <span class="o">-&gt;</span> <span class="n">DARK_BROWN</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="42-zufällige-drehung">4.2 Zufällige Drehung</h2>
+<p>Diese kann man erreichen, indem man den Dreieckspunkt wahlweise nach links oder nach rechts verschiebt.  Die Koordinaten zur Verschiebung nach links lauten: $0.6(0.6\Delta x-0.8\Delta y)$, $0.6(0.8\Delta x+0.6\Delta y)$.</p>
+<p>Die zufällige Flunktuation kann man erreichen, indem man</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">random</span> <span class="p">=</span> <span class="n">random</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">TreeOfPythagoras</span><span class="p">()</span> <span class="p">:</span><span class="n">JComponent</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">data</span> <span class="k">class</span> <span class="nc">Square</span><span class="p">(</span><span class="k">val</span> <span class="py">x0</span> <span class="o">..</span><span class="p">.</span> <span class="p">:</span><span class="n">Double</span><span class="p">,</span> <span class="k">val</span> <span class="py">moveRight</span> <span class="p">:</span><span class="n">Boolean</span> <span class="p">=</span> <span class="n">random</span><span class="p">.</span><span class="n">nextBoolean</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">xT</span> <span class="p">=</span> <span class="k">if</span> <span class="p">(</span><span class="n">moveRight</span><span class="p">)</span> <span class="n">c</span><span class="p">*(</span><span class="n">c</span><span class="p">*</span><span class="n">dx</span> <span class="p">-</span><span class="n">s</span><span class="p">*</span><span class="n">dy</span><span class="p">)</span>  <span class="k">else</span> <span class="n">s</span><span class="p">*(</span><span class="n">s</span><span class="p">*</span><span class="n">dx</span> <span class="p">-</span><span class="n">c</span><span class="p">*</span><span class="n">dy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">yT</span> <span class="p">=</span> <span class="k">if</span> <span class="p">(</span><span class="n">moveRight</span><span class="p">)</span> <span class="n">c</span><span class="p">*(</span><span class="n">s</span><span class="p">*</span><span class="n">dx</span> <span class="p">+</span><span class="n">c</span><span class="p">*</span><span class="n">dy</span><span class="p">)</span>  <span class="k">else</span> <span class="n">s</span><span class="p">*(</span><span class="n">c</span><span class="p">*</span><span class="n">dx</span> <span class="p">+</span><span class="n">s</span><span class="p">*</span><span class="n">dy</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="43-weniger-zweige">4.3 Weniger Zweige</h2>
+<p>Das kann man erreichen, indem man den 2. (kleineren) Zweig nur manchmal einfügt, z.B. so</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">branch</span><span class="p">(</span><span class="n">base</span> <span class="p">:</span><span class="n">Square</span><span class="p">,</span> <span class="n">g</span> <span class="p">:</span><span class="n">Graphics</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">rect</span><span class="p">.</span><span class="n">moveRight</span><span class="o">||</span><span class="n">random</span><span class="p">.</span><span class="n">flipCoin</span><span class="p">(</span><span class="m">0.8</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">branch</span><span class="p">(</span><span class="n">Rect</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="n">p3</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">p3</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">pt</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">pt</span><span class="p">.</span><span class="n">y</span><span class="p">),</span> <span class="n">g</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(!</span><span class="n">rect</span><span class="p">.</span><span class="n">moveRight</span><span class="o">||</span><span class="n">random</span><span class="p">.</span><span class="n">flipCoin</span><span class="p">(</span><span class="m">0.8</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">branch</span><span class="p">(</span><span class="n">Rect</span><span class="p">.</span><span class="n">of</span><span class="p">(</span><span class="n">pt</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">pt</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">p2</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">p2</span><span class="p">.</span><span class="n">y</span><span class="p">),</span> <span class="n">g</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="9-selber-probieren">9. Selber Probieren</h1>
+<p>Jetzt bist du dran.  Funktioniert das Programm bei dir?  Falls nicht, schau doch mal auf die Fehlermeldung, vielleicht bekommst du wenigstens heraus, wo der Fehler ist.  Dann musst du die entsprechende Stelle verstehen und korrigieren.</p>
+<p>Kannst du den Baum so abändern, dass der Stamm-Bereich (<code>size2&gt;=twigSize2</code>) grau-braun ist?</p>
+<h2 id="92-anderes-dreieck">9.2 Anderes Dreieck</h2>
+<p>Was passiert, wenn du die Seitenverhältnisse des Dreiecks auf <code>12.0/13</code> und <code>5.0/13</code> änderst? (Eventuell musst du das Anfansquadrat noch etwas nach rechts verschieben.)</p>
+<h2 id="93-3-zweige">9.3 3 Zweige</h2>
+<p>Was müsstest du ändern, damit nicht 2 Zweige, sondern 3 Zweige von jedem Stammstück abgehen?</p>
+<p>Hinweis:  Offenbar muss der rekursive Aufruf am Ende 3-mal kommen.  Welchen 2. Stützpunkt kann man wählen?</p>
+<p>Viel Spaß beim Probieren.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">melli79</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2022-08-19
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">Markdown</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://melli79.github.io/post/14baumdespythagoras/index.md" target="_blank">The Markdown version »</a></span>
+    </p>
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/15iteratedfunctionsystems/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">15 Iterierte Funktionssysteme</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/13mandelbrot/">
+            <span class="next-text nav-default">13 Mandelbrot (Apfelmännchen)</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2022-08-19 18:35:50 \u002b0200 CEST',
+        title: '14 Baum des Pythagoras',
+        link: decodeURI(location.href),
+        desc: 'Nachdem wir letzte Woche das Mandelbrot und Julia-Mengen gemalt haben, wollen wir heute weitere Fraktale produzieren.\nDas Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:\n1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(\u0026#34;Baum des Pythagoras\u0026#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(TreeOfPythagoras()) window.',
+        owner: 'melli79',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="melli79/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:melchiorG@gMail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://melli79.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2022
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">melli79</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.1c70606d1b733282f06230615f5561b5894924b6f9930ba2ab99cf1254f75a1a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
