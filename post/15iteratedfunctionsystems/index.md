@@ -24,7 +24,7 @@ ausfüllen, etwa so:
   }
 ```
 
-# 1. Komponente zum Malen
+## 0.1 Komponente zum Malen
 Auch diesen Teil solltest du schon einmal gesehen haben.  Wir fangen etwa so an:
 
 ```kotlin
