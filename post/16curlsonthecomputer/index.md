@@ -262,7 +262,7 @@ Außerdem müssen wir jetzt die Anfangskonfiguration beim Erstellen der Malkompo
 Schließlich sollte ich dir noch verraten, wie man die sichtbare Größe des Wirbels auf dem Bildschirm bestimmt:  Eine einfache Lösung ist `val d=5`, d.h. unabhängig davon, wie stark der Wirbel ist, wird er immer durch eine Scheibe der Größe 5 (Pixel) dargestellt.  Alternative kann man die Größe direkt von der Stärke `gamma` abhängen lassen.  Dabei treten 2 Probleme auf:  Zum einen gibt es rechts-drehende und links-drehende Wirbel, aber der Durchmesser muss immer positiv sein, also verwenden wir `abs(gamma)` statt `gamma` direkt.  Zum anderen gibt es Wirbelstärken in ganz verschiedenen Größenordnungen, also von 0.001 über 1.0 bis 1000.0.  Deshalb sollten wir lieber den Logarithmus der absoluten Stärke verwenden `ln(abs(gamma))`.  Schließlich gibt es noch mitbewegte Beobachter, also Wirbel der Stärke 0.  Deshalb addieren wir sicherheitshalber noch eine Mindeststärke:
 ```kotlin
   fun Graphics.drawCurl(c :Curl) {
-    val d = (ln(abs(c.gamma)+0.0001)*2+14).roundToInt()
+    val d = (ln(abs(c.gamma)+0.0001)*2+21).roundToInt()
     fillOval(...)
   }
 ```
