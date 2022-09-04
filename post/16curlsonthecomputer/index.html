@@ -55,7 +55,7 @@ Das Ziel Your browser does not support the video tag. 0. Programm aufsetzen So w
 Das Ziel Your browser does not support the video tag. 0. Programm aufsetzen So wie bei den meisten Desktop Grafik-Apps, starten wir mit einem Hauptprogramm, dass ein Fenster anlegt, in dem dann unsere Komponente dargestellt wird.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 class MyWindow(private val content :JComponent) :JFrame(&#34;Curls on the Computer&#34;), KeyListener { init { layout = BorderLayout() contentPane = content setSize(800, 600) defaultCloseOperation = EXIT_ON_CLOSE addKeyListener(this) ."><meta itemprop="datePublished" content="2022-09-04T12:35:50+02:00" />
 <meta itemprop="dateModified" content="2022-09-04T12:35:50+02:00" />
-<meta itemprop="wordCount" content="1967">
+<meta itemprop="wordCount" content="1969">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="16. Wirbel im Computer"/>
 <meta name="twitter:description" content="Nachdem wir letztens Fraktale gemalt haben, wollen wir heute Animationen produzieren.
@@ -369,7 +369,7 @@ $$ \mathbf{v}=(v_x, v_y) = \frac{\Gamma}{\|\mathbf{x}-\mathbf{x}_0\|^2}(\mathbf{
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Hier haben wir die internen Variabled <code>x</code> und <code>y</code> veränderbar gemacht, da wir die Wirbel über den Bildschirm wandern lassen wollen.</p>
+</div><p>Hier haben wir die internen Variablen <code>x</code> und <code>y</code> veränderbar gemacht, da wir die Wirbel über den Bildschirm wandern lassen wollen.</p>
 <p>Jetzt müssen wir nur noch Punkte (engl. point) und Vektoren (so etwas wie die Geschwindigkeit) definieren:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -496,6 +496,7 @@ Ein Vektor ist so etwas wie die Differenz zwischen 2 Punkten, d.h. wenn man <cod
 </span><span class="lnt">19
 </span><span class="lnt">20
 </span><span class="lnt">21
+</span><span class="lnt">22
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">Curls</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">:</span><span class="n">JComponent</span><span class="p">()</span> <span class="p">{</span>
@@ -518,11 +519,12 @@ Ein Vektor ist so etwas wie die Differenz zwischen 2 Punkten, d.h. wenn man <cod
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Dabei musst du auch die Methode <code>schedule</code> importieren (aus &ldquo;kotlin.coroutine&rdquo;), da es sich nicht um die Java-Methode handelt.  Die 2 Zahlen bedeuten folgendes:  100ms warten wir bevor der Timer (engl. für Zeitgeber) das erste Mal zuschlägt.  Dann schlägt er alle 10ms erneut zu.  Immer wenn der Timer abgelaufen ist, dann wird der Codeschnipsel in geschweiften Klammern ausgeführt:  Wir bewegen die Wirbel 10mal (deshalb nur alle 10ms den Timer wiederholen) und anschließend geben wir den Auftrag, das Fenster zu aktualisieren.</p>
-<p>Leider können wir das Aktualisieren (engl. repaint) nicht im Timer selbst machen.  Stattdessen geben wir den Auftrag, dass im Swing-Framework zu machen.  Swing ist das Grafik-Framework, mit welchem unsere Fenster und deren Komponenten erzeugt werden.</p>
+<p>Leider können wir das Aktualisieren (engl. repaint) nicht im Timer selbst machen.  Stattdessen geben wir den Auftrag, das im Swing-Framework zu machen.  Swing ist das Grafik-Framework, mit welchem unsere Fenster und deren Komponenten erzeugt werden.</p>
 <h1 id="3-noch-etwas-polieren">3. Noch etwas Polieren</h1>
 <p>Damit der Fenstertitel den Inhalt beschreibt, habe ich die <code>setTitle</code>-Methode wie folgt abgeändert:</p>
 <div class="highlight"><div class="chroma">

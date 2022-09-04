@@ -123,7 +123,7 @@ In diesem einfachen Modell wird ein Wirbel also durch folgende Daten beschrieben
     ...
   }
 ```
-Hier haben wir die internen Variabled `x` und `y` veränderbar gemacht, da wir die Wirbel über den Bildschirm wandern lassen wollen.
+Hier haben wir die internen Variablen `x` und `y` veränderbar gemacht, da wir die Wirbel über den Bildschirm wandern lassen wollen.
 
 Jetzt müssen wir nur noch Punkte (engl. point) und Vektoren (so etwas wie die Geschwindigkeit) definieren:
 ```kotlin
@@ -204,11 +204,12 @@ Damit das ganze ziemlich glatt aussieht, habe ich $\Delta t = 1$ms (also `dt=0.0
         }
       }
     }
+    ...
   }
 ```
 Dabei musst du auch die Methode `schedule` importieren (aus "kotlin.coroutine"), da es sich nicht um die Java-Methode handelt.  Die 2 Zahlen bedeuten folgendes:  100ms warten wir bevor der Timer (engl. für Zeitgeber) das erste Mal zuschlägt.  Dann schlägt er alle 10ms erneut zu.  Immer wenn der Timer abgelaufen ist, dann wird der Codeschnipsel in geschweiften Klammern ausgeführt:  Wir bewegen die Wirbel 10mal (deshalb nur alle 10ms den Timer wiederholen) und anschließend geben wir den Auftrag, das Fenster zu aktualisieren.
 
-Leider können wir das Aktualisieren (engl. repaint) nicht im Timer selbst machen.  Stattdessen geben wir den Auftrag, dass im Swing-Framework zu machen.  Swing ist das Grafik-Framework, mit welchem unsere Fenster und deren Komponenten erzeugt werden.
+Leider können wir das Aktualisieren (engl. repaint) nicht im Timer selbst machen.  Stattdessen geben wir den Auftrag, das im Swing-Framework zu machen.  Swing ist das Grafik-Framework, mit welchem unsere Fenster und deren Komponenten erzeugt werden.
 
 # 3. Noch etwas Polieren
 Damit der Fenstertitel den Inhalt beschreibt, habe ich die `setTitle`-Methode wie folgt abgeändert:
