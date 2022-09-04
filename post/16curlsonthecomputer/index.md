@@ -102,8 +102,8 @@ Das Malen wird schließlich von der Methode `paint` ausgelöst.  Dort wird jedoc
 `drawCurl` bestimmt zunächst den optischen Durchmesser des Wirbels und rechnet anschließend die `x`- und die `y`-Koordinate des Wirbels in Bildschirmkoordinaten um.  Mit `g.fillOval(px, py, w, h)` kann man eine ausgefüllte Ellipse im Fenster malen.  Dabei ist `(px, py)` die linke obere Ecke der Ellipse und `w` die Breite (engl. width) und `h` die Höhe (engl. height).
 
 # 1. Was ist ein Wirbel
-![Wirbel, (c) Nature Reviews Material 2019](/img/vortex.jpg)
-> [Wirbel, &copy; Nature Reviews Material 2019](https://www.nature.com/articles/s41578-019-0082-7)
+![Wirbel, (c) Getty Images 2019](/img/vortex.jpg)
+> [Wirbel, &copy; Getty Images 2019](https://www.gettyimages.de/fotos/vortex?assettype=image&page=4&phrase=vortex&sort=mostpopular&license=rf%2Crm)
 
 Eigentlich sind Wirbel ausgedehnte 3-dimensionale Phänomene in der Athmosphäre.  Der Einfachheit halber gehen wir jedoch von geraden Wirbeln aus, die wir durch eine kleine Scheibe auf dem Bildschirm darstellen.  Interessant ist die Verwirbelung der Luft/Wolken/Objekte um den Wirbel.  Ein realer Wirbel besteht aus einem Zentrum das kompakt starr rotiert.  Im Außenbereich herrscht die typische Geschwindigkeitsverteilung für Wirbel vor:
   $$ v = \frac{\Gamma}{d} $$
@@ -214,7 +214,7 @@ Leider können wir das Aktualisieren (engl. repaint) nicht im Timer selbst mache
 # 3. Noch etwas Polieren
 Damit der Fenstertitel den Inhalt beschreibt, habe ich die `setTitle`-Methode wie folgt abgeändert:
 ```kotlin
-  class MyWindow(...) :JFrame() {
+  class MyWindow(private val component :Curl) :JFrame() {
     init {
       ...
       setTitle(component.title)

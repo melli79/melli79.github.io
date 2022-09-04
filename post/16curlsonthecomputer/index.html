@@ -55,7 +55,7 @@ Das Ziel Your browser does not support the video tag. 0. Programm aufsetzen So w
 Das Ziel Your browser does not support the video tag. 0. Programm aufsetzen So wie bei den meisten Desktop Grafik-Apps, starten wir mit einem Hauptprogramm, dass ein Fenster anlegt, in dem dann unsere Komponente dargestellt wird.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 class MyWindow(private val content :JComponent) :JFrame(&#34;Curls on the Computer&#34;), KeyListener { init { layout = BorderLayout() contentPane = content setSize(800, 600) defaultCloseOperation = EXIT_ON_CLOSE addKeyListener(this) ."><meta itemprop="datePublished" content="2022-09-04T12:35:50+02:00" />
 <meta itemprop="dateModified" content="2022-09-04T12:35:50+02:00" />
-<meta itemprop="wordCount" content="1969">
+<meta itemprop="wordCount" content="1971">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="16. Wirbel im Computer"/>
 <meta name="twitter:description" content="Nachdem wir letztens Fraktale gemalt haben, wollen wir heute Animationen produzieren.
@@ -337,9 +337,9 @@ dass ein Fenster anlegt, in dem dann unsere Komponente dargestellt wird.</p>
 <p>Das Malen wird schließlich von der Methode <code>paint</code> ausgelöst.  Dort wird jedoch zunächst die Skala initialisiert.  Zum Malen eines Wirbels rufen wir die Methode <code>drawCurl</code> auf.  Diese erhält den <code>Graphics</code> context als Kontext und den zu malenden Wirbel als Parameter.</p>
 <p><code>drawCurl</code> bestimmt zunächst den optischen Durchmesser des Wirbels und rechnet anschließend die <code>x</code>- und die <code>y</code>-Koordinate des Wirbels in Bildschirmkoordinaten um.  Mit <code>g.fillOval(px, py, w, h)</code> kann man eine ausgefüllte Ellipse im Fenster malen.  Dabei ist <code>(px, py)</code> die linke obere Ecke der Ellipse und <code>w</code> die Breite (engl. width) und <code>h</code> die Höhe (engl. height).</p>
 <h1 id="1-was-ist-ein-wirbel">1. Was ist ein Wirbel</h1>
-<p><img src="/img/vortex.jpg" alt="Wirbel, (c) Nature Reviews Material 2019"></p>
+<p><img src="/img/vortex.jpg" alt="Wirbel, (c) Getty Images 2019"></p>
 <blockquote>
-<p><a href="https://www.nature.com/articles/s41578-019-0082-7">Wirbel, © Nature Reviews Material 2019</a></p>
+<p><a href="https://www.gettyimages.de/fotos/vortex?assettype=image&amp;page=4&amp;phrase=vortex&amp;sort=mostpopular&amp;license=rf%2Crm">Wirbel, © Getty Images 2019</a></p>
 </blockquote>
 <p>Eigentlich sind Wirbel ausgedehnte 3-dimensionale Phänomene in der Athmosphäre.  Der Einfachheit halber gehen wir jedoch von geraden Wirbeln aus, die wir durch eine kleine Scheibe auf dem Bildschirm darstellen.  Interessant ist die Verwirbelung der Luft/Wolken/Objekte um den Wirbel.  Ein realer Wirbel besteht aus einem Zentrum das kompakt starr rotiert.  Im Außenbereich herrscht die typische Geschwindigkeitsverteilung für Wirbel vor:
 $$ v = \frac{\Gamma}{d} $$
@@ -541,7 +541,7 @@ Ein Vektor ist so etwas wie die Differenz zwischen 2 Punkten, d.h. wenn man <cod
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">MyWindow</span><span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">:</span><span class="n">JFrame</span><span class="p">()</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">MyWindow</span><span class="p">(</span><span class="k">private</span> <span class="k">val</span> <span class="py">component</span> <span class="p">:</span><span class="n">Curl</span><span class="p">)</span> <span class="p">:</span><span class="n">JFrame</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">init</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="o">..</span><span class="p">.</span>
 </span></span><span class="line"><span class="cl">      <span class="n">setTitle</span><span class="p">(</span><span class="n">component</span><span class="p">.</span><span class="n">title</span><span class="p">)</span>
