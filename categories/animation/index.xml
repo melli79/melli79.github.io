@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Animation on Melchior&#39;s Homepage</title>
+    <link>https://melli79.github.io/categories/animation/</link>
+    <description>Recent content in Animation on Melchior&#39;s Homepage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 04 Sep 2022 12:35:50 +0200</lastBuildDate><atom:link href="https://melli79.github.io/categories/animation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>16. Wirbel im Computer</title>
+      <link>https://melli79.github.io/post/16curlsonthecomputer/</link>
+      <pubDate>Sun, 04 Sep 2022 12:35:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/16curlsonthecomputer/</guid>
+      <description>Nachdem wir letztens Fraktale gemalt haben, wollen wir heute Animationen produzieren.
+Das Ziel Your browser does not support the video tag. 0. Programm aufsetzen So wie bei den meisten Desktop Grafik-Apps, starten wir mit einem Hauptprogramm, dass ein Fenster anlegt, in dem dann unsere Komponente dargestellt wird.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 class MyWindow(private val content :JComponent) :JFrame(&amp;#34;Curls on the Computer&amp;#34;), KeyListener { init { layout = BorderLayout() contentPane = content setSize(800, 600) defaultCloseOperation = EXIT_ON_CLOSE addKeyListener(this) .</description>
+    </item>
+    
+  </channel>
+</rss>
