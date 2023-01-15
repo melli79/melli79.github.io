@@ -25,7 +25,7 @@ Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anl
 
 
 
-<meta name="generator" content="Hugo 0.102.2 with theme even" />
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
 
 
 <link rel="canonical" href="https://melli79.github.io/post/15iteratedfunctionsystems/" />
@@ -49,13 +49,12 @@ Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anl
 <meta property="og:url" content="https://melli79.github.io/post/15iteratedfunctionsystems/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-08-21T12:35:50+02:00" />
 <meta property="article:modified_time" content="2022-08-21T12:35:50+02:00" />
-
 <meta itemprop="name" content="15 Iterierte Funktionssysteme">
 <meta itemprop="description" content="Nachdem wir letzte Wochen das Mandelbrot und den Baum des Pythagoras gemalt haben, wollen wir heute weitere Fraktale produzieren.
 Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
 1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&#34;Iteriertes Funktionensystem&#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(IFS(System."><meta itemprop="datePublished" content="2022-08-21T12:35:50+02:00" />
 <meta itemprop="dateModified" content="2022-08-21T12:35:50+02:00" />
-<meta itemprop="wordCount" content="1796">
+<meta itemprop="wordCount" content="2091">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="15 Iterierte Funktionssysteme"/>
 <meta name="twitter:description" content="Nachdem wir letzte Wochen das Mandelbrot und den Baum des Pythagoras gemalt haben, wollen wir heute weitere Fraktale produzieren.
@@ -155,7 +154,11 @@ Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anl
     </li>
     <li><a href="#2-fraktale-erzeugen">2. Fraktale erzeugen</a></li>
     <li><a href="#3-größe-des-fraktals-abschätzen">3. Größe des Fraktals abschätzen</a></li>
-    <li><a href="#9-selber-probieren">9. Selber Probieren</a></li>
+    <li><a href="#9-selber-probieren">9. Selber Probieren</a>
+      <ul>
+        <li><a href="#93-das-log-quasi-fraktal">9.3 Das Log quasi Fraktal</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -195,7 +198,7 @@ ausfüllen, etwa so:</p>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">     <span class="k">val</span> <span class="py">window</span> <span class="p">=</span> <span class="n">MyWindow</span><span class="p">(</span><span class="n">IFS</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="n">currentTimeMillis</span><span class="p">()))</span>
+</span></span><span class="line"><span class="cl">     <span class="k">val</span> <span class="py">window</span> <span class="p">=</span> <span class="n">MyWindow</span><span class="p">(</span><span class="n">IFS</span><span class="p">(</span><span class="nc">System</span><span class="p">.</span><span class="n">currentTimeMillis</span><span class="p">()))</span>
 </span></span><span class="line"><span class="cl">     <span class="n">window</span><span class="p">.</span><span class="n">isVisible</span> <span class="p">=</span> <span class="k">true</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
@@ -511,6 +514,43 @@ dass sie insgesamt in Originalgröße abbildet.  Dabei kann es aber sein, dass s
 </div>
 </div><p>Was musst du am Programm ändern, wenn es 4 affine Transformationen statt 3 verwenden soll?  Wie kannst du die Farbe der Punkte von schwarz auf blau (engl. <code>blue</code>) ändern?</p>
 <p>Wie kann man das Programm dynamisch machen?  Z.B. alle 1s (<code>Thread.sleep(1000)</code> wartet 1s) das Iterierte Funktionssystem neu initialisieren (mit einem anderen Wert) und dann das Fenster nochmal neu sichtbar machen.</p>
+<h2 id="93-das-log-quasi-fraktal">9.3 Das Log quasi Fraktal</h2>
+<p>Statt einer affinen Iteration kann man auch (den komplexen) Logarithmus verwenden.  Das geht etwa so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">iterate</span><span class="p">(</span><span class="n">pt</span> <span class="p">:</span><span class="n">Point2D</span><span class="p">)</span> <span class="p">:</span><span class="n">Point2D</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">k</span> <span class="p">=</span> <span class="p">(</span><span class="n">random</span><span class="p">.</span><span class="n">nextGaussian</span><span class="p">()*</span><span class="m">5</span><span class="p">).</span><span class="n">roundToInt</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">y</span> <span class="p">=</span> <span class="n">pt</span><span class="p">.</span><span class="n">y</span> <span class="p">+</span><span class="m">2</span><span class="p">*</span><span class="n">PI</span><span class="p">*</span><span class="n">k</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Point2D</span><span class="p">(</span><span class="n">ln</span><span class="p">(</span><span class="n">sqr</span><span class="p">(</span><span class="n">pt</span><span class="p">.</span><span class="n">x</span><span class="p">)+</span><span class="n">sqr</span><span class="p">(</span><span class="n">y</span><span class="p">))/</span><span class="m">2</span><span class="p">,</span> <span class="n">atan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">pt</span><span class="p">.</span><span class="n">x</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Die Funktion <code>ln</code> (aus dem Paket &ldquo;kotlin.math&rdquo;) berechnet den (reellen) natürlichen Logarithmus.  Die Funktion <code>atan2(y, x)</code> (auch aus dem Paket &ldquo;kotlin.math&rdquo;) berechnet den Winkel zwischen einem Strahl vom Ursprung zum Punkt (x, y) zur x-Achse.  Insgesamt ist das der komplexe Logarithmus des Punktes <code>(pt.x, y)</code>.  Der komplexe Logarithmus ist nicht eindeutig, sondern hängt davon ab, wie oft man um den Ursprung läuft.  Beispielsweise hat der Punkt (1,1) den Winkel 45º oder 360º+45º oder 720º+45º oder &hellip; oder -360º+45º oder &hellip; .  Damit die Punkte nicht beliebig weit außerhalb des Bildschirms landen, wählen wir immer den Hauptwert (<code>atan2</code>), aber verschieben den alten Punkt <code>pt</code> vor der Berechnung um $k*360º$ für eine zufällige ganze Zahl $k$.  Da der Computer nicht in Grad sondern im Bogenmaß rechnet, muss man <code>2*PI</code> (auch aus dem Paket &ldquo;kotlin.math&rdquo;) schreiben statt 360º.  Noch etwas: der Logarithmus ist unendlich am Urspung.  Deshalb darfst du <code>pt</code> nicht mit <code>Point2D.origin</code> initialisieren.  Wähle stattdessen irgendeinen anderen Punkt, etwa <code>Point2D(0.1, 1.0)</code>.  Wahrscheinlich musst du auch das Quadrieren (engl. square) noch implementieren:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">sqr</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span><span class="n">Double</span><span class="p">)</span> <span class="p">=</span> <span class="n">x</span><span class="p">*</span><span class="n">x</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Leider gibt es auf den ganzen Zahlen keine Gleichverteilung.  Außerdem wird das Fraktal unendlich groß, wenn man für $k$ zu oft große Zahlen wählt.  Stattdessen wählen wir zuerst eine normal verteilte reelle Zahl <code>random.nextGaussian()</code> und runden diese dann auf eine ganze Zahl <code>roundToInt()</code>.  Wahrscheinlich musst du noch die Methode <code>nextGaussian()</code> implementieren:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">Random</span><span class="p">.</span><span class="n">nextGaussian</span><span class="p">()</span> <span class="p">=</span> <span class="n">asJavaRandom</span><span class="p">().</span><span class="n">nextGaussian</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Das ist eine Erweiterungsfunktion der Klasse &ldquo;kotlin.Random&rdquo;, so wie wir das damals bei &ldquo;Person&quot;en zum Heiraten (<code>fun Person.marry(...)</code>) gemacht haben.</p>
 <p>Viel Spaß beim Probieren!</p>
 
     </div>
@@ -609,7 +649,7 @@ dass sie insgesamt in Originalgröße abbildet.  Dabei kann es aber sein, dass s
   <span class="copyright-year">
     &copy; 
     2020 - 
-    2022
+    2023
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

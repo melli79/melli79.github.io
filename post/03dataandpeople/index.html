@@ -27,7 +27,7 @@ einen festen Vornamen, einen Familiennamen, ein Geburtsdatum, ein Geschlecht, ei
 
 
 
-<meta name="generator" content="Hugo 0.102.2 with theme even" />
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
 
 
 <link rel="canonical" href="https://melli79.github.io/post/03dataandpeople/" />
@@ -53,7 +53,6 @@ einen festen Vornamen, einen Familiennamen, ein Geburtsdatum, ein Geschlecht, ei
 <meta property="og:url" content="https://melli79.github.io/post/03dataandpeople/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2021-12-22T19:40:39+01:00" />
 <meta property="article:modified_time" content="2021-12-22T19:40:39+01:00" />
-
 <meta itemprop="name" content="03 Daten und Leute">
 <meta itemprop="description" content="Heute soll es darum gehen, wie man Leute im Computer darstellt.
 1. Was ist uns an Leuten wichtig? Ein echter Mensch ist 2&ndash;200 kg schwer, besteht aus Haut, Muskeln, Knochen, &hellip;, trägt Kleidung, &hellip; . Die werden wahrscheinlich nicht in den Computer passen.
@@ -230,7 +229,7 @@ Die werden wahrscheinlich nicht in den Computer passen.</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">melli</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Melchior&#34;</span><span class="p">,</span> <span class="s2">&#34;Grützmann&#34;</span><span class="p">,</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1979</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">20</span><span class="p">),</span> <span class="p">?,</span> <span class="p">?)</span>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">melli</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Melchior&#34;</span><span class="p">,</span> <span class="s2">&#34;Grützmann&#34;</span><span class="p">,</span> <span class="nc">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1979</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">20</span><span class="p">),</span> <span class="p">?,</span> <span class="p">?)</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Irgend etwas stimmt da noch nicht.  Was gebe ich für Vater und Mutter an?  Ok, ich habe einen Vater und eine Mutter, aber wenn ich die nicht angeben will?  Selbst wenn ich die angeben würde, was gebe ich für den Vater meines Vaters an?  Und für dessen Mutter?  Und für deren Eltern??</p>
@@ -258,7 +257,7 @@ Die werden wahrscheinlich nicht in den Computer passen.</p>
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">melli</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Melchior&#34;</span><span class="p">,</span> <span class="s2">&#34;Grützmann&#34;</span><span class="p">,</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1979</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">))</span>
+<pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">val</span> <span class="py">melli</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Melchior&#34;</span><span class="p">,</span> <span class="s2">&#34;Grützmann&#34;</span><span class="p">,</span> <span class="nc">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1979</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">))</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Die restlichen Eigenschaften haben einfach ihre Standardwerte, also keine Eltern, keine Partnerin, keine Kinder.</p>
@@ -366,7 +365,7 @@ Die werden wahrscheinlich nicht in den Computer passen.</p>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">melli</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Melchior&#34;</span><span class="p">,</span> <span class="s2">&#34;Grützmann&#34;</span><span class="p">,</span> <span class="n">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1979</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">melli</span> <span class="p">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;Melchior&#34;</span><span class="p">,</span> <span class="s2">&#34;Grützmann&#34;</span><span class="p">,</span> <span class="nc">Gender</span><span class="p">.</span><span class="n">Male</span><span class="p">,</span> <span class="n">PartialDate</span><span class="p">(</span><span class="m">1979</span><span class="p">,</span> <span class="m">6</span><span class="p">,</span> <span class="m">20</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Hallo </span><span class="si">$melli</span><span class="s2">!&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
@@ -479,7 +478,7 @@ Die werden wahrscheinlich nicht in den Computer passen.</p>
   <span class="copyright-year">
     &copy; 
     2020 - 
-    2022
+    2023
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>

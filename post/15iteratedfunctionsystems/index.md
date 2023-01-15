@@ -217,4 +217,29 @@ Was musst du am Programm ändern, wenn es 4 affine Transformationen statt 3 verw
 
 Wie kann man das Programm dynamisch machen?  Z.B. alle 1s (`Thread.sleep(1000)` wartet 1s) das Iterierte Funktionssystem neu initialisieren (mit einem anderen Wert) und dann das Fenster nochmal neu sichtbar machen.
 
+## 9.3 Das Log quasi Fraktal
+
+Statt einer affinen Iteration kann man auch (den komplexen) Logarithmus verwenden.  Das geht etwa so:
+```kotlin
+  fun iterate(pt :Point2D) :Point2D {
+    val k = (random.nextGaussian()*5).roundToInt()
+    val y = pt.y +2*PI*k
+    return Point2D(ln(sqr(pt.x)+sqr(y))/2, atan2(y, pt.x))
+  }
+```
+
+Die Funktion `ln` (aus dem Paket "kotlin.math") berechnet den (reellen) natürlichen Logarithmus.  Die Funktion `atan2(y, x)` (auch aus dem Paket "kotlin.math") berechnet den Winkel zwischen einem Strahl vom Ursprung zum Punkt (x, y) zur x-Achse.  Insgesamt ist das der komplexe Logarithmus des Punktes `(pt.x, y)`.  Der komplexe Logarithmus ist nicht eindeutig, sondern hängt davon ab, wie oft man um den Ursprung läuft.  Beispielsweise hat der Punkt (1,1) den Winkel 45º oder 360º+45º oder 720º+45º oder ... oder -360º+45º oder ... .  Damit die Punkte nicht beliebig weit außerhalb des Bildschirms landen, wählen wir immer den Hauptwert (`atan2`), aber verschieben den alten Punkt `pt` vor der Berechnung um $k*360º$ für eine zufällige ganze Zahl $k$.  Da der Computer nicht in Grad sondern im Bogenmaß rechnet, muss man `2*PI` (auch aus dem Paket "kotlin.math") schreiben statt 360º.  Noch etwas: der Logarithmus ist unendlich am Urspung.  Deshalb darfst du `pt` nicht mit `Point2D.origin` initialisieren.  Wähle stattdessen irgendeinen anderen Punkt, etwa `Point2D(0.1, 1.0)`.  Wahrscheinlich musst du auch das Quadrieren (engl. square) noch implementieren:
+
+```kotlin
+  fun sqr(x :Double) = x*x
+```
+
+Leider gibt es auf den ganzen Zahlen keine Gleichverteilung.  Außerdem wird das Fraktal unendlich groß, wenn man für $k$ zu oft große Zahlen wählt.  Stattdessen wählen wir zuerst eine normal verteilte reelle Zahl `random.nextGaussian()` und runden diese dann auf eine ganze Zahl `roundToInt()`.  Wahrscheinlich musst du noch die Methode `nextGaussian()` implementieren:
+
+```kotlin
+  fun Random.nextGaussian() = asJavaRandom().nextGaussian()
+```
+
+Das ist eine Erweiterungsfunktion der Klasse "kotlin.Random", so wie wir das damals bei "Person"en zum Heiraten (`fun Person.marry(...)`) gemacht haben.
+
 Viel Spaß beim Probieren!

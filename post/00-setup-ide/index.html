@@ -25,7 +25,7 @@ Im Dialog: Version 11, Oracle Open JDK auswählen." />
 
 
 
-<meta name="generator" content="Hugo 0.102.2 with theme even" />
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
 
 
 <link rel="canonical" href="https://melli79.github.io/post/00-setup-ide/" />
@@ -49,7 +49,6 @@ Im Dialog: Version 11, Oracle Open JDK auswählen." />
 <meta property="og:url" content="https://melli79.github.io/post/00-setup-ide/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-04-09T11:50:55+02:00" />
 <meta property="article:modified_time" content="2022-04-09T11:50:55+02:00" />
-
 <meta itemprop="name" content="00 Kotlin IDE Aufsetzen">
 <meta itemprop="description" content="1. Schritt: IntelliJ für Windows 64 herunterladen und installieren Als Entwicklungsumgebung für Kotlin empfehle ich IntelliJ Idea Kommunity-Version. Diese kann man von der Website von JetBrains herunterladen, wichtig ist es, auf den schwarzen Knopf (Community Version) zu klicken.
 2A. Schritt: Java 11 Development Kit installieren Das sollte aus der IntelliJ IDE heraus gehen: Datei &gt; Projektstruktur &gt; Projekt &gt; SDK &gt; Download JDK
@@ -211,7 +210,7 @@ Im Dialog: Version 11, Oracle Open JDK auswählen."/>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">fatJar</span> <span class="p">=</span> <span class="n">register</span><span class="p">&lt;</span><span class="n">Jar</span><span class="p">&gt;(</span><span class="s2">&#34;fatJar&#34;</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="n">dependsOn</span><span class="p">.</span><span class="n">addAll</span><span class="p">(</span><span class="n">listOf</span><span class="p">(</span><span class="s2">&#34;compileJava&#34;</span><span class="p">,</span> <span class="s2">&#34;compileKotlin&#34;</span><span class="p">,</span> <span class="s2">&#34;processResources&#34;</span><span class="p">))</span>
 </span></span><span class="line"><span class="cl">      <span class="n">archiveClassifier</span><span class="p">.</span><span class="k">set</span><span class="p">(</span><span class="s2">&#34;full&#34;</span><span class="p">)</span> <span class="c1">// suffix for the naming the jar
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">duplicatesStrategy</span> <span class="p">=</span> <span class="n">DuplicatesStrategy</span><span class="p">.</span><span class="n">EXCLUDE</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">duplicatesStrategy</span> <span class="p">=</span> <span class="nc">DuplicatesStrategy</span><span class="p">.</span><span class="n">EXCLUDE</span>
 </span></span><span class="line"><span class="cl">      <span class="n">manifest</span> <span class="p">{</span> <span class="n">attributes</span><span class="p">(</span><span class="n">mapOf</span><span class="p">(</span><span class="s2">&#34;Main-Class&#34;</span> <span class="n">to</span> <span class="n">application</span><span class="p">.</span><span class="n">mainClass</span><span class="p">))</span> <span class="p">}</span>
 </span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">sourcesMain</span> <span class="p">=</span> <span class="n">sourceSets</span><span class="p">.</span><span class="n">main</span><span class="p">.</span><span class="k">get</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">contents</span> <span class="p">=</span> <span class="n">configurations</span><span class="p">.</span><span class="n">runtimeClasspath</span><span class="p">.</span><span class="k">get</span><span class="p">()</span>
@@ -363,7 +362,7 @@ Im Dialog: Version 11, Oracle Open JDK auswählen."/>
   <span class="copyright-year">
     &copy; 
     2020 - 
-    2022
+    2023
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
