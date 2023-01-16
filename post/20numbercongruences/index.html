@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>20 Zahlenkongruenzen und Primzahlen - Melchior&#39;s Homepage</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="melli79" /><meta name="description" content="Im Dritten Teil der Serie, Einführung in das Programmieren, wollen wir weitere mathematische Spiele betreiben. Heute wollen wir mit Zahlenkongruenzen rechnen.
+1. Etwas Theorie Du erinnerst dich vielleicht noch an das erste Programm, in dem wir die Multiplikationstabelle (also das kleine 1x1) dargestellt haben. Diesmal wollen wir das aber etwas abändern. Statt dem ganzen Produkt geben wir nur den Rest bei Division durch die ganze Zahl $n$ aus. Das bedeutet folgendes: Wenn wir $3 * 5$ ausrechnen und $n=6$, dann dividieren wir das Zwischenergebnis $15$ durch $6$ und erhalten $2$ Rest $3$." />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
+
+
+<link rel="canonical" href="https://melli79.github.io/post/20numbercongruences/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78d3a03abaed5d3c468bdf402fc110f36c046abf091a63421b9ce0a5a63db941.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="20 Zahlenkongruenzen und Primzahlen" />
+<meta property="og:description" content="Im Dritten Teil der Serie, Einführung in das Programmieren, wollen wir weitere mathematische Spiele betreiben. Heute wollen wir mit Zahlenkongruenzen rechnen.
+1. Etwas Theorie Du erinnerst dich vielleicht noch an das erste Programm, in dem wir die Multiplikationstabelle (also das kleine 1x1) dargestellt haben. Diesmal wollen wir das aber etwas abändern. Statt dem ganzen Produkt geben wir nur den Rest bei Division durch die ganze Zahl $n$ aus. Das bedeutet folgendes: Wenn wir $3 * 5$ ausrechnen und $n=6$, dann dividieren wir das Zwischenergebnis $15$ durch $6$ und erhalten $2$ Rest $3$." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://melli79.github.io/post/20numbercongruences/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-01-15T20:45:50+01:00" />
+<meta property="article:modified_time" content="2023-01-15T20:45:50+01:00" />
+<meta itemprop="name" content="20 Zahlenkongruenzen und Primzahlen">
+<meta itemprop="description" content="Im Dritten Teil der Serie, Einführung in das Programmieren, wollen wir weitere mathematische Spiele betreiben. Heute wollen wir mit Zahlenkongruenzen rechnen.
+1. Etwas Theorie Du erinnerst dich vielleicht noch an das erste Programm, in dem wir die Multiplikationstabelle (also das kleine 1x1) dargestellt haben. Diesmal wollen wir das aber etwas abändern. Statt dem ganzen Produkt geben wir nur den Rest bei Division durch die ganze Zahl $n$ aus. Das bedeutet folgendes: Wenn wir $3 * 5$ ausrechnen und $n=6$, dann dividieren wir das Zwischenergebnis $15$ durch $6$ und erhalten $2$ Rest $3$."><meta itemprop="datePublished" content="2023-01-15T20:45:50+01:00" />
+<meta itemprop="dateModified" content="2023-01-15T20:45:50+01:00" />
+<meta itemprop="wordCount" content="1729">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="20 Zahlenkongruenzen und Primzahlen"/>
+<meta name="twitter:description" content="Im Dritten Teil der Serie, Einführung in das Programmieren, wollen wir weitere mathematische Spiele betreiben. Heute wollen wir mit Zahlenkongruenzen rechnen.
+1. Etwas Theorie Du erinnerst dich vielleicht noch an das erste Programm, in dem wir die Multiplikationstabelle (also das kleine 1x1) dargestellt haben. Diesmal wollen wir das aber etwas abändern. Statt dem ganzen Produkt geben wir nur den Rest bei Division durch die ganze Zahl $n$ aus. Das bedeutet folgendes: Wenn wir $3 * 5$ ausrechnen und $n=6$, dann dividieren wir das Zwischenergebnis $15$ durch $6$ und erhalten $2$ Rest $3$."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Melchior&#39;s Homepage</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Themes</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Melchior&#39;s Homepage</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Themes</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">20 Zahlenkongruenzen und Primzahlen</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-01-15 </span>
+        <div class="post-category">
+            <a href="/categories/kotlin/"> Kotlin </a>
+            <a href="/categories/programming/"> Programming </a>
+            <a href="/categories/zahlentheorie/"> Zahlentheorie </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-etwas-theorie">1. Etwas Theorie</a></li>
+    <li><a href="#2-experimentieren">2. Experimentieren</a></li>
+    <li><a href="#primzahlen-finden-sieb-des-erathostenes">Primzahlen finden (Sieb des Erathostenes)</a></li>
+    <li><a href="#9-selbst-probieren">9. Selbst probieren</a>
+      <ul>
+        <li><a href="#frage-1--wie-kannst-du-das-erste-programm-abändern-um-eine-additionstabelle-modulo-n-zu-erzeugen">Frage 1:  Wie kannst du das erste Programm abändern, um eine Additionstabelle modulo $n$ zu erzeugen?</a></li>
+        <li><a href="#frage-2--wie-kannst-du-überprüfen-ob-2021-eine-primzahl-ist--was-ist-mit-2023">Frage 2:  Wie kannst du überprüfen, ob 2021 eine Primzahl ist?  Was ist mit 2023?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Im Dritten Teil der Serie, Einführung in das Programmieren, wollen wir weitere mathematische Spiele betreiben.  Heute wollen wir mit Zahlenkongruenzen rechnen.</p>
+<h1 id="1-etwas-theorie">1. Etwas Theorie</h1>
+<p>Du erinnerst dich vielleicht noch an das erste Programm, in dem wir die Multiplikationstabelle (also das kleine 1x1) dargestellt haben.  Diesmal wollen wir das aber etwas abändern.  Statt dem ganzen Produkt geben wir nur den Rest bei Division durch die ganze Zahl $n$ aus.  Das bedeutet folgendes:  Wenn wir $3 * 5$ ausrechnen und $n=6$, dann dividieren wir das Zwischenergebnis $15$ durch $6$ und erhalten $2$ Rest $3$.  Das heißt, dass $2 * 6+3=15$ ist.  Wir wollen also hier die $3$ ausgeben.</p>
+<p>In Kotlin (oder allen C-ähnlichen Programmiersprachen) kann man den Rest bei Division ausrechnen, indem man <code>p%n</code> schreibt.  Dabei müssen <code>p</code> und <code>n</code> ganze Zahlen sein (<code>Int</code> oder <code>Long</code>).</p>
+<h1 id="2-experimentieren">2. Experimentieren</h1>
+<p>Wir modifizieren also das kleine 1x1 aus der ersten Lektion wie folgt:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Bitte geben Sie eine positive ganze Zahl für den Modulus ein: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">?</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">n</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">toIntOrNull</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="k">null</span> <span class="o">||</span> <span class="n">n</span><span class="o">&lt;=</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Das war keine positive Zahl.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Multiplikation modulo </span><span class="si">$n</span><span class="s2">:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">y</span> <span class="k">in</span> <span class="m">0</span> <span class="n">until</span> <span class="n">n</span><span class="o">!!</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">x</span> <span class="k">in</span> <span class="m">0</span> <span class="n">until</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">print</span><span class="p">(</span><span class="s2">&#34;%2d &#34;</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">%</span><span class="n">n</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wenn du das Programm fehlerfrei abgetippt hast, startest und am Prompt <code>6</code> eingibst, erhältst du etwa folgende Tabelle:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Multiplikation modulo 6:
+</span></span><span class="line"><span class="cl">  0  0  0  0  0  0
+</span></span><span class="line"><span class="cl">  0  1  2  3  4  5
+</span></span><span class="line"><span class="cl">  0  2  4  0  2  4
+</span></span><span class="line"><span class="cl">  0  3  0  3  0  3
+</span></span><span class="line"><span class="cl">  0  4  2  0  4  2
+</span></span><span class="line"><span class="cl">  0  5  4  3  2  1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wenn du stattdessen $n=7$ eintippst, erhältst du folgendes:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Multiplikation modulo 7:
+</span></span><span class="line"><span class="cl">  0  0  0  0  0  0  0
+</span></span><span class="line"><span class="cl">  0  1  2  3  4  5  6
+</span></span><span class="line"><span class="cl">  0  2  4  6  1  3  5
+</span></span><span class="line"><span class="cl">  0  3  6  2  5  1  4
+</span></span><span class="line"><span class="cl">  0  4  1  5  2  6  3
+</span></span><span class="line"><span class="cl">  0  5  3  1  6  4  2
+</span></span><span class="line"><span class="cl">  0  6  5  4  3  2  1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wenn man beide Tabellen vergleicht, fallen folgende Gemeinsamkeiten auf:</p>
+<ol>
+<li>Die Tabellen sind symmetrisch bezüglich der Diagonale, d.h. $y * x\equiv x * y\pmod{n}$.</li>
+<li>Die nullte Zeile und nullte Spalte besteht nur aus 0, d.h. $0*x\equiv0\pmod{n}$.</li>
+<li>Die erste Zeile und erste Spalte enthält die ursprünglichen Reste, d.h. $1*x\equiv x\pmod{n}$.</li>
+<li>Es gibt ein paar Zeilen (Spalten), in denen alle Reste auftauchen, z.B. 1,5 für $n=6$ und alle (außer 0) für $n=7$.</li>
+</ol>
+<p>Vielleicht können wir das Programm vereinfachen und nur die Zeilen <code>1..(n-1)</code> ausgeben, etwa so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="n">y</span> <span class="k">in</span> <span class="m">1</span> <span class="n">until</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">x</span> <span class="k">in</span> <span class="m">1</span> <span class="n">until</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;%2d &#34;</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">*</span><span class="n">y</span><span class="p">%</span><span class="n">n</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Jedenfalls bleiben für $n=6$ die Nullen bei 2, 3 und 4.  Was haben diese Zahlen besonderes im Zusammenhang mit Division durch 6?</p>
+<p>Nun, 2 lässt sich durch 2 teilen genauso wie 6, d.h. 2 ist ein gemeinsamer Teiler (der größer als 1 ist).  Was passiert mit so einem gemeinsamen Teiler?</p>
+<p>Nennen wir ihn $g=2&gt;1$, dann ist $f:=n/g=6/2=3&lt;6=n$ ein Rest modulo $n$ und $x=2$ multipliziert mit diesem Rest ist durch $n$ teilbar, also $fx\equiv0\pmod{n}$.  So einen Fall nennt man Nullteiler, weil wir offenbar $0$ durch diesen Teiler $f$ teilen können (modulo $n$) und einen positiven Rest erhalten.  (Umgekehrt ist $x$ dann auch ein Nullteiler, weil wir $n$ durch $x$ teilen können und modulo $n$ einen positiven Rest erhalten.)</p>
+<p>Wenn also der Rest $x$ und der Modulus $n$ einen gemeinsamen Teiler $g&gt;1$ haben, dann ist $x$ ein Nullteiler, d.h. es tauchen Nullen in der Multiplikationszeile auf (auch außerhalb von $f=0$).  Im anderen Fall, also wenn $1$ der einzige gemeinsame Teiler zwischen $x$ und $n$ ist, dann enthält die entsprechende Zeile alle Reste (und 0 nur für $f=0$).  In diesem Fall sagt man, dass $x$ und $n$ teilerfremd sind.</p>
+<p>Das erklärt auch, warum die Zeilen für 3 und 4 ebenfalls Nullen enthalten modulo 6.  Die Zeilen mit 1 und 5 entsprechend nicht.  Bei Rechnung Modulo 7 enthält offenbar keine Zeile (außer für $x=0$) weitere Nullen.  Woran liegt das?</p>
+<p>Nun offenbar sind die einzigen Teiler von 7 die 1 und die 7.  Das beudetet, dass 7 mit jedem Rest modulo 7 teilerfremd ist.  Bei 6 war das nicht der Fall.  Bei $n=5$ ist das entsprechend wieder der Fall:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Multiplikation modulo 5:
+</span></span><span class="line"><span class="cl">  1  2  3  4
+</span></span><span class="line"><span class="cl">  2  4  1  3
+</span></span><span class="line"><span class="cl">  3  1  4  2
+</span></span><span class="line"><span class="cl">  4  3  2  1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Zahlen, die genau 2 positive Teiler haben, nennt man Primzahlen.  Somit sind 5 und 7 Primzahlen, aber 6 ist keine Primzahl.</p>
+<h1 id="primzahlen-finden-sieb-des-erathostenes">Primzahlen finden (Sieb des Erathostenes)</h1>
+<p>Wie kann man nun Primzahlen finden?</p>
+<p>Eine Möglichkeit besteht darin, für eine gegebene Zahl $n$ zu testen, ob sie durch irgendeine der Zahlen $1&lt;r&lt;n$ teilbar ist, d.h. den Rest 0 lässt.  Wenn man sich überlegt, dass $n=rf$ sein soll, dann muss $r$ oder $f$ kleiner als $n/2$ sein.  Bei genauerer Untersuchung sieht man, dass es auch reicht, von $1&lt;r$ bis $r*r\le n$ zu suchen.</p>
+<p>Statt aber jede Zahl $1&lt;n\le N$ einzeln zu überprüfen, hatte Erathostenes eine andere Idee:  Wir fangen einfach von unten an: 1 ist die Einheit, d.h. $1 * 1=1$ und somit keine Primzahl.  Die nächste Zahl wurde noch nicht gestrichen, ist also eine Primzahl $p=2$.  Jetzt streichen wir alle echten Vielfache von $p$ bis zur Grenze $N$ und suchen anschließend nach der nächsten verbleibenden Zahl, hier $p=3$.  Mit dieser verfahren wir dann entsprechend, bis wir bei einer Zahl $p$ angekommen sind mit $p*p&gt; N$.  Dann können wir mit Streichen aufhören und die verbleibenden Zahlen sind die Primzahlen.</p>
+<p>Wie kann man das den Computer machen lassen?</p>
+<p>Nun, offenbar müssen wir zunächst eine obere Grenze, z.B. $N=100$ festlegen und uns dann alle Zahlen von 1  bis $N$ merken.  Also legen wir ein Feld (engl. <code>Array</code>) oder eine Liste (engl. <code>List</code>) an mit Indizes <code>0..N</code> (Indizes fangen immer bei 0 an) und müssen uns merken, ob die Zahl gültig (<code>true</code>) oder ungültig (<code>false</code>) ist.  Einen solchen Datentyp nennt man Boolschen Wert (engl. <code>Boolean</code>) nach George Boole.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">N</span><span class="p">=</span><span class="m">100</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">isPrime</span> <span class="p">=</span> <span class="p">(</span><span class="m">0.</span><span class="p">.</span><span class="n">N</span><span class="p">).</span><span class="n">map</span> <span class="p">{</span> <span class="k">true</span> <span class="p">}.</span><span class="n">toMutableList</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>D.h. dass die Liste/das Array <code>isPrime</code> Werte enthalten wird, ob die jeweilige Zahl eine Primzahl oder eine zusammengesetzte Zahl ist.  Wir fangen offenbar mit lauter wahr (engl. <code>true</code>) an.  Das kann aber nicht die korrekte Antwort sein, also müssen wir die Liste entsprechend veränderbar machen (engl. mutable).</p>
+<p>Jetzt fangen wir wie oben beschrieben an und streichen die 0 (die Null) und die 1 (die Einheit):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="n">isPrime</span><span class="p">[</span><span class="m">0</span><span class="p">]</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>  <span class="n">isPrime</span><span class="p">[</span><span class="m">1</span><span class="p">]</span> <span class="p">=</span> <span class="k">false</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="py">p</span><span class="p">=</span><span class="m">2</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="n">p</span><span class="p">*</span><span class="n">p</span><span class="o">&lt;=</span><span class="n">N</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Ok, die erste (aber sicherlich nicht die letzte) Primzahl ist $p=2$.  Wie oben beobachtet müssen wir nur so lange streichen, bis wir bei $p*p&gt;N$ angekommen sind.  Wie funktioniert das Streichen?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">m</span> <span class="p">=</span> <span class="m">2</span><span class="p">*</span><span class="n">p</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">m</span><span class="o">&lt;=</span><span class="n">N</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">isPrime</span><span class="p">[</span><span class="n">m</span><span class="p">]</span> <span class="p">=</span> <span class="k">false</span>
+</span></span><span class="line"><span class="cl">      <span class="n">m</span> <span class="o">+=</span> <span class="n">p</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">p</span><span class="o">&lt;=</span><span class="n">N</span> <span class="o">&amp;&amp;</span> <span class="o">!is</span><span class="n">Prime</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">      <span class="n">p</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>D.h. dass wir vom ersten echten Vielfache $m=2p$ anfangen, dieses streichen (<code>isPrime[m] = false</code>) und dann zum nächsten Vielfache übergehen, d.h. $m$ um $p$ erhöhen.  Genau das bedeutet <code>m += p</code>.  Wichtig ist dabei, dass wir <code>m</code> als veränderbar (<code>var m</code>) definiert haben.</p>
+<p>Wenn wir alle echten Vielfache von <code>m</code> gestrichen haben, dann gehen wir zur nächsten Primzahl über, d.h. wir erhöhen $p$ um 1 (<code>p++</code>) und testen dann, ob zum einen $p$ selbst noch $p\le N$ ist, und zum anderen, ob $p$ noch eine Primzahl sein kann.  Solange es keine Primzahl ist (<code>!isPrime[p]</code>) erhöhen wir $p$ weiter.</p>
+<p>Wenn wir sehen wollen, wie weit das Programm schon gekommen ist, dann sollten wir jede gefundene Primzahl ausgeben, z.B. so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="n">p</span><span class="p">*</span><span class="n">p</span><span class="o">&lt;=</span><span class="n">N</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$p</span><span class="s2">, &#34;</span><span class="p">);</span>  <span class="k">out</span><span class="p">.</span><span class="n">flush</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">m</span> <span class="p">=</span> <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wenn du das Programm jetzt startest, solltest du ziemlich schnell die Zahlen</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  2, 3, 5, 7,
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>sehen.  Danach beendet sich das Programm.  Was ist mit den restlichen Primzahlen bis 100?</p>
+<p>Naja, die müssten wir auch noch ausgeben, etwa so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">p</span><span class="o">&lt;=</span><span class="n">N</span> <span class="o">&amp;&amp;</span> <span class="o">!is</span><span class="n">Prime</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">      <span class="n">p</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="k">while</span> <span class="p">(</span><span class="n">p</span><span class="o">&lt;=</span><span class="n">N</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">p</span><span class="o">&lt;=</span><span class="n">N</span> <span class="o">&amp;&amp;</span> <span class="o">!is</span><span class="n">Prime</span><span class="p">[</span><span class="n">p</span><span class="p">])</span>
+</span></span><span class="line"><span class="cl">      <span class="n">p</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$p</span><span class="s2">, &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="n">println</span><span class="p">(</span><span class="s2">&#34;...&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Jetzt sollte die Ausgabe für <code>N=100</code> so aussehen:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, ...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Das bedeutet, dass nicht nur 5 und 7, sondern auch 2 und 3 unter 10, sowie 11, 13, &hellip; Primzahlen unter 100 sind.</p>
+<p>Du kannst dich davon überzeugen, indem du dir mit dem ersten Programm die Multiplikationstabelle modulo, z.B. 37, ausgeben lässt.</p>
+<h1 id="9-selbst-probieren">9. Selbst probieren</h1>
+<p>Jetzt bist du dran.  Funktionieren die Programme bei dir auch?  Kommen die gleichen Ergebnisse heraus?</p>
+<h2 id="frage-1--wie-kannst-du-das-erste-programm-abändern-um-eine-additionstabelle-modulo-n-zu-erzeugen">Frage 1:  Wie kannst du das erste Programm abändern, um eine Additionstabelle modulo $n$ zu erzeugen?</h2>
+<p>Hinweis 1:  In <code>(x+y)%n</code> darfst du die Klammern nicht vergessen.</p>
+<h2 id="frage-2--wie-kannst-du-überprüfen-ob-2021-eine-primzahl-ist--was-ist-mit-2023">Frage 2:  Wie kannst du überprüfen, ob 2021 eine Primzahl ist?  Was ist mit 2023?</h2>
+<p>Frage 2b:  Wie lässt sich eine Zahl $n$ in ihre Primfaktoren zerlegen?</p>
+<p>Hinweis 2:  Du könntest die Primzahlen bis <code>val N = isqrt(n)</code> finden, und testen, durch welche sie teilbar ist, jeweils dividieren und mit dem Quotienten weiter arbeiten, bis du alle Primzahlen $&lt;N$ überprüft hast.</p>
+<p>Bemerkung:  Falls es die Funktion <code>isqrt</code> (integral square root) nicht gibt, kannst du die wie folgt implementieren:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">isqrt</span><span class="p">(</span><span class="n">x</span> <span class="p">:</span><span class="n">Int</span><span class="p">)</span> <span class="p">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">toDouble</span><span class="p">()).</span><span class="n">toInt</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Hinweis 3:  Du könntest auch gleich bei $p=2$ anfangen, für die aktuelle &ldquo;Prim&rdquo;-Zahl $p$ schauen, wie oft $n$ durch $p$ teilbar ist und jedes mal $n$ verkleinern (<code>n /= p</code>) und $p$ ausgeben.  Wenn es mit $p$ nicht weitergeht, dann musst du die 2 auf $p=3$ erhöhen und für alle anderen &ldquo;Prim&rdquo;-Zahlen einfach 2 addieren (<code>p += 2</code>).  Du kannst abbrechen, wenn $p*p&gt;n$ ist.  Falls der letzte Quotient $n&gt;1$ ist, ist es ebenfalls ein Primteiler (also auch ausgeben).</p>
+<p>Frage 2c:  Warum werden im letzen Beispiel nur Primzahlen ausgegeben, obwohl $p$ alle ungeraden Zahlen $&gt;1$ durchläuft?</p>
+<p>Hinweis 4:  Du kannst dir das am Beispiel $p=9$ überlegen:  Überlege zunächst, warum 9 keine Primzahl ist.  Überlege dir dann, was mit den Primteilern von 9 passiert.</p>
+<p>Viel Spaß beim Probieren.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">melli79</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2023-01-15
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">Markdown</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://melli79.github.io/post/20numbercongruences/index.md" target="_blank">The Markdown version »</a></span>
+    </p>
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/21fertmatslittletheorem/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">21. Potenzen und Kleiner Satz des Fermat</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/16curlsonthecomputer/">
+            <span class="next-text nav-default">16. Wirbel im Computer</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2023-01-15 20:45:50 \u002b0100 CET',
+        title: '20 Zahlenkongruenzen und Primzahlen',
+        link: decodeURI(location.href),
+        desc: 'Im Dritten Teil der Serie, Einführung in das Programmieren, wollen wir weitere mathematische Spiele betreiben. Heute wollen wir mit Zahlenkongruenzen rechnen.\n1. Etwas Theorie Du erinnerst dich vielleicht noch an das erste Programm, in dem wir die Multiplikationstabelle (also das kleine 1x1) dargestellt haben. Diesmal wollen wir das aber etwas abändern. Statt dem ganzen Produkt geben wir nur den Rest bei Division durch die ganze Zahl $n$ aus. Das bedeutet folgendes: Wenn wir $3 * 5$ ausrechnen und $n=6$, dann dividieren wir das Zwischenergebnis $15$ durch $6$ und erhalten $2$ Rest $3$.',
+        owner: 'melli79',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="melli79/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:melchiorG@gMail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://melli79.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">melli79</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.1c70606d1b733282f06230615f5561b5894924b6f9930ba2ab99cf1254f75a1a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

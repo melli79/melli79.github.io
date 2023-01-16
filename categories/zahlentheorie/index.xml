@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zahlentheorie on Melchior&#39;s Homepage</title>
+    <link>https://melli79.github.io/categories/zahlentheorie/</link>
+    <description>Recent content in Zahlentheorie on Melchior&#39;s Homepage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 15 Jan 2023 21:20:51 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/zahlentheorie/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>21. Potenzen und Kleiner Satz des Fermat</title>
+      <link>https://melli79.github.io/post/21fertmatslittletheorem/</link>
+      <pubDate>Sun, 15 Jan 2023 21:20:51 +0100</pubDate>
+      
+      <guid>https://melli79.github.io/post/21fertmatslittletheorem/</guid>
+      <description>Nachdem wir letztens Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.
+1. Potenz-Tabelle Analog zur Multiplikationstabelle, wollen wir diesmal potenzieren modulo einer positiven ganzen Zahl $n$. Wenn wir $b^e\pmod{n}$ ausrechnen, haben wir mathematisch 2 Möglichkeiten: Wir können entweder mit großen ganzen Zahlen rechnen und zunächst $b^e$ ausrechnen und dann den Rest modulo $n$ bestimmen. Oder wir multiplizieren in einem fort, d.h. fangen bei $b^2\equiv b * b \pmod{n}$ an, bestimmen den Rest modulo $n$ und gehen dann weiter zu $b^3\equiv b^2 * b \pmod{n}$.</description>
+    </item>
+    
+    <item>
+      <title>20 Zahlenkongruenzen und Primzahlen</title>
+      <link>https://melli79.github.io/post/20numbercongruences/</link>
+      <pubDate>Sun, 15 Jan 2023 20:45:50 +0100</pubDate>
+      
+      <guid>https://melli79.github.io/post/20numbercongruences/</guid>
+      <description>Im Dritten Teil der Serie, Einführung in das Programmieren, wollen wir weitere mathematische Spiele betreiben. Heute wollen wir mit Zahlenkongruenzen rechnen.
+1. Etwas Theorie Du erinnerst dich vielleicht noch an das erste Programm, in dem wir die Multiplikationstabelle (also das kleine 1x1) dargestellt haben. Diesmal wollen wir das aber etwas abändern. Statt dem ganzen Produkt geben wir nur den Rest bei Division durch die ganze Zahl $n$ aus. Das bedeutet folgendes: Wenn wir $3 * 5$ ausrechnen und $n=6$, dann dividieren wir das Zwischenergebnis $15$ durch $6$ und erhalten $2$ Rest $3$.</description>
+    </item>
+    
+  </channel>
+</rss>
