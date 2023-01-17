@@ -6,17 +6,7 @@
     <description>Recent content on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 15 Jan 2023 21:20:51 +0100</lastBuildDate><atom:link href="https://melli79.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>21. Potenzen und Kleiner Satz des Fermat</title>
-      <link>https://melli79.github.io/post/21fertmatslittletheorem/</link>
-      <pubDate>Sun, 15 Jan 2023 21:20:51 +0100</pubDate>
-      
-      <guid>https://melli79.github.io/post/21fertmatslittletheorem/</guid>
-      <description>Nachdem wir letztens Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.
-1. Potenz-Tabelle Analog zur Multiplikationstabelle, wollen wir diesmal potenzieren modulo einer positiven ganzen Zahl $n$. Wenn wir $b^e\pmod{n}$ ausrechnen, haben wir mathematisch 2 Möglichkeiten: Wir können entweder mit großen ganzen Zahlen rechnen und zunächst $b^e$ ausrechnen und dann den Rest modulo $n$ bestimmen. Oder wir multiplizieren in einem fort, d.h. fangen bei $b^2\equiv b * b \pmod{n}$ an, bestimmen den Rest modulo $n$ und gehen dann weiter zu $b^3\equiv b^2 * b \pmod{n}$.</description>
-    </item>
-    
+    <lastBuildDate>Sun, 15 Jan 2023 20:45:50 +0100</lastBuildDate><atom:link href="https://melli79.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>20 Zahlenkongruenzen und Primzahlen</title>
       <link>https://melli79.github.io/post/20numbercongruences/</link>

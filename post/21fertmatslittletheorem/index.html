@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>21. Potenzen und Kleiner Satz des Fermat - Melchior&#39;s Homepage</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="melli79" /><meta name="description" content="Nachdem wir letztens Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.
+1. Potenz-Tabelle Analog zur Multiplikationstabelle, wollen wir diesmal potenzieren modulo einer positiven ganzen Zahl $n$. Wenn wir $b^e\pmod{n}$ ausrechnen, haben wir mathematisch 2 Möglichkeiten: Wir können entweder mit großen ganzen Zahlen rechnen und zunächst $b^e$ ausrechnen und dann den Rest modulo $n$ bestimmen. Oder wir multiplizieren in einem fort, d.h. fangen bei $b^2\equiv b * b \pmod{n}$ an, bestimmen den Rest modulo $n$ und gehen dann weiter zu $b^3\equiv b^2 * b \pmod{n}$." />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
+
+
+<link rel="canonical" href="https://melli79.github.io/post/21fertmatslittletheorem/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78d3a03abaed5d3c468bdf402fc110f36c046abf091a63421b9ce0a5a63db941.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="21. Potenzen und Kleiner Satz des Fermat" />
+<meta property="og:description" content="Nachdem wir letztens Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.
+1. Potenz-Tabelle Analog zur Multiplikationstabelle, wollen wir diesmal potenzieren modulo einer positiven ganzen Zahl $n$. Wenn wir $b^e\pmod{n}$ ausrechnen, haben wir mathematisch 2 Möglichkeiten: Wir können entweder mit großen ganzen Zahlen rechnen und zunächst $b^e$ ausrechnen und dann den Rest modulo $n$ bestimmen. Oder wir multiplizieren in einem fort, d.h. fangen bei $b^2\equiv b * b \pmod{n}$ an, bestimmen den Rest modulo $n$ und gehen dann weiter zu $b^3\equiv b^2 * b \pmod{n}$." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://melli79.github.io/post/21fertmatslittletheorem/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-01-15T21:20:51+01:00" />
+<meta property="article:modified_time" content="2023-01-15T21:20:51+01:00" />
+<meta itemprop="name" content="21. Potenzen und Kleiner Satz des Fermat">
+<meta itemprop="description" content="Nachdem wir letztens Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.
+1. Potenz-Tabelle Analog zur Multiplikationstabelle, wollen wir diesmal potenzieren modulo einer positiven ganzen Zahl $n$. Wenn wir $b^e\pmod{n}$ ausrechnen, haben wir mathematisch 2 Möglichkeiten: Wir können entweder mit großen ganzen Zahlen rechnen und zunächst $b^e$ ausrechnen und dann den Rest modulo $n$ bestimmen. Oder wir multiplizieren in einem fort, d.h. fangen bei $b^2\equiv b * b \pmod{n}$ an, bestimmen den Rest modulo $n$ und gehen dann weiter zu $b^3\equiv b^2 * b \pmod{n}$."><meta itemprop="datePublished" content="2023-01-15T21:20:51+01:00" />
+<meta itemprop="dateModified" content="2023-01-15T21:20:51+01:00" />
+<meta itemprop="wordCount" content="2848">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="21. Potenzen und Kleiner Satz des Fermat"/>
+<meta name="twitter:description" content="Nachdem wir letztens Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.
+1. Potenz-Tabelle Analog zur Multiplikationstabelle, wollen wir diesmal potenzieren modulo einer positiven ganzen Zahl $n$. Wenn wir $b^e\pmod{n}$ ausrechnen, haben wir mathematisch 2 Möglichkeiten: Wir können entweder mit großen ganzen Zahlen rechnen und zunächst $b^e$ ausrechnen und dann den Rest modulo $n$ bestimmen. Oder wir multiplizieren in einem fort, d.h. fangen bei $b^2\equiv b * b \pmod{n}$ an, bestimmen den Rest modulo $n$ und gehen dann weiter zu $b^3\equiv b^2 * b \pmod{n}$."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Melchior&#39;s Homepage</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Themes</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Melchior&#39;s Homepage</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Themes</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">21. Potenzen und Kleiner Satz des Fermat</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-01-15 </span>
+        <div class="post-category">
+            <a href="/categories/kotlin/"> Kotlin </a>
+            <a href="/categories/programming/"> Programming </a>
+            <a href="/categories/zahlentheorie/"> Zahlentheorie </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-potenz-tabelle">1. Potenz-Tabelle</a></li>
+    <li><a href="#2-experimentieren">2. Experimentieren</a>
+      <ul>
+        <li><a href="#21-wir-können-folgende-dinge-beobachten">2.1 Wir können folgende Dinge beobachten:</a></li>
+        <li><a href="#22-woran-kann-das-liegen">2.2 Woran kann das liegen?</a></li>
+        <li><a href="#warum-schreibe-ich-die-zahlen-manchmal-mit-eckigen-klammern-und-manchmal-ohne">Warum schreibe ich die Zahlen manchmal mit eckigen Klammern und manchmal ohne?</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-zyklische-gruppen">3. Zyklische Gruppen</a>
+      <ul>
+        <li><a href="#31-geht-das-auch-mit-anderen-elementen">3.1 Geht das auch mit anderen Elementen?</a></li>
+        <li><a href="#32-kann-man-die-gruppe-mathbb-f_5--auch-mit-addition-schreiben">3.2 Kann man die Gruppe $\mathbb F_5^* $ auch mit Addition schreiben?</a></li>
+        <li><a href="#wie-kann-man-das-gleiche-mit-mathbb-f_7--machen">Wie kann man das Gleiche mit $\mathbb F_7^* $ machen?</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-kann-man-das-praktisch-verwenden">4. Kann man das Praktisch verwenden?</a>
+      <ul>
+        <li><a href="#41-wie-kann-man-schnell-potenzieren-modulo-n">4.1 Wie kann man schnell Potenzieren (modulo $n$)?</a></li>
+        <li><a href="#42-wie-muss-man-das-e-wählen">4.2 Wie muss man das $e$ wählen?</a></li>
+        <li><a href="#43-wie-muss-man-f-wählen">4.3 Wie muss man $f$ wählen?</a></li>
+        <li><a href="#44-wie-sieht-das-in-einem-programm-aus">4.4 Wie sieht das in einem Programm aus?</a></li>
+        <li><a href="#49-praktische-fragen">4.9 Praktische Fragen</a>
+          <ul>
+            <li><a href="#1-was-wenn-die-nachricht-aus-buchstaben-besteht">1. Was, wenn die Nachricht aus Buchstaben besteht?</a></li>
+            <li><a href="#2-was-wenn-die-nachricht-aus-mehreren-buchstaben-besteht">2. Was, wenn die Nachricht aus mehreren Buchstaben besteht?</a></li>
+            <li><a href="#3-ist-das-auch-sicher">3. Ist das auch sicher?</a></li>
+            <li><a href="#4-wenn-ich-pn-kenne-dann-kann-ich-doch-auch-x-ausrechnen-kann-ich-nicht-aus-x-und-e-f-berechnen">4. Wenn ich $p=n$ kenne, dann kann ich doch auch $x$ ausrechnen. Kann ich nicht aus $x$ und $e$, $f$ berechnen?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#9-zeit-zum-selber-probieren">9. Zeit zum selber probieren</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Nachdem wir letztens Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.</p>
+<h1 id="1-potenz-tabelle">1. Potenz-Tabelle</h1>
+<p>Analog zur Multiplikationstabelle, wollen wir diesmal potenzieren modulo einer positiven ganzen Zahl $n$.  Wenn wir $b^e\pmod{n}$ ausrechnen, haben wir mathematisch 2 Möglichkeiten:  Wir können entweder mit großen ganzen Zahlen rechnen und zunächst $b^e$ ausrechnen und dann den Rest modulo $n$ bestimmen.  Oder wir multiplizieren in einem fort, d.h. fangen bei $b^2\equiv b * b \pmod{n}$ an, bestimmen den Rest modulo $n$ und gehen dann weiter zu $b^3\equiv b^2 * b \pmod{n}$.  Im letzteren Fall können wir sicher sein, dass das Produkt zwischendurch nie den Wert $n^2$ übersteigt.</p>
+<p>So erzeugen wir die Potenztabelle:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Bitte geben Sie eine positive ganze Zahl für den Modulus ein: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">n</span> <span class="p">:</span><span class="n">Int</span><span class="p">?</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">n</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">toIntOrNull</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="k">null</span> <span class="o">||</span> <span class="n">n</span><span class="p">&lt;</span><span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Das ist keine positive Zahl größer 1.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">break</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Potenzen modulo </span><span class="si">$n</span><span class="s2">:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">((</span><span class="m">0.</span><span class="p">.</span><span class="n">n</span><span class="o">!!</span><span class="p">).</span><span class="n">map</span> <span class="p">{</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="s2">&#34;%2d&#34;</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">}.</span><span class="n">joinToString</span><span class="p">(</span><span class="s2">&#34; &#34;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">b</span> <span class="k">in</span> <span class="m">0</span> <span class="n">until</span> <span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">var</span> <span class="py">p</span> <span class="p">=</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">e</span> <span class="k">in</span> <span class="m">0.</span><span class="p">.</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">print</span><span class="p">(</span><span class="s2">&#34;%2d &#34;</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="p">=</span> <span class="p">(</span><span class="n">p</span><span class="p">*</span><span class="n">b</span><span class="p">)%</span><span class="n">n</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="2-experimentieren">2. Experimentieren</h1>
+<p>Die Tabelle für $n=5$ sieht wie folgt aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Potenzen modulo 5:
+</span></span><span class="line"><span class="cl">  0  1  2  3  4  5
+</span></span><span class="line"><span class="cl">  1  0  0  0  0  0
+</span></span><span class="line"><span class="cl">  1  1  1  1  1  1
+</span></span><span class="line"><span class="cl">  1  2  4  3  1  2
+</span></span><span class="line"><span class="cl">  1  3  4  2  1  3
+</span></span><span class="line"><span class="cl">  1  4  1  4  1  4
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Die Tabelle für $n=6$ sieht wie folgt aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Potenzen modulo 6:
+</span></span><span class="line"><span class="cl"> 0  1  2  3  4  5  6
+</span></span><span class="line"><span class="cl"> 1  0  0  0  0  0  0
+</span></span><span class="line"><span class="cl"> 1  1  1  1  1  1  1
+</span></span><span class="line"><span class="cl"> 1  2  4  2  4  2  4
+</span></span><span class="line"><span class="cl"> 1  3  3  3  3  3  3
+</span></span><span class="line"><span class="cl"> 1  4  4  4  4  4  4
+</span></span><span class="line"><span class="cl"> 1  5  1  5  1  5  1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Schließlich sieht die Tabelle für $n=9$ wie folgt aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Potenzen modulo 9:
+</span></span><span class="line"><span class="cl"> 0  1  2  3  4  5  6  7  8  9
+</span></span><span class="line"><span class="cl"> 1  0  0  0  0  0  0  0  0  0
+</span></span><span class="line"><span class="cl"> 1  1  1  1  1  1  1  1  1  1
+</span></span><span class="line"><span class="cl"> 1  2  4  8  7  5  1  2  4  8
+</span></span><span class="line"><span class="cl"> 1  3  0  0  0  0  0  0  0  0
+</span></span><span class="line"><span class="cl"> 1  4  7  1  4  7  1  4  7  1
+</span></span><span class="line"><span class="cl"> 1  5  7  8  4  2  1  5  7  8
+</span></span><span class="line"><span class="cl"> 1  6  0  0  0  0  0  0  0  0
+</span></span><span class="line"><span class="cl"> 1  7  4  1  7  4  1  7  4  1
+</span></span><span class="line"><span class="cl"> 1  8  1  8  1  8  1  8  1  8
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="21-wir-können-folgende-dinge-beobachten">2.1 Wir können folgende Dinge beobachten:</h2>
+<ol>
+<li>Die Potenzen von 0 sind fast alle 0, denn $0 * 0\equiv0\pmod{n}$;</li>
+<li>Die Potenzen von 1 sind alle 1, denn $1 * 1\equiv1\pmod{n}$;</li>
+<li>Die Potenzen von 2 durchlaufen alle Reste (außer 0) modulo 5;</li>
+<li>Die Tabelle für 5 sieht &ldquo;ordentlich&rdquo; aus, d.h. außer für $b=0$ tauchen keine 0en auf;</li>
+<li>Die Tabelle für 5 und 6 sieht nett aus, z.B. $b^n\equiv b\pmod{n}$;</li>
+<li>Die Tabelle für 9 sieht ziemlich löchrig aus, d.h. es gibt etliche 0en auch außerhalb von $b=0$.</li>
+</ol>
+<h2 id="22-woran-kann-das-liegen">2.2 Woran kann das liegen?</h2>
+<p>Wir haben bereits herausgefunden, dass 5 eine Primzahl ist.  Auch hatten wir gesehen, dass Multiplikation modulo 5 sich sehr regelmäßig verhält, d.h. es taucht keine 0 auf (außer wenn $x=0$ oder $y=0$) und in jeder Zeile kommt jeder Rest genau 1mal vor.  Dazu passt folgender Begriff:</p>
+<p>Eine <strong>Gruppe</strong> ist eine Menge $G$ mit einer Operation $\circ$ (die 2 Elemente zu einem verknüpft), sodass</p>
+<ol>
+<li>$(a \circ b) \circ c = a \circ (b \circ c)$, (Assoziativgesetz)</li>
+<li>$e\circ a=a$, (neutrales Element $e$)</li>
+<li>Für jedes $a$ existiert ein $b$, sodass $a\circ b=e$. (inverse Elemente)</li>
+</ol>
+<p>Es gibt zahlreiche Gruppen, z.B. ist die Addition modulo $n$ stets eine Gruppe, das inverse Element zu $a$ ist $n-a$, denn $a+(n-a)\equiv n\equiv0\pmod{n}$.  Wenn du genau aufgepasst hast, dann ist hier etwas durcheinander geraten: Die &ldquo;1&rdquo; zur Addition heißt 0.  Deshalb spricht man bei Gruppen auch nicht von &ldquo;1&rdquo;, sondern vom neutralen Element.  Für die Addition ist also 0 das neutrale Element.  Die Menge ist also z.B. $\mathbb Z/(5)=\{[0], [1], [2], [3], [4]\}$ und die Operation $+$, Addition, die 2 Zahlen (oder Restklassen) nimmt und zu einer Restklasse verknüpft.</p>
+<p>Wir hatten ja oben auch gesehen, dass die Reste modulo 5 (außer dem Rest 0) eine Gruppe bilden.  Diese Gruppe bezeichnet man mit $\mathbb F_5^* $, die multiplikative Gruppe modulo 5.  Der obenstehende Stern erinnert daran, dass der Rest 0 auszuschließen ist.  Die Menge ist also $\mathbb F_5^* = \{[1], [2], [3], [4]\}$ und die Operation $*$, Multiplikation, die 2 Restklassen zu einer verknüpft.</p>
+<h2 id="warum-schreibe-ich-die-zahlen-manchmal-mit-eckigen-klammern-und-manchmal-ohne">Warum schreibe ich die Zahlen manchmal mit eckigen Klammern und manchmal ohne?</h2>
+<p>Korrekter Weise müsste man in der Menge $\mathbb Z/(5)$ die Elemente $[0]_5$, $[1]_5$, $[2]_5$, $[3]_5$ und $[4]_5$ schreiben.  Denn man muss die von den Restklassen z.B. modulo 3 unterscheiden: $\mathbb Z/(3)=\{[0]_3, [1]_3, [2]_3\}$.  Das erkennt man daran, dass $1+1\equiv3\equiv0\pmod{3}$, also $[1]_3+[2]_3=[0]_3$ ist, während $1+2\equiv3\not\equiv0\pmod{5}$, also $[1]_5+[2]_5=[3]_5\ne[0]_5$ ist.
+Je nachdem, wie genau man das aufschreiben muss, kann man also entweder $[1]_5$ oder $[1]$ oder auch einfach $1$ schreiben.  Im letzten Fall muss man erkennen, dass es sich um einen Rest modulo 5 handelt und nicht um die ganze Zahl 1.  Im mittleren Fall muss man erkennen, dass modulo 5 gerechnet wird.  Und im ersten Fall hat man viel zu schreiben (und umständlich zu tippen).</p>
+<h1 id="3-zyklische-gruppen">3. Zyklische Gruppen</h1>
+<p>Wenn wir uns an das Zählen erinnern, dann erkennen wir, dass in der Gruppe $\mathbb Z/(n)$ (bezüglich Addition) die Restklasse $[1]$ alle anderen Restklassen erzeugt, d.h. $[r]=[1]+\dotsm+[1]$, wenn man genau $r$ Summanden addiert.  Das nennen wir eine <strong>zyklische</strong> Gruppe, d.h. es gibt ein erzeugendes Element (hier die [1]) aus der sich durch wiederholtes Verknüpfen alle anderen Elemente erzeugen lassen.</p>
+<p>Ein einfacher Satz der Gruppentheorie besagt, dass alle endlichen Gruppen so aussehen wie die ganzen Zahlen modulo $n$.  Dabei nennt man $n$ die Ordnung der Gruppe, also die Anzahl der Elemente. &ldquo;So aussehen wie&rdquo; heißt in mathematischer Sprache isomorph (also von gleicher Struktur).</p>
+<h2 id="31-geht-das-auch-mit-anderen-elementen">3.1 Geht das auch mit anderen Elementen?</h2>
+<p>Schauen wir uns die Vielfache modulo 6 doch mal genauer an:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Wiederholte Addition modulo 6:
+</span></span><span class="line"><span class="cl">  0  0  0  0  0  0  0
+</span></span><span class="line"><span class="cl">  0  1  2  3  4  5  0
+</span></span><span class="line"><span class="cl">  0  2  4  0  2  4  0
+</span></span><span class="line"><span class="cl">  0  3  0  3  0  3  0
+</span></span><span class="line"><span class="cl">  0  4  2  0  4  2  0
+</span></span><span class="line"><span class="cl">  0  5  4  3  2  1  0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Offenbar kann man statt der $[1]$ auch die $[5]$ verwenden.  Alle anderen Elemente erzeugen nur eine kleinere Teilmenge.  Deshalb schreiben wir $(\mathbb Z/(6))^* = \{[1], [5]\}$.  Dieser Stern bedeutet die Generatoren der additiven Gruppe.</p>
+<p>Wie sieht das Modulo 5 aus?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Wiederholte Addition modulo 5:
+</span></span><span class="line"><span class="cl">  0  0  0  0  0  0
+</span></span><span class="line"><span class="cl">  0  1  2  3  4  0
+</span></span><span class="line"><span class="cl">  0  2  4  1  3  0
+</span></span><span class="line"><span class="cl">  0  3  1  4  2  0
+</span></span><span class="line"><span class="cl">  0  4  3  2  1  0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Offenbar kann man die ganze Gruppe $\mathbb Z/(5)$ mit jedem Element (außer der [0]) erzeugen.  Deshalb schreiben wir $(\mathbb Z/(5))^* = \{[1], [2], [3], [4]\}=\mathbb F_5^* $.</p>
+<p>Spannender wird es mit der Multiplikation:  Wir hatten bereits gesehen, dass $\mathbb F_5^* $ eine Gruppe (bezüglich Multiplikation) ist.  Außerdem hatten wir aus den Potenz-Tabellen am Anfang erkannt, dass diese Gruppe von der $[2]$ erzeugt wird.  Damit ist es auch eine zyklische Gruppe.</p>
+<h2 id="32-kann-man-die-gruppe-mathbb-f_5--auch-mit-addition-schreiben">3.2 Kann man die Gruppe $\mathbb F_5^* $ auch mit Addition schreiben?</h2>
+<p>Der naïve Versuch wäre $[1]+[1]=[2]$, $[1]+[2]=[3]$, $[3]+[1]=[4]$, $[4]+[1]=[0]$ &ndash; halt! irgendetwas stimmt hier nicht.  Auf der Menge $\mathbb F_5^* = \{[1], [2], [3], [4]\}$ operiert die übliche Addition (modulo 5) nicht.</p>
+<p>Die bessere Frage wäre, ob die Gruppe $\mathbb F_5^* $ isomorph zu einer der &ldquo;üblichen&rdquo; zyklischen Gruppen ist.  Dazu schauen wir uns nochmal die Potenzen von $[2]$ an:</p>
+<p>+&mdash;&mdash;&mdash;+&mdash;&mdash;-+&mdash;&mdash;-+&mdash;&mdash;-+&mdash;&mdash;-+&mdash;&mdash;-+
+|  <em>e</em>    |  0    |  1    |  2    |  3    |  4    |
++=========+=======+=======+=======+=======+=======+
+| $[2]^e$ |  [1]  |  [2]  |  [4]  |  [3]  |  [1]  |
++&mdash;&mdash;&mdash;+&mdash;&mdash;-+&mdash;&mdash;-+&mdash;&mdash;-+&mdash;&mdash;-+&mdash;&mdash;-+</p>
+<p>In dieser Abbildung gilt: $[2]^0=[1]$ und $[2]^{e+f}=[2]^e * [2]^f$, d.h. die Abbildung (von oben nach unten gelesen) erhält das neutrale Element und die Gruppenoperation.  Entsprechend kann man auch die inversen Elemente der Multiplikation ablesen: $[1]^{-1}=[1]$, $[2]^{-1}=[3]$, $[3]^{-1}=[2]$, $[4]^{-1}=[4]$.
+So eine Abbildung nennt man einen <strong>Gruppen-Homomorphismus</strong>.</p>
+<p>Aber die Abbildung hat noch eine weitere Eigenschaft:  Wenn man die Tabelle von unten nach oben liest, erkennt man, dass es auch eine Abbildung ist, d.h. das jedem Element der unteren Zeile genau 1 Element der oberen Zeile zugeordnet wird (unten fehlt kein Element und es taucht auch keines doppelt auf).  Das nennt man einen <strong>Isomorphismus</strong> und die Gruppen entsprechend isomorph.  So kann man also $\mathbb F_5^* $ in die additive zyklische Gruppe $\mathbb Z/(4)$ übersetzen.  Formell schreibt man das $\mathbb F_5^* \cong \mathbb Z/(4)$.  Dabei kann man nicht einfach $=$ schreiben, weil z.B. die Mengen $\mathbb F_5^* $ und $\mathbb Z/(4)$ verschiedene Zahlen enthalten.</p>
+<h2 id="wie-kann-man-das-gleiche-mit-mathbb-f_7--machen">Wie kann man das Gleiche mit $\mathbb F_7^* $ machen?</h2>
+<p>Dazu muss man einen Generator für die Multiplikation modulo 7 finden.  Mit dem Programm vom Anfang geht das wie folgt:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Potenzen modulo 7:
+</span></span><span class="line"><span class="cl"> 0  1  2  3  4  5  6  7
+</span></span><span class="line"><span class="cl"> 1  0  0  0  0  0  0  0
+</span></span><span class="line"><span class="cl"> 1  1  1  1  1  1  1  1
+</span></span><span class="line"><span class="cl"> 1  2  4  1  2  4  1  2
+</span></span><span class="line"><span class="cl"> 1  3  2  6  4  5  1  3
+</span></span><span class="line"><span class="cl"> 1  4  2  1  4  2  1  4
+</span></span><span class="line"><span class="cl"> 1  5  4  6  2  3  1  5
+</span></span><span class="line"><span class="cl"> 1  6  1  6  1  6  1  6
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>D.h. hier ist $[3]$ ein Generator für die Multiplikation modulo 7.  Der einzige andere Generator ist $[5]$.  Das kommt uns bekannt vor:  Die Addition modulo 6 hat auch 2 Generatoren ([1] und [5]).  Wo ist da der Zusammenhang?</p>
+<p>+&mdash;&mdash;&mdash;+&mdash;&ndash;+&mdash;&ndash;+&mdash;&ndash;+&mdash;&ndash;+&mdash;&ndash;+&mdash;&ndash;+&mdash;&ndash;+
+|  <em>e</em>    |  0  |  1  |  2  |  3  |  4  |  5  |  6  |
++=========+=====+=====+=====+=====+=====+=====+=====+
+| $[3]^e$ | [1] | [3] | [2] | [6] | [4] | [5] | [1] |
++&mdash;&mdash;&mdash;+&mdash;&ndash;+&mdash;&ndash;+&mdash;&ndash;+&mdash;&ndash;+&mdash;&ndash;+&mdash;&ndash;+&mdash;&ndash;+</p>
+<p>Also hier $\mathbb F_7^* \cong \mathbb Z/(6)$.</p>
+<p>Insgesamt gilt der kleine Satz von Fermat: Für eine Primzahl $p$ ist
+$$ a^{p-1}\equiv 1 \pmod{p}$$
+solange $a$ kein Vielfaches von $p$ ist.</p>
+<p>Der Grund dafür ist die obige Beobachtung, dass die Multiplikation in $\mathbb F_p^* $ eine zyklische Gruppe der Ordnung $p-1$ ist (die 0 wird ja weg gelassen).</p>
+<h1 id="4-kann-man-das-praktisch-verwenden">4. Kann man das Praktisch verwenden?</h1>
+<p>Ja, wenn man die folgende Beobachtung von Euler dazu ergänzt:</p>
+<p>Lemma (Euler-Fermat-Satz, Teil 1):  Gegeben eine Primzahl $p$, dann gilt
+$$ a^p\equiv a \pmod{p} $$
+für alle ganzen Zahlen $a$.</p>
+<p>Wie kann man das nun verwenden?</p>
+<p>Dazu müssen wir die Zahl $p$ in ein Produkt zerlegen.  Wir hatten ja gesehen, dass die Gruppe $\mathbb F_p^* \cong \mathbb Z/(p-1)$ ist, also die Ordnung $p-1$ hat.  Wenn wir jetzt
+$$ e * f \equiv p \pmod{p-1} $$
+zerlegen können, dann haben wir eine <em>Verschlüsselung</em>.</p>
+<p>Lass mich zuerst erklären, wie man damit verschlüsselt.</p>
+<p>Wenn wir eine Primzahl, z.B. $n=29$, haben und uns einen Exponenten, z.B. $e=3$ nehmen, dann müssen wir nur einen zweiten Exponenten $f=19$ finden, um $0\le a&lt;p$ mittels $b:= a^e \mod p$ zu verschlüsseln.  Dann können wir anschließend $a=b^f \mod p$ wieder entschlüsseln.</p>
+<p>Das heißt, dass wir ein asymmetrisches Verschlüsselungsverfahren haben:  Der öffentliche Schlüssel besteht aus $p$ und $e$.  Der gemeine Schlüssel besteht aus $p$ und $f$.  Man kann nicht beliebig große Zahlen ver- und wieder korrekt entschlüsseln, aber wenn wir $0\le a&lt;p$ berücksichtigen, dann können wir nach Euler-Fermat-Satz das $a$ wieder entschlüsseln.</p>
+<p>Es ergeben sich noch 3 Fragen:</p>
+<h2 id="41-wie-kann-man-schnell-potenzieren-modulo-n">4.1 Wie kann man schnell Potenzieren (modulo $n$)?</h2>
+<p>Dazu kann man Binäre Exponentiation verwenden.  Der sieht etwa so aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">mpow</span><span class="p">(</span><span class="n">b</span> <span class="p">:</span><span class="n">ULong</span><span class="p">,</span> <span class="n">e</span> <span class="p">:</span><span class="n">UInt</span><span class="p">,</span> <span class="n">n</span> <span class="p">:</span><span class="n">ULong</span><span class="p">)</span> <span class="p">:</span><span class="n">ULong</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="o">==</span><span class="m">0u</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="m">1uL</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="o">==</span><span class="m">0uL</span> <span class="o">||</span> <span class="n">b</span><span class="o">==</span><span class="m">1uL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">result</span> <span class="p">=</span> <span class="m">1uL</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">p</span> <span class="p">=</span> <span class="n">b</span> <span class="p">%</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">r</span> <span class="p">=</span> <span class="n">e</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">r</span><span class="p">&gt;</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="m">2</span><span class="p">&gt;</span><span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span> <span class="p">=</span> <span class="n">result</span><span class="p">*</span><span class="n">p</span> <span class="p">%</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">      <span class="n">p</span> <span class="p">=</span> <span class="n">p</span><span class="p">*</span><span class="n">p</span> <span class="p">%</span> <span class="n">n</span><span class="p">;</span>  <span class="n">r</span> <span class="o">/=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Man übergibt die Basis $b$ (z.B. unser $a$ oder die verschlüsselte Nachricht $b$), den Exponenten $e$ (oder $f$) und den Modulus $n=p$.</p>
+<p>Die Idee dahinter ist, dass man den Exponenten, z.B. $e=3$ als Summe von 2er Potenzen schreibt, also $3=1+2$ und dann entsprechend $b^3 = b^1* b^2$ ausrechnet.  Die aufsteigenden 2er-Potenzen von $b$ erhält man, indem man von $p=b$ startet und fortlaufend quadriert, also zunächst $p=b^1$, dann $p=b^2$, dann $p=b^4=(b^2)^2$ und so weiter.  Jetzt muss man nur noch im richtigen Moment das Ergebnis mit $p$ multiplizieren.  Der richtige Momemnt ist, wenn $e\%2^k&gt;2^{k-1}$ ist.  Wenn wir fortlaufend $e$ durch 2 teilen, müssen wir nur jedes Mal schauen, ob der Rest von <code>e%2</code> gleich 1 (also größer als 0) ist.</p>
+<h2 id="42-wie-muss-man-das-e-wählen">4.2 Wie muss man das $e$ wählen?</h2>
+<p>Wir wollen $e * f \equiv p \equiv 1 \pmod{p-1}$ haben, also muss $e$ teilerfremd zu $p-1$ sein. $p$ ist eine Primzahl, oft auch ungerade (da die 2 die einzige gerade Primzahl ist und ziemlich klein).  Also darf $e$ keine gemeinsamen Teiler mit der geraden Zahl $p-1$ haben.  Dazu muss es offenbar wenigstens ungerade sein.  Man kann auch $p-1$ faktorisieren und die kleinste Primzahl wählen, die nicht in der Faktorisierung vorkommt.</p>
+<h2 id="43-wie-muss-man-f-wählen">4.3 Wie muss man $f$ wählen?</h2>
+<p>Also $e$ muss geeignet gewählt sein.  Dann brauchen wir ein modulares Inverses zu $e$, denn $e * f\equiv 1\pmod{p-1}$ bedeutet genau das.  Das kann man entweder durch probieren bestimmen (wenn $p$ nicht zu groß ist) oder indem man den Euklidischen Algorithmus modifiziert.  Im obigen Beispiel kann man kontrollieren, dass tatsächlich $e * f \% (p-1) = 3 * 19 \% 28 = 1$ ist.</p>
+<h2 id="44-wie-sieht-das-in-einem-programm-aus">4.4 Wie sieht das in einem Programm aus?</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">n</span> <span class="p">=</span> <span class="m">37uL</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">e</span> <span class="p">=</span> <span class="m">3u</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">x</span> <span class="p">=</span> <span class="n">n</span><span class="p">-</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assert</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span><span class="o">==</span><span class="m">1uL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">f</span> <span class="p">=</span> <span class="m">19u</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assert</span><span class="p">(</span><span class="n">e</span><span class="p">*</span><span class="n">f</span><span class="p">%</span><span class="n">x</span><span class="o">==</span><span class="m">1uL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Verschlüsseln oder Entschlüsslen (V/E)? &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">choice</span> <span class="p">=</span> <span class="n">readLnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">choice</span><span class="o">==</span><span class="k">null</span><span class="o">||</span><span class="n">choice</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="k">when</span> <span class="p">(</span><span class="n">choice</span><span class="p">[</span><span class="m">0</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="sc">&#39;v&#39;</span><span class="p">,</span> <span class="sc">&#39;V&#39;</span> <span class="o">-&gt;</span> <span class="n">encrypt</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="sc">&#39;e&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span> <span class="o">-&gt;</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span> <span class="o">-&gt;</span> <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Der öffentliche Schlüssel ist n=</span><span class="si">$n</span><span class="s2"> und e=</span><span class="si">$e</span><span class="s2">.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wenn du die Funktion <code>gcd</code>, größter gemeinsamer Teiler nicht hast, dann kannst du die 2 Zeilen mit <code>assert</code> und <code>gcd</code> weglassen/auskommentieren.  Das Programm läuft trotzdem.  Es kann nur sein, dass es Unsinn macht, wenn die Zahlen $n$, $e$ und $f$ nicht zusammen passen.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">ULong</span><span class="p">,</span> <span class="n">e</span> <span class="p">:</span><span class="n">UInt</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Bitte geben sie eine geheime Nachricht ein (ganze Zahl zwischen 0 und </span><span class="si">$n</span><span class="s2">): &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">var</span> <span class="py">a</span> <span class="p">:</span><span class="n">ULong</span><span class="p">?</span>
+</span></span><span class="line"><span class="cl">      <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span> <span class="p">=</span> <span class="n">readLnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">toUIntOrNull</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Ungültige Nachricht&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">&gt;=</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Nachricht ist zu groß&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">b</span> <span class="p">=</span> <span class="n">mpow</span><span class="p">(</span><span class="n">a</span><span class="o">!!</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Die Verschlüsselte Nachricht lautet </span><span class="si">$b</span><span class="s2">.  Der öffentliche Schlüssel ist n=</span><span class="si">$n</span><span class="s2"> und e=</span><span class="si">$e</span><span class="s2">.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">ULong</span><span class="p">,</span> <span class="n">f</span> <span class="p">:</span><span class="n">UInt</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Bitte geben sie eine verschlüsselte Nachricht ein (ganze Zahl zwischen 0 und </span><span class="si">$n</span><span class="s2">): &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">var</span> <span class="py">b</span> <span class="p">:</span><span class="n">ULong</span><span class="p">?</span>
+</span></span><span class="line"><span class="cl">      <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span> <span class="p">=</span> <span class="n">readLnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">toUIntOrNull</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="o">==</span><span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Ungültige Nachricht&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="o">&gt;=</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Das kann nicht sein.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">a</span> <span class="p">=</span> <span class="n">mpow</span><span class="p">(</span><span class="n">b</span><span class="o">!!</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Die entschlüsselte Nachricht lautet </span><span class="si">$a</span><span class="s2">.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="49-praktische-fragen">4.9 Praktische Fragen</h2>
+<h3 id="1-was-wenn-die-nachricht-aus-buchstaben-besteht">1. Was, wenn die Nachricht aus Buchstaben besteht?</h3>
+<p>Man kann mittels ASCII-Code (oder auch Unicode) jedes Zeichen in eine Zahl übersetzen.  Beim ASCII-Code ist diese Zahl zwischen 0 und 128 (im erweiterten ASCII-Code zwischen 0 und 255) und beim Unicode wachsen die Zahlen noch, aber für europäische Sprachen reicht eine Zahl zwischen 0 und $2^{32}$, also eine 4-Byte-Nachricht.  Man müsste dann umgekehrt die entschlüsselte Zahl wieder in ein Zeichen übersetzen.</p>
+<h3 id="2-was-wenn-die-nachricht-aus-mehreren-buchstaben-besteht">2. Was, wenn die Nachricht aus mehreren Buchstaben besteht?</h3>
+<p>Dann kann man mehrere Zahlen der Reihe nach verschlüsslen.  Dabei ist die verschlüsselte Nachricht genauso lang wie die geheime Nachricht.</p>
+<h3 id="3-ist-das-auch-sicher">3. Ist das auch sicher?</h3>
+<p>Gute Frage.  Wenn du in das Programm schaust, dann steht da der geheime Schlüssel, sodass jeder der das Programm hat, auch den geheimen Schlüssel kennt und die verschlüsselten Nachrichten wieder entschlüsseln kann.</p>
+<p>Das kann man dadurch lösen, dass man die Schlüssel aus einer Datei oder einem sicheren Schlüssel-Speicher ausliest.  Dann gibt man dem Kommunikationspartner nur das Programm (ohne Schlüssel) und den öffentlichen Schlüssel.  Damit kann er dann für einen geheime Nachrichten verschlüsseln.</p>
+<h3 id="4-wenn-ich-pn-kenne-dann-kann-ich-doch-auch-x-ausrechnen-kann-ich-nicht-aus-x-und-e-f-berechnen">4. Wenn ich $p=n$ kenne, dann kann ich doch auch $x$ ausrechnen. Kann ich nicht aus $x$ und $e$, $f$ berechnen?</h3>
+<p>In der Tat, das ist eine der Schwachstellen dieses Prototypen.</p>
+<p>Deshalb haben sich Rivest–Shamir–Adleman auf der Basis des Euler-Fermat-Satzes auch gedanken gemacht, wie man das besser handhaben kann.  Das ganze nennt man den RSA-Algorithmus.  Dazu schreibe ich im nächsten Artikel mehr.</p>
+<h1 id="9-zeit-zum-selber-probieren">9. Zeit zum selber probieren</h1>
+<p>Nachdem diese Lektion ziemlich lang war, hast du jetzt Gelegenheit, das ganze erst einmal zu verdauen und mit den Beispielprogrammen selbst auszuprobieren.</p>
+<p>Viel Spaß dabei.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">melli79</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2023-01-15
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">Markdown</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://melli79.github.io/post/21fertmatslittletheorem/index.md" target="_blank">The Markdown version »</a></span>
+    </p>
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/20numbercongruences/">
+            <span class="next-text nav-default">20 Zahlenkongruenzen und Primzahlen</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2023-01-15 21:20:51 \u002b0100 CET',
+        title: '21. Potenzen und Kleiner Satz des Fermat',
+        link: decodeURI(location.href),
+        desc: 'Nachdem wir letztens Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.\n1. Potenz-Tabelle Analog zur Multiplikationstabelle, wollen wir diesmal potenzieren modulo einer positiven ganzen Zahl $n$. Wenn wir $b^e\\pmod{n}$ ausrechnen, haben wir mathematisch 2 Möglichkeiten: Wir können entweder mit großen ganzen Zahlen rechnen und zunächst $b^e$ ausrechnen und dann den Rest modulo $n$ bestimmen. Oder wir multiplizieren in einem fort, d.h. fangen bei $b^2\\equiv b * b \\pmod{n}$ an, bestimmen den Rest modulo $n$ und gehen dann weiter zu $b^3\\equiv b^2 * b \\pmod{n}$.',
+        owner: 'melli79',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="melli79/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:melchiorG@gMail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://melli79.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">melli79</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.1c70606d1b733282f06230615f5561b5894924b6f9930ba2ab99cf1254f75a1a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
