@@ -51,7 +51,7 @@
 <meta itemprop="description" content="Nachdem wir letztes Mal Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.
 1. Potenz-Tabelle Analog zur Multiplikationstabelle, wollen wir diesmal potenzieren modulo einer positiven ganzen Zahl $n$. Wenn wir $b^e\pmod{n}$ ausrechnen, haben wir mathematisch 2 Möglichkeiten: Wir können entweder mit großen ganzen Zahlen rechnen und zunächst $b^e$ ausrechnen und dann den Rest modulo $n$ bestimmen. Oder wir multiplizieren in einem fort, d.h. fangen bei $b^2\equiv b * b \pmod{n}$ an, bestimmen den Rest modulo $n$ und gehen dann weiter zu $b^3\equiv b^2 * b \pmod{n}$."><meta itemprop="datePublished" content="2023-01-17T19:00:51+01:00" />
 <meta itemprop="dateModified" content="2023-01-17T19:00:51+01:00" />
-<meta itemprop="wordCount" content="2827">
+<meta itemprop="wordCount" content="2832">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="21. Potenzen und Kleiner Satz des Fermat"/>
 <meta name="twitter:description" content="Nachdem wir letztes Mal Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.
@@ -458,7 +458,7 @@ solange $a$ kein Vielfaches von $p$ ist.</p>
 <p>Der Grund dafür ist die obige Beobachtung, dass die Multiplikation in $\mathbb F_p^* $ eine zyklische Gruppe der Ordnung $p-1$ ist (die 0 wird ja weg gelassen).</p>
 <h1 id="4-kann-man-das-praktisch-verwenden">4. Kann man das Praktisch verwenden?</h1>
 <p>Ja, wenn man die folgende Beobachtung von Euler dazu ergänzt:</p>
-<p>Lemma (Euler-Fermat-Satz, Teil 1):  Gegeben eine Primzahl $p$, dann gilt
+<p>Corollar (Satz von Euler &amp; Fermat, Teil 1):  Gegeben eine Primzahl $p$, dann gilt
 $$ a^p\equiv a \pmod{p} $$
 für alle ganzen Zahlen $a$.</p>
 <p>Wie kann man das nun verwenden?</p>
@@ -466,8 +466,8 @@ für alle ganzen Zahlen $a$.</p>
 $$ e * f \equiv p \pmod{p-1} $$
 zerlegen können, dann haben wir eine <em>Verschlüsselung</em>.</p>
 <p>Lass mich zuerst erklären, wie man damit verschlüsselt.</p>
-<p>Wenn wir eine Primzahl, z.B. $n=29$, haben und uns einen Exponenten, z.B. $e=3$ nehmen, dann müssen wir nur einen zweiten Exponenten $f=19$ finden, um $0\le a&lt;p$ mittels $b:= a^e \,\%\, p$ zu verschlüsseln.  Dann können wir anschließend $a=b^f \,\%\, p$ wieder entschlüsseln.</p>
-<p>Das heißt, dass wir ein asymmetrisches Verschlüsselungsverfahren haben:  Der öffentliche Schlüssel besteht aus $p$ und $e$.  Der gemeine Schlüssel besteht aus $p$ und $f$.  Man kann nicht beliebig große Zahlen ver- und wieder korrekt entschlüsseln, aber wenn wir $0\le a&lt;p$ berücksichtigen, dann können wir nach Euler-Fermat-Satz das $a$ wieder entschlüsseln.</p>
+<p>Wenn wir eine Primzahl, z.B. $n=29$, haben und uns einen Exponenten, z.B. $e=3$ nehmen, dann müssen wir nur einen zweiten Exponenten, z.B. $f=19$ finden, um $0\le a&lt;p$ mittels $b:= a^e \,\%\, p$ zu verschlüsseln.  Dann können wir anschließend $a=b^f \,\%\, p$ wieder entschlüsseln.</p>
+<p>Das heißt, dass wir ein asymmetrisches Verschlüsselungsverfahren haben:  Der öffentliche Schlüssel besteht aus $p$ und $e$.  Der geheime Schlüssel besteht aus $p$ und $f$.  Man kann nicht beliebig große Zahlen ver- und wieder korrekt entschlüsseln, aber wenn wir $0\le a&lt;p$ berücksichtigen, dann können wir nach Euler-Fermat-Satz das $a$ wieder entschlüsseln.</p>
 <p>Es ergeben sich noch 3 Fragen:</p>
 <h2 id="41-wie-kann-man-schnell-potenzieren-modulo-n">4.1 Wie kann man schnell Potenzieren (modulo $n$)?</h2>
 <p>Dazu kann man Binäre Exponentiation verwenden.  Der sieht etwa so aus:</p>
@@ -542,7 +542,7 @@ zerlegen können, dann haben wir eine <em>Verschlüsselung</em>.</p>
 </span></span><span class="line"><span class="cl">    <span class="n">assert</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span><span class="o">==</span><span class="m">1uL</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">f</span> <span class="p">=</span> <span class="m">19uL</span>
 </span></span><span class="line"><span class="cl">    <span class="n">assert</span><span class="p">(</span><span class="n">e</span><span class="p">*</span><span class="n">f</span><span class="p">%</span><span class="n">x</span><span class="o">==</span><span class="m">1uL</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Verschlüsseln oder Entschlüsslen (V/E)? &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Verschlüsseln oder Entschlüsslen (V/E)? &#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">choice</span> <span class="p">=</span> <span class="n">readLnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">choice</span><span class="o">==</span><span class="k">null</span><span class="o">||</span><span class="n">choice</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl">      <span class="k">return</span>
@@ -581,7 +581,7 @@ zerlegen können, dann haben wir eine <em>Verschlüsselung</em>.</p>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">ULong</span><span class="p">,</span> <span class="n">e</span> <span class="p">:</span><span class="n">ULong</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Bitte geben sie eine geheime Nachricht ein (ganze Zahl zwischen 0 und </span><span class="si">$n</span><span class="s2">): &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Bitte geben sie eine geheime Nachricht ein (ganze Zahl zwischen 0 und </span><span class="si">$n</span><span class="s2">): &#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="k">var</span> <span class="py">a</span> <span class="p">:</span><span class="n">ULong</span><span class="p">?</span>
 </span></span><span class="line"><span class="cl">      <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">a</span> <span class="p">=</span> <span class="n">readLnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">toUIntOrNull</span><span class="p">()</span>
@@ -627,7 +627,7 @@ zerlegen können, dann haben wir eine <em>Verschlüsselung</em>.</p>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">ULong</span><span class="p">,</span> <span class="n">f</span> <span class="p">:</span><span class="n">ULong</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Bitte geben sie eine verschlüsselte Nachricht ein (ganze Zahl zwischen 0 und </span><span class="si">$n</span><span class="s2">): &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Bitte geben sie eine verschlüsselte Nachricht ein (ganze Zahl zwischen 0 und </span><span class="si">$n</span><span class="s2">): &#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="k">var</span> <span class="py">b</span> <span class="p">:</span><span class="n">ULong</span><span class="p">?</span>
 </span></span><span class="line"><span class="cl">      <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">b</span> <span class="p">=</span> <span class="n">readLnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">toUIntOrNull</span><span class="p">()</span>
@@ -685,11 +685,7 @@ zerlegen können, dann haben wir eine <em>Verschlüsselung</em>.</p>
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/22eulerfermat/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">22. ggT, phi und RSA</span>
-            <span class="prev-text nav-mobile">Prev</span>
-          </a>
+        
         <a class="next" href="/post/20numbercongruences/">
             <span class="next-text nav-default">20 Zahlenkongruenzen und Primzahlen</span>
             <span class="next-text nav-mobile">Next</span>

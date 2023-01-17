@@ -184,7 +184,7 @@ Der Grund dafür ist die obige Beobachtung, dass die Multiplikation in $\mathbb 
 
 Ja, wenn man die folgende Beobachtung von Euler dazu ergänzt:
 
-Lemma (Euler-Fermat-Satz, Teil 1):  Gegeben eine Primzahl $p$, dann gilt
+Corollar (Satz von Euler & Fermat, Teil 1):  Gegeben eine Primzahl $p$, dann gilt
  $$ a^p\equiv a \pmod{p} $$
 für alle ganzen Zahlen $a$.
 
@@ -196,9 +196,9 @@ zerlegen können, dann haben wir eine *Verschlüsselung*.
 
 Lass mich zuerst erklären, wie man damit verschlüsselt.
 
-Wenn wir eine Primzahl, z.B. $n=29$, haben und uns einen Exponenten, z.B. $e=3$ nehmen, dann müssen wir nur einen zweiten Exponenten $f=19$ finden, um $0\le a<p$ mittels $b:= a^e \\,\\%\\, p$ zu verschlüsseln.  Dann können wir anschließend $a=b^f \\,\\%\\, p$ wieder entschlüsseln.
+Wenn wir eine Primzahl, z.B. $n=29$, haben und uns einen Exponenten, z.B. $e=3$ nehmen, dann müssen wir nur einen zweiten Exponenten, z.B. $f=19$ finden, um $0\le a<p$ mittels $b:= a^e \\,\\%\\, p$ zu verschlüsseln.  Dann können wir anschließend $a=b^f \\,\\%\\, p$ wieder entschlüsseln.
 
-Das heißt, dass wir ein asymmetrisches Verschlüsselungsverfahren haben:  Der öffentliche Schlüssel besteht aus $p$ und $e$.  Der gemeine Schlüssel besteht aus $p$ und $f$.  Man kann nicht beliebig große Zahlen ver- und wieder korrekt entschlüsseln, aber wenn wir $0\le a<p$ berücksichtigen, dann können wir nach Euler-Fermat-Satz das $a$ wieder entschlüsseln.
+Das heißt, dass wir ein asymmetrisches Verschlüsselungsverfahren haben:  Der öffentliche Schlüssel besteht aus $p$ und $e$.  Der geheime Schlüssel besteht aus $p$ und $f$.  Man kann nicht beliebig große Zahlen ver- und wieder korrekt entschlüsseln, aber wenn wir $0\le a<p$ berücksichtigen, dann können wir nach Euler-Fermat-Satz das $a$ wieder entschlüsseln.
 
 Es ergeben sich noch 3 Fragen:
 
@@ -248,7 +248,7 @@ Also $e$ muss geeignet gewählt sein.  Dann brauchen wir ein modulares Inverses 
     assert(gcd(x, e)==1uL)
     val f = 19uL
     assert(e*f%x==1uL)
-    println("Verschlüsseln oder Entschlüsslen (V/E)? ")
+    print("Verschlüsseln oder Entschlüsslen (V/E)? ")
     val choice = readLnOrNull()?.trim()
     if (choice==null||choice.isEmpty())
       return
@@ -265,7 +265,7 @@ Wenn du die Funktion `gcd`, größter gemeinsamer Teiler nicht hast, dann kannst
 ```kotlin
   fun encrypt(n :ULong, e :ULong) {
     while (true) {
-      println("Bitte geben sie eine geheime Nachricht ein (ganze Zahl zwischen 0 und $n): ")
+      print("Bitte geben sie eine geheime Nachricht ein (ganze Zahl zwischen 0 und $n): ")
       var a :ULong?
       while (true) {
         a = readLnOrNull()?.trim()?.toUIntOrNull()
@@ -288,7 +288,7 @@ Wenn du die Funktion `gcd`, größter gemeinsamer Teiler nicht hast, dann kannst
 ```kotlin
   fun decrypt(n :ULong, f :ULong) {
     while (true) {
-      println("Bitte geben sie eine verschlüsselte Nachricht ein (ganze Zahl zwischen 0 und $n): ")
+      print("Bitte geben sie eine verschlüsselte Nachricht ein (ganze Zahl zwischen 0 und $n): ")
       var b :ULong?
       while (true) {
         b = readLnOrNull()?.trim()?.toUIntOrNull()
