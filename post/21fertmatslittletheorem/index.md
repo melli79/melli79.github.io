@@ -1,4 +1,4 @@
-Nachdem wir letztens Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.
+Nachdem wir letztes Mal Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.
 
 # 1. Potenz-Tabelle
 
@@ -12,7 +12,7 @@ So erzeugen wir die Potenztabelle:
     var n :Int?
     while (true) {
       n = readlnOrNull()?.trim()?.toIntOrNull()
-      if (n==null || n<1) {
+      if (n==null || n<=1) {
         print("Das ist keine positive Zahl größer 1.")
         continue
       }
@@ -86,7 +86,7 @@ Wir haben bereits herausgefunden, dass 5 eine Primzahl ist.  Auch hatten wir ges
 
 Eine **Gruppe** ist eine Menge $G$ mit einer Operation $\circ$ (die 2 Elemente zu einem verknüpft), sodass
 1. $(a \circ b) \circ c = a \circ (b \circ c)$, (Assoziativgesetz)
-2. $e\circ a=a$, (neutrales Element $e$)
+2. $a\circ e=a$, (neutrales Element $e$)
 3. Für jedes $a$ existiert ein $b$, sodass $a\circ b=e$. (inverse Elemente)
 
 Es gibt zahlreiche Gruppen, z.B. ist die Addition modulo $n$ stets eine Gruppe, das inverse Element zu $a$ ist $n-a$, denn $a+(n-a)\equiv n\equiv0\pmod{n}$.  Wenn du genau aufgepasst hast, dann ist hier etwas durcheinander geraten: Die "1" zur Addition heißt 0.  Deshalb spricht man bei Gruppen auch nicht von "1", sondern vom neutralen Element.  Für die Addition ist also 0 das neutrale Element.  Die Menge ist also z.B. $\mathbb Z/(5)=\\{[0], [1], [2], [3], [4]\\}$ und die Operation $+$, Addition, die 2 Zahlen (oder Restklassen) nimmt und zu einer Restklasse verknüpft.
@@ -103,7 +103,7 @@ Je nachdem, wie genau man das aufschreiben muss, kann man also entweder $[1]_5$ 
 
 Wenn wir uns an das Zählen erinnern, dann erkennen wir, dass in der Gruppe $\mathbb Z/(n)$ (bezüglich Addition) die Restklasse $[1]$ alle anderen Restklassen erzeugt, d.h. $[r]=[1]+\dotsm+[1]$, wenn man genau $r$ Summanden addiert.  Das nennen wir eine **zyklische** Gruppe, d.h. es gibt ein erzeugendes Element (hier die [1]) aus der sich durch wiederholtes Verknüpfen alle anderen Elemente erzeugen lassen.
 
-Ein einfacher Satz der Gruppentheorie besagt, dass alle endlichen Gruppen so aussehen wie die ganzen Zahlen modulo $n$.  Dabei nennt man $n$ die Ordnung der Gruppe, also die Anzahl der Elemente. "So aussehen wie" heißt in mathematischer Sprache isomorph (also von gleicher Struktur).
+Ein einfacher Satz der Gruppentheorie besagt, dass alle endlichen zyklischen Gruppen so aussehen wie die ganzen Zahlen modulo $n$.  Dabei nennt man $n$ die Ordnung der Gruppe, also die Anzahl der Elemente. "So aussehen wie" heißt in mathematischer Sprache isomorph (also von gleicher Struktur).
 
 ## 3.1 Geht das auch mit anderen Elementen?
 
@@ -140,11 +140,9 @@ Der naïve Versuch wäre $[1]+[1]=[2]$, $[1]+[2]=[3]$, $[3]+[1]=[4]$, $[4]+[1]=[
 Die bessere Frage wäre, ob die Gruppe $\mathbb F_5^* $ isomorph zu einer der "üblichen" zyklischen Gruppen ist.  Dazu schauen wir uns nochmal die Potenzen von $[2]$ an:
 
 
-+---------+-------+-------+-------+-------+-------+
 |  *e*    |  0    |  1    |  2    |  3    |  4    |
-+=========+=======+=======+=======+=======+=======+
+|---------|-------|-------|-------|-------|-------|
 | $[2]^e$ |  [1]  |  [2]  |  [4]  |  [3]  |  [1]  |
-+---------+-------+-------+-------+-------+-------+
 
 
 In dieser Abbildung gilt: $[2]^0=[1]$ und $[2]^{e+f}=[2]^e * [2]^f$, d.h. die Abbildung (von oben nach unten gelesen) erhält das neutrale Element und die Gruppenoperation.  Entsprechend kann man auch die inversen Elemente der Multiplikation ablesen: $[1]^{-1}=[1]$, $[2]^{-1}=[3]$, $[3]^{-1}=[2]$, $[4]^{-1}=[4]$.
@@ -169,11 +167,10 @@ Potenzen modulo 7:
 ```
 D.h. hier ist $[3]$ ein Generator für die Multiplikation modulo 7.  Der einzige andere Generator ist $[5]$.  Das kommt uns bekannt vor:  Die Addition modulo 6 hat auch 2 Generatoren ([1] und [5]).  Wo ist da der Zusammenhang?
 
-+---------+-----+-----+-----+-----+-----+-----+-----+
+
 |  *e*    |  0  |  1  |  2  |  3  |  4  |  5  |  6  |
-+=========+=====+=====+=====+=====+=====+=====+=====+
+|---------|-----|-----|-----|-----|-----|-----|-----|
 | $[3]^e$ | [1] | [3] | [2] | [6] | [4] | [5] | [1] |
-+---------+-----+-----+-----+-----+-----+-----+-----+
 
 Also hier $\mathbb F_7^* \cong \mathbb Z/(6)$.
 
@@ -199,7 +196,7 @@ zerlegen können, dann haben wir eine *Verschlüsselung*.
 
 Lass mich zuerst erklären, wie man damit verschlüsselt.
 
-Wenn wir eine Primzahl, z.B. $n=29$, haben und uns einen Exponenten, z.B. $e=3$ nehmen, dann müssen wir nur einen zweiten Exponenten $f=19$ finden, um $0\le a<p$ mittels $b:= a^e \mod p$ zu verschlüsseln.  Dann können wir anschließend $a=b^f \mod p$ wieder entschlüsseln.
+Wenn wir eine Primzahl, z.B. $n=29$, haben und uns einen Exponenten, z.B. $e=3$ nehmen, dann müssen wir nur einen zweiten Exponenten $f=19$ finden, um $0\le a<p$ mittels $b:= a^e \\,\\%\\, p$ zu verschlüsseln.  Dann können wir anschließend $a=b^f \\,\\%\\, p$ wieder entschlüsseln.
 
 Das heißt, dass wir ein asymmetrisches Verschlüsselungsverfahren haben:  Der öffentliche Schlüssel besteht aus $p$ und $e$.  Der gemeine Schlüssel besteht aus $p$ und $f$.  Man kann nicht beliebig große Zahlen ver- und wieder korrekt entschlüsseln, aber wenn wir $0\le a<p$ berücksichtigen, dann können wir nach Euler-Fermat-Satz das $a$ wieder entschlüsseln.
 
@@ -209,18 +206,18 @@ Es ergeben sich noch 3 Fragen:
 
 Dazu kann man Binäre Exponentiation verwenden.  Der sieht etwa so aus:
 ```kotlin
-  fun mpow(b :ULong, e :UInt, n :ULong) :ULong {
-    if (e==0u)
+  fun mpow(b :ULong, e :ULong, n :ULong) :ULong {
+    if (e==0uL)
       return 1uL
     if (b==0uL || b==1uL)
       return b
     var result = 1uL
     var p = b % n
     var r = e
-    while (r>0) {
-      if (r%2>0)
+    while (r>0L) {
+      if (r%2L>0L)
         result = result*p % n
-      p = p*p % n;  r /= 2
+      p = p*p % n;  r /= 2L
     }
     return result
   }
@@ -238,7 +235,7 @@ Wir wollen $e * f \equiv p \equiv 1 \pmod{p-1}$ haben, also muss $e$ teilerfremd
 
 ## 4.3 Wie muss man $f$ wählen?
 
-Also $e$ muss geeignet gewählt sein.  Dann brauchen wir ein modulares Inverses zu $e$, denn $e * f\equiv 1\pmod{p-1}$ bedeutet genau das.  Das kann man entweder durch probieren bestimmen (wenn $p$ nicht zu groß ist) oder indem man den Euklidischen Algorithmus modifiziert.  Im obigen Beispiel kann man kontrollieren, dass tatsächlich $e * f \\% (p-1) = 3 * 19 \\% 28 = 1$ ist.
+Also $e$ muss geeignet gewählt sein.  Dann brauchen wir ein modulares Inverses zu $e$, denn $e * f\equiv 1\pmod{p-1}$ bedeutet genau das.  Das kann man entweder durch probieren bestimmen (wenn $p$ nicht zu groß ist) oder indem man den Euklidischen Algorithmus modifiziert.  Im obigen Beispiel kann man kontrollieren, dass tatsächlich $e * f \\,\\%\\, (p-1) = 3 * 19 \\,\\%\\, 28 = 1$ ist.
 
 
 ## 4.4 Wie sieht das in einem Programm aus?
@@ -246,10 +243,10 @@ Also $e$ muss geeignet gewählt sein.  Dann brauchen wir ein modulares Inverses 
 ```kotlin
   fun main() {
     val n = 37uL
-    val e = 3u
-    val x = n-1
+    val e = 3uL
+    val x = n-1uL
     assert(gcd(x, e)==1uL)
-    val f = 19u
+    val f = 19uL
     assert(e*f%x==1uL)
     println("Verschlüsseln oder Entschlüsslen (V/E)? ")
     val choice = readLnOrNull()?.trim()
@@ -266,18 +263,18 @@ Also $e$ muss geeignet gewählt sein.  Dann brauchen wir ein modulares Inverses 
 Wenn du die Funktion `gcd`, größter gemeinsamer Teiler nicht hast, dann kannst du die 2 Zeilen mit `assert` und `gcd` weglassen/auskommentieren.  Das Programm läuft trotzdem.  Es kann nur sein, dass es Unsinn macht, wenn die Zahlen $n$, $e$ und $f$ nicht zusammen passen.
 
 ```kotlin
-  fun encrypt(n :ULong, e :UInt) {
+  fun encrypt(n :ULong, e :ULong) {
     while (true) {
       println("Bitte geben sie eine geheime Nachricht ein (ganze Zahl zwischen 0 und $n): ")
       var a :ULong?
       while (true) {
         a = readLnOrNull()?.trim()?.toUIntOrNull()
         if (a==null) {
-          println("Ungültige Nachricht")
+          println("Ungültige Nachricht.")
           return
         }
         if (a>=p) {
-          println("Nachricht ist zu groß")
+          println("Die Nachricht ist zu groß.")
           continue
         }
         break
@@ -289,7 +286,7 @@ Wenn du die Funktion `gcd`, größter gemeinsamer Teiler nicht hast, dann kannst
 ```
 
 ```kotlin
-  fun decrypt(n :ULong, f :UInt) {
+  fun decrypt(n :ULong, f :ULong) {
     while (true) {
       println("Bitte geben sie eine verschlüsselte Nachricht ein (ganze Zahl zwischen 0 und $n): ")
       var b :ULong?
@@ -315,7 +312,7 @@ Wenn du die Funktion `gcd`, größter gemeinsamer Teiler nicht hast, dann kannst
 
 ### 1. Was, wenn die Nachricht aus Buchstaben besteht?
 
-Man kann mittels ASCII-Code (oder auch Unicode) jedes Zeichen in eine Zahl übersetzen.  Beim ASCII-Code ist diese Zahl zwischen 0 und 128 (im erweiterten ASCII-Code zwischen 0 und 255) und beim Unicode wachsen die Zahlen noch, aber für europäische Sprachen reicht eine Zahl zwischen 0 und $2^{32}$, also eine 4-Byte-Nachricht.  Man müsste dann umgekehrt die entschlüsselte Zahl wieder in ein Zeichen übersetzen.
+Man kann mittels ASCII-Code (oder auch Unicode) jedes Zeichen in eine Zahl übersetzen.  Beim ASCII-Code ist diese Zahl zwischen 0 und 127 (im erweiterten ASCII-Code zwischen 0 und 255) und beim Unicode wachsen die Zahlen noch, aber für europäische Sprachen reicht eine Zahl zwischen 0 und $2^{16}$, also eine 2-Byte-Nachricht.  Man müsste dann umgekehrt die entschlüsselte Zahl wieder in ein Zeichen übersetzen.  Oh, und zusätzlich braucht man auch eine genügend große Primzahl (also größer als $2^{16}$).
 
 ### 2. Was, wenn die Nachricht aus mehreren Buchstaben besteht?
 
@@ -331,7 +328,7 @@ Das kann man dadurch lösen, dass man die Schlüssel aus einer Datei oder einem 
 
 In der Tat, das ist eine der Schwachstellen dieses Prototypen.
 
-Deshalb haben sich Rivest–Shamir–Adleman auf der Basis des Euler-Fermat-Satzes auch gedanken gemacht, wie man das besser handhaben kann.  Das ganze nennt man den RSA-Algorithmus.  Dazu schreibe ich im nächsten Artikel mehr.
+Deshalb haben sich Rivest–Shamir–Adleman auf der Basis des Euler-Fermat-Satzes auch Gedanken gemacht, wie man das besser handhaben kann.  Das ganze nennt man den RSA-Algorithmus.  Dazu schreibe ich im nächsten Artikel mehr.
 
 
 # 9. Zeit zum selber probieren
