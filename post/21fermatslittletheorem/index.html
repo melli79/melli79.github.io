@@ -51,7 +51,7 @@
 <meta itemprop="description" content="Nachdem wir letztes Mal Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.
 1. Potenz-Tabelle Analog zur Multiplikationstabelle, wollen wir diesmal potenzieren modulo einer positiven ganzen Zahl $n$. Wenn wir $b^e\pmod{n}$ ausrechnen, haben wir mathematisch 2 Möglichkeiten: Wir können entweder mit großen ganzen Zahlen rechnen und zunächst $b^e$ ausrechnen und dann den Rest modulo $n$ bestimmen. Oder wir multiplizieren in einem fort, d.h. fangen bei $b^2\equiv b * b \pmod{n}$ an, bestimmen den Rest modulo $n$ und gehen dann weiter zu $b^3\equiv b^2 * b \pmod{n}$."><meta itemprop="datePublished" content="2023-01-17T19:00:51+01:00" />
 <meta itemprop="dateModified" content="2023-01-17T19:00:51+01:00" />
-<meta itemprop="wordCount" content="2832">
+<meta itemprop="wordCount" content="2842">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="21. Potenzen und Kleiner Satz des Fermat"/>
 <meta name="twitter:description" content="Nachdem wir letztes Mal Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.
@@ -307,7 +307,7 @@
 <li>Die Potenzen von 1 sind alle 1, denn $1 * 1\equiv1\pmod{n}$;</li>
 <li>Die Potenzen von 2 durchlaufen alle Reste (außer 0) modulo 5;</li>
 <li>Die Tabelle für 5 sieht &ldquo;ordentlich&rdquo; aus, d.h. außer für $b=0$ tauchen keine 0en auf;</li>
-<li>Die Tabellen für 5 und 6 sehen nett aus, z.B. $b^n\equiv b\pmod{n}$;</li>
+<li>Die Tabellen für 5 und 6 sehen nett aus, z.B. $b^{n&rsquo;}\equiv b\pmod{n}$ wenn wir für $n=5$, $n&rsquo;=5$ und für $n=6$, $n&rsquo;=3$ wählen;</li>
 <li>Die Tabelle für 9 sieht ziemlich &ldquo;löchrig&rdquo; aus, d.h. es gibt etliche 0en auch außerhalb von $b=0$.</li>
 </ol>
 <h2 id="22-woran-kann-das-liegen">2.2 Woran kann das liegen?</h2>
@@ -685,7 +685,11 @@ zerlegen können, dann haben wir eine <em>Verschlüsselung</em>.</p>
 <footer class="post-footer">
       
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/22eulerfermat/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">22. ggT, phi und RSA</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         <a class="next" href="/post/20numbercongruences/">
             <span class="next-text nav-default">20 Zahlenkongruenzen und Primzahlen</span>
             <span class="next-text nav-mobile">Next</span>

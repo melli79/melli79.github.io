@@ -77,7 +77,7 @@ Potenzen modulo 9:
 2. Die Potenzen von 1 sind alle 1, denn $1 * 1\equiv1\pmod{n}$;
 3. Die Potenzen von 2 durchlaufen alle Reste (außer 0) modulo 5;
 4. Die Tabelle für 5 sieht "ordentlich" aus, d.h. außer für $b=0$ tauchen keine 0en auf;
-5. Die Tabellen für 5 und 6 sehen nett aus, z.B. $b^n\equiv b\pmod{n}$;
+5. Die Tabellen für 5 und 6 sehen nett aus, z.B. $b^{n'}\equiv b\pmod{n}$ wenn wir für $n=5$, $n'=5$ und für $n=6$, $n'=3$ wählen;
 6. Die Tabelle für 9 sieht ziemlich "löchrig" aus, d.h. es gibt etliche 0en auch außerhalb von $b=0$.
 
 ## 2.2 Woran kann das liegen?

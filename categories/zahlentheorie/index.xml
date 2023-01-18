@@ -6,7 +6,18 @@
     <description>Recent content in Zahlentheorie on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 17 Jan 2023 19:00:51 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/zahlentheorie/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Jan 2023 18:00:52 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/zahlentheorie/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>22. ggT, phi und RSA</title>
+      <link>https://melli79.github.io/post/22eulerfermat/</link>
+      <pubDate>Wed, 18 Jan 2023 18:00:52 +0100</pubDate>
+      
+      <guid>https://melli79.github.io/post/22eulerfermat/</guid>
+      <description>Nachdem wir letztes Mal mit Primzahlen und dem kleinen Satz von Fermat verschlüsselt haben, wollen wir heute die Grundlagen des RSA Algorithmus kennen lernen.
+1. Potenzen modulo $n$, noch einmal Erinnern wir uns noch einmal an die Potenzen der Reste modulo $n$. Beim letzten Mal hatten wir dazu folgende Tabellen produziert:
+1 2 3 4 5 6 7 8 9 Potenzen modulo 7: 0 1 2 3 4 5 6 7 1 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 4 1 2 4 1 2 1 3 2 6 4 5 1 3 1 4 2 1 4 2 1 4 1 5 4 6 2 3 1 5 1 6 1 6 1 6 1 6 sowie</description>
+    </item>
+    
     <item>
       <title>21. Potenzen und Kleiner Satz des Fermat</title>
       <link>https://melli79.github.io/post/21fermatslittletheorem/</link>

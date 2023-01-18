@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>22. ggT, phi und RSA - Melchior&#39;s Homepage</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="melli79" /><meta name="description" content="Nachdem wir letztes Mal mit Primzahlen und dem kleinen Satz von Fermat verschlüsselt haben, wollen wir heute die Grundlagen des RSA Algorithmus kennen lernen.
+1. Potenzen modulo $n$, noch einmal Erinnern wir uns noch einmal an die Potenzen der Reste modulo $n$. Beim letzten Mal hatten wir dazu folgende Tabellen produziert:
+1 2 3 4 5 6 7 8 9 Potenzen modulo 7: 0 1 2 3 4 5 6 7 1 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 4 1 2 4 1 2 1 3 2 6 4 5 1 3 1 4 2 1 4 2 1 4 1 5 4 6 2 3 1 5 1 6 1 6 1 6 1 6 sowie" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
+
+
+<link rel="canonical" href="https://melli79.github.io/post/22eulerfermat/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78d3a03abaed5d3c468bdf402fc110f36c046abf091a63421b9ce0a5a63db941.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="22. ggT, phi und RSA" />
+<meta property="og:description" content="Nachdem wir letztes Mal mit Primzahlen und dem kleinen Satz von Fermat verschlüsselt haben, wollen wir heute die Grundlagen des RSA Algorithmus kennen lernen.
+1. Potenzen modulo $n$, noch einmal Erinnern wir uns noch einmal an die Potenzen der Reste modulo $n$. Beim letzten Mal hatten wir dazu folgende Tabellen produziert:
+1 2 3 4 5 6 7 8 9 Potenzen modulo 7: 0 1 2 3 4 5 6 7 1 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 4 1 2 4 1 2 1 3 2 6 4 5 1 3 1 4 2 1 4 2 1 4 1 5 4 6 2 3 1 5 1 6 1 6 1 6 1 6 sowie" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://melli79.github.io/post/22eulerfermat/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-01-18T18:00:52+01:00" />
+<meta property="article:modified_time" content="2023-01-18T18:00:52+01:00" />
+<meta itemprop="name" content="22. ggT, phi und RSA">
+<meta itemprop="description" content="Nachdem wir letztes Mal mit Primzahlen und dem kleinen Satz von Fermat verschlüsselt haben, wollen wir heute die Grundlagen des RSA Algorithmus kennen lernen.
+1. Potenzen modulo $n$, noch einmal Erinnern wir uns noch einmal an die Potenzen der Reste modulo $n$. Beim letzten Mal hatten wir dazu folgende Tabellen produziert:
+1 2 3 4 5 6 7 8 9 Potenzen modulo 7: 0 1 2 3 4 5 6 7 1 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 4 1 2 4 1 2 1 3 2 6 4 5 1 3 1 4 2 1 4 2 1 4 1 5 4 6 2 3 1 5 1 6 1 6 1 6 1 6 sowie"><meta itemprop="datePublished" content="2023-01-18T18:00:52+01:00" />
+<meta itemprop="dateModified" content="2023-01-18T18:00:52+01:00" />
+<meta itemprop="wordCount" content="4195">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="22. ggT, phi und RSA"/>
+<meta name="twitter:description" content="Nachdem wir letztes Mal mit Primzahlen und dem kleinen Satz von Fermat verschlüsselt haben, wollen wir heute die Grundlagen des RSA Algorithmus kennen lernen.
+1. Potenzen modulo $n$, noch einmal Erinnern wir uns noch einmal an die Potenzen der Reste modulo $n$. Beim letzten Mal hatten wir dazu folgende Tabellen produziert:
+1 2 3 4 5 6 7 8 9 Potenzen modulo 7: 0 1 2 3 4 5 6 7 1 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 4 1 2 4 1 2 1 3 2 6 4 5 1 3 1 4 2 1 4 2 1 4 1 5 4 6 2 3 1 5 1 6 1 6 1 6 1 6 sowie"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Melchior&#39;s Homepage</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Themes</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Melchior&#39;s Homepage</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Themes</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">22. ggT, phi und RSA</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-01-18 </span>
+        <div class="post-category">
+            <a href="/categories/kotlin/"> Kotlin </a>
+            <a href="/categories/programming/"> Programming </a>
+            <a href="/categories/zahlentheorie/"> Zahlentheorie </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-potenzen-modulo-n-noch-einmal">1. Potenzen modulo $n$, noch einmal</a></li>
+    <li><a href="#2-zerlegung-in-primfaktoren-und-eulersche-phi-funktion">2. Zerlegung in Primfaktoren und Eulersche $\phi$-Funktion</a>
+      <ul>
+        <li><a href="#21-was-bedeutet-phin">2.1 Was bedeutet $\phi(n)$?</a></li>
+        <li><a href="#22-wie-berechnet-man-die-primfaktor-zerlegung-einer-positiven-ganzen-zahl">2.2 Wie berechnet man die Primfaktor-Zerlegung einer positiven ganzen Zahl?</a>
+          <ul>
+            <li><a href="#a-was-ist-eine-map">A. Was ist eine <code>Map</code>?</a></li>
+          </ul>
+        </li>
+        <li><a href="#23-wie-berechnet-man-nun-phi">2.3 Wie berechnet man nun $\phi$?</a>
+          <ul>
+            <li><a href="#was-bedeutet-map--und-foldn-p-f---pf-">Was bedeutet <code>map {...}</code> und <code>fold(n){ p, f -&gt; p*f }</code>?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#3-rsa-algorithmus">3. RSA Algorithmus</a>
+      <ul>
+        <li><a href="#31-wie-kann-man-die-gleichung-e--fequiv1pmodn-lösen">3.1 Wie kann man die Gleichung $e * f\equiv1\pmod{n}$ lösen?</a>
+          <ul>
+            <li><a href="#was-ist-ein-größter-gemeinsamer-teiler">Was ist ein größter gemeinsamer Teiler?</a></li>
+            <li><a href="#wie-kann-man-f-bestimmen">Wie kann man $f$ bestimmen?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#4-weiterführende-fragen">4. Weiterführende Fragen</a>
+      <ul>
+        <li><a href="#41-woher-bekommt-man-primzahlen">4.1 Woher bekommt man Primzahlen?</a></li>
+        <li><a href="#42-wie-kann-man-sicher-mit-diesem-algorithmus-umgehen">4.2 Wie kann man sicher mit diesem Algorithmus umgehen?</a></li>
+        <li><a href="#43-wie-sicher-ist-der-algorithmus-wirklich">4.3 Wie sicher ist der Algorithmus wirklich?</a></li>
+        <li><a href="#49--ich-habe-einen-pgpgpg-schlüssel-erzeugt-aber-der-enthält-gar-nicht-2-zahlen">4.9  Ich habe einen PGP/GPG-Schlüssel erzeugt, aber der enthält gar nicht 2 Zahlen</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-selber-probieren">9. Selber probieren</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Nachdem wir letztes Mal mit Primzahlen und dem kleinen Satz von Fermat verschlüsselt haben, wollen wir heute die Grundlagen des RSA Algorithmus kennen lernen.</p>
+<h1 id="1-potenzen-modulo-n-noch-einmal">1. Potenzen modulo $n$, noch einmal</h1>
+<p>Erinnern wir uns noch einmal an die Potenzen der Reste modulo $n$.  Beim letzten Mal hatten wir dazu folgende Tabellen produziert:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Potenzen modulo 7:
+</span></span><span class="line"><span class="cl">   0  1  2  3  4  5  6  7
+</span></span><span class="line"><span class="cl">   1  0  0  0  0  0  0  0
+</span></span><span class="line"><span class="cl">   1  1  1  1  1  1  1  1
+</span></span><span class="line"><span class="cl">   1  2  4  1  2  4  1  2
+</span></span><span class="line"><span class="cl">   1  3  2  6  4  5  1  3
+</span></span><span class="line"><span class="cl">   1  4  2  1  4  2  1  4
+</span></span><span class="line"><span class="cl">   1  5  4  6  2  3  1  5
+</span></span><span class="line"><span class="cl">   1  6  1  6  1  6  1  6
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>sowie</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Potenzen modulo 6:
+</span></span><span class="line"><span class="cl">   0  1  2  3  4  5  6
+</span></span><span class="line"><span class="cl">   1  0  0  0  0  0  0
+</span></span><span class="line"><span class="cl">   1  1  1  1  1  1  1
+</span></span><span class="line"><span class="cl">   1  2  4  2  4  2  4
+</span></span><span class="line"><span class="cl">   1  3  3  3  3  3  3
+</span></span><span class="line"><span class="cl">   1  4  4  4  4  4  4
+</span></span><span class="line"><span class="cl">   1  5  1  5  1  5  1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Im Vergleich zum letzten Mal fällt uns jetzt vielleicht auch das Folgende auf:</p>
+<ol>
+<li>$a^6\equiv 1\pmod{7}$ solange $a\not\equiv0\pmod{7}$.</li>
+<li>$a^7\equiv a\pmod{7}$.</li>
+<li>$a^3\equiv a\pmod{6}$.</li>
+</ol>
+<p>Stimmt das für alle Module?</p>
+<p>Leider nein, wenn wir uns an die Tabelle für 9 erinnern, sehen wir, dass</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Potenzen modulo 9:
+</span></span><span class="line"><span class="cl">   0  1  2  3  4  5  6  7  8  9
+</span></span><span class="line"><span class="cl">   1  0  0  0  0  0  0  0  0  0
+</span></span><span class="line"><span class="cl">   1  1  1  1  1  1  1  1  1  1
+</span></span><span class="line"><span class="cl">   1  2  4  8  7  5  1  2  4  8
+</span></span><span class="line"><span class="cl">   1  3  0  0  0  0  0  0  0  0
+</span></span><span class="line"><span class="cl">   1  4  7  1  4  7  1  4  7  1
+</span></span><span class="line"><span class="cl">   1  5  7  8  4  2  1  5  7  8
+</span></span><span class="line"><span class="cl">   1  6  0  0  0  0  0  0  0  0
+</span></span><span class="line"><span class="cl">   1  7  4  1  7  4  1  7  4  1
+</span></span><span class="line"><span class="cl">   1  8  1  8  1  8  1  8  1  8
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Aber:</p>
+<ol start="4">
+<li>solange $a$ teilerfremd zu $9$ ist, gilt $a^6\equiv 1\pmod{9}$ und auch $a^7\equiv a\pmod{9}$.</li>
+</ol>
+<p>Insgesamt kann man das mit folgendem Satz und Corollar beschreiben:</p>
+<p>Satz (Euler-Fermat): Wenn $a$ teilefremd zu $n$ ist, dann gilt
+$$ a^{\phi(n)}\equiv 1 \pmod{n}.$$</p>
+<p>Dabei ist offenbar für eine Primzahl $p$, $\phi(p)=p-1$ und $\phi(6)=2$ und $\phi(9)=6$.  Euler hat auch eine allgemeine Vorschrift für diese Funktion $\phi$ gefunden, die man ihm zu Ehren Eulersche phi-Funktion nennt.<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> Ich erläutere die gleich im nächsten Abschnitt.</p>
+<p>Corollar (Euler-Fermat): Wenn $n$ (eine Primzahl oder) das Produkt verschiedener Primzahlen ist, dann gilt für jedes $a$
+$$ a^{\phi(n)+1} \equiv a \pmod{n}. $$</p>
+<p>Zur Erinnerung nochmal:  Für jede Primzahl $p$ gilt
+$$ a^p \equiv a \pmod{p}. $$</p>
+<h1 id="2-zerlegung-in-primfaktoren-und-eulersche-phi-funktion">2. Zerlegung in Primfaktoren und Eulersche $\phi$-Funktion</h1>
+<p>Proposition (Euler):  Gegeben eine positive ganze Zahl $n$ und ihre Faktorisierung in Primzahlen
+$$ n = p_1^{e_1}p_2^{e_2}\dots p_k^{e_k} $$
+dann ist
+$$ \phi(n) = (p_1-1)p_1^{e_1-1}(p_2-1)p_2^{e_2-1}\dots(p_k-1)p_k^{e_k-1}. $$</p>
+<p>Stimmt das?</p>
+<p>Ok, wenn man eine Primzahl $p$ hat, dann hat die keine Teiler (außer 1 und $p$), d.h. $\phi(p)=(p-1)p^0= p-1$.  Das kommt schon mal hin.</p>
+<p>$6=2 * 3=2^1 * 3^1$, also $\phi(6)=(2-1) * 2^0 * (3-1) * 3^0=2$ und wir hatten gesehen, dass der Satz und das Corollar mit $e=2$, bzw. $e=3$ funktioniert.</p>
+<h2 id="21-was-bedeutet-phin">2.1 Was bedeutet $\phi(n)$?</h2>
+<p>Dazu betrachten wir nochmal die ganzen Zahlen modulo $n$ unter Addition:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Vielfache modulo 6:
+</span></span><span class="line"><span class="cl">   0  0  0  0  0  0
+</span></span><span class="line"><span class="cl">   0  1  2  3  4  5
+</span></span><span class="line"><span class="cl">   0  2  4  2  4  2
+</span></span><span class="line"><span class="cl">   0  3  0  3  0  3
+</span></span><span class="line"><span class="cl">   0  4  2  0  4  2
+</span></span><span class="line"><span class="cl">   0  5  4  3  2  1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>D.h. nur die Vielfache von 1 und von 5 durchlaufen alle Restklassen modulo 6.  Das sind 2 und $\phi(6)=2$.</p>
+<p>Bei einer Primzahl, z.B. 5 sieht es einfacher aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Vielfache modulo 5:
+</span></span><span class="line"><span class="cl">   0  0  0  0  0
+</span></span><span class="line"><span class="cl">   0  1  2  3  4
+</span></span><span class="line"><span class="cl">   0  2  4  1  3
+</span></span><span class="line"><span class="cl">   0  3  1  4  2
+</span></span><span class="line"><span class="cl">   0  4  3  2  1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>D.h. alle Reste außer 0 erzeugen die Gruppe $\mathbb Z/(p)$.  Wenn man das mit $\phi(p)=p-1$ vergleicht, sieht man, dass auch hier $\phi$ die Anzahl der Generatoren von $\mathbb Z/(n)$ berechnet.</p>
+<p>Definition:  Gegeben eine positive ganze Zahl $n$, dann ist $\phi(n)$ die Anzahl der teilerfremden Zahlen zwischen 0 und $n$.</p>
+<p>Offenbar können Reste $a$, die nicht teilerfremd zu $n$ sind, nicht die ganze Gruppe $\mathbb Z/(n)$ erzeugen, sondern nur die Vielfache vom größten gemeinsamen Teiler zwischen $a$ und $n$.</p>
+<p>Im Beispiel von $a=2$ und $n=6$ ist das 2 und tatsächlich sind die Vielfache von 2 alle Vielfache von 2 (trivialer Weise).  Für $a=4$ und $n=6$ ist der größte gemeinsame Teiler auch 2.  In der obigen Tabelle modulo 6 sehen wir, dass die Vielfache von 4 auch alle Vielfache von 2 durchlaufen.</p>
+<p>Wenn also $a$ und $n$ teilerfremd sind, dann ist der größte gemeinsame Teiler 1 und somit durchlaufen die Vielfache von $a$ alle Reste modulo $n$.  Damit haben wir einen Generator der Gruppe $\mathbb Z/(n)$.</p>
+<p>Die Formel von Euler erhält man nun durch einfaches Durchzählen der Vielfache der Primteiler von $n$.</p>
+<h2 id="22-wie-berechnet-man-die-primfaktor-zerlegung-einer-positiven-ganzen-zahl">2.2 Wie berechnet man die Primfaktor-Zerlegung einer positiven ganzen Zahl?</h2>
+<p>Bevor wir die berechnen, sollten wir vielleicht sicherstellen, dass die überhaupt eindeutig ist.</p>
+<p>Dazu erinnern wir uns an die Definition von Primzahl:  Eine positive ganze Zahl $p$ heißt Primzahl, wenn sie genau 2 Teiler (1 und $p$) hat.</p>
+<p>Offenbar kann man die Primzahlen eindeutig als Produkt von Primzahlen darstellen (nämlich sich selbst).</p>
+<p>Als nächstes brauchen wir eine interessante Eigenschaft:</p>
+<p>Lemma (Primzahl):  Ein Produkt $n=a*b$ ist genau dann durch eine Primzahl $p$ teilbar, wenn $a$ durch $p$ teilbar ist oder wenn $b$ durch $p$ teilbar ist (oder beides).</p>
+<p>Jetzt müssen wir nur noch fragen, ob jede positive ganze Zahl als Produkt von Primzahlen geschrieben werden kann (oder ob es vielleicht unendlich viele Faktoren gibt).  Das ist nicht ganz offensichtlich, wenn wir bedenken, dass etwa $1=1 * 1=1 * 1 * 1=1 * 1 * 1 * 1=\dots$ ist.  Aber 1 ist <em>keine</em> Primzahl, sondern die Einheit.  Die 1 ist als Produkt aus 0 Primzahlen darstellbar.  Ein leeres Produkt hat den Wert 1 (das neutrale Element der Multiplikation), per Konvention.</p>
+<p>Für alle Primzahlen gilt aber, dass sie größer als 1 sind.  Außerdem gilt für ein Produkt aus 2 Zahlen, die jede größer als 1 ist, dass das Produkt größer als jeder der Faktoren ist.</p>
+<p>Das bedeutet, wenn wir eine Zahl $n$ in ein Produkt aus einer Primzahl $p$ und einem 2. Faktor $f$ zerlegt haben, dann ist $f$ kleiner als $n$ und wir können $f$ weiter zerlegen und werden in endlich vielen Schritten so zu einer Primzahl (oder zu 1) kommen.</p>
+<p>In einem Programm sieht das wie folgt aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">factor</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">ULong</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">f</span> <span class="p">=</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">p</span> <span class="p">=</span> <span class="m">2uL</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">f</span><span class="o">&gt;=</span><span class="n">p</span><span class="p">*</span><span class="n">p</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">while</span> <span class="p">(</span><span class="n">f</span><span class="p">%</span><span class="n">p</span><span class="o">==</span><span class="m">0uL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$p</span><span class="s2">, &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span> <span class="o">/=</span> <span class="n">p</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">==</span><span class="m">2uL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="p">=</span> <span class="m">3uL</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="o">+=</span> <span class="m">2uL</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">f</span><span class="p">&gt;</span><span class="m">1uL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;f&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wenn wir also das Programm mit 2023 aufrufen</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">factor</span><span class="p">(</span><span class="m">2023uL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>dann erhalten wir:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  7, 17, 17,
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Mit einem Taschenrechner kannst du nachprüfen, dass das tatsächlich stimmt.</p>
+<p>Frage:  Eigentlich wird $p$ auch irgendwann 9 (zumindest, wenn dann $f$ noch größer als 9 ist), warum wird 9 nie als Primfaktor ausgegeben?</p>
+<p>Für die Berechnung der Funktion $\phi$ brauchen wir diesen Algorithmus in einer leicht abgewandelten Form:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">factor</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">ULong</span><span class="p">)</span> <span class="p">:</span><span class="n">Map</span><span class="p">&lt;</span><span class="n">ULong</span><span class="p">,</span> <span class="n">UByte</span><span class="p">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">&lt;=</span><span class="m">1uL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">emptyMap</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">result</span> <span class="p">=</span> <span class="n">mutableMapOf</span><span class="p">&lt;</span><span class="n">ULong</span><span class="p">,</span> <span class="n">UByte</span><span class="p">&gt;()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">f</span> <span class="p">=</span> <span class="n">n</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">p</span> <span class="p">=</span> <span class="m">2uL</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">p</span><span class="p">*</span><span class="n">p</span><span class="o">&lt;=</span><span class="n">f</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">var</span> <span class="py">e</span> <span class="p">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl">      <span class="k">while</span> <span class="p">(</span><span class="n">f</span><span class="p">%</span><span class="n">p</span><span class="o">==</span><span class="m">0uL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">e</span><span class="o">++</span>
+</span></span><span class="line"><span class="cl">        <span class="n">f</span> <span class="o">/=</span> <span class="n">p</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="p">&gt;</span><span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span><span class="p">[</span><span class="n">p</span><span class="p">]</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">toUByte</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">p</span><span class="o">==</span><span class="m">2uL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="p">=</span> <span class="m">3uL</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span> <span class="o">+=</span> <span class="m">2uL</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">f</span><span class="p">&gt;</span><span class="m">1uL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">result</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="p">=</span> <span class="m">1u</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Statt also die Primfaktoren auszugeben, zählen wir in <code>e</code> wie oft der aktuelle Primfaktor <code>p</code> vorkommt.  Wenn sich <code>f</code> nich weiter durch <code>p</code> teilen lässt, aber wenigstens 1 Faktor <code>p</code> vorkam, speichern wir unter <code>p</code> den Wert <code>e</code> ab.</p>
+<h3 id="a-was-ist-eine-map">A. Was ist eine <code>Map</code>?</h3>
+<p>Englisch map heißt Karte oder Abbildung.  Gemeint ist hier das letztere, d.h. eine Abblidung oder Zuordnung.  <code>Map&lt;ULong, UByte&gt;</code> heißt, dass großen positiven ganzen Zahlen (<code>ULong</code>) kleine positive ganze Zahlen zugeordnet werden.  Wenn wir mit einer großen Zahl wie <code>65537</code> anfangen, dann können die Primfaktoren selbst auch groß werden.  Die Anzahl der Primfaktoren bleibt aber moderat.</p>
+<p>Beispiel:  Wir hatten mit dem letzten Algorithmus gesehen, dass <code>2023: 7, 17, 17</code> ist.  In diesem Beispiel bedeutet dies,  dass das Ergebnis von <code>factor</code> die Zurodnung <code>[7:1, 17:2]</code> ergibt, also 1 Faktor 7 und 2 Faktoren 17.</p>
+<p>Um die Funktion besser zu verstehen, können wir sie in folgendem Programm einbinden:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Bitte geben Sie eine positive ganze Zahl ein: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">n</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">toULongOrNull</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="k">null</span> <span class="o">||</span> <span class="n">n</span><span class="p">&lt;</span><span class="m">1uL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Keine gültige Eingabe.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">factors</span> <span class="p">=</span> <span class="n">factor</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$n</span><span class="s2"> = &#34;</span><span class="p">+</span> <span class="n">factors</span><span class="p">.</span><span class="n">entries</span><span class="p">.</span><span class="n">joinToString</span><span class="p">(</span><span class="s2">&#34;*&#34;</span><span class="p">){</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&#34;</span><span class="si">$p</span><span class="s2">^</span><span class="si">$e</span><span class="s2">&#34;</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wenn wir also am Prompt 65537 eingeben, erhalten wir</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Bitte geben Sie eine positive ganze Zahl ein: 65537
+</span></span><span class="line"><span class="cl">  35537 = 65537^1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Das bedeutet, dass 65537 eine Primzahl ist.</p>
+<p>Probier das Programm doch gleich mal mit anderen Zahlen aus, z.B. 65535 oder 131072 oder &hellip;</p>
+<h2 id="23-wie-berechnet-man-nun-phi">2.3 Wie berechnet man nun $\phi$?</h2>
+<p>Das können wir mit der obigen Faktorisierung und der Formel für $\phi$ tun:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">phi</span><span class="p">(</span><span class="n">n</span> <span class="p">:</span><span class="n">ULong</span><span class="p">)</span> <span class="p">:</span><span class="n">ULong</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">&lt;=</span><span class="m">1uL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="m">0uL</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">factors</span> <span class="p">=</span> <span class="n">factor</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">factors</span><span class="p">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">p</span><span class="p">,</span> <span class="n">e</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">p</span><span class="p">-</span><span class="m">1uL</span><span class="p">)*</span><span class="n">ipow</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">e</span><span class="p">-</span><span class="m">1u</span><span class="p">)</span> <span class="p">}.</span><span class="n">fold</span><span class="p">(</span><span class="m">1uL</span><span class="p">){</span> <span class="n">p</span><span class="p">,</span> <span class="n">f</span> <span class="o">-&gt;</span> <span class="n">p</span><span class="p">*</span><span class="n">f</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Dazu brauchen wir noch eine Funktion, um Potenzen ganzer Zahlen zu berechnen (nicht modulo n).  Diese Funktion habe ich <code>ipow</code> genannt (integer powers) und kann analog zu <code>mpow</code> mit binärer Exponentiation berechnet werden:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">ipow</span><span class="p">(</span><span class="n">b</span> <span class="p">:</span><span class="n">ULong</span><span class="p">,</span> <span class="n">e</span> <span class="p">:</span><span class="n">UByte</span><span class="p">)</span> <span class="p">:</span><span class="n">ULong</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">e</span><span class="o">==</span><span class="m">0u</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="m">1uL</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="o">&lt;=</span><span class="m">1uL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">result</span> <span class="p">=</span> <span class="m">1uL</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">p</span> <span class="p">=</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">r</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">toInt</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">r</span><span class="p">&gt;</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="p">%</span><span class="m">2</span><span class="p">&gt;</span><span class="m">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">result</span> <span class="o">*=</span> <span class="n">p</span>
+</span></span><span class="line"><span class="cl">      <span class="n">p</span> <span class="o">*=</span> <span class="n">p</span>
+</span></span><span class="line"><span class="cl">      <span class="n">r</span> <span class="o">/=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">result</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="was-bedeutet-map--und-foldn-p-f---pf-">Was bedeutet <code>map {...}</code> und <code>fold(n){ p, f -&gt; p*f }</code>?</h3>
+<p>Das englische Wort fold bedeutet falten.  Wenn du dich erinnerst, dann ist <code>factors</code> eine Map mit den Primfaktoren (und ihren Exponenten) von <code>n</code>.  Mit <code>.map {...}</code> werden diese Primfaktoren nun zu Produkten umgewandelt.  Wie in Eulers Formel angegeben, muss man $p-1$ mit $p^{e-1}$ multiplizieren.</p>
+<p>Das Ergebnis von <code>factors.map { ... }</code> ist also eine Liste von Produkten, also positiven ganzen Zahlen.  Die müssen wir jetzt noch in (beliebiger) Reihenfolge miteinander multiplizieren.  Genau das macht <code>.fold(1uL){ p, f -&gt; p*f }</code>.  Wir fangen mit $1$ an und immer wenn wir ein Teilprodukt <code>p</code> haben und einen weiteren Faktor <code>f</code>, dann multiplizieren wir diese.  Das Ergebnis am Ende ist das große Produkt, welches wir in Eulers Formel brauchen.</p>
+<p>Mit Falten ist in diesem Fall also gemeint, dass eine Liste von Zahlen zu einer einzigen Zahl zusammengefaltet wird.  In userem Beispiel entsteht das Produkt.  Man könnte die Liste von Zahlen aber genausogut zur Summe zusammenfalten.</p>
+<p>Am besten probierst du auch dieses Programm mal aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Eulersche phi-Funktion.</span><span class="se">\n</span><span class="s2">  Bitte geben Sie eine positive ganze Zahl ein: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">n</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">().?</span><span class="n">toULongOrNull</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">==</span><span class="k">null</span> <span class="o">||</span> <span class="n">n</span><span class="o">&lt;=</span><span class="m">1uL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Ungültige Eingabe.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">factors</span> <span class="p">=</span> <span class="n">factor</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$n</span><span class="s2"> = &#34;</span><span class="p">+</span> <span class="n">factors</span><span class="p">.</span><span class="n">entries</span><span class="p">.</span><span class="n">joinToString</span><span class="p">(</span><span class="s2">&#34;*&#34;</span><span class="p">){</span> <span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&#34;</span><span class="si">$p</span><span class="s2">^</span><span class="si">$e</span><span class="s2">&#34;</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;phi(</span><span class="si">$n</span><span class="s2">) = </span><span class="si">${phi(n)}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Der Unterschied zwischen <code>&quot;phi($n)&quot;</code> und <code>&quot;${phi(n)}&quot;</code> ist, dass das erstere das Wort &ldquo;phi&rdquo; ausgibt und die Zahl $n$ in Klammern, während das letztere die Funktion <code>phi(n)</code> aufruft und das Ergebnis ausgibt.  Man kann also in Strings auch rechnen.</p>
+<h1 id="3-rsa-algorithmus">3. RSA Algorithmus</h1>
+<p>Wann kommen wir endlich zum RSA-Algorithmus?</p>
+<p>Ok, damit können wir jetzt anfangen.  Wie bereits letztes Mal geschrieben, ist dieser Algorithmus nach R. Rivest, A. Shamir und A. Adleman benannt.  Die Idee ist, den Satz von Euler-Fermat (bzw. sein Corollar) zu verwenden.</p>
+<p>Letztens hatten wir bereits gesehen, wie man mit 1 Primzahl ver- und entschlüsseln kann, indem man eine Lösung $e * f \equiv1\pmod{\phi(n)}$ findet für die Primzahl $n=p$ und dann $0\le a&lt;n$ mit $a^e\,\%\,n$ verschlüsselt und eine verschlüsselte Zahl $b$ mittels $b^f\,\%\,n$ wieder entschlüsselt.</p>
+<p>Wenn man das obige Corollar versteht, dann kann man statt $n=p$ auch einfach $n=p_1 * p_2$ verwenden.  Alles, was wir brauchen, ist $\phi(n)$ zu berechnen und eine Lösung zu $e * f\equiv1\pmod{\phi(n)}$ zu finden.</p>
+<h2 id="31-wie-kann-man-die-gleichung-e--fequiv1pmodn-lösen">3.1 Wie kann man die Gleichung $e * f\equiv1\pmod{n}$ lösen?</h2>
+<p>Es gibt eine Einschränkung.  Wenn es zu einem $e$ ein solches $f$ geben soll, dann muss $e$ teilerfremd zu $n$ sein.</p>
+<p>Wie kann man den größten gemeinsamen Teiler zweier Zahlen finden?</p>
+<p>Dazu hat Euklid von Alexandria einen interessanten Algorithmus gefunden.  Betrachten wir diesen zunächst an einem Beispiel:  Sei $a=12$ und $b=18$.  Wir wollen den größten gemeinsamen Teiler von $a$ und $b$ finden.</p>
+<h3 id="was-ist-ein-größter-gemeinsamer-teiler">Was ist ein größter gemeinsamer Teiler?</h3>
+<p>Betrachten wir zunächst alle Teiler von $a=12$ und $b=18$:</p>
+<table>
+<thead>
+<tr>
+<th>$a_k$</th>
+<th>Teiler</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>12</td>
+<td>1, 2, 3, 4, 6, 12</td>
+</tr>
+<tr>
+<td>18</td>
+<td>1, 2, 3, 6, 9, 18</td>
+</tr>
+</tbody>
+</table>
+<p>Die gemeinsamen Teiler von 12 und 18 sind offenbar 1, 2, 3 und 6 und der größte von diesen ist 6.  Also sollte das Ergebnis 6 sein.</p>
+<p>Aber man muss dazu nicht erst alle Teiler von $a$ und von $b$ durchprobieren.  Stattdessen kann man auch folgendes tun:</p>
+<ol start="0">
+<li>
+<p>Fangen wir mit $a_0=b=18$ und $a_1=a=12$ an.</p>
+</li>
+<li>
+<p>Wir teilen $a_0$ durch $a_1$ und bestimmen den Rest der Division $a_2:= a_0\,\%\,a_1$ &ndash; hier also $a_2=6$</p>
+</li>
+<li>
+<p>dann fahren wir fort mit $a_1$ und $a_2$ bis irgendwann der Rest 0 wird &ndash; also $a_3 := a_1\,\%\,a_2 = 12 \,\%\,6 = 0$.</p>
+</li>
+</ol>
+<p>Die letzte Zahl vor der 0 ist der größte gemeinsame Teiler, hier also ggT(12, 18) = $a_2=6$.</p>
+<p>In Kotlin kann man den wie folgt berechnen:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span> <span class="p">:</span><span class="n">Long</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span><span class="n">Long</span><span class="p">)</span> <span class="p">:</span><span class="n">Long</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="m">0L</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">b</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">a0</span> <span class="p">=</span> <span class="n">max</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="n">abs</span><span class="p">(</span><span class="n">b</span><span class="p">));</span>  <span class="k">var</span> <span class="py">a1</span> <span class="p">=</span> <span class="n">min</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="n">abs</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">a1</span><span class="p">&gt;</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">a2</span> <span class="p">=</span> <span class="n">a0</span> <span class="p">%</span> <span class="n">a1</span>
+</span></span><span class="line"><span class="cl">      <span class="n">a0</span> <span class="p">=</span> <span class="n">a1</span><span class="p">;</span>  <span class="n">a1</span> <span class="p">=</span> <span class="n">a2</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">a0</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wenn du das mit folgendem Hauptprogramm aufrufst</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Größter gemeinsamer Teiler</span><span class="se">\n</span><span class="s2">  Bitte geben Sie 2 ganze Zahlen ein: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">input</span> <span class="p">=</span> <span class="n">readln</span><span class="p">().</span><span class="n">trim</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;[</span><span class="se">\\</span><span class="s2">s,]+&#34;</span><span class="p">.</span><span class="n">toRegex</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">size</span><span class="o">!=</span><span class="m">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Das waren keine 2 Zahlen.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">a</span> <span class="p">=</span> <span class="n">input</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">toLongOrNull</span><span class="p">();</span>  <span class="k">val</span> <span class="py">b</span> <span class="p">=</span> <span class="n">input</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">toLongOrNull</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Das erste ist keine ganze Zahl.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="o">==</span><span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Das zweite ist keine ganze Zahl.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">d</span> <span class="p">=</span> <span class="n">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Der größte gemeinsame Teiler von </span><span class="si">$a</span><span class="s2"> und </span><span class="si">$b</span><span class="s2"> ist: gcd(</span><span class="si">$a</span><span class="s2">, </span><span class="si">$b</span><span class="s2">) = </span><span class="si">$d</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>und hier z.B. &ldquo;12 18&rdquo; eingibst, erhältst du:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Größter gemeinsamer Teiler
+</span></span><span class="line"><span class="cl">    Bitte geben Sie 2 ganze Zahlen ein: 12 18
+</span></span><span class="line"><span class="cl">    Der größte gemeinsame Teiler von 12 und 18 ist: gcd(12, 18) = 6
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Probier&rsquo;s doch mal mit 24 und 36 aus.  Was passiert, wenn eine der Zahlen 0 ist?  Was passiert, wenn beide Zahlen 0 sind?</p>
+<p>Ok, wir können jetzt also überprüfen, ob unsere Wahl von $e$ sinnvoll ist, indem wir den größten gemeinsamen Teiler zwischen $e$ und $\phi(n)$ ausrechnen und überprüfen, dass der 1 ist.</p>
+<h3 id="wie-kann-man-f-bestimmen">Wie kann man $f$ bestimmen?</h3>
+<p>Aber mit dem Euklidischen Algorithmus kann man noch mehr: Wenn $a_2 = a_0 \,\%\, a_1$ ist, dann können wir auch $a_2$ als Kombination aus $a_0$ und $a_1$ schreiben, etwa so:</p>
+<ol>
+<li>$f_0=1$, $f_1=0$ &ndash; also $a_0=f_0a_0 +f_1a_1$</li>
+<li>$g_0=0$, $g_1=1$ &ndash; also $a_1 = g_0a_0 +g_1a_1$,</li>
+<li>$d_2 = a_0/a_1$ und $a_2 = a_0 \,\%\, a_1$ &ndash; also $a_0 = d_2a_1+a_2$ oder $a_2 = a_0 -d_2a_1$</li>
+<li>$h_0=f_0 -d_2g_0$ und $h_1 = f_1 -d_2g_1$ &ndash; also auch $a_2 = h_0a_0 +h_1a_1$</li>
+<li>und so weiter, bis irgendwann $a_k=0$ ist.</li>
+</ol>
+<p>Dann sind die vorletzten Koeffizienten die gesuchten Faktoren.</p>
+<p>In Kotlin sieht das wie folgt aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">euclid</span><span class="p">(</span><span class="n">a</span> <span class="p">:</span><span class="n">Long</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span><span class="n">Long</span><span class="p">)</span> <span class="p">:</span><span class="n">Triple</span><span class="p">&lt;</span><span class="n">Long</span><span class="p">,</span> <span class="n">Long</span><span class="p">,</span> <span class="n">Long</span><span class="p">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">a0</span> <span class="p">=</span> <span class="n">a</span><span class="p">;</span>  <span class="k">var</span> <span class="py">f0</span> <span class="p">=</span> <span class="m">1L</span><span class="p">;</span>  <span class="k">var</span> <span class="py">f1</span> <span class="p">=</span> <span class="m">0L</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">a1</span> <span class="p">=</span> <span class="n">b</span><span class="p">;</span>  <span class="k">var</span> <span class="py">g0</span> <span class="p">=</span> <span class="m">0L</span><span class="p">;</span>  <span class="k">var</span> <span class="py">g1</span> <span class="p">=</span> <span class="m">1L</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">a1</span><span class="o">!=</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">d2</span> <span class="p">=</span> <span class="n">a0</span><span class="p">/</span><span class="n">a1</span><span class="p">;</span>  <span class="k">val</span> <span class="py">a2</span> <span class="p">=</span> <span class="n">a0</span> <span class="p">-</span><span class="n">d</span><span class="p">*</span><span class="n">a1</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">h0</span> <span class="p">=</span> <span class="n">f0</span> <span class="p">-</span><span class="n">d</span><span class="p">*</span><span class="n">g0</span><span class="p">;</span>  <span class="k">val</span> <span class="py">h1</span> <span class="p">=</span> <span class="n">f1</span> <span class="p">-</span><span class="n">d</span><span class="p">*</span><span class="n">g1</span>
+</span></span><span class="line"><span class="cl">      <span class="n">a0</span> <span class="p">=</span> <span class="n">a1</span><span class="p">;</span>  <span class="n">f0</span> <span class="p">=</span> <span class="n">g0</span><span class="p">;</span>  <span class="n">f1</span> <span class="p">=</span> <span class="n">g1</span>
+</span></span><span class="line"><span class="cl">      <span class="n">a1</span> <span class="p">=</span> <span class="n">a2</span><span class="p">;</span>  <span class="n">g0</span> <span class="p">=</span> <span class="n">h0</span><span class="p">;</span>  <span class="n">g1</span> <span class="p">=</span> <span class="n">h1</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Triple</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span> <span class="n">f1</span><span class="p">,</span> <span class="n">a0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Sicherheitshalber solltest du dieses Programm testen, da man sich leicht vertippen kann, es aber vielleicht trotzdem kompiliert.  Das letzte Hauptprogramm musst du dazu wie folgt abändern:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Euklidischer Algorithmus</span><span class="se">\n</span><span class="s2">  Bitte geben Sie 2 ganze Zahlen ein: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">input</span> <span class="p">=</span> <span class="n">readln</span><span class="p">()</span><span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span><span class="o">..</span><span class="p">.}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">a</span> <span class="p">=</span> <span class="n">input</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">toLongOrNull</span><span class="p">();</span>  <span class="k">val</span> <span class="py">b</span> <span class="p">=</span> <span class="n">input</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">toLongOrNull</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">..</span><span class="p">.)</span> <span class="p">{</span><span class="o">..</span><span class="p">.}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">fs</span> <span class="p">=</span> <span class="n">euclid</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;ggT(</span><span class="si">$a</span><span class="s2">, </span><span class="si">$b</span><span class="s2">) = </span><span class="si">${fs.third}</span><span class="s2"> = </span><span class="si">${fs.first}</span><span class="s2">*</span><span class="si">$a</span><span class="s2"> +</span><span class="si">${fs.second}</span><span class="s2">*</span><span class="si">$b</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wenn du das mit 18 und 12 ausprobiertst, sollte</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  Euklidischer Algorithmus
+</span></span><span class="line"><span class="cl">    Bitte geben Sie 2 ganze Zahlen ein: 18 12
+</span></span><span class="line"><span class="cl">  ggT(18, 12) = 6 = 1*18 +-1*12
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Immerhin nicht ganz falsch.  (Die Zeichen &ldquo;+-1*&rdquo; muss man als &ldquo;-1*&rdquo; lesen.)  Sicherheitshalber solltest du es auch noch mit &ldquo;12 18&rdquo; probieren (es sollte genauso 6 herauskommen).</p>
+<p>Damit kann man jetzt das modulare Inverse ausrechnen, wie folgt:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">genPrivateKey</span><span class="p">(</span><span class="n">p1</span> <span class="p">:</span><span class="n">ULong</span><span class="p">,</span> <span class="n">p2</span> <span class="p">:</span><span class="n">ULong</span><span class="p">,</span> <span class="n">e</span> <span class="p">:</span><span class="n">ULong</span><span class="p">)</span> <span class="p">:</span><span class="n">Pair</span><span class="p">&lt;</span><span class="n">ULong</span><span class="p">,</span> <span class="n">ULong</span><span class="p">&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">n</span> <span class="p">=</span> <span class="n">p1</span><span class="p">*</span><span class="n">p2</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">x</span> <span class="p">=</span> <span class="p">(</span><span class="n">p1</span><span class="p">-</span><span class="m">1uL</span><span class="p">)*(</span><span class="n">p2</span><span class="p">-</span><span class="m">1uL</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">fs</span> <span class="p">=</span> <span class="n">euclid</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">toLong</span><span class="p">(),</span> <span class="n">e</span><span class="p">.</span><span class="n">toLong</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assert</span><span class="p">(</span><span class="n">fs</span><span class="p">.</span><span class="n">third</span><span class="o">==</span><span class="m">1L</span><span class="p">){</span> <span class="s2">&#34;Der Exponent </span><span class="si">$e</span><span class="s2"> ist nicht teilerfremd zu phi(n)&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">f</span> <span class="p">=</span> <span class="n">fs</span><span class="p">.</span><span class="n">second</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Pair</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Das rufst du mit folgendem Hauptprogramm auf:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Erzeugung eines RSA Schlüsselpaares</span><span class="se">\n</span><span class="s2">  Bitte geben Sie 2 verschiedene Primzahlen ein: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">input</span> <span class="p">=</span> <span class="n">readline</span><span class="p">().</span><span class="n">trim</span><span class="p">().</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;[</span><span class="se">\\</span><span class="s2">s,]+&#34;</span><span class="p">.</span><span class="n">toRegex</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assert</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">size</span><span class="o">==</span><span class="m">2</span><span class="p">){</span> <span class="s2">&#34;Das waren keine 2 ganzen Zahlen.&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">p1</span> <span class="p">=</span> <span class="n">input</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">toULongOrNull</span><span class="p">();</span>  <span class="k">val</span> <span class="py">p2</span> <span class="p">=</span> <span class="n">input</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">toULongOrNull</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">p1</span><span class="o">==</span><span class="k">null</span> <span class="o">||</span> <span class="n">p1</span><span class="p">&lt;</span><span class="m">2uL</span> <span class="o">||</span> <span class="n">p1</span><span class="p">%</span><span class="m">2</span><span class="o">==</span><span class="m">0uL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$p1</span><span class="s2"> ist keine Primzahl.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">p2</span><span class="o">==</span><span class="k">null</span> <span class="o">||</span> <span class="n">p2</span><span class="p">&lt;</span><span class="m">2uL</span> <span class="o">||</span> <span class="n">p2</span><span class="p">%</span><span class="m">2</span><span class="o">==</span><span class="m">0uL</span> <span class="o">||</span> <span class="n">p2</span><span class="p">%</span><span class="n">p1</span><span class="o">!!==</span><span class="m">0uL</span> <span class="o">||</span> <span class="n">p1</span><span class="p">%</span><span class="n">p2</span><span class="o">==</span><span class="m">0uL</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">$p2</span><span class="s2"> ist keine Primzahl.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">assert</span><span class="p">(</span><span class="n">p1</span><span class="o">!=</span><span class="n">p2</span><span class="p">){</span> <span class="s2">&#34;p1 und p2 müssen verschieden sein.&#34;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">var</span> <span class="py">e</span> <span class="p">=</span> <span class="m">3uL</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="n">e</span><span class="p">&lt;</span><span class="n">p1</span><span class="o">&amp;&amp;</span><span class="n">e</span><span class="p">&lt;</span><span class="n">p2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">val</span> <span class="py">n</span><span class="p">,</span> <span class="n">f</span> <span class="p">=</span> <span class="n">genPrivateKey</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Ein öffentlicher Schlüssel ist n= </span><span class="si">$n</span><span class="s2">, e= </span><span class="si">$e</span><span class="s2">.  Der Private Schlüssel dazu ist f= </span><span class="si">$f</span><span class="s2">.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="n">_</span> <span class="p">:</span><span class="n">AssertError</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">e</span> <span class="o">+=</span> <span class="m">2uL</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Erzeugung eines Schlüsselpaares leider nicht möglich.  Vielleicht sind </span><span class="si">$p1</span><span class="s2"> und </span><span class="si">$p2</span><span class="s2"> keine Primzahlen?&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Zum Testen brauchst du nur noch 2 Primzahlen, z.B. 29 und 37.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Erzeugung eines RSA Schlüsselpaares
+</span></span><span class="line"><span class="cl">  Bitte geben Sie 2 verschiedene Primzahlen ein: 29 37
+</span></span><span class="line"><span class="cl">  Der öffentliche Schlüssel ist n= 1073, e= 3.  Der private Schlüssel ist f= 358
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Diese Zahlen kannst du nun in das Programm vom letzten Mal einfügen und erhältst ein Ver- &amp; Entschlüsselungsprogramm:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">n</span> <span class="p">=</span> <span class="m">1073uL</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">e</span> <span class="p">=</span> <span class="m">3uL</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">f</span> <span class="p">=</span> <span class="m">358uL</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;RSA Ver- &amp; Entschlüsselung</span><span class="se">\n</span><span class="s2">  Öffentlicher Schlüssel: n= </span><span class="si">$n</span><span class="s2">, e= </span><span class="si">$e</span><span class="se">\n</span><span class="s2">  Wollen sie Ver- oder Entschlüsseln (v/e)? &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">choice</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">choice</span><span class="p">.</span><span class="n">isNullOrBlank</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="k">when</span> <span class="p">(</span><span class="n">choice</span><span class="p">[</span><span class="m">0</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="sc">&#39;v&#39;</span><span class="p">,</span> <span class="sc">&#39;V&#39;</span> <span class="o">-&gt;</span> <span class="n">encrypt</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="sc">&#39;e&#39;</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span> <span class="o">-&gt;</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span> <span class="o">-&gt;</span> <span class="n">println</span><span class="p">(</span><span class="s2">&#34;unbekannte Wahl.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="4-weiterführende-fragen">4. Weiterführende Fragen</h1>
+<h2 id="41-woher-bekommt-man-primzahlen">4.1 Woher bekommt man Primzahlen?</h2>
+<p>Zu Testzwecken kann man kleine Primzahlen verwenden.  Die kann man aus dem Sieb des Erathostenes gewinnen, so wie wir das beim vorletzten Mal getan haben.</p>
+<p>Zur sicheren Anwendung braucht man aber große und hinreichend verschiedene Primzahlen.  Dazu muss man sich Gedanken machen, wie man große (wahrscheinliche) Primzahlen erzeugt und wie man von einer großen Zahl testet, ob es eine Primzahl ist.</p>
+<p>Bei ersterem kann Euklids Beweis helfen, denn Euklid zeigte, dass es unendlich viele Primzahlen gibt:</p>
+<p>Nehmen wir an, es gäbe nur endlich viele Primzahlen.  Diese zählen wir als $p_1, p_2, \ldots, p_n$ auf.  Dann bilden wir das Produkt $P = p_1 * p_2 * \dotsm * p_n$ und addieren 1.  Wir behaupten, dass $P+1$ durch keine der Primzahlen teilbar ist, denn bei jeder der bekannten Primzahlen lässt es den Rest 1.  Andererseits wissen wir, dass sich $P+1$ in Primzahlen zerlegen lässt.  Also ist entweder $P+1$ selbst eine Primzahl oder es gibt eine weitere Primzahl $p_{n+1}$, sodass $P+1$ durch $p_{n+1}$ teilbar ist.</p>
+<p>Heuristisch kann man also ein handvoll Primzahlen nehmen, diese multiplizieren und 1 addieren.  Dann hat man entweder bereits eine Primzahl oder man muss noch kleinere Faktoren abspalten, um eine weitere Primzahl zu erhalten.  Da außer 2 alle Primzahlen ungerade sind, ist es sinnvoll, das Produkt aus 2 und einer handvoll ungerader Primzahlen zu bilden, denn dann ist es gerade und der Nachfolger ungerade.  Damit hat der Nachfolger eine Chance, eine Primzahl zu sein (oder zumindest nicht durch 2 teilbar zu sein).</p>
+<p>Man sollte aber unbedingt testen, ob die erhaltene Zahl wirklich eine Primzahl ist.  Man bedenke, dass die Zahl recht groß sein wird (und hoffentlich nicht durch 2, 3, &hellip; teilbar).  Dazu eignet sich der <a href="https://de.wikipedia.org/wiki/Pollard-Rho-Methode">Pollard-Rho-Test</a>.  Leider ist das nur ein heuristischer Test, d.h. wenn es eine Primzahl ist, dann wird das nicht widerlegt, aber falls es keine Primzahl ist, dann kann es sein, dass er trotzdem kein Gegenbeispiel findet.  Wenn man das Verfahren aber mehrfach wiederholt, kann man ziemlich sicher sein, dass es sich um eine Primzahl handelt (oder hat einen Faktor gefunden).</p>
+<p>Es gibt auch inoffizielle Wettbewerbe, große Primzahlen zu finden.</p>
+<h2 id="42-wie-kann-man-sicher-mit-diesem-algorithmus-umgehen">4.2 Wie kann man sicher mit diesem Algorithmus umgehen?</h2>
+<p>Dazu sollte man den Algorithmus von den Schlüsseln getrennt aufbewahren.  Der Algorithmus und seine Implementation ist öffentlich zugänglich.  Ein Schlüsselpaar kann man auf dem eigenen Rechner erzeugen.  Dann darf man nur den öffentlichen Schlüssel herausgeben (den privaten Schlüssel immer gut unter Verschluss halten).</p>
+<p>So, wie bei dem Prototyp vom letzten Mal kann man auch längere Texte verschlüsseln, indem man die Zeichen zunächst mittels UTF-8 in Zahlen umwandelt und die Zahlen der Reihe nach verschlüsselt.  Wichtig ist dabei auch, dass man keine Spuren hinterlässt, also nicht etwa die geheime Nachricht irgendwo herum liegen lässt.</p>
+<h2 id="43-wie-sicher-ist-der-algorithmus-wirklich">4.3 Wie sicher ist der Algorithmus wirklich?</h2>
+<p>Wenn man einen Super-Computer hat (oder zu kleine Primzahlen verwendet), dann kann man die Verschlüsselung knacken.  Das einzige was man braucht, ist der öffentliche Schlüssel, also $n$ und $e$ und genügend Rechenzeit, um $n$ zu faktorisieren.</p>
+<p>Das liegt daran, dass wir aus $\phi(n)$ und $e$ leicht den privaten Schlüssel $f$ ausrechnen können.  Zur Berechnung der Eulerschen phi-Funktion benötigen wir aber die Primfaktor-Zerlegung von $n$.</p>
+<p>Mit einem Laptop kann man Zahlen bis etwa 14 Stellen innerhalb einer halben Stunde faktorisieren.  Das  geht zwar nicht mit dem einfachen Faktorisierungsalgorithmus vom Anfang, aber zusammen mit der Pollard-Rho-Methode kann man das schaffen.  Man muss also wesentlich größere Primzahlen verwenden.</p>
+<p>Es gab vor ca. 10 Jahren eine Internet-Rechen-Initiative (distributed computing), bei der man einen 64bit RSA-Schlüssel innerhalb von ein paar Monaten geknackt hat.  $2^{64}\approx 16*10^{18}$ also eine 9- und eine 10-stellige Primzahl.</p>
+<p>Heutzutage verwendet man RSA-Schlüssel von mindestens 512 Bit, besser 2048 Bit.</p>
+<p>Leider gibt es noch ein paar andere Angriffsmöglichkeiten.  Wenn man etwa zwei nah beieinander liegende Primzahlen verwendet, dann kann man einfach die Wurzel aus $n$ ziehen und nach Faktoren von $n$ in der Nähe dieser Wurzel suchen.  Andererseits ist klar, dass die Faktorisierung von $n$ nur so schwer ist, wie das Finden des kleinsten Faktors.  D.h. man verwendet am besten zwei ähnlich große Primfaktoren, z.B. einer 1020 Stellen und einer 1027 Stellen, dann ist deren Produkt etwa 2048 Stellen groß (Ok, eigentlich braucht man nur Stellen im 2er-System).</p>
+<h2 id="49--ich-habe-einen-pgpgpg-schlüssel-erzeugt-aber-der-enthält-gar-nicht-2-zahlen">4.9  Ich habe einen PGP/GPG-Schlüssel erzeugt, aber der enthält gar nicht 2 Zahlen</h2>
+<p>Ja, auch das obige Programm ist nur ein Prototyp.  Tatsächlich kann man sich das Speichern des öffentlichen Schlüssels vereinfachen, wenn man für $e$ immer eine Primzahl verwendet, von der man sicher ist, dass $\phi(n)$ zu ihr teilerfremd ist.  Eine solche Primzahl wäre etwa 65537.  Dann muss der öffentliche Schlüssel nur aus 1 Zahl, nämlich $n$ bestehen.</p>
+<p>Der private Schlüssel ist oft länger als der öffentliche Schlüssel, das kann daran liegen, dass dort eben neben $f$ auch der Modulus $n$ gespeichert ist.</p>
+<p>Schließlich werden die Zahlen nicht im Dezimalsystem gespeichert, sondern eventuell im Hexadezimalsystem, also zu Basis 16, weil der Computer mit 2er-Potenzen leichter rechnen kann ($2^4=16$).  Die typischen Ziffern für das Hexadezimalsystem sind 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.</p>
+<p>Auch ist es klug, wenn man in der Datei mit dem Schlüssel vermerkt, dass es ein Schlüssel ist, und vielleicht noch eine Prüfsumme, &hellip;</p>
+<p>Für die praktische Anwendung empfiehlt sich der <a href="https://gnupg.org/">Gnu Privacy Guard</a>, eine Open-Source-Implementierung des RSA-Algorithmus.</p>
+<h1 id="9-selber-probieren">9. Selber probieren</h1>
+<p>Ich hoffe, dass du nicht nur den Text gelesen hast, sondern auch die Programme in die IDE kopiert hast und ausprobiert hast.  Falls du das noch nicht getan hast, wäre jetzt eine gute Gelegenheit, das auszuprobieren.</p>
+<p>Du kannst auch mal im Internet suchen, wie man GPG auf deinem Rechner installiert und verwendet.  Viele eMail-Programme lassen sich heute mit RSA-Verschlüsselung verwenden.</p>
+<p>Viel Spaß beim Probieren.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Man spricht das $\phi$ phi [fi:] aus.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">melli79</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2023-01-18
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">Markdown</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://melli79.github.io/post/22eulerfermat/index.md" target="_blank">The Markdown version »</a></span>
+    </p>
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/21fermatslittletheorem/">
+            <span class="next-text nav-default">21. Potenzen und Kleiner Satz des Fermat</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2023-01-18 18:00:52 \u002b0100 CET',
+        title: '22. ggT, phi und RSA',
+        link: decodeURI(location.href),
+        desc: 'Nachdem wir letztes Mal mit Primzahlen und dem kleinen Satz von Fermat verschlüsselt haben, wollen wir heute die Grundlagen des RSA Algorithmus kennen lernen.\n1. Potenzen modulo $n$, noch einmal Erinnern wir uns noch einmal an die Potenzen der Reste modulo $n$. Beim letzten Mal hatten wir dazu folgende Tabellen produziert:\n1 2 3 4 5 6 7 8 9 Potenzen modulo 7: 0 1 2 3 4 5 6 7 1 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 4 1 2 4 1 2 1 3 2 6 4 5 1 3 1 4 2 1 4 2 1 4 1 5 4 6 2 3 1 5 1 6 1 6 1 6 1 6 sowie',
+        owner: 'melli79',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="melli79/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:melchiorG@gMail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://melli79.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">melli79</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.1c70606d1b733282f06230615f5561b5894924b6f9930ba2ab99cf1254f75a1a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
