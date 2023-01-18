@@ -77,8 +77,8 @@ Potenzen modulo 9:
 2. Die Potenzen von 1 sind alle 1, denn $1 * 1\equiv1\pmod{n}$;
 3. Die Potenzen von 2 durchlaufen alle Reste (außer 0) modulo 5;
 4. Die Tabelle für 5 sieht "ordentlich" aus, d.h. außer für $b=0$ tauchen keine 0en auf;
-5. Die Tabelle für 5 und 6 sieht nett aus, z.B. $b^n\equiv b\pmod{n}$;
-6. Die Tabelle für 9 sieht ziemlich löchrig aus, d.h. es gibt etliche 0en auch außerhalb von $b=0$.
+5. Die Tabellen für 5 und 6 sehen nett aus, z.B. $b^n\equiv b\pmod{n}$;
+6. Die Tabelle für 9 sieht ziemlich "löchrig" aus, d.h. es gibt etliche 0en auch außerhalb von $b=0$.
 
 ## 2.2 Woran kann das liegen?
 
@@ -180,6 +180,7 @@ solange $a$ kein Vielfaches von $p$ ist.
 
 Der Grund dafür ist die obige Beobachtung, dass die Multiplikation in $\mathbb F_p^* $ eine zyklische Gruppe der Ordnung $p-1$ ist (die 0 wird ja weg gelassen).
 
+
 # 4. Kann man das Praktisch verwenden?
 
 Ja, wenn man die folgende Beobachtung von Euler dazu ergänzt:
@@ -204,7 +205,7 @@ Es ergeben sich noch 3 Fragen:
 
 ## 4.1 Wie kann man schnell Potenzieren (modulo $n$)?
 
-Dazu kann man Binäre Exponentiation verwenden.  Der sieht etwa so aus:
+Dazu kann man Binäre Exponentiation verwenden.  Die sieht etwa so aus:
 ```kotlin
   fun mpow(b :ULong, e :ULong, n :ULong) :ULong {
     if (e==0uL)
@@ -249,7 +250,7 @@ Also $e$ muss geeignet gewählt sein.  Dann brauchen wir ein modulares Inverses 
     val f = 19uL
     assert(e*f%x==1uL)
     print("Verschlüsseln oder Entschlüsslen (V/E)? ")
-    val choice = readLnOrNull()?.trim()
+    val choice = readlnOrNull()?.trim()
     if (choice==null||choice.isEmpty())
       return
     when (choice[0]) {
@@ -268,7 +269,7 @@ Wenn du die Funktion `gcd`, größter gemeinsamer Teiler nicht hast, dann kannst
       print("Bitte geben sie eine geheime Nachricht ein (ganze Zahl zwischen 0 und $n): ")
       var a :ULong?
       while (true) {
-        a = readLnOrNull()?.trim()?.toUIntOrNull()
+        a = readlnOrNull()?.trim()?.toUIntOrNull()
         if (a==null) {
           println("Ungültige Nachricht.")
           return
@@ -291,7 +292,7 @@ Wenn du die Funktion `gcd`, größter gemeinsamer Teiler nicht hast, dann kannst
       print("Bitte geben sie eine verschlüsselte Nachricht ein (ganze Zahl zwischen 0 und $n): ")
       var b :ULong?
       while (true) {
-        b = readLnOrNull()?.trim()?.toUIntOrNull()
+        b = readlnOrNull()?.trim()?.toUIntOrNull()
         if (b==null) {
           println("Ungültige Nachricht")
           return

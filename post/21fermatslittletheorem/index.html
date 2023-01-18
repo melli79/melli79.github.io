@@ -307,8 +307,8 @@
 <li>Die Potenzen von 1 sind alle 1, denn $1 * 1\equiv1\pmod{n}$;</li>
 <li>Die Potenzen von 2 durchlaufen alle Reste (außer 0) modulo 5;</li>
 <li>Die Tabelle für 5 sieht &ldquo;ordentlich&rdquo; aus, d.h. außer für $b=0$ tauchen keine 0en auf;</li>
-<li>Die Tabelle für 5 und 6 sieht nett aus, z.B. $b^n\equiv b\pmod{n}$;</li>
-<li>Die Tabelle für 9 sieht ziemlich löchrig aus, d.h. es gibt etliche 0en auch außerhalb von $b=0$.</li>
+<li>Die Tabellen für 5 und 6 sehen nett aus, z.B. $b^n\equiv b\pmod{n}$;</li>
+<li>Die Tabelle für 9 sieht ziemlich &ldquo;löchrig&rdquo; aus, d.h. es gibt etliche 0en auch außerhalb von $b=0$.</li>
 </ol>
 <h2 id="22-woran-kann-das-liegen">2.2 Woran kann das liegen?</h2>
 <p>Wir haben bereits herausgefunden, dass 5 eine Primzahl ist.  Auch hatten wir gesehen, dass Multiplikation modulo 5 sich sehr regelmäßig verhält, d.h. es taucht keine 0 auf (außer wenn $x=0$ oder $y=0$) und in jeder Zeile kommt jeder Rest genau 1mal vor.  Dazu passt folgender Begriff:</p>
@@ -470,7 +470,7 @@ zerlegen können, dann haben wir eine <em>Verschlüsselung</em>.</p>
 <p>Das heißt, dass wir ein asymmetrisches Verschlüsselungsverfahren haben:  Der öffentliche Schlüssel besteht aus $p$ und $e$.  Der geheime Schlüssel besteht aus $p$ und $f$.  Man kann nicht beliebig große Zahlen ver- und wieder korrekt entschlüsseln, aber wenn wir $0\le a&lt;p$ berücksichtigen, dann können wir nach Euler-Fermat-Satz das $a$ wieder entschlüsseln.</p>
 <p>Es ergeben sich noch 3 Fragen:</p>
 <h2 id="41-wie-kann-man-schnell-potenzieren-modulo-n">4.1 Wie kann man schnell Potenzieren (modulo $n$)?</h2>
-<p>Dazu kann man Binäre Exponentiation verwenden.  Der sieht etwa so aus:</p>
+<p>Dazu kann man Binäre Exponentiation verwenden.  Die sieht etwa so aus:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -543,7 +543,7 @@ zerlegen können, dann haben wir eine <em>Verschlüsselung</em>.</p>
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">f</span> <span class="p">=</span> <span class="m">19uL</span>
 </span></span><span class="line"><span class="cl">    <span class="n">assert</span><span class="p">(</span><span class="n">e</span><span class="p">*</span><span class="n">f</span><span class="p">%</span><span class="n">x</span><span class="o">==</span><span class="m">1uL</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Verschlüsseln oder Entschlüsslen (V/E)? &#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">choice</span> <span class="p">=</span> <span class="n">readLnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">choice</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">choice</span><span class="o">==</span><span class="k">null</span><span class="o">||</span><span class="n">choice</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">())</span>
 </span></span><span class="line"><span class="cl">      <span class="k">return</span>
 </span></span><span class="line"><span class="cl">    <span class="k">when</span> <span class="p">(</span><span class="n">choice</span><span class="p">[</span><span class="m">0</span><span class="p">])</span> <span class="p">{</span>
@@ -584,7 +584,7 @@ zerlegen können, dann haben wir eine <em>Verschlüsselung</em>.</p>
 </span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Bitte geben sie eine geheime Nachricht ein (ganze Zahl zwischen 0 und </span><span class="si">$n</span><span class="s2">): &#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="k">var</span> <span class="py">a</span> <span class="p">:</span><span class="n">ULong</span><span class="p">?</span>
 </span></span><span class="line"><span class="cl">      <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">a</span> <span class="p">=</span> <span class="n">readLnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">toUIntOrNull</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">a</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">toUIntOrNull</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="k">null</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">          <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Ungültige Nachricht.&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">          <span class="k">return</span>
@@ -630,7 +630,7 @@ zerlegen können, dann haben wir eine <em>Verschlüsselung</em>.</p>
 </span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Bitte geben sie eine verschlüsselte Nachricht ein (ganze Zahl zwischen 0 und </span><span class="si">$n</span><span class="s2">): &#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">      <span class="k">var</span> <span class="py">b</span> <span class="p">:</span><span class="n">ULong</span><span class="p">?</span>
 </span></span><span class="line"><span class="cl">      <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">b</span> <span class="p">=</span> <span class="n">readLnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">toUIntOrNull</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">toUIntOrNull</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">b</span><span class="o">==</span><span class="k">null</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">          <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Ungültige Nachricht&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">          <span class="k">return</span>
