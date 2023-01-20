@@ -77,7 +77,7 @@ Potenzen modulo 9:
 2. Die Potenzen von 1 sind alle 1, denn $1 * 1\equiv1\pmod{n}$;
 3. Die Potenzen von 2 durchlaufen alle Reste (außer 0) modulo 5;
 4. Die Tabelle für 5 sieht "ordentlich" aus, d.h. außer für $b=0$ tauchen keine 0en auf;
-5. Die Tabellen für 5 und 6 sehen nett aus, z.B. $b^{n'}\equiv b\pmod{n}$ wenn wir für $n=5$, $n'=5$ und für $n=6$, $n'=3$ wählen;
+5. Die Tabellen für 5 und 6 sehen "nett" aus, z.B. $b^{n'}\equiv b\pmod{n}$ wenn wir für $n=5$, $n'=5$ und für $n=6$, $n'=3$ wählen;
 6. Die Tabelle für 9 sieht ziemlich "löchrig" aus, d.h. es gibt etliche 0en auch außerhalb von $b=0$.
 
 ## 2.2 Woran kann das liegen?
@@ -274,7 +274,7 @@ Wenn du die Funktion `gcd`, größter gemeinsamer Teiler nicht hast, dann kannst
           println("Ungültige Nachricht.")
           return
         }
-        if (a>=p) {
+        if (a>=n) {
           println("Die Nachricht ist zu groß.")
           continue
         }
@@ -297,7 +297,7 @@ Wenn du die Funktion `gcd`, größter gemeinsamer Teiler nicht hast, dann kannst
           println("Ungültige Nachricht")
           return
         }
-        if (b>=p) {
+        if (b>=n) {
           println("Das kann nicht sein.")
           continue
         }
@@ -325,7 +325,7 @@ Gute Frage.  Wenn du in das Programm schaust, dann steht da der geheime Schlüss
 
 Das kann man dadurch lösen, dass man die Schlüssel aus einer Datei oder einem sicheren Schlüssel-Speicher ausliest.  Dann gibt man dem Kommunikationspartner nur das Programm (ohne Schlüssel) und den öffentlichen Schlüssel.  Damit kann er dann für einen geheime Nachrichten verschlüsseln.
 
-### 4. Wenn ich $p=n$ kenne, dann kann ich doch auch $x$ ausrechnen. Kann ich nicht aus $x$ und $e$, $f$ berechnen?
+### 4. Wenn ich $n=p$ kenne, dann kann ich doch auch $x$ ausrechnen. Kann ich nicht aus $x$ und $e$, $f$ berechnen?
 
 In der Tat, das ist eine der Schwachstellen dieses Prototypen.
 

@@ -444,7 +444,7 @@ Damit kann man jetzt das modulare Inverse ausrechnen, wie folgt:
     val x = (p1-1uL)*(p2-1uL)
     val fs = euclid(x.toLong(), e.toLong())
     assert(fs.third==1L){ "Der Exponent $e ist nicht teilerfremd zu phi(n)" }
-    val f = fs.second
+    val f = fs.second.toULong()
     return Pair(n, f)
   }
 ```
@@ -520,7 +520,7 @@ Heuristisch kann man also ein handvoll Primzahlen nehmen, diese multiplizieren u
 
 Man sollte aber unbedingt testen, ob die erhaltene Zahl wirklich eine Primzahl ist.  Man bedenke, dass die Zahl recht groß sein wird (und hoffentlich nicht durch 2, 3, ... teilbar).  Dazu eignet sich der [Pollard-Rho-Test](https://de.wikipedia.org/wiki/Pollard-Rho-Methode).  Leider ist das nur ein heuristischer Test, d.h. wenn es eine Primzahl ist, dann wird das nicht widerlegt, aber falls es keine Primzahl ist, dann kann es sein, dass er trotzdem kein Gegenbeispiel findet.  Wenn man das Verfahren aber mehrfach wiederholt, kann man ziemlich sicher sein, dass es sich um eine Primzahl handelt (oder hat einen Faktor gefunden).
 
-Es gibt auch inoffizielle Wettbewerbe, große Primzahlen zu finden.
+Es gibt auch inoffizielle Wettbewerbe, [große Primzahlen zu finden](https://www.zeit.de/1996/21/prim.txt.19960517.xml/komplettansicht).
 
 ## 4.2 Wie kann man sicher mit diesem Algorithmus umgehen?
 
@@ -536,11 +536,11 @@ Das liegt daran, dass wir aus $\phi(n)$ und $e$ leicht den privaten Schlüssel $
 
 Mit einem Laptop kann man Zahlen bis etwa 14 Stellen innerhalb einer halben Stunde faktorisieren.  Das  geht zwar nicht mit dem einfachen Faktorisierungsalgorithmus vom Anfang, aber zusammen mit der Pollard-Rho-Methode kann man das schaffen.  Man muss also wesentlich größere Primzahlen verwenden.
 
-Es gab vor ca. 10 Jahren eine Internet-Rechen-Initiative (distributed computing), bei der man einen 64bit RSA-Schlüssel innerhalb von ein paar Monaten geknackt hat.  $2^{64}\approx 16*10^{18}$ also eine 9- und eine 10-stellige Primzahl.
+2020 wurde zu wissenschaftlichen Zwecken ein [829bit RSA-Schlüssel innerhalb von ein paar Monaten geknackt](https://en.wikipedia.org/wiki/RSA_Factoring_Challenge).  $2^{829}\approx 10^{249}$ also eine 124- und eine 125-stellige Primzahl.
 
-Heutzutage verwendet man RSA-Schlüssel von mindestens 512 Bit, besser 2048 Bit.
+Heutzutage verwendet man RSA-Schlüssel von mindestens 2048 Bit, besser 4096 Bit.
 
-Leider gibt es noch ein paar andere Angriffsmöglichkeiten.  Wenn man etwa zwei nah beieinander liegende Primzahlen verwendet, dann kann man einfach die Wurzel aus $n$ ziehen und nach Faktoren von $n$ in der Nähe dieser Wurzel suchen.  Andererseits ist klar, dass die Faktorisierung von $n$ nur so schwer ist, wie das Finden des kleinsten Faktors.  D.h. man verwendet am besten zwei ähnlich große Primfaktoren, z.B. einer 1020 Stellen und einer 1027 Stellen, dann ist deren Produkt etwa 2048 Stellen groß (Ok, eigentlich braucht man nur Stellen im 2er-System).
+Leider gibt es noch ein paar andere Angriffsmöglichkeiten.  Wenn man etwa zwei nah beieinander liegende Primzahlen verwendet, dann kann man einfach die Wurzel aus $n$ ziehen und nach Faktoren von $n$ in der Nähe dieser Wurzel suchen.  Andererseits ist klar, dass die Faktorisierung von $n$ nur so schwer ist, wie das Finden des kleinsten Faktors.  D.h. man verwendet am besten zwei ähnlich große Primfaktoren, z.B. einer 1023 Stellen und einer 1024 Stellen, dann ist deren Produkt etwa 2048 Stellen groß (Ok, eigentlich braucht man nur Stellen im 2er-System).
 
 ## 4.9  Ich habe einen PGP/GPG-Schlüssel erzeugt, aber der enthält gar nicht 2 Zahlen
 
@@ -548,7 +548,7 @@ Ja, auch das obige Programm ist nur ein Prototyp.  Tatsächlich kann man sich da
 
 Der private Schlüssel ist oft länger als der öffentliche Schlüssel, das kann daran liegen, dass dort eben neben $f$ auch der Modulus $n$ gespeichert ist.
 
-Schließlich werden die Zahlen nicht im Dezimalsystem gespeichert, sondern eventuell im Hexadezimalsystem, also zu Basis 16, weil der Computer mit 2er-Potenzen leichter rechnen kann ($2^4=16$).  Die typischen Ziffern für das Hexadezimalsystem sind 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.
+Schließlich werden die Zahlen nicht im Dezimalsystem gespeichert, sondern eventuell im Hexadezimalsystem, also zur Basis 16, weil der Computer mit 2er-Potenzen leichter rechnen kann ($2^4=16$).  Die typischen Ziffern für das Hexadezimalsystem sind 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.
 
 Auch ist es klug, wenn man in der Datei mit dem Schlüssel vermerkt, dass es ein Schlüssel ist, und vielleicht noch eine Prüfsumme, ...
 
