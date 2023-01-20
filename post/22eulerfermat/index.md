@@ -548,7 +548,7 @@ Ja, auch das obige Programm ist nur ein Prototyp.  Tatsächlich kann man sich da
 
 Der private Schlüssel ist oft länger als der öffentliche Schlüssel, das kann daran liegen, dass dort eben neben $f$ auch der Modulus $n$ gespeichert ist.
 
-Schließlich werden die Zahlen nicht im Dezimalsystem gespeichert, sondern eventuell im Hexadezimalsystem, also zur Basis 16, weil der Computer mit 2er-Potenzen leichter rechnen kann ($2^4=16$).  Die typischen Ziffern für das Hexadezimalsystem sind 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.
+Schließlich werden die Zahlen nicht im Dezimalsystem gespeichert, sondern eventuell im Hexadezimalsystem, also zur Basis 16, weil der Computer mit 2er-Potenzen leichter rechnen kann ($2^4=16$).  Die typischen Ziffern für das Hexadezimalsystem sind 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.  Oder man verschlüsselt es sogar mit 64 Zeichen (genannt UUEncode): [0-0a-zA-Z/+]
 
 Auch ist es klug, wenn man in der Datei mit dem Schlüssel vermerkt, dass es ein Schlüssel ist, und vielleicht noch eine Prüfsumme, ...
 
