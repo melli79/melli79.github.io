@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kryptographie on Melchior&#39;s Homepage</title>
+    <link>https://melli79.github.io/categories/kryptographie/</link>
+    <description>Recent content in Kryptographie on Melchior&#39;s Homepage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 29 Jan 2023 21:10:53 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/kryptographie/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>23. Verschlüsselung und Signierung</title>
+      <link>https://melli79.github.io/post/23encryptionandsigning/</link>
+      <pubDate>Sun, 29 Jan 2023 21:10:53 +0100</pubDate>
+      
+      <guid>https://melli79.github.io/post/23encryptionandsigning/</guid>
+      <description>Nachdem wir letztes Mal den RSA Algorithmus kennen gelernt haben, wollen wir diesmal etwas allgemeiner über Kryptographie sprechen.
+Wer lieber ein (kurzes) Buch liest, dem sei [1] empfohlen.
+[1] A. Beutelspacher: Kryptologie, Eine Einführung in die Wissenschaft vom Verschlüsseln, Verbergen und Verheimlichen, Taschenbuch, November 2014.
+1. Wenn Alice Bob eine geheime Nachricht schicken will&amp;hellip; Zunächst einmal, worum geht es eigentlich bei Kryptographie (als Teilgebiet der Mathematik/Informatik). Wir haben 2 Subjekte, die geheime Informationen über einen öffentlichen Kanal austauschen wollen.</description>
+    </item>
+    
+  </channel>
+</rss>

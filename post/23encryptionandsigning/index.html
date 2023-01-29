@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>23. Verschlüsselung und Signierung - Melchior&#39;s Homepage</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="melli79" /><meta name="description" content="Nachdem wir letztes Mal den RSA Algorithmus kennen gelernt haben, wollen wir diesmal etwas allgemeiner über Kryptographie sprechen.
+Wer lieber ein (kurzes) Buch liest, dem sei [1] empfohlen.
+[1] A. Beutelspacher: Kryptologie, Eine Einführung in die Wissenschaft vom Verschlüsseln, Verbergen und Verheimlichen, Taschenbuch, November 2014.
+1. Wenn Alice Bob eine geheime Nachricht schicken will&amp;hellip; Zunächst einmal, worum geht es eigentlich bei Kryptographie (als Teilgebiet der Mathematik/Informatik). Wir haben 2 Subjekte, die geheime Informationen über einen öffentlichen Kanal austauschen wollen." />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.109.0 with theme even" />
+
+
+<link rel="canonical" href="https://melli79.github.io/post/23encryptionandsigning/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78d3a03abaed5d3c468bdf402fc110f36c046abf091a63421b9ce0a5a63db941.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="23. Verschlüsselung und Signierung" />
+<meta property="og:description" content="Nachdem wir letztes Mal den RSA Algorithmus kennen gelernt haben, wollen wir diesmal etwas allgemeiner über Kryptographie sprechen.
+Wer lieber ein (kurzes) Buch liest, dem sei [1] empfohlen.
+[1] A. Beutelspacher: Kryptologie, Eine Einführung in die Wissenschaft vom Verschlüsseln, Verbergen und Verheimlichen, Taschenbuch, November 2014.
+1. Wenn Alice Bob eine geheime Nachricht schicken will&hellip; Zunächst einmal, worum geht es eigentlich bei Kryptographie (als Teilgebiet der Mathematik/Informatik). Wir haben 2 Subjekte, die geheime Informationen über einen öffentlichen Kanal austauschen wollen." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://melli79.github.io/post/23encryptionandsigning/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-01-29T21:10:53+01:00" />
+<meta property="article:modified_time" content="2023-01-29T21:10:53+01:00" />
+<meta itemprop="name" content="23. Verschlüsselung und Signierung">
+<meta itemprop="description" content="Nachdem wir letztes Mal den RSA Algorithmus kennen gelernt haben, wollen wir diesmal etwas allgemeiner über Kryptographie sprechen.
+Wer lieber ein (kurzes) Buch liest, dem sei [1] empfohlen.
+[1] A. Beutelspacher: Kryptologie, Eine Einführung in die Wissenschaft vom Verschlüsseln, Verbergen und Verheimlichen, Taschenbuch, November 2014.
+1. Wenn Alice Bob eine geheime Nachricht schicken will&hellip; Zunächst einmal, worum geht es eigentlich bei Kryptographie (als Teilgebiet der Mathematik/Informatik). Wir haben 2 Subjekte, die geheime Informationen über einen öffentlichen Kanal austauschen wollen."><meta itemprop="datePublished" content="2023-01-29T21:10:53+01:00" />
+<meta itemprop="dateModified" content="2023-01-29T21:10:53+01:00" />
+<meta itemprop="wordCount" content="4435">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="23. Verschlüsselung und Signierung"/>
+<meta name="twitter:description" content="Nachdem wir letztes Mal den RSA Algorithmus kennen gelernt haben, wollen wir diesmal etwas allgemeiner über Kryptographie sprechen.
+Wer lieber ein (kurzes) Buch liest, dem sei [1] empfohlen.
+[1] A. Beutelspacher: Kryptologie, Eine Einführung in die Wissenschaft vom Verschlüsseln, Verbergen und Verheimlichen, Taschenbuch, November 2014.
+1. Wenn Alice Bob eine geheime Nachricht schicken will&hellip; Zunächst einmal, worum geht es eigentlich bei Kryptographie (als Teilgebiet der Mathematik/Informatik). Wir haben 2 Subjekte, die geheime Informationen über einen öffentlichen Kanal austauschen wollen."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Melchior&#39;s Homepage</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Themes</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Melchior&#39;s Homepage</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Themes</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">23. Verschlüsselung und Signierung</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-01-29 </span>
+        <div class="post-category">
+            <a href="/categories/kotlin/"> Kotlin </a>
+            <a href="/categories/programming/"> Programming </a>
+            <a href="/categories/kryptographie/"> Kryptographie </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-wenn-alice-bob-eine-geheime-nachricht-schicken-will">1. Wenn Alice Bob eine geheime Nachricht schicken will&hellip;</a></li>
+    <li><a href="#2-cäsar-chiffre">2. Cäsar-Chiffre</a>
+      <ul>
+        <li><a href="#21-erklärung">2.1 Erklärung</a></li>
+        <li><a href="#22-als-programm">2.2 Als Programm</a></li>
+        <li><a href="#23-wie-sicher-ist-das">2.3 Wie sicher ist das?</a></li>
+        <li><a href="#24-systematische-analyse">2.4 Systematische Analyse</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-substitutions-chiffre">3. Substitutions-Chiffre</a>
+      <ul>
+        <li><a href="#31-eine-einfache-idee">3.1 Eine Einfache Idee</a></li>
+        <li><a href="#32-ist-das-nun-besser">3.2 Ist das nun besser?</a></li>
+        <li><a href="#33-angriff-mit-klartext">3.3 Angriff mit Klartext</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-polychiffre-und-wie-die-enigma-geknackt-wurde">4. Polychiffre und wie die Enigma geknackt wurde</a>
+      <ul>
+        <li><a href="#41-was-sind-polychiffre">4.1 Was sind Polychiffre?</a></li>
+        <li><a href="#42-wie-sieht-ein-solcher-algorithmus-aus">4.2 Wie sieht ein solcher Algorithmus aus?</a></li>
+        <li><a href="#33-wie-sicher-ist-das">3.3 Wie sicher ist das?</a></li>
+        <li><a href="#34-was-war-die-enigma">3.4 Was war die Enigma?</a></li>
+        <li><a href="#35-wie-konnte-die-enigma-geknackt-werden">3.5 Wie konnte die Enigma geknackt werden?</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-warum-sollte-rsa-sicherer-sein">4. Warum sollte RSA sicherer sein?</a></li>
+    <li><a href="#5-digitale-signaturen">5. Digitale Signaturen</a>
+      <ul>
+        <li><a href="#52-anwendung-einzellizenz-für-software">5.2 Anwendung: Einzellizenz für Software</a></li>
+      </ul>
+    </li>
+    <li><a href="#weiterführende-literatur">Weiterführende Literatur</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Nachdem wir letztes Mal den RSA Algorithmus kennen gelernt haben, wollen wir diesmal etwas allgemeiner über
+Kryptographie sprechen.</p>
+<p>Wer lieber ein (kurzes) Buch liest, dem sei [1] empfohlen.</p>
+<p>[1] A. Beutelspacher: <em>Kryptologie, Eine Einführung in die Wissenschaft vom Verschlüsseln, Verbergen und Verheimlichen</em>, Taschenbuch, November <strong>2014</strong>.</p>
+<h1 id="1-wenn-alice-bob-eine-geheime-nachricht-schicken-will">1. Wenn Alice Bob eine geheime Nachricht schicken will&hellip;</h1>
+<p>Zunächst einmal, worum geht es eigentlich bei Kryptographie (als Teilgebiet der Mathematik/Informatik).  Wir haben 2 Subjekte, die geheime Informationen über einen öffentlichen Kanal austauschen wollen.  Traditionell heißen diese beiden Alice und Bob, also A und B.</p>
+<p>Am sichersten wäre es, wenn Alice und Bob sich immer wieder in einem privaten Raum treffen könnten, in dem sie niemand belauschen kann und sie beliebig oft Nachrichten hin- und herreichen könnten.  Aber vielleicht wollen sie auch nicht, dass irgendjemand erfährt, dass sie miteinander kommunizieren, d.h. wir gehen davon aus, dass sie nur über Distanz und über öffentlich einsehbare Kanäle kommunizieren können.</p>
+<p>Können sie das erreichen und wenn ja, wie?</p>
+<p>Dazu wollen wir zunächst 4 Dinge unterteilen:</p>
+<ol>
+<li>
+<p>eine verschlüsselte Nachricht: ein Text, eine Zeichenfolge, Zahlen, &hellip; an denen man die geheime Nachricht nicht unmittelbar ablesen kann.</p>
+</li>
+<li>
+<p>eine geheime Nachricht: ein Text, den sich Alice ausgedacht hat und an Bob übermitteln will, ohne dass andere den mitbekommen.</p>
+</li>
+<li>
+<p>Ein Algorithmus/Protokoll: ein Prinzip nach dem Alice eine geheime Nachricht verschlüsselt, dann öffentlich überträgt und anschließend (nur) Bob die geheime Nachricht wieder entschlüsseln kann.</p>
+</li>
+<li>
+<p>Ein (öffentlicher/geheimer) Schlüssel:  ein zusätzliches Stück Information, das Alice und Bob einmalig ausgetauscht haben, das niemand anderes kennt, aber auf das sie zurückgreifen können, um den Algorithmus zu betreiben.</p>
+</li>
+</ol>
+<h1 id="2-cäsar-chiffre">2. Cäsar-Chiffre</h1>
+<h2 id="21-erklärung">2.1 Erklärung</h2>
+<p>Die ersten Versuche, geheime Nachrichten zu übermitteln begannen damit, dass man einen geheimen Text durch geheime oder vertauschte Zeichen hinterlassen hat.  Der Herrscher Julius Cäsar war bekannt dafür, dass er geheime Nachrichten hinterließ, von denen nur eingeweite sie lesen konnten.  Was hat er dazu getan?</p>
+<p>Er hatte 2 verschiebbare Reihen des (lateinischen) Alphabets, die er gegeneinander verschieben konnte, also etwa so:</p>
+<table>
+<thead>
+<tr>
+<th>ABCDE</th>
+<th>FGHIJ</th>
+<th>KLMN</th>
+<th>OPQR</th>
+<th>STUV</th>
+<th>WXYZ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>XYZAB</td>
+<td>CDEFG</td>
+<td>HIJK</td>
+<td>LMNO</td>
+<td>PQRS</td>
+<td>TUVW</td>
+</tr>
+</tbody>
+</table>
+<p>Und wenn er einen Nachricht, z.B. &ldquo;TRIFF MICH HEUTE ABEND UM NEUN BEI DEN PROPYLAEN.&rdquo; verschlüsseln wollte, dann suchte er die Buchstaben der Reihe nach in der oberen Zeile und ersetzte sie durch die Buchstaben in der unteren Zeile.  Also das &lsquo;T&rsquo; durch &lsquo;Q&rsquo;, das &lsquo;R&rsquo; durch &lsquo;O&rsquo; und so weiter, sodass sich die folgende verschlüsselte Nachricht ergibt:</p>
+<blockquote>
+<p>QOFC CJFZ EEBR QBXY BKAR JKBR KYBF ABKM OLMV IXBK</p>
+</blockquote>
+<p>Auf einem wöchentlichen geheimen Treffen hat Caesar dann seinen Getreuen den Schlüssel verraten, hier &ldquo;3 nach rechts&rdquo; und jeder, der den (und den Algorithmus) kannte, konnte damit wieder die geheime Nachricht lesen, indem er die Buchstaben von unten nach oben ersetzte.</p>
+<h2 id="22-als-programm">2.2 Als Programm</h2>
+<p>Mit einer kleinen Funktion sieht das etwa wie folgt aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">const</span> <span class="k">val</span> <span class="py">letters</span> <span class="p">=</span> <span class="s2">&#34;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">shift</span> <span class="p">:</span><span class="n">Byte</span><span class="p">,</span> <span class="n">secretMessage</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">=</span> <span class="n">secretMessage</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="k">it</span> <span class="k">in</span> <span class="sc">&#39;A&#39;</span><span class="o">..</span><span class="sc">&#39;Z&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">c</span> <span class="o">-&gt;</span> <span class="n">letters</span><span class="p">[(</span><span class="n">c</span><span class="p">-</span><span class="sc">&#39;A&#39;</span><span class="p">+</span><span class="n">shift</span><span class="p">)%</span><span class="m">26</span><span class="p">]</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">joinToString</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Zunächst filtert die Funktion alle Zeichen raus, die keine Großbuchstaben sind und dann wird jedes Zeichen, z.B. &lsquo;T&rsquo; mit &lsquo;A&rsquo; verglichen, &lsquo;T&rsquo; ist das 20. Zeichen, &lsquo;A&rsquo;das erste, also <code>'T'-'A'</code> gibt 19.  Da wird der Shift hinzugefügt und dann im Wesentlichen der Buchstabe gewählt, der dieser Zahl entspricht.  Die Konvention ist, dass wenn man über die 26 hinaus kommt, man wieder vorne anfängt, das wird mit <code>()%26</code> bewirkt.  Schließlich hätte man eine Liste von Zeichen.  mit <code>.joinToStrin(...)</code> wird die wieder in einen String umgewandelt.  Das <code>&quot;&quot;</code> bedeutet, dass zwischen 2 Zeichen ein leerer String (also nichts) eingefügt wird.</p>
+<p>Aufrufen kann man diese Funktion etwa in folgendem Programm:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Caesar Chiffre</span><span class="se">\n</span><span class="s2">  Bitte geben sie den Shift an (0-25, links positiv, rechts negativ): &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">shift</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">toByteOrNull</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">shift</span><span class="o">==</span><span class="k">null</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Kein gültiger Shift.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Geheime Nachricht: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">message</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">isNullOrEmpty</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">encrypted</span> <span class="p">=</span> <span class="n">encrypt</span><span class="p">((</span><span class="m">26</span> <span class="p">+</span><span class="n">shift</span><span class="p">.</span><span class="n">toInt</span><span class="p">()%</span><span class="m">26</span><span class="p">).</span><span class="n">toByte</span><span class="p">(),</span> <span class="n">message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Hier kann man jetzt das obige Ergebnis erzeugen, indem man als Shift &ldquo;3&rdquo; eingibt und dann die Original-Nachricht (Groß-/Kleinschreibung und Interpunktion wird entfernt).</p>
+<p>Umgekehrt kann man mit diesem Programm wieder entschlüsseln, indem man den negativen Shift (hier also &ldquo;-3&rdquo;) eingibt und die verschlüsselte Nachricht eintippt.</p>
+<h2 id="23-wie-sicher-ist-das">2.3 Wie sicher ist das?</h2>
+<p>Offenbar ist es wichtig, dass kein Spion den Shift erfährt, denn die Verschlüsselung ist höchstens so sicher, wie die Aufbewahrung dieses Schlüssels.</p>
+<p>Aber ist das wirklich alles?</p>
+<p>Ok, der Shift darf nicht 0 sein, denn dann sieht die verschlüsselte Nachricht genauso aus, wie die geheime Nachricht.</p>
+<p>Aber auch dann ist die Nachricht noch nicht sicher:  Wenn die Nachricht einigermaßen lang ist, kann ein Angreifer einfach alle Schlüssel durchprobieren (es gibt nur 26) und schauen, ob er die Nachricht lesen kann.</p>
+<p>In einem Programm sähe das etwa wie folgt aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Caesar Chiffre knacken.</span><span class="se">\n</span><span class="s2">  Bitte geben sie die verschlüsselte Nachricht ein: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">encrypted</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">shift</span> <span class="k">in</span> <span class="m">1.</span><span class="p">.</span><span class="m">25</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">decrypt</span> <span class="p">=</span> <span class="n">encrypt</span><span class="p">(</span><span class="n">shift</span><span class="p">,</span> <span class="n">encrypted</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Shift </span><span class="si">$shift</span><span class="s2">: </span><span class="si">$decrypt</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Jetzt müssen wir nur noch aufmerksam auf die 25 Zeilen Ausgabe schauen und können sowohl die geheime Nachricht als auch den Schlüssel finden.</p>
+<h2 id="24-systematische-analyse">2.4 Systematische Analyse</h2>
+<p>Im Zeitalter von Computern kann man natürlich einfach die gesamte Nachricht 25mal verschlüsseln und mit etwas Geduld die geheime Nachricht entschlüsseln.  Aber wenn man keinen Computer hat und stattdessen etwas Geduld, kann man auch folgendes tun:</p>
+<p>Die häufigsten Buchstaben im Deutschen sind: E, N, I, R, T, S, L</p>
+<p>Umgekehrt kann man (besonders bei einer längeren Nachricht) einfach durchzählen, welcher verschlüsselnde Buchstabe wie oft auftaucht und dann versuchen, diese mit den obigen Buchstaben abzupassen.  Diese Idee stammt von <a href="https://de.wikipedia.org/wiki/Al-Kind%C4%AB">al Kindī</a>.</p>
+<p>In einem Programm sieht das etwa wie folgt aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Analyse einer Substitutionschiffre</span><span class="se">\n</span><span class="s2">  Bitte geben Sie die verschlüsselte Nachricht ein: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">encrypted</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">uppercase</span><span class="p">(</span><span class="nc">Locale</span><span class="p">.</span><span class="n">getDefault</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">encrypted</span><span class="p">.</span><span class="n">isNullOrEmpty</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">statistics</span> <span class="p">=</span> <span class="n">encrypted</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="k">it</span> <span class="k">in</span> <span class="sc">&#39;A&#39;</span><span class="o">..</span><span class="sc">&#39;Z&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="n">groupBy</span> <span class="p">{</span> <span class="k">it</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">Pair</span><span class="p">(</span><span class="k">it</span><span class="p">.</span><span class="n">key</span><span class="p">,</span> <span class="k">it</span><span class="p">.</span><span class="k">value</span><span class="p">.</span><span class="n">size</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="n">sortedByDescending</span> <span class="p">{</span> <span class="k">it</span><span class="p">.</span><span class="n">second</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Die häufigsten Buchstaben sind: </span><span class="si">${statistics.take(7)}</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">shift</span> <span class="p">=</span> <span class="p">(</span><span class="m">26</span><span class="p">+(</span><span class="sc">&#39;E&#39;</span> <span class="p">-</span><span class="n">statistics</span><span class="p">.</span><span class="n">first</span><span class="p">().</span><span class="n">first</span><span class="p">))%</span><span class="m">26</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">decrypted</span> <span class="p">=</span> <span class="n">encrypt</span><span class="p">(</span><span class="n">shift</span><span class="p">.</span><span class="n">toByte</span><span class="p">(),</span> <span class="n">encrypted</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Der Shift ist wahrscheinlich: </span><span class="si">$shift</span><span class="s2">,  die entschlüsselte Nachricht ist: </span><span class="si">$decrypted</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Was bedeutet dieses Programm?</p>
+<p>Nach der Begrüßung wird eine Zeile Text eingelesen <code>readlnOrNull()</code>.  Falls der Nutzer nur &lt;Enter&gt; drückt,  ist das Ergebnis <code>null</code>.  Anschließend werden noch die Leerzeichen am Anfang und am Ende entfernt <code>.trim()</code>.  Das <code>?.</code> bedeutet, dass das nur gemacht wird, falls nicht vorher schon <code>null</code> herauskam. <code>.uppercase(...)</code> bedeutet, dass alles in Großbuchstaben verwandelt wird.  Das hängt leider vom verwendeten Alphabet ab, weshalb man als Parameter den Standard (engl. <code>Locale</code>) übergeben muss.  <code>Locale.getDefault()</code> liest diesen Standard vom Betriebssystem aus, d.h. wenn dein Rechner auf Deutsch eingestellt ist, dann übergibt das <code>Locale.GERMAN</code> (engl. German heißt Deutsch).</p>
+<p>Das Auszählen der Statistik funktioniert wie folgt: <code>encrypted.filter { it in 'A'..'Z' }</code> behält nur die Zeichen, die Großbuchstaben &lsquo;A&rsquo; bis &lsquo;Z&rsquo; sind. <code>.groupBy { ... }</code> gruppiert diese Zeichen nach dem Zeichen.  Das Ergebnis ist ein Wörterbuch/ eine Map, die aus allen vorgekommenen Zeichen besteht und hinter jedem eine Liste der Zeichen.  Das scheint zwar etwas komisch, liegt aber daran, dass <code>.groupBy</code> nicht nur zum Auszählen von Buchstaben verwendet werden soll.  Jedenfalls bilden wir dann noch die Einträge als <code>.map{ Pair(it.key, it.value.size) }</code> ab, d.h. aus einem Eintrag wie [&lsquo;B&rsquo;:[&lsquo;B&rsquo;,&lsquo;B&rsquo;,&lsquo;B&rsquo;,&lsquo;B&rsquo;,&lsquo;B&rsquo;,&lsquo;B&rsquo;,&lsquo;B&rsquo;]] wird dann <code>Pair('B',7)</code>.  Anschließend sortieren wir die Liste der Häufigkeiten absteigend (engl. descending) nach der Häufigkeit.</p>
+<p>Für die Ausgabe wollen wir nicht alle 24 (oder so) vorkommenden Buchstaben ausgeben, sondern nur die 7 häufigsten.  Das passiert mit <code>statistics.take(7)</code>.</p>
+<p>Dann habe ich noch die Entschlüsselung automatisiert, d.h. ich gehe einfach davon aus, dass der häufigste Buchstabe das &lsquo;E&rsquo; verschlüsselt und der Shift ist dann offenbar &lsquo;E&rsquo; minus diesen Buchstaben, im Beispiel <code>'E'-'B'</code> also 3.  Ein kleines Problem am obigen <code>encrypt(...)</code> ist, dass es nur mit positivem Shift arbeitet, aber das kann man dadurch korrigieren, dass man ggf negative Shifts um 26 verschiebt, deshalb <code>shift = 26+('E'-'B')</code>.</p>
+<h1 id="3-substitutions-chiffre">3. Substitutions-Chiffre</h1>
+<h2 id="31-eine-einfache-idee">3.1 Eine Einfache Idee</h2>
+<p>Die Frage ist, wie man diese Verschlüsselung sicherer machen kann.  Die erste Idee ist es vielleicht, nicht nur um eine Konstante zu verschieben (engl. shift), sondern die Buchstaben beliebig durcheinander einzusetzen.  Eine entsprechende Verschlüsselungstabelle könnte etwa wie folgt aussehen:</p>
+<table>
+<thead>
+<tr>
+<th>ABCDE</th>
+<th>FGHIJ</th>
+<th>KLMN</th>
+<th>OPQR</th>
+<th>STUV</th>
+<th>WXYZ</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>XZACE</td>
+<td>GIKMO</td>
+<td>QSUW</td>
+<td>YBDF</td>
+<td>HJLN</td>
+<td>PRTV</td>
+</tr>
+</tbody>
+</table>
+<p>Ein Effekt ist, dass der Schlüssel jetzt größer ist, d.h. es reicht nicht, einen konstanten Shift zu übergeben, sondern man muss jeden einzelnen Buchstaben übersetzen, z.B. indem man die 2. Zeile aus obiger Tabelle übergibt.</p>
+<h2 id="32-ist-das-nun-besser">3.2 Ist das nun besser?</h2>
+<p>Schauen wir uns den ersten Teil obiger Analyse an. Der verschlüsselte Text ist nun:</p>
+<blockquote>
+<p>JFMG GUMA KKEL JEXZ EWCL UWEL WZEM CEWB FYBT SXEW</p>
+</blockquote>
+<p>und die Häufigkeitsanalyse ist:</p>
+<table>
+<thead>
+<tr>
+<th>E</th>
+<th>W</th>
+<th>M</th>
+<th>L</th>
+<th>J</th>
+<th>F</th>
+<th>&hellip;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>5</td>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+<td>2</td>
+<td>&hellip;</td>
+</tr>
+</tbody>
+</table>
+<p>Wenn wir mit der obigen Cäsar-Chiffre anfangen, sehen wir, dass der Text offenbar so nicht verschlüsselt wurde.  Stattdessen modifizieren wir das Analyseprogramm wie folgt:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Analyse einer Substitutions-Chiffre</span><span class="se">\n</span><span class="s2">  Geben Sie die verschlüsselte Nachricht ein: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">encrypted</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">uppercase</span><span class="p">(</span><span class="nc">Locale</span><span class="p">.</span><span class="n">getDefault</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">encrypted</span><span class="p">.</span><span class="n">isNullOrEmpty</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">sanitized</span> <span class="p">=</span> <span class="n">encrypted</span><span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="k">it</span> <span class="k">in</span> <span class="sc">&#39;A&#39;</span><span class="o">..</span><span class="sc">&#39;Z&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">statistics</span> <span class="p">=</span> <span class="n">computeStatistics</span><span class="p">(</span><span class="n">sanitized</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Die Häufigkeiten der Buchstaben sind: &#34;</span><span class="p">+</span> <span class="n">statistics</span><span class="p">.</span><span class="n">joinToString</span><span class="p">{</span> <span class="k">it</span><span class="p">.</span><span class="n">first</span><span class="p">+</span><span class="s2">&#34;%.1f%%&#34;</span><span class="p">.</span><span class="n">format</span><span class="p">(</span><span class="k">it</span><span class="p">.</span><span class="n">second</span><span class="p">*</span><span class="m">100</span><span class="p">)})</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">decoder</span> <span class="p">=</span> <span class="n">mapOf</span><span class="p">(</span><span class="n">Pair</span><span class="p">(</span><span class="n">statistics</span><span class="p">[</span><span class="m">0</span><span class="p">].</span><span class="n">first</span><span class="p">,</span> <span class="sc">&#39;E&#39;</span><span class="p">),</span> <span class="n">Pair</span><span class="p">(</span><span class="n">statistics</span><span class="p">[</span><span class="m">1</span><span class="p">].</span><span class="n">first</span><span class="p">,</span> <span class="sc">&#39;N&#39;</span><span class="p">)).</span><span class="n">toMutableMap</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">(</span><span class="k">true</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">decrypted</span> <span class="p">=</span> <span class="n">sanitized</span>
+</span></span><span class="line"><span class="cl">          <span class="p">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">decoder</span><span class="p">[</span><span class="k">it</span><span class="p">]</span> <span class="o">?:</span> <span class="sc">&#39;.&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">          <span class="p">.</span><span class="n">joinToString</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Encrypted message:          </span><span class="si">$sanitized</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Partially decryped message: </span><span class="si">$decrypted</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Guessed some letter [encrypted decrypted]: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">val</span> <span class="py">pair</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span><span class="o">?.</span><span class="n">split</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\\</span><span class="s2">s+&#34;</span><span class="p">.</span><span class="n">toRegex</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">pair</span><span class="o">==</span><span class="k">null</span><span class="o">||</span><span class="n">pair</span><span class="p">.</span><span class="n">size</span><span class="o">!=</span><span class="m">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="k">return</span>
+</span></span><span class="line"><span class="cl">      <span class="n">decoder</span><span class="p">[</span><span class="n">pair</span><span class="p">[</span><span class="m">0</span><span class="p">][</span><span class="m">0</span><span class="p">]]</span> <span class="p">=</span> <span class="n">pair</span><span class="p">[</span><span class="m">1</span><span class="p">][</span><span class="m">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">statistics</span><span class="p">(</span><span class="n">encrypted</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">=</span> <span class="n">encrypted</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="k">it</span> <span class="k">in</span> <span class="sc">&#39;A&#39;</span><span class="o">..</span><span class="sc">&#39;Z&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">groupBy</span> <span class="p">{</span> <span class="k">it</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">Pair</span><span class="p">(</span><span class="k">it</span><span class="p">.</span><span class="n">key</span><span class="p">,</span> <span class="k">it</span><span class="p">.</span><span class="k">value</span><span class="p">.</span><span class="n">size</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">normalize</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">take</span><span class="p">(</span><span class="m">7</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="p">&lt;</span><span class="nc">E</span><span class="p">&gt;</span> <span class="nf">List</span><span class="p">&lt;</span><span class="n">Pair</span><span class="p">&lt;</span><span class="n">E</span><span class="p">,</span> <span class="n">Int</span><span class="p">&gt;&gt;.</span><span class="n">normalize</span><span class="p">()</span> <span class="p">:</span><span class="n">List</span><span class="p">&lt;</span><span class="n">Pair</span><span class="p">&lt;</span><span class="n">E</span><span class="p">,</span> <span class="n">Double</span><span class="p">&gt;&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">total</span> <span class="p">=</span> <span class="n">sumOf</span> <span class="p">{</span> <span class="k">it</span><span class="p">.</span><span class="n">second</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">f</span> <span class="p">=</span> <span class="k">if</span> <span class="p">(</span><span class="n">total</span><span class="p">&gt;</span><span class="m">0</span><span class="p">)</span> <span class="m">1.0</span><span class="p">/</span><span class="n">total</span>  <span class="k">else</span> <span class="m">1.0</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">map</span> <span class="p">{</span> <span class="n">Pair</span><span class="p">(</span><span class="k">it</span><span class="p">.</span><span class="n">first</span><span class="p">,</span> <span class="n">f</span><span class="p">*</span><span class="k">it</span><span class="p">.</span><span class="n">second</span><span class="p">)</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Analog zum ersten Fall raten wir:</p>
+<table>
+<thead>
+<tr>
+<th>&hellip;.E&hellip;I&hellip;.N&hellip;&hellip;&hellip;&hellip;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&hellip;.E&hellip;M&hellip;.W&hellip;&hellip;&hellip;&hellip;</td>
+</tr>
+</tbody>
+</table>
+<p>Dann sieht die teilweise entschlüsselte Nachricht wie folgt aus:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  ..I...I...E..E..EN...NE.N.EI.EN.......EN
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wird es nun besser, wenn wir auch <code>'L' -&gt; 'R'</code> ersetzen?</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  ..I...I...ER.E..EN.R.NERN.EI.EN.......EN
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Hmm, es ist nicht sicher falsch, aber ob wirklich &ldquo;NERN&rdquo; in der geheimen Nachricht vorkommt, kann man nicht sagen.</p>
+<p>Insgesamt können wir sagen, dass für kurze Texte die Analyse wahrscheinlich nicht den ganzen Code knackt.</p>
+<p>Wenn die Texte aber länger werden, sieht es schon anders aus.</p>
+<p>Wenn wir etwa die esten Abschnitte aus obigem Blog verwenden, dann ergibt die Statistik:</p>
+<table>
+<thead>
+<tr>
+<th>E</th>
+<th>W</th>
+<th>M</th>
+<th>X</th>
+<th>F</th>
+<th>H</th>
+<th>K</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>17.5%</td>
+<td>11.4%</td>
+<td>8.8%</td>
+<td>6.4%</td>
+<td>6.4%</td>
+<td>5.9%</td>
+<td>5.7%</td>
+</tr>
+<tr>
+<td>E</td>
+<td>N</td>
+<td>I</td>
+<td>?</td>
+<td>R/T?</td>
+<td>?</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
+<p>und damit bekommt man schon mal einen Eindruck vom Text:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">WXAKCEUPMFSEJVJEHUXSCEWFHXXSIYFMJKULHQEW  N....E..I..E...E.....EN........I......EN
+</span></span><span class="line"><span class="cl">WEWIESEFWJKXZEWPYSSEWPMFCMEHUXSEJPXHXSSI  NEN.E.E.N....EN....EN.I..IE....E........
+</span></span><span class="line"><span class="cl">EUEMWEFZEFQFTBJYIFXBKMEHBFEAKEWPEFSMEZEF  E.EINE..E............IE...E..EN.E..IE.E.
+</span></span><span class="line"><span class="cl">EMWQLFVEHZLAKSMEHJCEUHEMEUBGYKSEWXZELJES  EIN....E......IE...E..EIE......EN..E..E.
+</span></span><span class="line"><span class="cl">HBXAKEFQFTBJYSYIMEEMWEEMWGKFLWIMWCMEPMHH  .....E..........IEEINEEIN....N.IN.IE.I..
+</span></span><span class="line"><span class="cl">EWHAKXGJNYUNEFHAKSHHESWNEFZEFIEWLWCNEFKE  EN..........E.......E.N.E..E..EN.N..E..E
+</span></span><span class="line"><span class="cl">MUSMAKEWJXHAKEWZLAKWYNEUZEFPEWWXSMAEZYZE  I..I..EN.....EN....N..E..E..ENN..I.E...E
+</span></span><span class="line"><span class="cl">MWEIEKEMUEWXAKFMAKJHAKMAQEWPMSSVLWAKHJEM  INE.E.EI.EN....I......I..EN.I....N....EI
+</span></span><span class="line"><span class="cl">WUXSPYFLUIEKJEHEMIEWJSMAKZEMQFTBJYIFXBKM  N.........E..E.EI.EN..I...EI...........I
+</span></span><span class="line"><span class="cl">EXSHJEMSIEZMEJCEFUXJKEUXJMQMWGYFUXJMQPMF  E....EI..E.IE..E.....E...I.IN......I..I.
+</span></span><span class="line"><span class="cl">KXZEWHLZOEQJECMEIEKEMUEMWGYFUXJMYWEWZEFE  ...EN....E..E.IE.E.EI.EIN......I.NEN.E.E
+</span></span><span class="line"><span class="cl">MWEWGGEWJSMAKEWQXWXSXLHJXLHAKEWPYSSEWJFX  INEN..EN..I..EN..N...........EN....EN...
+</span></span><span class="line"><span class="cl">CMJMYWESSKEMHHEWCMEHEZEMCEWXSMAELWCZYZXS  .I.I.NE...EI..EN.IE.E.EI.EN..I.E.N......
+</span></span><span class="line"><span class="cl">HYXLWCZXUHMAKEFHJEWPFEEHPEWWXSMAELWCZYZH  ....N.....I..E...EN..EE..ENN..I.E.N.....
+</span></span><span class="line"><span class="cl">MAKMUUEFPMECEFMWEMWEUBFMNXJEWFXLUJFEGGEW  I..I..E..IE.E.INEINE...I...EN......E..EN
+</span></span><span class="line"><span class="cl">QWWJEWMWCEUHMEWMEUXWCZESXLHAKEWQXWWLWCHM  .NN.ENIN.E..IENIE..N..E......EN..NN.N..I
+</span></span><span class="line"><span class="cl">EZESMEZMIYGJWXAKFMAKJEWKMWLWCKEFFEMAKEWQ  E.E.IE.I....N....I...EN.IN.N..E..EI..EN.
+</span></span><span class="line"><span class="cl">WWJEWXZEFNMESSEMAKJPYSSEWHMEXLAKWMAKJCXH  NN.EN..E..IE..EI.......EN.IE....NI......
+</span></span><span class="line"><span class="cl">HMFIEWCOEUXWCEFGKFJCXHHHMEUMJEMWXWCEFQYU  .I..EN..E..N.E..........IE.I.EIN.N.E....
+</span></span><span class="line"><span class="cl">ULWMVMEFEWCKPMFIEKEWCXNYWXLHCXHHHMEWLFZE  ..NI.IE.EN...I..E.EN....N........IEN...E
+</span></span><span class="line"><span class="cl">FCMHJXWVLWCZEFGGEWJSMAKEMWHEKZXFEQXWSEQY  ..I...N..N..E...EN..I..EIN.E....E..N.E..
+</span></span><span class="line"><span class="cl">UULWMVMEFEWQWWEWQWWEWHMECXHEFFEMAKEWLWCP  ...NI.IE.EN.NNEN.NNEN.IE...E..EI..EN.N..
+</span></span><span class="line"><span class="cl">EWWOXPMECXVLPYSSEWPMFVLWAKHJCMWIELWJEFJE  ENN...IE........EN.I...N.....IN.E.N.E..E
+</span></span><span class="line"><span class="cl">MSEWEMWENEFHAKSHHESJEWXAKFMAKJEMWJERJEMW  I.ENEINE.E.......E..EN....I...EIN.E..EIN
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="33-angriff-mit-klartext">3.3 Angriff mit Klartext</h2>
+<p>Wenn du bemerkt hast, dass ich viele Beiträge mit den Worten &ldquo;Nachdem wir letztes Mal &hellip; haben, wollen wir heute &hellip;&rdquo; anfange, kannst du in obigem Text weitere Buchstaben raten, z.B. dass <code>'X' -&gt; 'A'</code>, <code>'A' -&gt; 'C'</code>, <code>'K' -&gt; 'H'</code>, <code>'C' -&gt; 'D'</code>, <code>'U' -&gt; 'M'</code>, &hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">WXAKCEUPMFSEJVJEHUXSCEWFHXXSIYFMJKULHQEW  NACHDEM.I..E...E.MA.DEN..AA....I.HM...EN
+</span></span><span class="line"><span class="cl">WEWIESEFWJKXZEWPYSSEWPMFCMEHUXSEJPXHXSSI  NEN.E.E.N.HA.EN....EN.I.DIE.MA.E..A.A...
+</span></span><span class="line"><span class="cl">EUEMWEFZEFQFTBJYIFXBKMEHBFEAKEWPEFSMEZEF  EMEINE..E.........A.HIE...ECHEN.E..IE.E.
+</span></span><span class="line"><span class="cl">EMWQLFVEHZLAKSMEHJCEUHEMEUBGYKSEWXZELJES  EIN....E...CH.IE..DEM.EIEM...H.ENA.E..E.
+</span></span><span class="line"><span class="cl">HBXAKEFQFTBJYSYIMEEMWEEMWGKFLWIMWCMEPMHH  ..ACHE..........IEEINEEIN.H..N.INDIE.I..
+</span></span><span class="line"><span class="cl">EWHAKXGJNYUNEFHAKSHHESWNEFZEFIEWLWCNEFKE  EN.CHA....M.E..CH...E.N.E..E..EN.ND.E.HE
+</span></span><span class="line"><span class="cl">MUSMAKEWJXHAKEWZLAKWYNEUZEFPEWWXSMAEZYZE  IM.ICHEN.A.CHEN..CHN..EM.E..ENNA.ICE...E
+</span></span><span class="line"><span class="cl">MWEIEKEMUEWXAKFMAKJHAKMAQEWPMSSVLWAKHJEM  INE.EHEIMENACH.ICH..CHIC.EN.I....NCH..EI
+</span></span><span class="line"><span class="cl">WUXSPYFLUIEKJEHEMIEWJSMAKZEMQFTBJYIFXBKM  NMA.....M.EH.E.EI.EN..ICH.EI........A.HI
+</span></span><span class="line"><span class="cl">EXSHJEMSIEZMEJCEFUXJKEUXJMQMWGYFUXJMQPMF  EA...EI..E.IE.DE.MA.HEMA.I.IN...MA.I..I.
+</span></span><span class="line"><span class="cl">KXZEWHLZOEQJECMEIEKEMUEMWGYFUXJMYWEWZEFE  HA.EN....E..EDIE.EHEIMEIN...MA.I.NEN.E.E
+</span></span><span class="line"><span class="cl">MWEWGGEWJSMAKEWQXWXSXLHJXLHAKEWPYSSEWJFX  INEN..EN..ICHEN.ANA.A...A..CHEN....EN..A
+</span></span><span class="line"><span class="cl">CMJMYWESSKEMHHEWCMEHEZEMCEWXSMAELWCZYZXS  DI.I.NE..HEI..ENDIE.E.EIDENA.ICE.ND...A.
+</span></span><span class="line"><span class="cl">HYXLWCZXUHMAKEFHJEWPFEEHPEWWXSMAELWCZYZH  ..A.ND.AM.ICHE...EN..EE..ENNA.ICE.ND....
+</span></span><span class="line"><span class="cl">MAKMUUEFPMECEFMWEMWEUBFMNXJEWFXLUJFEGGEW  ICHIMME..IEDE.INEINEM..I.A.EN.A.M..E..EN
+</span></span><span class="line"><span class="cl">QWWJEWMWCEUHMEWMEUXWCZESXLHAKEWQXWWLWCHM  .NN.ENINDEM.IENIEMAND.E.A..CHEN.ANN.ND.I
+</span></span><span class="line"><span class="cl">EZESMEZMIYGJWXAKFMAKJEWKMWLWCKEFFEMAKEWQ  E.E.IE.I....NACH.ICH.ENHIN.NDHE..EICHEN.
+</span></span><span class="line"><span class="cl">WWJEWXZEFNMESSEMAKJPYSSEWHMEXLAKWMAKJCXH  NN.ENA.E..IE..EICH.....EN.IEA.CHNICH.DA.
+</span></span><span class="line"><span class="cl">HMFIEWCOEUXWCEFGKFJCXHHHMEUMJEMWXWCEFQYU  .I..END.EMANDE..H..DA...IEMI.EINANDE...M
+</span></span><span class="line"><span class="cl">ULWMVMEFEWCKPMFIEKEWCXNYWXLHCXHHHMEWLFZE  M.NI.IE.ENDH.I..EHENDA..NA..DA...IEN...E
+</span></span><span class="line"><span class="cl">FCMHJXWVLWCZEFGGEWJSMAKEMWHEKZXFEQXWSEQY  .DI..AN..ND.E...EN..ICHEIN.EH.A.E.AN.E..
+</span></span><span class="line"><span class="cl">UULWMVMEFEWQWWEWQWWEWHMECXHEFFEMAKEWLWCP  MM.NI.IE.EN.NNEN.NNEN.IEDA.E..EICHEN.ND.
+</span></span><span class="line"><span class="cl">EWWOXPMECXVLPYSSEWPMFVLWAKHJCMWIELWJEFJE  ENN.A.IEDA......EN.I...NCH..DIN.E.N.E..E
+</span></span><span class="line"><span class="cl">MSEWEMWENEFHAKSHHESJEWXAKFMAKJEMWJERJEMW  I.ENEINE.E..CH...E..ENACH.ICH.EIN.E..EIN
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Jetzt kommt man dem Originaltext schon näher.</p>
+<h1 id="4-polychiffre-und-wie-die-enigma-geknackt-wurde">4. Polychiffre und wie die Enigma geknackt wurde</h1>
+<h2 id="41-was-sind-polychiffre">4.1 Was sind Polychiffre?</h2>
+<p>Wir haben gesehen, dass eine Cäsar-Chiffre recht leicht geknackt werden kann, wenn man nur wenigstens einen (durchschnittlichen) verschlüsselten Satz hat. Die Substitutionschiffre ist bei längeren Texten auch nicht wirklich sicher.  Da hatten wir mit statistischen Untersuchungen der Zeichenhäufigkeiten die wichtigsten Zeichen erraten können.  Außerdem kann man auch recht schnell ans Ziel gelangen, wenn man einen Teil der geheimen Nachricht kennt, z.B. eine einführende Parole.</p>
+<p>Beides kann man umgehen, wenn man nicht im ganzen Text nur eine Chiffre verwendet, sondern die Chiffre häufig ändert.  Das kann man etwa erreichen, wenn man einen zweiten, kanonischen Text verwendet und dessen Buchstaben als den Shift der Cäsar-Chiffre intepretiert.  Der Unterschied zur Substitutionschiffre ist nun, dass der häufigste Buchstabe &lsquo;E&rsquo; nicht immer durch das gleiche Zeichen ersetzt wird, sondern durch ein häufig wechselndes Zeichen.  Damit ist diese Kodierung gegen statistische Untersuchungen gefeit.</p>
+<h2 id="42-wie-sieht-ein-solcher-algorithmus-aus">4.2 Wie sieht ein solcher Algorithmus aus?</h2>
+<p>Wir können das in einem Kotlin-Programm wie folgt implementieren:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">private</span> <span class="k">val</span> <span class="py">letters</span> <span class="p">=</span> <span class="s2">&#34;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">polycrypt</span><span class="p">(</span><span class="n">message</span> <span class="p">:</span><span class="n">String</span><span class="p">,</span> <span class="n">nonce</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">:</span><span class="n">String</span> <span class="p">=</span> <span class="n">message</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">uppercase</span><span class="p">(</span><span class="nc">Locale</span><span class="p">.</span><span class="n">getDefault</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="k">it</span> <span class="k">in</span> <span class="sc">&#39;A&#39;</span><span class="o">..</span><span class="sc">&#39;Z&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">mapIndexed</span> <span class="p">{</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="o">-&gt;</span> <span class="n">letters</span><span class="p">[(</span><span class="n">c</span><span class="p">-</span><span class="sc">&#39;A&#39;</span><span class="p">+(</span><span class="n">nonce</span><span class="p">[</span><span class="n">i</span><span class="p">%</span><span class="n">nonce</span><span class="p">.</span><span class="n">length</span><span class="p">]-</span><span class="sc">&#39;A&#39;</span><span class="p">))%</span><span class="m">26</span><span class="p">]</span>  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">joinToString</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wie bisher auch verwandeln wir den zu verschlüsselnden Text zunächst in Großbuchstaben und filtern alle nicht-Buchstaben heraus.  Dann ersetzen wird das Zeichen <code>c</code> durch <code>letters[(c-'A'+shift)%26]</code> wobei der <code>shift</code> sich als <code>nonce[i%nonce.length]-'A'</code> ergibt.  Wenn der Hilfttext (engl. nonce) mindestens so lang wie die zu verschlüsselnde Nachricht ist, dann hat das <code>%nonce.length</code> keine Wirkung.  Falls der kanonische Text aber kürzer ist, wiederholen wir ihn einfach so oft, bis die ganze Nachricht damit abgedeckt ist.  Um es nochmal explizit zu sagen <code>.mapIndexed { i, c -&gt; ... }</code> ersetzt die einzelnen Zeichen, wobei <code>c</code> das zu ersetzende Zeichen ist und <code>i</code> die Position dieses Zeichens, beginnend bei 0.  Das <code>.joinToString(&quot;&quot;)</code> solltest du schon kennen, es fügt die Liste von Zeichen wieder zu einem String zusammen.</p>
+<p>Die Funktion kann man in einem Programm wie folgt aufrufen:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">private</span> <span class="k">val</span> <span class="py">nonce</span> <span class="p">=</span> <span class="s">&#34;&#34;&#34;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+</span></span></span><span class="line"><span class="cl"><span class="s">  | incididunt ut labore et dolore magna aliqua. Mi bibendum neque egestas congue quisque egestas. Potenti
+</span></span></span><span class="line"><span class="cl"><span class="s">  | nullam ac tortor vitae purus faucibus ornare suspendisse sed. Morbi tristique senectus et netus et. Eu
+</span></span></span><span class="line"><span class="cl"><span class="s">  | tincidunt tortor aliquam nulla facilisi cras. Sapien pellentesque habitant morbi tristique senectus et.
+</span></span></span><span class="line"><span class="cl"><span class="s">  | Feugiat in fermentum posuere urna nec tincidunt praesent semper feugiat. Praesent tristique magna sit
+</span></span></span><span class="line"><span class="cl"><span class="s">  | amet. In iaculis nunc sed augue lacus viverra vitae congue eu. Consectetur adipiscing elit duis
+</span></span></span><span class="line"><span class="cl"><span class="s">  | tristique. Arcu bibendum at varius vel. Vestibulum rhoncus est pellentesque elit ullamcorper dignissim.
+</span></span></span><span class="line"><span class="cl"><span class="s">  | Molestie nunc non blandit massa enim nec dui nunc mattis. Sociis natoque penatibus et magnis. Mauris a
+</span></span></span><span class="line"><span class="cl"><span class="s">  | diam maecenas sed enim. Orci a scelerisque purus semper. Et odio pellentesque diam volutpat commodo sed
+</span></span></span><span class="line"><span class="cl"><span class="s">  | egestas egestas fringilla. In iaculis nunc sed augue lacus viverra vitae. Etiam non quam lacus
+</span></span></span><span class="line"><span class="cl"><span class="s">  | suspendisse faucibus interdum posuere lorem. Eget mauris pharetra et ultrices neque ornare aenean
+</span></span></span><span class="line"><span class="cl"><span class="s">  | euismod.&#34;&#34;&#34;</span><span class="p">.</span><span class="n">trimMargin</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">uppercase</span><span class="p">(</span><span class="nc">Locale</span><span class="p">.</span><span class="n">ITALIAN</span><span class="p">).</span><span class="n">filter</span> <span class="p">{</span> <span class="k">it</span> <span class="k">in</span> <span class="sc">&#39;A&#39;</span><span class="o">..</span><span class="sc">&#39;Z&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Polychiffe</span><span class="se">\n</span><span class="s2">  Bitte geben Sie den zu verschlüsselnden Text ein: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">message</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">encrypted</span> <span class="p">=</span> <span class="n">polycrypt</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">nonce</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">println</span><span class="p">(</span><span class="s2">&#34;Die verschlüsselte Nachricht lautet: </span><span class="si">$encrypted</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Der eigentliche Aufruf ist recht einfach.  Die spannende Frage bleibt, woher man den Hilfstext bekommt.  Ich habe hier einen traditionellen Text aus dem Schriftsatz genommen, er heißt &ldquo;Lorem Ipsum&rdquo;, weil er mit diesen Worten anfängt.  Es soll Latein sein, deshalb habe ich den Standard (<code>Locale</code>) italienisch verwendet, was dem Lateinischen vielleicht am nächsten kommt.  Das besondere an diesem Text ist, dass alle (lateinischen) Buchstaben darin vorkommen und auch die meisten Ligaturen (also Doppelbuchstaben, die in einem guten Schriftsatz verschmolzen werden).  Du solltest natürlich für deine Verschlüsselung einen eigenen Text wählen, z.B. den Anfang von deinem Lieblingsbuch oder auch einen selbstgeschriebenen Text.</p>
+<p>Zum Entschlüsseln braucht man nur das &ldquo;Vorzeichen&rdquo; vom <code>shift</code> umdrehen, etwa so</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">polydecrypt</span><span class="p">(</span><span class="n">encrypted</span> <span class="p">:</span><span class="n">String</span><span class="p">,</span> <span class="n">nonce</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">=</span> <span class="n">encrypted</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">uppercase</span><span class="p">(</span><span class="nc">Locale</span><span class="p">.</span><span class="n">getDefault</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="k">it</span> <span class="k">in</span> <span class="sc">&#39;A&#39;</span><span class="o">..</span><span class="sc">&#39;Z&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">mapIndexed</span> <span class="p">{</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="o">-&gt;</span> <span class="n">letters</span><span class="p">[(</span><span class="n">c</span><span class="p">-</span><span class="sc">&#39;A&#39;</span><span class="p">+</span><span class="m">26</span><span class="p">-(</span><span class="n">nonce</span><span class="p">[</span><span class="n">i</span><span class="p">%</span><span class="n">nonce</span><span class="p">.</span><span class="n">length</span><span class="p">]-</span><span class="sc">&#39;A&#39;</span><span class="p">))%</span><span class="m">26</span><span class="p">]</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">joinToString</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="33-wie-sicher-ist-das">3.3 Wie sicher ist das?</h2>
+<p>Nun das hängt vor allem davon ab, wie geheim du den Hilfstext halten kannst.  Solange der Hilfstext noch nicht erraten wurde, kann man aus einer unbekannten abgefangenen Nachricht nicht durch statistische Analyse die gemeine Original-Nachricht erschließen.</p>
+<p>Schauen wir uns das am anfänglichen Geheimtext an.  Dieser lautet verschlüsselt:</p>
+<blockquote>
+<p>EFZJ RUXU BTHI ESRT MGDG QGGI ATIK WIGJ IOSG AIWP</p>
+</blockquote>
+<p>Wenn man jetzt die statistische Analyse darüber laufen lässt, ergibt sich:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  I: 15,0%, G: 15,0%, T: 7,5%, E: 5,0%, J: 5,0%, R: 5,0%, U: 5,0%
+</span></span><span class="line"><span class="cl">  Partially decryped message: .........I.E...I.N.N.NNE.IE..EN.E..N.E..
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Offenbar gibt es noch keine Gleichverteilung der verschlüsselnden Buchstaben, aber wenn man glaubt, dass das häufigste Zeichen für &lsquo;E&rsquo; und das zweithäufigste für &lsquo;N&rsquo; steht, dann kommt man zu keinem guten Ergebnis.</p>
+<p>Ein weiterer Vorteil ist auch, dass selbst, wenn die Nachricht immer mit der gleichen Parole anfängt, dann kann man im Klartext-Angriff nur die ersten Buchstaben aus dem Hilfstext erraten.  Wenn es ein einfacher Text ist, kann man diesen vielleicht an den Anfangsworten erraten, z.B. falls man erkennt, dass er mit &ldquo;Lorem ipsum&rdquo; losgeht. Wenn wir wieder mit den Paragrafen vom Anfang starten, dann ergibt sich der verschlüsselte Text:</p>
+<blockquote>
+<p>YOTLPMBOCDOSENKWAFAXHXPF
+FSENZSKCKHPCHSWPVRTKPTXJ</p>
+</blockquote>
+<p>Wenn man jetzt mit dem Klartext &ldquo;Nachdem wir letztes Mal&rdquo; vergleicht,</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Polychiffre analysieren</span><span class="se">\n</span><span class="s2">  Bitten geben Sie den verschlüsselten Text ein: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">encrypted</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">encrypted</span><span class="p">.</span><span class="n">isNullOrEmpty</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Bitte geben Sie den Anfang vom vermuteten Klartext ein: &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">fragment</span> <span class="p">=</span> <span class="n">readlnOrNull</span><span class="p">()</span><span class="o">?.</span><span class="n">trim</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">fragment</span><span class="p">.</span><span class="n">isNullOrEmpty</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span>
+</span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">nonce</span> <span class="p">=</span> <span class="n">polyAnalyze</span><span class="p">(</span><span class="n">encrypted</span><span class="p">,</span> <span class="n">fragment</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">print</span><span class="p">(</span><span class="s2">&#34;Der Anfang vom Hilfstext lautet: </span><span class="si">$nonce</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">fun</span> <span class="nf">polyAnalyze</span><span class="p">(</span><span class="n">encrypted</span> <span class="p">:</span><span class="n">String</span><span class="p">,</span> <span class="n">fragment</span> <span class="p">:</span><span class="n">String</span><span class="p">)</span> <span class="p">=</span> <span class="n">encrypted</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">uppercase</span><span class="p">(</span><span class="nc">Locale</span><span class="p">.</span><span class="n">getDefault</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">filter</span> <span class="p">{</span> <span class="k">it</span> <span class="k">in</span> <span class="sc">&#39;A&#39;</span><span class="o">..</span><span class="sc">&#39;Z&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">zip</span><span class="p">(</span><span class="n">fragment</span><span class="p">.</span><span class="n">uppercase</span><span class="p">(</span><span class="nc">Locale</span><span class="p">.</span><span class="n">getDefault</span><span class="p">()).</span><span class="n">filter</span> <span class="p">{</span> <span class="k">it</span> <span class="k">in</span> <span class="sc">&#39;A&#39;</span><span class="o">..</span><span class="sc">&#39;Z&#39;</span> <span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">map</span> <span class="p">{</span> <span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">letters</span><span class="p">[(</span><span class="n">e</span><span class="p">-</span><span class="sc">&#39;A&#39;</span><span class="p">+</span><span class="m">26</span><span class="p">-(</span><span class="n">f</span><span class="p">-</span><span class="sc">&#39;A&#39;</span><span class="p">))%</span><span class="m">26</span><span class="p">]</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="n">joinToString</span><span class="p">(</span><span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>erhält man einen Hilfstext von:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  LOREMIPSUMDOLORSITAM
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Wenn man jetzt im Internet sucht, kann man den Text &ldquo;Lorem Ipsum&rdquo; finden und damit einen guten Teil des Hilfstextes raten.</p>
+<p>Die Sicherheit ist also nur so gut, wie man einen geheimen Hilfstext findet.</p>
+<h2 id="34-was-war-die-enigma">3.4 Was war die Enigma?</h2>
+<p>Ein Problem an den Polychiffren ist offenbar, dass man einen einigermaßen langen aber geheimen Text finden muss.  Eine Alternative ist es, statt eines lesbaren Textes die Shifts von einem Algorithmus ausrechnen zu lassen.  Dieser Algorithmus wird dann ab und zu mit einem neuen Schlüssel versorgt.  Genau das hatten die Hersteller der Enigma getan.</p>
+<p>Die Enigma war eine Chiffriermaschine für die geheime Kommunikation der Wehrmacht vor und im 2. Weltkrieg.  Es gab auf jedem Schlachtkreuzer und in jedem U-Boot eine, sowie natürlich in der OHL.  Der elektromechanische Mechanismus zur Chiffrierung bestand aus zunächst 2, später 3 Chiffrierzahnrädern, die jeweils eine Cäsar-Chiffre ausführten, nach einem festen Algorithmus den Shift aber bei jeder Übersetzung änderten.  An der Maschine wurde täglich ein neuer Startcode eingestellt.</p>
+<h2 id="35-wie-konnte-die-enigma-geknackt-werden">3.5 Wie konnte die Enigma geknackt werden?</h2>
+<p>Die Briten (Polen und Amerikaner) waren natürlich an der Verschlüsselung und dem Knacken des Codes interessiert.  Sie hatten Glück und bereits am Anfang des Krieges eine Enigma erbeutet.  Aber der Mechanismus und auch das Knacken der Codes waren nicht einfach.  Zum Glück hatten sie ein junges Talent namens <a href="https://de.wikipedia.org/wiki/Alan_Turing">Alan Turing</a>, der viel von Mathematik und Logik verstand, sowie ein passionierter Kryptoanalytiker war.  Er entwarf zusammen mit anderen auf den Ideen der Polen und seinen eigenen Ideen von Berechenbarkeit einen Automaten (<a href="https://de.wikipedia.org/wiki/Turing-Bombe">the Bomb</a>), mit dem man im Prinzip die Verschlüsselung der Enigma knacken konnte.  Es gab nur 2 Probleme:  Zum einen musste man hinreichend viele Funksprüche abfangen und zum anderen dauerten die Berechnungen einigermaßen lange.  Am Anfang reichte die Rechenzeit nicht aus, um innerhalb eines Tages den Code zu knacken, und die Nazis wechselten den Code jeden morgen.  Dann aber entdeckten die Briten einen Trick.  Die gründlichen Deutschen starteten jeden verschlüsselten Funkspruch mit der Enigma mit einer Standardparole, der Uhrzeit und dem Wetterbericht. Diese Daten waren mehr-oder-weniger frei verfügbar.  Somit hatte man einen Klartext, um die Analyse zu beschleunigen.  Damit gelang es, den Code schnell genug zu knacken.</p>
+<p>Leider war der Krieg damit noch nicht gewonnen und das größte Risiko für die britische Spionage war, dass die Nazis entdeckten, dass ihre Enigma geknackt wurde und sie auf stärkere Verschlüsselung setzen mussten.  Das Ergebnis war eine ethisch grenzwertige Sache, dass nämlich nicht gegen alle Operationen der Nazis unmittelbar vorgegangen wurde.  So konnten die Nazis ein amerikanisches Passagierschiff versenken, obwohl die Briten den Funkspruch zum Angriff empfangen und entschlüsselt hatten.  Stattdessen wurden die entschlüsselten Funksprüche genutzt, um genügend viele kriegsentscheidende Schlachten zu gewinnen.  Aus Sicht der Nazis verloren sie zwar häufiger, aber schlossen noch nicht, dass das am Entschlüsseln ihrer geheimen Funksprüche lag.  Wer die genaueren Hergänge und das geheime Programm der Briten zur Entschlüsselung der Enigma wissen will, sollte die Filme <a href="https://de.wikipedia.org/wiki/Enigma_%E2%80%93_Das_Geheimnis">Enigma &ndash; Das Geheimnis (2001)</a> und <a href="https://de.wikipedia.org/wiki/The_Imitation_Game_%E2%80%93_Ein_streng_geheimes_Leben">The Imitation Game (2014)</a> schauen oder die Bücher dazu lesen.</p>
+<h1 id="4-warum-sollte-rsa-sicherer-sein">4. Warum sollte RSA sicherer sein?</h1>
+<p>Wenn du dich an den RSA-Algorithmus vom letzten Mal erinnerst, dann stellt sich die Frage, ob der wirklich sicherer als etwa die Enigma ist.  Dazu sollte man folgende Verbesserungen erkennen:</p>
+<ol>
+<li>
+<p>Für den RSA-Algorithmus ist der Schlüssel typischer Weise 512&ndash;4096 bit lang &ndash; Das ist mehr als die Codes, die in der Enigma konfiguriert wurden.</p>
+</li>
+<li>
+<p>Der RSA-Algorithmus verschlüsselt Bytegruppen, nicht nur einzelne Buchstaben &ndash; Was ich beim letzten Mal nicht geschrieben habe ist, dass man mit dem PGP-Programm nicht einfach jeden Buchstaben einzeln verschlüsselt, sondern immer so viel Bytes auf einmal zusammen, wie der Modulus hergibt.  Daraus ergibt sich, dass man nicht einfach nur 26 Ersetzungen erraten muss, sondern z.B. $2^{4096}$ &ndash; das sind zu viele, um sie in einer einfachen Tabelle zu speichern.</p>
+</li>
+<li>
+<p>Der RSA-Algorithmus verschlüsselt asymmetrisch &ndash; Im Gegensatz zur Cäsar-Chiffre und auch zur Poly-Chiffre kann man die Entschlüsselung nicht einfach aus der Verschlüsselung gewinnen.  Das liegt daran, dass in der Faktorisierung $e\cdot f \equiv 1 \pmod{\phi(n)}$ die Exponenten $e$ und $f$ zwar gleichwertig eingehen, man aber bei Unkenntnis von $\phi(n)$ nicht aus dem einen auf den anderen schließen kann.  Ein Risiko gibt es aber bei der üblichen Verwendung:  Da der Exponent der öffentlichen Verschlüsselung immer 65537 ist, kann man aus dem privaten Schlüssel (der aus $f$ und aus $n$ besteht), den öffentlichen Schlüssel leicht rekonstruieren.</p>
+</li>
+</ol>
+<h1 id="5-digitale-signaturen">5. Digitale Signaturen</h1>
+<p>Kann man außer der Übermittlung geheimer Nachrichten auch noch andere Dinge tun, z.B. mit RSA?</p>
+<p>Ja, zum Beispiel eMail digital signieren.  Während man auf Papier eine eigene Unterschrift so unter einen Brief schreiben kann, dass sie nur schwer zu fälschen ist, ist das bei digitalen Nachrichten schon schwieriger.  Wenn der Angreifer einmal eine Datei mit deiner gescannten Unterschrift erhalten hat, dann kann er die natürlich an jede Nachricht, die er für authentisch erklären will, anfügen.</p>
+<p>Die Lösung ist eine digitale Unterschrift.  Aber lass uns zunächst klären, wie das Prozedere dazu aussieht:</p>
+<ol>
+<li>Man entwirft eine Nachticht (digital), die authentisch sein soll.</li>
+<li>Man produziert eine kaum fälschbare Unterschrift, in der auf die Nachricht Bezug genommen wird.</li>
+<li>Man publiziert die Nachricht mit der Unterschrift.</li>
+<li>Jeder kann die Nachricht lesen, aber durch Entschlüsseln der Unterschrift kann man sich überzeugen, dass nur die Original-Nachricht unterschrieben wurde.</li>
+</ol>
+<p>Dabei sind offenbar 2 Dinge wichtig: zum einen, dass jeder die Unterschrift überprüfen kann und zum anderen, dass niemand die Unterschrift (mit ihrem Bezug) zur Nachricht fälschen kann.</p>
+<p>Wie kann man das mit RSA tun?</p>
+<p>Ganz einfach, man kann z.B. die gesamte Nachricht mit dem privaten Schlüssel verschlüsseln und dann kann jeder die verschlüsselte Nachricht mit dem öffentlichen Schlüssel entschlüsseln, aber niemand (außer dir selbst) eine andere Nachricht verschlüsseln (denn keiner hat den privaten Schlüssel).  Der Grund, dass es egal ist, ob man erst mit dem privaten Schlüssel verschlüsselt und dann mit dem öffentlichen Schlüssel entschlüsselt oder erst mit dem öffentlichen Schlüssel verschlüsselt und dann mit dem privaten Schlüssel entschlüsselt, ist dass $(b^e)^f\equiv b \equiv (b^f)^e \pmod n$.  Das ist eine der Eigenschaften dieser asymmetrischen Verschlüsselung.  Mit einem symmetrischen Schlüssel kann man das nicht hinbekommen.</p>
+<h2 id="52-anwendung-einzellizenz-für-software">5.2 Anwendung: Einzellizenz für Software</h2>
+<p>Man kann dieses Prinzip auch anwenden, um Software für einzelne Kunden zu lizensieren.  Dazu muss man zunächst sicherstellen, dass man den/die Rechner des Kunden sicher identifizieren kann.  Ein Beispiel in Assembler/C ist, die ID der CPU auszulesen.  Diese ist für jede hergestellte CPU verschieden und kann, wenn das Programm wirklich auf der CPU ausgeführt wird, nicht gefälscht werden.  Die Nachricht, die signiert wird, ist also die ID des Rechners, für den das Programm bezahlt wurde.  Entsprechend braucht man einen geheimen (und einen öffentlichen) Schlüssel.</p>
+<p>Der 2., ebenfalls trickreiche Teil ist, dass das Programm zur Ausführungszeit diese Signatur überprüfen muss und entsprechend die Ausführung verweigern muss, falls der Schlüssel nicht zum Rechner passt. In einem C oder Rust-Programm kann man das ganz gut sicherstellen, besonders, wenn man das Debuggen und Disassemblieren/Decompilieren verhindert.  Leider kann man das bei JVM- oder JS-Programmen nicht so sicher verhindern, da sich deren ausführbarer Code im Prinzip wieder rückübersetzen und auch debuggen lässt.  Mit mehr Aufwand kann man das erschweren.</p>
+<p>Im Prinzip ist es eine Abwägung zwischen der Sicherheit der Lizenz und dem Aufwand, den man zur Sicherung betreiben will.  Zusätzlich absichern kann man das ganze, indem man die Lizenz nur für einen begrenzten Versionsbereich der Software erteilt (was dann in der entschlüsselten Nachricht ebenfalls &lsquo;drinsteht).  Wenn man oft genug Updates herausbringt, dann müssen die Nutzer regelmäßig neue Schlüssel beantragen und ein eventuelles Fälschen eines alten Schlüssels bringt nicht lange genug einen Vorteil.</p>
+<p>Die Alternative ist, dass man die Benutzung der Software/Bibliothek kontrolliert, z.B. wenn diese per Internet sich beim Hersteller meldet (zusammen mit dem registrierten Nutzer und der ID des Rechners).  Falls dann zu viele Instanzen den gleichen registrierten Nutzer oder Lizenz melden, kann das Programm die Ausführung verweigern oder man kann entsprechend Abmahnungen an die Nutzer schreiben.  Im Firmenbreich oder für qualitativ hochwertige Software ist das sicherlich sinnvoll, besonders, wenn die Softwarefirma viel Zeit in die Entwicklung und das Design der Software gesteckt hat.</p>
+<p>Umgekehrt ist es jedoch nicht akzeptabel, wenn öffentliche Nachrichten, z.B. eine eMail einer Behörde an Nutzer, nur mit proprietären Programmen (also für die man Geld bezahlen muss), lesbar und nutzbar sind.  Dagegen gibt es zum einen offene Standards, etwa die meisten Programmiersprachen, Markdown, HTML 5, DOCX, PDF und noch einige andere.  Und zum anderen gibt es freie Implementierungen von Standard Office-Software, z.B. Libre Office.  Natürlich kann man argumentieren, dass Briefe in Microsoft Word immer etwas schöner aussehen als im Libre Office, aber die Frage ist halt auch, ob ein privater Nutzer wirklich Microsoft bezahlen muss, um eine behördliche eMail zu lesen oder ein Formular auszufüllen.</p>
+<h1 id="weiterführende-literatur">Weiterführende Literatur</h1>
+<p>[2] <a href="https://www.spektrum.de/kolumne/kryptografie-der-algorithmus-der-die-nsa-in-den-wahnsinn-trieb/2101827">Spektrum der Wissenschaft, Januar &lsquo;23</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">melli79</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2023-01-29
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">Markdown</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://melli79.github.io/post/23encryptionandsigning/index.md" target="_blank">The Markdown version »</a></span>
+    </p>
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/22eulerfermat/">
+            <span class="next-text nav-default">22. ggT, phi und RSA</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2023-01-29 21:10:53 \u002b0100 CET',
+        title: '23. Verschlüsselung und Signierung',
+        link: decodeURI(location.href),
+        desc: 'Nachdem wir letztes Mal den RSA Algorithmus kennen gelernt haben, wollen wir diesmal etwas allgemeiner über Kryptographie sprechen.\nWer lieber ein (kurzes) Buch liest, dem sei [1] empfohlen.\n[1] A. Beutelspacher: Kryptologie, Eine Einführung in die Wissenschaft vom Verschlüsseln, Verbergen und Verheimlichen, Taschenbuch, November 2014.\n1. Wenn Alice Bob eine geheime Nachricht schicken will\u0026hellip; Zunächst einmal, worum geht es eigentlich bei Kryptographie (als Teilgebiet der Mathematik\/Informatik). Wir haben 2 Subjekte, die geheime Informationen über einen öffentlichen Kanal austauschen wollen.',
+        owner: 'melli79',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="melli79/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:melchiorG@gMail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://melli79.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">melli79</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.1c70606d1b733282f06230615f5561b5894924b6f9930ba2ab99cf1254f75a1a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
