@@ -19,6 +19,11 @@ Bleibt die Frage, ob man das auch effizienter hinbekommt.
 
 Hierzu hatten I.S. Reed und G. Solomon eine zündende Idee aus dem Bereich der Algebra.  Das Grundprinzip ist zunächst, dass man nicht einzelne bits/Bytes oder ganze Zahlen verschlüsselt, sondern gleich Gruppen von $d+1$ Zahlen.  Wenn jetzt $d=5$ und wir statt 6 Zahlen, 8 Zahlen übermitteln, dann ist das Signal nur um 30% länger geworden, aber mit dem richtigen Verfahren kann man sowohl auf Übertragungsfehler testen als auch einfache Fehler korrigieren.
 
+![Interpolation, Polynom, das durch Stützpunkte geht.](/img/interpolation.png)
+
+Bild 1: Interpolation, Polynom, das durch Stützpunkte geht.
+
+
 Das Prinzip ist folgendes:  Man kann die $d+1$ Zahlen als die Koeffizienten eines Polynoms (in 1 Variable) vom Grad $d$ schreiben.  Aber wie kann man dieses Polynom übertragen?  Dazu überlegt man sich, dass ein Polynom $y=p(x)= a_0+a_1x+a_2x^2+\dotsm+a_dx^d$ durch $d+1$ Punkte in der Ebene eindeutig bestimmt ist.  Dabei müssen nur die $x$-Koordinaten der Punkte verschieden sein.  Wenn man statt $d+1$ Punkten sogar $d+2$ Punkte verwendet, hat man 1 zusätzliche Gleichung zur Kontrolle.  Wenn man schließlich $d+3$ Punkte verwendet, kann man probieren, ob davon $d+2$ Punkte auf einem Polynom vom Grad $d$ liegen.  Dieses ist dann das richtige Polynom und falls genau 1 Punkt vom Polynom abweicht, weiß man dass wahrscheinlich nur 1 Übertragungsfehler vorkam.
 
 Also was muss man jetzt übertragen?
@@ -376,7 +381,7 @@ Und schließlich brauchen wir noch die Kodiervorschrift:
 Du solltest vielleicht das obige Programm mit einem einfachen Text probieren.  Die NASA (Weltraumbehörde der USA) hat dazu einen Prototypen geschrieben, der ein Bild kodiert, dann mit Rauschen kopiert und das "Übertragene" wieder dekodiert.
 
 ![Als Beleg, dass ihr Algorithmus tatsächlich Bilder vor Rauschen schützen kann, hat die NASA das berühmte Bild der Mona-Lisa mit Rauschen wie auf 200AE Wegstrecke simuliert einmal direkt übertragen und einmal mit dem Reed-Solomon Code (rechts). © 2021 Sun Xiaoli, NASA.](/img/Mona-Lisa-denoised.jpg)
-Bild 1: Als Beleg, dass ihr Algorithmus tatsächlich Bilder vor Rauschen schützen kann, hat die NASA das berühmte Bild der Mona-Lisa mit Rauschen wie auf 200AE Wegstrecke simuliert einmal direkt übertragen und einmal mit dem Reed-Solomon Code (rechts). © 2021 Sun Xiaoli, NASA.
+Bild 2: Als Beleg, dass ihr Algorithmus tatsächlich Bilder vor Rauschen schützen kann, hat die NASA das berühmte Bild der Mona-Lisa mit Rauschen wie auf 200AE Wegstrecke simuliert einmal direkt übertragen und einmal mit dem Reed-Solomon Code (rechts). © 2021 Sun Xiaoli, NASA.
 
 Man kann jetzt natürlich behaupten, dass man auch im linken Bild noch die Frau erkennen kann, aber leider sind die Bilder von fernen Planeten nicht so leicht zu entziffern.  Aufgrund der extrem ungleichmäßigen Beleuchtung kann es große Kontraste und scharfe Hell-Dunkel-Kanten geben und erst wenn das gesamte Bild nahezu fehlerfrei entschlüsselt ist, kann man versuchen, das aufgenommene zu verstehen.
 
