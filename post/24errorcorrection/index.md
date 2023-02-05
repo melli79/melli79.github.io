@@ -11,7 +11,7 @@ Eine vergleichbare Situation liegt bei der Langzeitspeicherung von Computerdaten
 # 2. Eine Einfache Idee
 Wenn man nicht sicher ist, ob ein Signal 100% fehlerfrei übertragen wird, dann kann man das gleiche Signal einfach 2-mal übertragen und anschließend vergleichen, ob das Ergebnis übereinstimmt.  Leider verdoppelt man damit die Länge der übertragenen Nachricht.
 
-Wenn man außerdem im Falle leichter Fehler auch noch das korrekte Signal wiedergewinnen will, kann man das ursprüngliche Signal 3-mal übertragen und dann schauen, ob 1) alle 3 Versionen gleich sind (nur dann wurde vollkommen fehlerfrei übertragen) und 2) bei 1 abweichenden Version das Mehrheitssignal verwenden.  Das ganze gibt natürlich nur Sinn, wenn man digitale Signale verwendet, da bei Analogen Signalen warscheinlich 3 verschiedene Versionen ankommen werden und den Mittelwert zu bilden, die Fehler nur auf ca. $1/\sqrt3$ reduziert.  Leider hat man hierfür das Signal 3-mal so lang gemacht, was für Sonden mit geringer verfügbarer Energie ein Problem sein kann.
+Wenn man außerdem im Falle leichter Fehler auch noch das korrekte Signal wiedergewinnen will, kann man das ursprüngliche Signal 3-mal übertragen und dann schauen, ob 1) alle 3 Versionen gleich sind (nur dann wurde vollkommen fehlerfrei übertragen) und 2) bei 1 abweichenden Versionen das Mehrheitssignal verwenden.  Das ganze gibt natürlich nur Sinn, wenn man digitale Signale verwendet, da bei Analogen Signalen warscheinlich 3 verschiedene Versionen ankommen werden und den Mittelwert zu bilden, die Fehler nur auf ca. $1/\sqrt3$ reduziert.  Leider hat man hierfür das Signal 3-mal so lang gemacht, was für Sonden mit geringer verfügbarer Energie ein Problem sein kann.
 
 Bleibt die Frage, ob man das auch effizienter hinbekommt.
 

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GUI on Melchior&#39;s Homepage</title>
+    <link>https://melli79.github.io/categories/gui/</link>
+    <description>Recent content in GUI on Melchior&#39;s Homepage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 04 Sep 2022 12:35:50 +0200</lastBuildDate><atom:link href="https://melli79.github.io/categories/gui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>16. Wirbel im Computer</title>
+      <link>https://melli79.github.io/post/16curlsonthecomputer/</link>
+      <pubDate>Sun, 04 Sep 2022 12:35:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/16curlsonthecomputer/</guid>
+      <description>Nachdem wir letztens Fraktale gemalt haben, wollen wir heute Animationen produzieren.
+Das Ziel Your browser does not support the video tag. 0. Programm aufsetzen So wie bei den meisten Desktop Grafik-Apps, starten wir mit einem Hauptprogramm, dass ein Fenster anlegt, in dem dann unsere Komponente dargestellt wird.
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 class MyWindow(private val content :JComponent) :JFrame(&amp;#34;Curls on the Computer&amp;#34;), KeyListener { init { layout = BorderLayout() contentPane = content setSize(800, 600) defaultCloseOperation = EXIT_ON_CLOSE addKeyListener(this) .</description>
+    </item>
+    
+    <item>
+      <title>15 Iterierte Funktionssysteme</title>
+      <link>https://melli79.github.io/post/15iteratedfunctionsystems/</link>
+      <pubDate>Sun, 21 Aug 2022 12:35:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/15iteratedfunctionsystems/</guid>
+      <description>Nachdem wir letzte Wochen das Mandelbrot und den Baum des Pythagoras gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&amp;#34;Iteriertes Funktionensystem&amp;#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(IFS(System.</description>
+    </item>
+    
+    <item>
+      <title>14 Baum des Pythagoras</title>
+      <link>https://melli79.github.io/post/14baumdespythagoras/</link>
+      <pubDate>Fri, 19 Aug 2022 18:35:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/14baumdespythagoras/</guid>
+      <description>Nachdem wir letzte Woche das Mandelbrot und Julia-Mengen gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&amp;#34;Baum des Pythagoras&amp;#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(TreeOfPythagoras()) window.</description>
+    </item>
+    
+    <item>
+      <title>13 Mandelbrot (Apfelmännchen)</title>
+      <link>https://melli79.github.io/post/13mandelbrot/</link>
+      <pubDate>Sat, 25 Jun 2022 12:35:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/13mandelbrot/</guid>
+      <description>Nachdem wir letzte Woche Korbmuster gemalt haben, wollen wir heute weitere mathematische Kunst produzieren.
+Das Ziel 0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neues Kotlin/JVM-Projekt an und schreibst das Hauptprogramm etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 class MainWindow(contentPane :JComponent) :JFrame(&amp;#34;Mandelbrot&amp;#34;) { init { this.layout = BorderLayout() this.contentPane = contentPane this.setSize(500, 500) defaultCloseOperation = EXIT_ON_CLOSE } } fun main(args :Array&amp;lt;String&amp;gt;) { val window = MainWindow(Mandelbrot()) window.</description>
+    </item>
+    
+    <item>
+      <title>12 Moderne Kunst</title>
+      <link>https://melli79.github.io/post/12modernart/</link>
+      <pubDate>Mon, 18 Apr 2022 16:05:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/12modernart/</guid>
+      <description>Nachdem wir letzte Woche Augen gemalt haben, wollen wir heute moderne Kunst produzieren.
+Das Ziel 1. Projekt aufsetzen Das geht so ähnlich wie beim letzten Projekt: Unter Datei &amp;gt; Neu &amp;gt; Projekt &amp;hellip; ein Kotlin-Projekt mit Namen &amp;ldquo;Modern Art&amp;rdquo; aufsetzen mit dem gleichen JDK wie beim letzten Mal.
+Dann im Hauptprogramm &amp;ldquo;Main.kt&amp;rdquo;:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 class MainWindow(contentPane :JComponent) :JFrame(&amp;#34;Modern Art&amp;#34;) { init { this.</description>
+    </item>
+    
+    <item>
+      <title>11 Augen malen</title>
+      <link>https://melli79.github.io/post/11eyes/</link>
+      <pubDate>Sun, 10 Apr 2022 12:31:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/11eyes/</guid>
+      <description>Nachdem ihr eine Entwicklungsumgebung aufgesetzt habt, wollen wir heute etwas malen.
+Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, erstellt ihr eine Datei &amp;gt; Neu &amp;gt; Projekt &amp;hellip; vom Typ Kotlin, Console Application. Ihr könnt dem Projekt einen ordentlichen Namen geben, z.B. Eyes (engl. für Augen), achtet darauf, dass das Build-System Gradle-Kotlin ist, das Projekt open JDK 11 (oder was ihr damals als Java-Umgebung installiert habt) verwendet.</description>
+    </item>
+    
+  </channel>
+</rss>

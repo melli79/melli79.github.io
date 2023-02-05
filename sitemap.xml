@@ -100,7 +100,7 @@
   </url>
   
   <url>
-    <loc>https://melli79.github.io/categories/swing/</loc>
+    <loc>https://melli79.github.io/categories/gui/</loc>
     <lastmod>2022-09-04T12:35:50+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -172,55 +172,6 @@
   <url>
     <loc>https://melli79.github.io/tags/</loc>
     <lastmod>2022-04-09T11:50:55+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/03cwomengivebirth/</loc>
-    <lastmod>2021-12-23T18:10:51+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/deutsch/</loc>
-    <lastmod>2021-12-23T18:10:51+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/03bpeoplecanmarry/</loc>
-    <lastmod>2021-12-22T21:39:52+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/03dataandpeople/</loc>
-    <lastmod>2021-12-22T19:40:39+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/02ifandsmurfs/</loc>
-    <lastmod>2021-12-20T20:30:46+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/22statistics/</loc>
-    <lastmod>2021-12-19T20:25:47+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/01loops/</loc>
-    <lastmod>2021-12-18T23:21:50+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
