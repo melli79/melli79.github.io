@@ -385,6 +385,9 @@ Bild 2: Als Beleg, dass ihr Algorithmus tatsächlich Bilder vor Rauschen schütz
 
 Man kann jetzt natürlich behaupten, dass man auch im linken Bild noch die Frau erkennen kann, aber leider sind die Bilder von fernen Planeten nicht so leicht zu entziffern.  Aufgrund der extrem ungleichmäßigen Beleuchtung kann es große Kontraste und scharfe Hell-Dunkel-Kanten geben und erst wenn das gesamte Bild nahezu fehlerfrei entschlüsselt ist, kann man versuchen, das aufgenommene zu verstehen.
 
+PS: Es gibt natürlich auch noch weitere Anwendungen:  Neben den Laser-Disks (CD, DVD, BD) auch das Digitalradio (DAB) sowie Digitalfernsehen.
+
+
 # Weiterführende Literatur
 
 [1] Wikipedia: [wiki > Reed-Solomon-Code](https://de.wikipedia.org/wiki/Reed-Solomon-Code).
