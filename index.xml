@@ -6,7 +6,19 @@
     <description>Recent content on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 05 Feb 2023 10:55:45 +0100</lastBuildDate><atom:link href="https://melli79.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Feb 2023 18:12:00 +0100</lastBuildDate><atom:link href="https://melli79.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>30. Projekt Bézierkurven</title>
+      <link>https://melli79.github.io/post/30beziercurves/</link>
+      <pubDate>Mon, 20 Feb 2023 18:12:00 +0100</pubDate>
+      
+      <guid>https://melli79.github.io/post/30beziercurves/</guid>
+      <description>Nachdem wir in den ersten 3 Teilen eine Einführung in Kotlin und Programmieren, sowie Grafikprogrammierung und vertiefende Algorithmen betrachtet haben, wollen uns jetzt mittelgroßen Projekten widmen. Heute fangen wir mit Bézierkurven an.
+0. Die Aufgabe Gegeben ein paar Punkte in der Ebene, wie können wir eine glatte Kurve durch diese Punkte zeichnen?
+Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC P.S. Foresman 2007.
+Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mit einem Lineal (und Stift) verbinden.</description>
+    </item>
+    
     <item>
       <title>24. Störungssichere Übertragung</title>
       <link>https://melli79.github.io/post/24errorcorrection/</link>
