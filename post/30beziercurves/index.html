@@ -57,7 +57,7 @@ Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mi
 Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC P.S. Foresman 2007.
 Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mit einem Lineal (und Stift) verbinden."><meta itemprop="datePublished" content="2023-02-20T18:12:00+01:00" />
 <meta itemprop="dateModified" content="2023-02-20T18:12:00+01:00" />
-<meta itemprop="wordCount" content="5449">
+<meta itemprop="wordCount" content="5597">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="30. Projekt Bézierkurven"/>
 <meta name="twitter:description" content="Nachdem wir in den ersten 3 Teilen eine Einführung in Kotlin und Programmieren, sowie Grafikprogrammierung und vertiefende Algorithmen betrachtet haben, wollen uns jetzt mittelgroßen Projekten widmen. Heute fangen wir mit Bézierkurven an.
@@ -153,6 +153,7 @@ Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mi
     <li><a href="#9-selber-experimentieren">9. Selber Experimentieren</a>
       <ul>
         <li><a href="#92-numerische-bibliothek-verwenden">9.2 Numerische Bibliothek Verwenden</a></li>
+        <li><a href="#93-weiterführende-ideen">9.3 Weiterführende Ideen</a></li>
         <li><a href="#99-zusammenfassung">9.9 Zusammenfassung</a></li>
       </ul>
     </li>
@@ -1404,6 +1405,11 @@ $$ G = XX^T,\quad X = (\mathbf b(x_0),\dots,\mathbf b(x_n)). $$</p>
 </div>
 </div><p>Konkret heißt die obige Definition von <code>fun b(x :Double, ...)</code>, dass wir nur mit Splines vom Grad 1, 2 oder 3 arbeiten können, aber das sind die häufigsten Grade.  In den obigen Beispielen hatten wir ja stets Grad 3 verwendet.</p>
 <p>Viel Erfolg beim Probieren.</p>
+<h2 id="93-weiterführende-ideen">9.3 Weiterführende Ideen</h2>
+<p>Wie man bereits am Titel von [3] sieht, ist eine der neueren Entwicklungen zu Bézierkurven das automatische Wählen weiterer Stützstellen.  Wie wir bereits bei der Interpolation gesehen hatten, weicht die Näherung an manchen Stellen stärker von der exakten Kurve ab, als an anderen Stellen.  Die Idee ist nun, die Punkte nicht mehr äquidistant zu wählen, sondern an den Stellen dichter zu setzen, wo die Abweichung größer war.  Dazu muss man aber die Originalkurve gut berechnen können.</p>
+<p>Eine Alternative ist es, die Splines so zu wählen, dass die Krümmung nicht allzu groß wird.  Das kann man erreichen, indem man nicht einfach das Gleichungssystem löst, sondern eine Optimierungsaufgabe, bei der man etwa folgende Verlustfunktion verwendet (Verlust=schlecht =&gt; Minimieren, s.a. [3]):
+$$ L[f; N] = \sum_{i=0}^N \left(f(x_i)-p(x_i)\right)^2 +\lambda\frac1{b-a}\int_a^b \left(p&rsquo;&rsquo;(x)\right)^2\,dx. $$</p>
+<p>Dabei ist $\lambda\ge0$ der Gewichtungsparameter.  Für $\lambda=0$ erhält man das klassische Bézier-Interpolations-Problem. Für $\lambda&gt;0$ wird starke Krümmung bestraft.</p>
 <h2 id="99-zusammenfassung">9.9 Zusammenfassung</h2>
 <p>Inzwischen hast du vielleicht festgestellt, dass die Programme länger werden und mehr probiert werden muss, bevor etwas schön funktioniert.  Das ist die Realität beim Programmieren.  Am obigen Beispiel habe ich ca. 2 Wochen gefeilt, bis es halbwegs funktioniert hat.  Zum Nachprogrammieren (anhand der Hinweise im Text) brauchst du vielleicht 1&ndash;3 Wochenenden.  Sei also nicht verzagt, wenn es nicht an 1 Wochenende klappt.</p>
 <p>Prinzipiell gilt für Projekte, dass man sich überlegen sollte, was das langfristige Ziel ist, welche prinzipiellen Schritte man dafür braucht, welches zusätzliche Wissen/ welche Literatur und in welchen Etappen / mit welchen Zwischenerfolgen man vorgehen möchte.  Es empfiehlt sich, einfache erste Zwischenziele zu setzen (und diese dann langsam zu steigern), damit man den Mut nicht verliert.  Auch wenn man ein Projekt nicht (gleich) bis zum Abschluss bringt, lernt man beim Durchführen solcher Projekte oft viel mehr, als wenn man nur beliebige Texte über das Programmieren lesen würde.</p>

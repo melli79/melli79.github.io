@@ -751,6 +751,15 @@ Konkret heißt die obige Definition von `fun b(x :Double, ...)`, dass wir nur mi
 
 Viel Erfolg beim Probieren.
 
+## 9.3 Weiterführende Ideen
+
+Wie man bereits am Titel von [3] sieht, ist eine der neueren Entwicklungen zu Bézierkurven das automatische Wählen weiterer Stützstellen.  Wie wir bereits bei der Interpolation gesehen hatten, weicht die Näherung an manchen Stellen stärker von der exakten Kurve ab, als an anderen Stellen.  Die Idee ist nun, die Punkte nicht mehr äquidistant zu wählen, sondern an den Stellen dichter zu setzen, wo die Abweichung größer war.  Dazu muss man aber die Originalkurve gut berechnen können.
+
+Eine Alternative ist es, die Splines so zu wählen, dass die Krümmung nicht allzu groß wird.  Das kann man erreichen, indem man nicht einfach das Gleichungssystem löst, sondern eine Optimierungsaufgabe, bei der man etwa folgende Verlustfunktion verwendet (Verlust=schlecht => Minimieren, s.a. [3]):
+ $$ L[f; N] = \sum_{i=0}^N \left(f(x_i)-p(x_i)\right)^2 +\lambda\frac1{b-a}\int_a^b \left(p''(x)\right)^2\\,dx. $$
+
+Dabei ist $\lambda\ge0$ der Gewichtungsparameter.  Für $\lambda=0$ erhält man das klassische Bézier-Interpolations-Problem. Für $\lambda>0$ wird starke Krümmung bestraft.
+
 
 ## 9.9 Zusammenfassung
 Inzwischen hast du vielleicht festgestellt, dass die Programme länger werden und mehr probiert werden muss, bevor etwas schön funktioniert.  Das ist die Realität beim Programmieren.  Am obigen Beispiel habe ich ca. 2 Wochen gefeilt, bis es halbwegs funktioniert hat.  Zum Nachprogrammieren (anhand der Hinweise im Text) brauchst du vielleicht 1--3 Wochenenden.  Sei also nicht verzagt, wenn es nicht an 1 Wochenende klappt.
