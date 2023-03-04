@@ -15,7 +15,7 @@
       <guid>https://melli79.github.io/post/30beziercurves/</guid>
       <description>Nachdem wir in den ersten 3 Teilen eine Einführung in Kotlin und Programmieren, sowie Grafikprogrammierung und vertiefende Algorithmen betrachtet haben, wollen uns jetzt mittelgroßen Projekten widmen. Heute fangen wir mit Bézierkurven an.
 0. Die Aufgabe Gegeben ein paar Punkte in der Ebene, wie können wir eine glatte Kurve durch diese Punkte zeichnen?
-Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC P.S. Foresman 2007.
+Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC SA P.S. Foresman 2007.
 Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mit einem Lineal (und Stift) verbinden.</description>
     </item>
     

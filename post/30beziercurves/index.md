@@ -4,14 +4,14 @@ Nachdem wir in den ersten 3 Teilen eine Einführung in Kotlin und Programmieren,
 
 Gegeben ein paar Punkte in der Ebene, wie können wir eine glatte Kurve durch diese Punkte zeichnen?
 
-![Straklatte (engl. spline) durch 4 Punkte. CC P.S. Foresman 2007](/img/Straklatte.slim.jpg)
-Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC P.S. Foresman 2007.
+![Straklatte (engl. spline) durch 4 Punkte. CC SA P.S. Foresman 2007](/img/Straklatte.slim.jpg)
+Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC SA P.S. Foresman 2007.
 
 Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mit einem Lineal (und Stift) verbinden.  Wenn wir aber eine glattere Kurve (ohne Ecken) haben wollen, dann können wir vielleicht eine Straklatte (englisch spline) verwenden.  Diese wird an 2 Punkten eingespannt und an 2 weiteren Punkten dazwischen abgestützt.  Dann kann man mit einem Stift (oder Cutter) eine Kurve entlang des Bands ziehen.  Wenn man das ganze mehrfach ansetzt und dabei die Punkte der Reihe nach durchgeht, dann erhält man eine glatte Kurve durch alle Punkte.  Als Ergebnis kann man etwa das Folgende erhalten.
 
-![Eine glatte Kurve durch ein paar Punkte. CC M. Grützmann 2023.](/img/splinesApproximatingSine.png)
+![Eine glatte Kurve durch ein paar Punkte. CC Att M. Grützmann 2023.](/img/splinesApproximatingSine.png)
 
-Bild 2: Eine glatte Kurve durch ein paar Punkte. CC M. Grützmann 2023.
+Bild 2: Eine glatte Kurve durch ein paar Punkte. CC Att M. Grützmann 2023.
 
 Die Frage ist, wie man das im Computer durchführen kann.
 
@@ -450,7 +450,7 @@ Dazu müssen wir noch das Hauptprogramm anpassen:
 Wenn du das Programm wieder startest, solltest du neben den 3 Kurven noch die 5 roten Punkte sehen, in denen sich die Kurven schneiden.
 
 ![Interpolation an 5 Stützstellen. CC M. Grützmann 2023](/img/interpol5.png)
-Bild 3: Interpolation an 5 Stützstellen. CC M. Grützmann 2023.
+Bild 3: Interpolation an 5 Stützstellen. CC Att M. Grützmann 2023.
 
 Wird die Interpolation nun besser, wenn man mehr Stützstellen verwendet?
 
@@ -465,7 +465,7 @@ Im Prinzip ja, aber das sollten wir testen:  Dazu im Hauptprogramm folgendes anp
 Das sollte zwei Kurven mit 7 Schnittpunkten produzieren (wieder im Bereich $(-2,2)$).  Andererseits kommt es bereits zu kleinen Ausbeulungen, so als ob das Polynom nicht ganz an die Originalfunktion 'ranpasst.
 
 ![Interpolation an 7 und an 11 Stützstellen. CC M. Grützmann 2023](/img/interpol7.png)
-Bild 4: Interpolation an 7 und an 11 Stützstellen.  Die Fehler in der Mitte werden kleiner, aber der Fehler an den Rändern ändert sich wenig. CC M. Grützmann 2023.
+Bild 4: Interpolation an 7 und an 11 Stützstellen.  Die Fehler in der Mitte werden kleiner, aber der Fehler an den Rändern ändert sich wenig. CC Att M. Grützmann 2023.
 
 Um auch quantitativ zu erkennen, wie gut die Interpolation ist, können wir die Wurzel aus der mittleren quadratischen Abweichung berechnen (RMSE), etwa wie folgt:
 ```kotlin
@@ -571,8 +571,8 @@ Zusammen mit dem Hauptprogramm:
 ```
 Dann ergibt sich folgendes Bild:
 
-![Stützfunktionen nach Casteljau. CC M. Grützmann 2023](/img/BKsupportFunctions.png)
-Bild 5: Stützfunktionen nach Casteljau. CC M. Grützmann 2023.
+![Stützfunktionen nach Casteljau. CC Att M. Grützmann 2023](/img/BKsupportFunctions.png)
+Bild 5: Stützfunktionen nach Casteljau. CC Att M. Grützmann 2023.
 
 
 # 5. Berechnung der Koeffizienten

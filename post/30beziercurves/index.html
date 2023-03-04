@@ -18,7 +18,7 @@
 
 <meta name="author" content="melli79" /><meta name="description" content="Nachdem wir in den ersten 3 Teilen eine Einführung in Kotlin und Programmieren, sowie Grafikprogrammierung und vertiefende Algorithmen betrachtet haben, wollen uns jetzt mittelgroßen Projekten widmen. Heute fangen wir mit Bézierkurven an.
 0. Die Aufgabe Gegeben ein paar Punkte in der Ebene, wie können wir eine glatte Kurve durch diese Punkte zeichnen?
-Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC P.S. Foresman 2007.
+Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC SA P.S. Foresman 2007.
 Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mit einem Lineal (und Stift) verbinden." />
 
 
@@ -26,7 +26,7 @@ Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mi
 
 
 
-<meta name="generator" content="Hugo 0.109.0 with theme even" />
+<meta name="generator" content="Hugo 0.111.1 with theme even" />
 
 
 <link rel="canonical" href="https://melli79.github.io/post/30beziercurves/" />
@@ -45,7 +45,7 @@ Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mi
 <meta property="og:title" content="30. Projekt Bézierkurven" />
 <meta property="og:description" content="Nachdem wir in den ersten 3 Teilen eine Einführung in Kotlin und Programmieren, sowie Grafikprogrammierung und vertiefende Algorithmen betrachtet haben, wollen uns jetzt mittelgroßen Projekten widmen. Heute fangen wir mit Bézierkurven an.
 0. Die Aufgabe Gegeben ein paar Punkte in der Ebene, wie können wir eine glatte Kurve durch diese Punkte zeichnen?
-Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC P.S. Foresman 2007.
+Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC SA P.S. Foresman 2007.
 Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mit einem Lineal (und Stift) verbinden." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://melli79.github.io/post/30beziercurves/" /><meta property="article:section" content="post" />
@@ -54,15 +54,15 @@ Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mi
 <meta itemprop="name" content="30. Projekt Bézierkurven">
 <meta itemprop="description" content="Nachdem wir in den ersten 3 Teilen eine Einführung in Kotlin und Programmieren, sowie Grafikprogrammierung und vertiefende Algorithmen betrachtet haben, wollen uns jetzt mittelgroßen Projekten widmen. Heute fangen wir mit Bézierkurven an.
 0. Die Aufgabe Gegeben ein paar Punkte in der Ebene, wie können wir eine glatte Kurve durch diese Punkte zeichnen?
-Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC P.S. Foresman 2007.
+Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC SA P.S. Foresman 2007.
 Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mit einem Lineal (und Stift) verbinden."><meta itemprop="datePublished" content="2023-02-20T18:12:00+01:00" />
 <meta itemprop="dateModified" content="2023-02-20T18:12:00+01:00" />
-<meta itemprop="wordCount" content="5597">
+<meta itemprop="wordCount" content="5602">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="30. Projekt Bézierkurven"/>
 <meta name="twitter:description" content="Nachdem wir in den ersten 3 Teilen eine Einführung in Kotlin und Programmieren, sowie Grafikprogrammierung und vertiefende Algorithmen betrachtet haben, wollen uns jetzt mittelgroßen Projekten widmen. Heute fangen wir mit Bézierkurven an.
 0. Die Aufgabe Gegeben ein paar Punkte in der Ebene, wie können wir eine glatte Kurve durch diese Punkte zeichnen?
-Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC P.S. Foresman 2007.
+Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC SA P.S. Foresman 2007.
 Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mit einem Lineal (und Stift) verbinden."/>
 
 <!--[if lte IE 9]>
@@ -91,11 +91,9 @@ Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mi
     <a href="/">
         <li class="mobile-menu-item">Home</li>
       </a><a href="/post/">
-        <li class="mobile-menu-item">Archives</li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Themes</li>
+        <li class="mobile-menu-item">Archiv</li>
       </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories</li>
+        <li class="mobile-menu-item">Schlagworte</li>
       </a>
   </ul>
 </nav>
@@ -110,11 +108,9 @@ Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mi
     <li class="menu-item">
         <a class="menu-item-link" href="/">Home</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/post/">Archives</a>
+        <a class="menu-item-link" href="/post/">Archiv</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/tags/">Themes</a>
-      </li><li class="menu-item">
-        <a class="menu-item-link" href="/categories/">Categories</a>
+        <a class="menu-item-link" href="/categories/">Schlagworte</a>
       </li>
   </ul>
 </nav>
@@ -166,11 +162,11 @@ Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mi
       <p>Nachdem wir in den ersten 3 Teilen eine Einführung in Kotlin und Programmieren, sowie Grafikprogrammierung und vertiefende Algorithmen betrachtet haben, wollen uns jetzt mittelgroßen Projekten widmen. Heute fangen wir mit Bézierkurven an.</p>
 <h1 id="0-die-aufgabe">0. Die Aufgabe</h1>
 <p>Gegeben ein paar Punkte in der Ebene, wie können wir eine glatte Kurve durch diese Punkte zeichnen?</p>
-<p><img src="/img/Straklatte.slim.jpg" alt="Straklatte (engl. spline) durch 4 Punkte. CC P.S. Foresman 2007">
-Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC P.S. Foresman 2007.</p>
+<p><img src="/img/Straklatte.slim.jpg" alt="Straklatte (engl. spline) durch 4 Punkte. CC SA P.S. Foresman 2007">
+Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC SA P.S. Foresman 2007.</p>
 <p>Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mit einem Lineal (und Stift) verbinden.  Wenn wir aber eine glattere Kurve (ohne Ecken) haben wollen, dann können wir vielleicht eine Straklatte (englisch spline) verwenden.  Diese wird an 2 Punkten eingespannt und an 2 weiteren Punkten dazwischen abgestützt.  Dann kann man mit einem Stift (oder Cutter) eine Kurve entlang des Bands ziehen.  Wenn man das ganze mehrfach ansetzt und dabei die Punkte der Reihe nach durchgeht, dann erhält man eine glatte Kurve durch alle Punkte.  Als Ergebnis kann man etwa das Folgende erhalten.</p>
-<p><img src="/img/splinesApproximatingSine.png" alt="Eine glatte Kurve durch ein paar Punkte. CC M. Grützmann 2023."></p>
-<p>Bild 2: Eine glatte Kurve durch ein paar Punkte. CC M. Grützmann 2023.</p>
+<p><img src="/img/splinesApproximatingSine.png" alt="Eine glatte Kurve durch ein paar Punkte. CC Att M. Grützmann 2023."></p>
+<p>Bild 2: Eine glatte Kurve durch ein paar Punkte. CC Att M. Grützmann 2023.</p>
 <p>Die Frage ist, wie man das im Computer durchführen kann.</p>
 <p>Als Literatur kann man [1] oder [2] verwenden.  Ich gebe hier eine minimale Zusammenfassung.</p>
 <p>[1] <a href="https://de.wikipedia.org/wiki/B%C3%A9zierkurve">wiki: Bézierkurven</a></p>
@@ -927,7 +923,7 @@ $$ p(x) = (((c_n * x+c_{n-1}) * x+c_{n-2}) * \dots) * x +c_0. $$</p>
 </div>
 </div><p>Wenn du das Programm wieder startest, solltest du neben den 3 Kurven noch die 5 roten Punkte sehen, in denen sich die Kurven schneiden.</p>
 <p><img src="/img/interpol5.png" alt="Interpolation an 5 Stützstellen. CC M. Grützmann 2023">
-Bild 3: Interpolation an 5 Stützstellen. CC M. Grützmann 2023.</p>
+Bild 3: Interpolation an 5 Stützstellen. CC Att M. Grützmann 2023.</p>
 <p>Wird die Interpolation nun besser, wenn man mehr Stützstellen verwendet?</p>
 <p>Im Prinzip ja, aber das sollten wir testen:  Dazu im Hauptprogramm folgendes anpassen:</p>
 <div class="highlight"><div class="chroma">
@@ -948,7 +944,7 @@ Bild 3: Interpolation an 5 Stützstellen. CC M. Grützmann 2023.</p>
 </div>
 </div><p>Das sollte zwei Kurven mit 7 Schnittpunkten produzieren (wieder im Bereich $(-2,2)$).  Andererseits kommt es bereits zu kleinen Ausbeulungen, so als ob das Polynom nicht ganz an die Originalfunktion &lsquo;ranpasst.</p>
 <p><img src="/img/interpol7.png" alt="Interpolation an 7 und an 11 Stützstellen. CC M. Grützmann 2023">
-Bild 4: Interpolation an 7 und an 11 Stützstellen.  Die Fehler in der Mitte werden kleiner, aber der Fehler an den Rändern ändert sich wenig. CC M. Grützmann 2023.</p>
+Bild 4: Interpolation an 7 und an 11 Stützstellen.  Die Fehler in der Mitte werden kleiner, aber der Fehler an den Rändern ändert sich wenig. CC Att M. Grützmann 2023.</p>
 <p>Um auch quantitativ zu erkennen, wie gut die Interpolation ist, können wir die Wurzel aus der mittleren quadratischen Abweichung berechnen (RMSE), etwa wie folgt:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1103,8 +1099,8 @@ $$ \sum_{i=-k}^n b^k_i(x) \equiv 1\text{ für } x_0\le x&lt; x_n. $$</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Dann ergibt sich folgendes Bild:</p>
-<p><img src="/img/BKsupportFunctions.png" alt="Stützfunktionen nach Casteljau. CC M. Grützmann 2023">
-Bild 5: Stützfunktionen nach Casteljau. CC M. Grützmann 2023.</p>
+<p><img src="/img/BKsupportFunctions.png" alt="Stützfunktionen nach Casteljau. CC Att M. Grützmann 2023">
+Bild 5: Stützfunktionen nach Casteljau. CC Att M. Grützmann 2023.</p>
 <h1 id="5-berechnung-der-koeffizienten">5. Berechnung der Koeffizienten</h1>
 <p>Das eigentliche Problem ist die Berechnung der Bézier-Koeffizienten.  Dazu entnehmen wir aus [3] folgende Formeln:</p>
 <p>$$ f(x) = \mathbf b(x)\cdot \mathbf c,\quad \mathbf c = G^{-1}X\mathbf{y}, $$
@@ -1443,7 +1439,11 @@ $$ L[f; N] = \sum_{i=0}^N \left(f(x_i)-p(x_i)\right)^2 +\lambda\frac1{b-a}\int_a
 <footer class="post-footer">
       
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/01peloops/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">01PE For Loops</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         <a class="next" href="/post/24errorcorrection/">
             <span class="next-text nav-default">24. Störungssichere Übertragung</span>
             <span class="next-text nav-mobile">Next</span>
@@ -1461,7 +1461,7 @@ $$ L[f; N] = \sum_{i=0}^N \left(f(x_i)-p(x_i)\right)^2 +\lambda\frac1{b-a}\int_a
         id: '2023-02-20 18:12:00 \u002b0100 CET',
         title: '30. Projekt Bézierkurven',
         link: decodeURI(location.href),
-        desc: 'Nachdem wir in den ersten 3 Teilen eine Einführung in Kotlin und Programmieren, sowie Grafikprogrammierung und vertiefende Algorithmen betrachtet haben, wollen uns jetzt mittelgroßen Projekten widmen. Heute fangen wir mit Bézierkurven an.\n0. Die Aufgabe Gegeben ein paar Punkte in der Ebene, wie können wir eine glatte Kurve durch diese Punkte zeichnen?\nBild 1: Straklatte (engl. spline) durch 4 Punkte. CC P.S. Foresman 2007.\nWenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mit einem Lineal (und Stift) verbinden.',
+        desc: 'Nachdem wir in den ersten 3 Teilen eine Einführung in Kotlin und Programmieren, sowie Grafikprogrammierung und vertiefende Algorithmen betrachtet haben, wollen uns jetzt mittelgroßen Projekten widmen. Heute fangen wir mit Bézierkurven an.\n0. Die Aufgabe Gegeben ein paar Punkte in der Ebene, wie können wir eine glatte Kurve durch diese Punkte zeichnen?\nBild 1: Straklatte (engl. spline) durch 4 Punkte. CC SA P.S. Foresman 2007.\nWenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mit einem Lineal (und Stift) verbinden.',
         owner: 'melli79',
         repo: '',
         oauth: {

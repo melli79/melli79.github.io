@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>01PE For Loops - Melchior&#39;s Homepage</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="melli79" /><meta name="description" content="This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&amp;rsquo;s goal is a multiplication table as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.111.1 with theme even" />
+
+
+<link rel="canonical" href="https://melli79.github.io/post/01peloops/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78d3a03abaed5d3c468bdf402fc110f36c046abf091a63421b9ce0a5a63db941.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="01PE For Loops" />
+<meta property="og:description" content="This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&rsquo;s goal is a multiplication table as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://melli79.github.io/post/01peloops/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-03-03T23:24:50+01:00" />
+<meta property="article:modified_time" content="2023-03-03T23:24:50+01:00" />
+<meta itemprop="name" content="01PE For Loops">
+<meta itemprop="description" content="This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&rsquo;s goal is a multiplication table as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21"><meta itemprop="datePublished" content="2023-03-03T23:24:50+01:00" />
+<meta itemprop="dateModified" content="2023-03-03T23:24:50+01:00" />
+<meta itemprop="wordCount" content="904">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="01PE For Loops"/>
+<meta name="twitter:description" content="This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&rsquo;s goal is a multiplication table as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Melchior&#39;s Homepage</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archiv</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Schlagworte</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Melchior&#39;s Homepage</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archiv</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Schlagworte</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">01PE For Loops</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-03-03 </span>
+        <div class="post-category">
+            <a href="/categories/python/"> Python </a>
+            <a href="/categories/programming/"> Programming </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-goal">The Goal</a></li>
+    <li><a href="#what-elements-do-we-need">What Elements do we need?</a>
+      <ul>
+        <li><a href="#2-what-to-do-with-these-numbers">2. What to do with these numbers?</a></li>
+        <li><a href="#3-we-need-one-more-ingredient">3. We need one more ingredient</a></li>
+        <li><a href="#4-how-do-we-form-the-whole-table">4. How do we form the whole table?</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-can-i-start-the-program">How can I Start the Program</a>
+      <ul>
+        <li><a href="#where-can-i-see-the-result">Where can I see the result?</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-can-i-improve-the-program">How can I Improve the Program?</a>
+      <ul>
+        <li><a href="#what-happens-with-100-it-needs-3-digits">What happens with 100? (It needs 3 digits.)</a></li>
+        <li><a href="#i-want-to-print-a-bigger-multiplication-table-like-20x20">I want to print a bigger Multiplication table, like 20x20</a>
+          <ul>
+            <li><a href="#how-do-i-make-the-table-square-shaped">How do I make the Table square shaped?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>This is a re-introduction.  This time I wrote it for Python and in English, hence PE.</p>
+<p>Once you have set up the programming environment, you can try to write a first small program.</p>
+<h1 id="the-goal">The Goal</h1>
+<p>Today&rsquo;s goal is a multiplication table as follows:</p>
+<pre>
+   1  2  3  4  5  6  7  8  9 10
+   2  4  6  8 10 12 14 16 18 20
+   3  6  9 12 15 18 21 24 27 30
+   4  8 12 16 20 24 28 32 36 40
+   5 10 15 20 25 30 35 40 45 50
+   6 12 18 24 30 36 42 48 54 60
+   7 14 21 28 35 42 49 56 63 70
+   8 16 24 32 40 48 56 64 72 80
+   9 18 27 36 45 54 63 72 81 90
+  10 20 30 40 50 60 70 80 90 100
+</pre>
+<p>In words:  The 10 rows (行) contain the multiples of the corresponding number.
+In every row the number, then its double (两次), then the triple (三次), &hellip;, the 10-fold (十次).</p>
+<h1 id="what-elements-do-we-need">What Elements do we need?</h1>
+<ol>
+<li>A <em>variable</em> (变量/变数) can store a certain value, e.g.</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl">  <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>means that we create a variable named <em>x</em> and give it the value 3.</p>
+<p>Correspondingly</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl">  <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;Mel&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>is a variable named <code>name</code> (名) that contains the text <em>Mel</em> (my name).</p>
+<p>Of course, we do not want to type in the multiples manually, instead a computer should be able to compute it.  We can reach that in the following way:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl">  <span class="n">x</span><span class="o">*</span><span class="n">y</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Assuming the variables <code>x</code> and <code>y</code> contain numbers, then <code>x*y</code> means that their product is computed.  Correspondingly, we can compute a sum by <code>4+5</code>.</p>
+<h2 id="2-what-to-do-with-these-numbers">2. What to do with these numbers?</h2>
+<p>We will print them on the command line.  The simplest option for that is:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Everything between ( and ) will be printed by the print command.  Print derives from printing on paper, because the first computers did not have any montinor (or screen), but instead printed the results on paper (or displayed it with electronic glowing tubes).</p>
+<h2 id="3-we-need-one-more-ingredient">3. We need one more ingredient</h2>
+<p>We want for every row 10 expressions and repeat that for 10 rows.</p>
+<p>For one row this looks as follows</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl">  <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The first expression should be familiar <code>y = 5</code> means that the variable <code>y</code> gets the value 5.
+<code>for x in range(1, 11):</code> means that the following indented expression will be reapeated for all numbers from 1 below 11. In the first iteration, we have <code>x=1</code>, in the second iteration <code>x=2</code> and so on until <code>x=10</code> (the last number below 11).</p>
+<p>You should also remember the expression <code>print(x*y, end=&quot; &quot;)</code>.  It computes the product and displays it on the command line.</p>
+<h2 id="4-how-do-we-form-the-whole-table">4. How do we form the whole table?</h2>
+<p>We should repeat the above block not only for <code>y=5</code>, but need to repeat it for <code>y</code> in <code>1..10</code> as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl">  <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">          <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="nb">print</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="how-can-i-start-the-program">How can I Start the Program</h1>
+<p>If you set up your programming environment properly and wrote the programm in a new project, all you have to do is click the green arrow on the top bar and immediately the program will be executed.</p>
+<h2 id="where-can-i-see-the-result">Where can I see the result?</h2>
+<p>When you started the program as explained above, there will be a new sub window in which you can the output of the program (that should look as the picture in the beginning).  In this window you will maybe see even more output before, maybe you have to scroll to the end.</p>
+<h1 id="how-can-i-improve-the-program">How can I Improve the Program?</h1>
+<p>When you look at the output, you will see that all numbers in a row are printed one after the other with only one space.  This means that the numbers in different rows are not aligned, because the earlier rows contain more 1-digit numbers.  We can fix that by expanding every number to 2 digits as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">{:2}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>.format(...)</code> means that the following arguments will be inserted into the text before where there are <code>{...}</code>.  <code>{:2}</code> means that the numbers will be printed with 2 positions (or more) by padding them with spaces from the left if necessary.</p>
+<h2 id="what-happens-with-100-it-needs-3-digits">What happens with 100? (It needs 3 digits.)</h2>
+<p>Have a look at the (new) output.  Even though we requested only 2 digits, the number 100 is displayed with 3 digits.  The reason is that <code>{:2}</code> means at least 2 positions, more when the number is bigger.</p>
+<h2 id="i-want-to-print-a-bigger-multiplication-table-like-20x20">I want to print a bigger Multiplication table, like 20x20</h2>
+<p>Have a look at the line <code>for y in range(1, 11):</code>.  11 means that the last iterations runs with <code>y=10</code>.  So what is the fist change?</p>
+<h3 id="how-do-i-make-the-table-square-shaped">How do I make the Table square shaped?</h3>
+<p>We have 2 for loops <code>for y in ...:</code> and <code>for x in ...:</code>, i.e. you also have to adjust the 2nd for loop.</p>
+<p>Another problem may be that from the middle of the table most numbers exceed the 2 digits.  You can expand all numbers to 3 characters by adjusting to <code>{:3}.format(...)</code>.</p>
+<p>Have fun trying out different things&hellip;</p>
+<p>Next time, we will talk about conditional commands and counting smurfs.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">melli79</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2023-03-03
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">Markdown</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://melli79.github.io/post/01peloops/index.md" target="_blank">The Markdown version »</a></span>
+    </p>
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/02peifandsmurfs/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">02 If and Smurfs</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/30beziercurves/">
+            <span class="next-text nav-default">30. Projekt Bézierkurven</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2023-03-03 23:24:50 \u002b0100 CET',
+        title: '01PE For Loops',
+        link: decodeURI(location.href),
+        desc: 'This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today\u0026rsquo;s goal is a multiplication table as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21',
+        owner: 'melli79',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="melli79/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:melchiorG@gMail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://melli79.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">melli79</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.1c70606d1b733282f06230615f5561b5894924b6f9930ba2ab99cf1254f75a1a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
