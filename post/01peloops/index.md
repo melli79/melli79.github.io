@@ -3,7 +3,7 @@ This is a re-introduction.  This time I wrote it for Python and in English, henc
 Once you have set up the programming environment, you can try to write a first small program.
 
 # The Goal
-Today's goal is a multiplication table as follows:
+Today's goal is a multiplication table (乘法表) as follows:
 
 <pre>
    1  2  3  4  5  6  7  8  9 10
@@ -33,7 +33,7 @@ Correspondingly
 ```Python
   name = "Mel"
 ```
-is a variable named `name` (名) that contains the text *Mel* (my name).
+is a variable named `name` (名字) that contains the text *Mel* (my name).
 
 Of course, we do not want to type in the multiples manually, instead a computer should be able to compute it.  We can reach that in the following way:
 ```Python
@@ -43,12 +43,12 @@ Assuming the variables `x` and `y` contain numbers, then `x*y` means that their 
 
 ## 2. What to do with these numbers?
 
-We will print them on the command line.  The simplest option for that is:
+We will print (印) them on the command line (命令行).  The simplest option for that is:
 
 ```Python
   print(x*y)
 ```
-Everything between ( and ) will be printed by the print command.  Print derives from printing on paper, because the first computers did not have any montinor (or screen), but instead printed the results on paper (or displayed it with electronic glowing tubes).  
+Everything between ( and ) will be printed by the print command.  Print derives from printing on paper (纸上印刷), because the first computers did not have any montinor (or screen), but instead printed the results on paper (or displayed it with glowing electronic tubes).  
 
 ## 3. We need one more ingredient
 
@@ -64,9 +64,9 @@ For one row this looks as follows
 ```
 
 The first expression should be familiar `y = 5` means that the variable `y` gets the value 5.
-`for x in range(1, 11):` means that the following indented expression will be reapeated for all numbers from 1 below 11. In the first iteration, we have `x=1`, in the second iteration `x=2` and so on until `x=10` (the last number below 11).
+`for x in range(1, 11):` means that the following indented command(s) will be reapeated for all numbers from 1 below 11. In the first iteration (迭代), we have `x=1`, in the second iteration `x=2` and so on until `x=10` (the last number below 11).  This is called a for loop (for循环).
 
-You should also remember the expression `print(x*y, end=" ")`.  It computes the product and displays it on the command line.
+The refinement `, end=" "` means that we do not print each result on its own row, but followed by a space (空间, " "), all on the same row.
 
 
 ## 4. How do we form the whole table?
@@ -80,38 +80,38 @@ We should repeat the above block not only for `y=5`, but need to repeat it for `
       print()
 ```
 
-# How can I Start the Program
+# How can I Start the Program?
 
-If you set up your programming environment properly and wrote the programm in a new project, all you have to do is click the green arrow on the top bar and immediately the program will be executed.
+If you set up your programming environment properly and wrote the programm in a new project, all you have to do is click the green arrow ![Play button](/img/playButton.png) on the top bar and immediately the program will be executed.
 
 ## Where can I see the result?
 
-When you started the program as explained above, there will be a new sub window in which you can the output of the program (that should look as the picture in the beginning).  In this window you will maybe see even more output before, maybe you have to scroll to the end.
+When you started the program as explained above, there will be a new sub window (窗) in which you can see the output (输出) of the program (that should look as the picture in the beginning).  In this window you will maybe see even more output before, maybe you have to scroll (滚动) to the end.
 
 
-# How can I Improve the Program?
+# 5. How can I Improve the Program?
 
-When you look at the output, you will see that all numbers in a row are printed one after the other with only one space.  This means that the numbers in different rows are not aligned, because the earlier rows contain more 1-digit numbers.  We can fix that by expanding every number to 2 digits as follows:
+When you look at the output, you will see that all numbers in a row are printed one after the other with only one space.  This means that the numbers in different rows are not aligned in columns (在列中对齐), because the earlier rows contain more 1-digit numbers.  We can fix that by expanding every number to 2 digits (数字) as follows:
 
 ```Python
   print("{:2}".format(x*y), end=" ")
 ```
-`.format(...)` means that the following arguments will be inserted into the text before where there are `{...}`.  `{:2}` means that the numbers will be printed with 2 positions (or more) by padding them with spaces from the left if necessary.
+`.format(...)` means that the following arguments (参数) will be inserted into the string before where there are `{...}`.  `{:2}` means that the numbers will be printed with 2 positions (or more) by padding them with spaces from the left if necessary.
 
 ## What happens with 100? (It needs 3 digits.)
 
 Have a look at the (new) output.  Even though we requested only 2 digits, the number 100 is displayed with 3 digits.  The reason is that `{:2}` means at least 2 positions, more when the number is bigger.
 
-## I want to print a bigger Multiplication table, like 20x20
+## 6. I want to print a bigger Multiplication table, like $20\times20$
 
-Have a look at the line `for y in range(1, 11):`.  11 means that the last iterations runs with `y=10`.  So what is the fist change?
+Have a look at the line `for y in range(1, 11):`.  11 means that the last iteration runs with `y=10`.  So what is the first change?
 
-### How do I make the Table square shaped?
+### How do I make the Table square shaped (方形)?
 
 We have 2 for loops `for y in ...:` and `for x in ...:`, i.e. you also have to adjust the 2nd for loop.
 
-Another problem may be that from the middle of the table most numbers exceed the 2 digits.  You can expand all numbers to 3 characters by adjusting to `{:3}.format(...)`.
+Another problem may be that from the middle of the table on, most numbers exceed the 2 digits.  You can expand all numbers to 3 characters by adjusting to `{:3}.format(...)`.
 
-Have fun trying out different things...
+Please use the opportunity to try out different things...
 
 Next time, we will talk about conditional commands and counting smurfs.

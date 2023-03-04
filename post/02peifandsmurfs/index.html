@@ -48,7 +48,7 @@
 <meta itemprop="name" content="02PE. If and Smurfs">
 <meta itemprop="description" content="if and smurfs"><meta itemprop="datePublished" content="2023-03-04T13:43:46+01:00" />
 <meta itemprop="dateModified" content="2023-03-04T13:43:46+01:00" />
-<meta itemprop="wordCount" content="1270">
+<meta itemprop="wordCount" content="1383">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="02PE. If and Smurfs"/>
 <meta name="twitter:description" content="if and smurfs"/>
@@ -148,7 +148,7 @@
       <p>Today we want to count smurfs (蓝精灵).  This is how it works:</p>
 <ol start="0">
 <li>
-<p>We start with the ordinary numbers at 1: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, &hellip;</p>
+<p>We start with the ordinary numbers from 1: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, &hellip;</p>
 </li>
 <li>
 <p>Then we replace every 4th number by &ldquo;smurf&rdquo; according to its multiplicity (几次):</p>
@@ -222,9 +222,9 @@
 </span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="s2">&#34;smurf&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>def</code> is the abbreviation for definition (定义), but in Python usually refers to the definition of some steps to be executed whenever requested.  Our definition is called <code>smurfify</code> (改为蓝精灵, conversion to a smurf, a pun on the English language).  For that we need to know the number that needs to be smurfified, thus we expect a number <code>(n :int)</code>.  Within the function, the number is called <code>n</code>, and <code>int</code> means that an integral number (整数, not $0.5$ or a string &ldquo;Hello&rdquo;) is passed in.  In older versions of Python you may have omitted this annotation, but it is helpful to make sure the user of the function takes care of what to pass to the function.  This is called type annotation (类型注释).</p>
+</div><p><code>def</code> is the abbreviation for definition (定义), but in Python usually refers to the definition of some steps to be executed whenever requested.  Our definition is called <code>smurfify</code> (改为蓝精灵, conversion to a smurf, a pun on the English language).  For that we need to know the number that needs to be smurfified, thus we expect a number <code>(n :int)</code>.  Within the function, the number is called <code>n</code>, and <code>int</code> means that an integral number (整数, not $0.5$ or a string &ldquo;Hello&rdquo;) is passed in.  In older versions of Python you may have omitted this annotation (注释), but it is helpful to make sure (确保) the user of the function takes care of what arguments (参数) to pass to the function.  This is called type annotation (类型注释).</p>
 <p>But we also want to return a result (结果).  Therefore we write <code>-&gt; str</code>, i.e. in the end we return a string (字串) or text.  This, too, is a type annotation.  With it, the IDE (integrated development environment, 集成开发环境, e.g. pyCharm) is able to check whether we really return a string and did not just forget about it (算了).</p>
-<p>What are the 2 cases?  We check if <code>n</code> divided by 4 gives the remainder not equal <code>!=</code> 0, that is for 1, 2, 3 or 5, 6, 7 or &hellip; .  In this case we return (返回给) <code>str(n)</code> the number as a string.  <code>return</code> also has another effect, namely the execution of the function stops here and the computer returns (回发) to the caller &ndash; the main part.  In this case the last line won&rsquo;t be executed.</p>
+<p>What are the 2 cases?  We check if <code>n</code> divided by 4 gives the remainder not equal <code>!=</code> 0, that is for 1, 2, 3 or 5, 6, 7 or &hellip; .  In this case we return (返回给) <code>str(n)</code> the number as a string.  <code>return</code> also has another effect, namely the execution of the function stops here and the computer returns (回发) to the calling part (呼叫程序) &ndash; the main part.  In this case the last line won&rsquo;t be executed.</p>
 <p>When <code>n</code> is divisible by 4 (<code>n%4 == 0</code>), the first <code>return</code> statement is not executed.  Instead the computer proceeds to the next line.  Here we return &ldquo;smurf&rdquo; (and then finish the function).</p>
 <p>Now, our program looks as follows:</p>
 <div class="highlight"><div class="chroma">
@@ -266,7 +266,7 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  1, 2, 3, smurf, 5, 6, 7, smurf, 9, 10, 11, smurf, 13, 14, 15, ...
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>We have reached half of the goal: everty 4th number is replaced by &ldquo;smurf&rdquo;.</p>
+</div><p>We have reached half of the goal: every 4th number is replaced by &ldquo;smurf&rdquo;.  Yay!!</p>
 <h1 id="2-how-to-annotate-the-multiples">2. How to annotate the multiples?</h1>
 <p>Actually, we wanted to replace 8 by &ldquo;2-smurf&rdquo;.  The 2 is $8÷4$.  We can reach this by:</p>
 <div class="highlight"><div class="chroma">
@@ -287,7 +287,7 @@
 </span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">+</span><span class="s2">&#34;-smurf&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>n //= 4</code> means that we divide <code>n</code> by 4 and store the result again in <code>n</code>.  The difference between <code>//=</code> and <code>/=</code> is when the division leaves a remainder.  <code>//=</code> means that we drop the remainder and the result is definitely an integer (<code>int</code>, 整数), <code>/=</code> means that we also break up the remainder and are left with <em>crumbles</em> i.e. fractional numbers (有理数).</p>
+</div><p><code>n //= 4</code> means that we divide <code>n</code> by 4 and store the result again in <code>n</code>.  The difference between <code>//=</code> and <code>/=</code> is visible when the division leaves a remainder.  <code>//=</code> means that we drop the remainder and the result is definitely an integer (<code>int</code>, 整数), <code>/=</code> means that we also break up the remainder and are left with <em>crumbles</em> i.e. fractional numbers (有理数).</p>
 <p>When you restart the program, the result is the following:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -368,8 +368,8 @@
 </span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">+</span><span class="s2">&#34;-&#34;</span><span class="o">+</span><span class="n">suffix</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>while &lt;condition&gt;:</code> means that the <code>condition</code> (条件) is tested (试试).  When it is true, the indented code is executed.  Then the condition is tested again, and so on, until the condition is no longer true (while &ndash; 当……时. means also as long as).</p>
-<p><code>suffix += &quot;-smurf&quot;</code> means that we append (追加) &ldquo;-smurf&rdquo; once.  After the first pass, <code>n</code> is smaller by a factor of 4 and <code>suffix == &quot;smurf-smurf&quot;</code>.</p>
+</div><p><code>while &lt;condition&gt;:</code> means that the <code>condition</code> (条件) is tested (试试).  When it is fulfilled (true, 真), the indented code is executed.  Then the condition is tested again, and so on, until the condition is no longer true (while &ndash; 当……时. means also as long as).  This is called a while loop (while循环).  The difference to a for loop is that we do not know how many time we need to repeat, but instead we can test whether we should repeat.  In a for loop we need to know from the beginning how many times we want to repeat.</p>
+<p><code>suffix += &quot;-smurf&quot;</code> means that we append (追加) &ldquo;-smurf&rdquo; once.  After the first pass, <code>n</code> is smaller by a factor of 4 and <code>suffix == &quot;smurf-smurf&quot;</code>.  Suffix (后缀) means an ending, the opposite would be a prefix (前缀).</p>
 <p>Now, the result looks as follows:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -379,7 +379,8 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">  1, 2, 3, smurf, 5, 6, 7, 2-smurf, 9, 10, 11, 3-smurf, 13, 14, 15, smurf-smurf, 17, 18, 19, 5-smurf, 21, 22, 23, 6-smurf, 25, 26, 27, 7-smurf, 29, 30,
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h1 id="9-try-for-yourself">9. Try for yourself</h1>
+</div><p>So we are done.  Yippie!!!</p>
+<h1 id="9-try-for-yourself">9. Try for yourself</h1>
 <p>First you should try to run the program by yourself.  Does it start?  Can you see any output?  Are there any problems/errors?  If you are stuck, you can either ask your dad or you ask me (e.g. when we meet the next time).</p>
 <h2 id="91-one-two-three----congee">9.1 One, two, three &ndash; Congee</h2>
 <p>Can you write a function <code>def congee(n :int) -&gt; str:</code> that replaces every 3rd number by &ldquo;congee&rdquo; (粥)?  Congee in English sounds very similar to three, that is why we replace every 3rd number.</p>
@@ -427,7 +428,7 @@
         id: '2023-03-04 13:43:46 \u002b0100 CET',
         title: '02PE. If and Smurfs',
         link: decodeURI(location.href),
-        desc: 'Today we want to count smurfs (蓝精灵). This is how it works: We start with the ordinary numbers at 1: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, \u0026hellip; Then we replace every 4th number by \u0026ldquo;smurf\u0026rdquo; according to its multiplicity (几次): 1 1, 2, 3, smurf, 5, 6, 7, 2-smurf, 9, 10, 11, 3-smurf, 13, 14, 15, ...',
+        desc: 'Today we want to count smurfs (蓝精灵). This is how it works: We start with the ordinary numbers from 1: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, \u0026hellip; Then we replace every 4th number by \u0026ldquo;smurf\u0026rdquo; according to its multiplicity (几次): 1 1, 2, 3, smurf, 5, 6, 7, 2-smurf, 9, 10, 11, 3-smurf, 13, 14, 15, ...',
         owner: 'melli79',
         repo: '',
         oauth: {

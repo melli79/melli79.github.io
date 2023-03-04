@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="melli79" /><meta name="description" content="This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&amp;rsquo;s goal is a multiplication table as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21" />
+<meta name="author" content="melli79" /><meta name="description" content="This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&amp;rsquo;s goal is a multiplication table (乘法表) as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6" />
 
 
 
@@ -40,18 +40,18 @@
 
 
 <meta property="og:title" content="01PE. For Loops" />
-<meta property="og:description" content="This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&rsquo;s goal is a multiplication table as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21" />
+<meta property="og:description" content="This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&rsquo;s goal is a multiplication table (乘法表) as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://melli79.github.io/post/01peloops/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-03-03T23:24:50+01:00" />
 <meta property="article:modified_time" content="2023-03-03T23:24:50+01:00" />
 <meta itemprop="name" content="01PE. For Loops">
-<meta itemprop="description" content="This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&rsquo;s goal is a multiplication table as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21"><meta itemprop="datePublished" content="2023-03-03T23:24:50+01:00" />
+<meta itemprop="description" content="This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&rsquo;s goal is a multiplication table (乘法表) as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6"><meta itemprop="datePublished" content="2023-03-03T23:24:50+01:00" />
 <meta itemprop="dateModified" content="2023-03-03T23:24:50+01:00" />
-<meta itemprop="wordCount" content="904">
+<meta itemprop="wordCount" content="999">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="01PE. For Loops"/>
-<meta name="twitter:description" content="This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&rsquo;s goal is a multiplication table as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21"/>
+<meta name="twitter:description" content="This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&rsquo;s goal is a multiplication table (乘法表) as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -135,17 +135,17 @@
         <li><a href="#4-how-do-we-form-the-whole-table">4. How do we form the whole table?</a></li>
       </ul>
     </li>
-    <li><a href="#how-can-i-start-the-program">How can I Start the Program</a>
+    <li><a href="#how-can-i-start-the-program">How can I Start the Program?</a>
       <ul>
         <li><a href="#where-can-i-see-the-result">Where can I see the result?</a></li>
       </ul>
     </li>
-    <li><a href="#how-can-i-improve-the-program">How can I Improve the Program?</a>
+    <li><a href="#5-how-can-i-improve-the-program">5. How can I Improve the Program?</a>
       <ul>
         <li><a href="#what-happens-with-100-it-needs-3-digits">What happens with 100? (It needs 3 digits.)</a></li>
-        <li><a href="#i-want-to-print-a-bigger-multiplication-table-like-20x20">I want to print a bigger Multiplication table, like 20x20</a>
+        <li><a href="#6-i-want-to-print-a-bigger-multiplication-table-like-20times20">6. I want to print a bigger Multiplication table, like $20\times20$</a>
           <ul>
-            <li><a href="#how-do-i-make-the-table-square-shaped">How do I make the Table square shaped?</a></li>
+            <li><a href="#how-do-i-make-the-table-square-shaped-方形">How do I make the Table square shaped (方形)?</a></li>
           </ul>
         </li>
       </ul>
@@ -158,7 +158,7 @@
       <p>This is a re-introduction.  This time I wrote it for Python and in English, hence PE.</p>
 <p>Once you have set up the programming environment, you can try to write a first small program.</p>
 <h1 id="the-goal">The Goal</h1>
-<p>Today&rsquo;s goal is a multiplication table as follows:</p>
+<p>Today&rsquo;s goal is a multiplication table (乘法表) as follows:</p>
 <pre>
    1  2  3  4  5  6  7  8  9 10
    2  4  6  8 10 12 14 16 18 20
@@ -195,7 +195,7 @@ In every row the number, then its double (两次), then the triple (三次), &he
 <pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl">  <span class="n">name</span> <span class="o">=</span> <span class="s2">&#34;Mel&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>is a variable named <code>name</code> (名) that contains the text <em>Mel</em> (my name).</p>
+</div><p>is a variable named <code>name</code> (名字) that contains the text <em>Mel</em> (my name).</p>
 <p>Of course, we do not want to type in the multiples manually, instead a computer should be able to compute it.  We can reach that in the following way:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -207,7 +207,7 @@ In every row the number, then its double (两次), then the triple (三次), &he
 </div>
 </div><p>Assuming the variables <code>x</code> and <code>y</code> contain numbers, then <code>x*y</code> means that their product is computed.  Correspondingly, we can compute a sum by <code>4+5</code>.</p>
 <h2 id="2-what-to-do-with-these-numbers">2. What to do with these numbers?</h2>
-<p>We will print them on the command line.  The simplest option for that is:</p>
+<p>We will print (印) them on the command line (命令行).  The simplest option for that is:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -216,7 +216,7 @@ In every row the number, then its double (两次), then the triple (三次), &he
 <pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Everything between ( and ) will be printed by the print command.  Print derives from printing on paper, because the first computers did not have any montinor (or screen), but instead printed the results on paper (or displayed it with electronic glowing tubes).</p>
+</div><p>Everything between ( and ) will be printed by the print command.  Print derives from printing on paper (纸上印刷), because the first computers did not have any montinor (or screen), but instead printed the results on paper (or displayed it with glowing electronic tubes).</p>
 <h2 id="3-we-need-one-more-ingredient">3. We need one more ingredient</h2>
 <p>We want for every row 10 expressions and repeat that for 10 rows.</p>
 <p>For one row this looks as follows</p>
@@ -235,8 +235,8 @@ In every row the number, then its double (两次), then the triple (三次), &he
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>The first expression should be familiar <code>y = 5</code> means that the variable <code>y</code> gets the value 5.
-<code>for x in range(1, 11):</code> means that the following indented expression will be reapeated for all numbers from 1 below 11. In the first iteration, we have <code>x=1</code>, in the second iteration <code>x=2</code> and so on until <code>x=10</code> (the last number below 11).</p>
-<p>You should also remember the expression <code>print(x*y, end=&quot; &quot;)</code>.  It computes the product and displays it on the command line.</p>
+<code>for x in range(1, 11):</code> means that the following indented command(s) will be reapeated for all numbers from 1 below 11. In the first iteration (迭代), we have <code>x=1</code>, in the second iteration <code>x=2</code> and so on until <code>x=10</code> (the last number below 11).  This is called a for loop (for循环).</p>
+<p>The refinement <code>, end=&quot; &quot;</code> means that we do not print each result on its own row, but followed by a space (空间, &quot; &ldquo;), all on the same row.</p>
 <h2 id="4-how-do-we-form-the-whole-table">4. How do we form the whole table?</h2>
 <p>We should repeat the above block not only for <code>y=5</code>, but need to repeat it for <code>y</code> in <code>1..10</code> as follows:</p>
 <div class="highlight"><div class="chroma">
@@ -253,12 +253,12 @@ In every row the number, then its double (两次), then the triple (三次), &he
 </span></span><span class="line"><span class="cl">      <span class="nb">print</span><span class="p">()</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h1 id="how-can-i-start-the-program">How can I Start the Program</h1>
-<p>If you set up your programming environment properly and wrote the programm in a new project, all you have to do is click the green arrow on the top bar and immediately the program will be executed.</p>
+</div><h1 id="how-can-i-start-the-program">How can I Start the Program?</h1>
+<p>If you set up your programming environment properly and wrote the programm in a new project, all you have to do is click the green arrow <img src="/img/playButton.png" alt="Play button"> on the top bar and immediately the program will be executed.</p>
 <h2 id="where-can-i-see-the-result">Where can I see the result?</h2>
-<p>When you started the program as explained above, there will be a new sub window in which you can the output of the program (that should look as the picture in the beginning).  In this window you will maybe see even more output before, maybe you have to scroll to the end.</p>
-<h1 id="how-can-i-improve-the-program">How can I Improve the Program?</h1>
-<p>When you look at the output, you will see that all numbers in a row are printed one after the other with only one space.  This means that the numbers in different rows are not aligned, because the earlier rows contain more 1-digit numbers.  We can fix that by expanding every number to 2 digits as follows:</p>
+<p>When you started the program as explained above, there will be a new sub window (窗) in which you can see the output (输出) of the program (that should look as the picture in the beginning).  In this window you will maybe see even more output before, maybe you have to scroll (滚动) to the end.</p>
+<h1 id="5-how-can-i-improve-the-program">5. How can I Improve the Program?</h1>
+<p>When you look at the output, you will see that all numbers in a row are printed one after the other with only one space.  This means that the numbers in different rows are not aligned in columns (在列中对齐), because the earlier rows contain more 1-digit numbers.  We can fix that by expanding every number to 2 digits (数字) as follows:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -267,15 +267,15 @@ In every row the number, then its double (两次), then the triple (三次), &he
 <pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">{:2}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>.format(...)</code> means that the following arguments will be inserted into the text before where there are <code>{...}</code>.  <code>{:2}</code> means that the numbers will be printed with 2 positions (or more) by padding them with spaces from the left if necessary.</p>
+</div><p><code>.format(...)</code> means that the following arguments (参数) will be inserted into the string before where there are <code>{...}</code>.  <code>{:2}</code> means that the numbers will be printed with 2 positions (or more) by padding them with spaces from the left if necessary.</p>
 <h2 id="what-happens-with-100-it-needs-3-digits">What happens with 100? (It needs 3 digits.)</h2>
 <p>Have a look at the (new) output.  Even though we requested only 2 digits, the number 100 is displayed with 3 digits.  The reason is that <code>{:2}</code> means at least 2 positions, more when the number is bigger.</p>
-<h2 id="i-want-to-print-a-bigger-multiplication-table-like-20x20">I want to print a bigger Multiplication table, like 20x20</h2>
-<p>Have a look at the line <code>for y in range(1, 11):</code>.  11 means that the last iterations runs with <code>y=10</code>.  So what is the fist change?</p>
-<h3 id="how-do-i-make-the-table-square-shaped">How do I make the Table square shaped?</h3>
+<h2 id="6-i-want-to-print-a-bigger-multiplication-table-like-20times20">6. I want to print a bigger Multiplication table, like $20\times20$</h2>
+<p>Have a look at the line <code>for y in range(1, 11):</code>.  11 means that the last iteration runs with <code>y=10</code>.  So what is the first change?</p>
+<h3 id="how-do-i-make-the-table-square-shaped-方形">How do I make the Table square shaped (方形)?</h3>
 <p>We have 2 for loops <code>for y in ...:</code> and <code>for x in ...:</code>, i.e. you also have to adjust the 2nd for loop.</p>
-<p>Another problem may be that from the middle of the table most numbers exceed the 2 digits.  You can expand all numbers to 3 characters by adjusting to <code>{:3}.format(...)</code>.</p>
-<p>Have fun trying out different things&hellip;</p>
+<p>Another problem may be that from the middle of the table on, most numbers exceed the 2 digits.  You can expand all numbers to 3 characters by adjusting to <code>{:3}.format(...)</code>.</p>
+<p>Please use the opportunity to try out different things&hellip;</p>
 <p>Next time, we will talk about conditional commands and counting smurfs.</p>
 
     </div>
@@ -323,7 +323,7 @@ In every row the number, then its double (两次), then the triple (三次), &he
         id: '2023-03-03 23:24:50 \u002b0100 CET',
         title: '01PE. For Loops',
         link: decodeURI(location.href),
-        desc: 'This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today\u0026rsquo;s goal is a multiplication table as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21',
+        desc: 'This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today\u0026rsquo;s goal is a multiplication table (乘法表) as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6',
         owner: 'melli79',
         repo: '',
         oauth: {
