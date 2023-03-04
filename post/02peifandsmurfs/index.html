@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>02 If and Smurfs - Melchior&#39;s Homepage</title>
+  <title>02PE. If and Smurfs - Melchior&#39;s Homepage</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -39,18 +39,18 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="02 If and Smurfs" />
+<meta property="og:title" content="02PE. If and Smurfs" />
 <meta property="og:description" content="if and smurfs" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://melli79.github.io/post/02peifandsmurfs/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-03-04T13:43:46+01:00" />
 <meta property="article:modified_time" content="2023-03-04T13:43:46+01:00" />
-<meta itemprop="name" content="02 If and Smurfs">
+<meta itemprop="name" content="02PE. If and Smurfs">
 <meta itemprop="description" content="if and smurfs"><meta itemprop="datePublished" content="2023-03-04T13:43:46+01:00" />
 <meta itemprop="dateModified" content="2023-03-04T13:43:46+01:00" />
-<meta itemprop="wordCount" content="1257">
+<meta itemprop="wordCount" content="1270">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="02 If and Smurfs"/>
+<meta name="twitter:title" content="02PE. If and Smurfs"/>
 <meta name="twitter:description" content="if and smurfs"/>
 
 <!--[if lte IE 9]>
@@ -110,7 +110,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">02 If and Smurfs</h1>
+      <h1 class="post-title">02PE. If and Smurfs</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2023-03-04 </span>
@@ -189,7 +189,7 @@
 <pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl">  <span class="n">n</span><span class="o">%</span><span class="mi">4</span> <span class="o">==</span> <span class="mi">0</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>The term means that the computer computes the remainder (余数) of <code>n</code> under division (除法) by 4, and then checks whether it is 0.  For example <code>1%4==1</code> not equal to 0, <code>2%4==2</code>, <code>3%4==3</code>, <code>4%4==0</code> yes, <code>5%4==1</code> and so on.</p>
+</div><p>The term means that the computer computes the remainder (余数) of <code>n</code> under division (除法) by 4, and then checks whether it is 0.  For example <code>1%4=1</code> not equal to 0, <code>2%4=2</code>, <code>3%4=3</code>, <code>4%4=0</code> yes, <code>5%4=1</code> and so on.</p>
 <p>Whenever <code>n%4==0</code>, we need to write &ldquo;smurf&rdquo;, otherwise the number <code>n</code> as a String.  How to do that in Python?  Python derives from English so we write <code>if</code> (如果, not when &ndash; 每次, because it is not clear, whether the condition is ever fulfilled), otherwise is shorter written as <code>else</code> (否则), thus:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -223,8 +223,8 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>def</code> is the abbreviation for definition (定义), but in Python usually refers to the definition of some steps to be executed whenever requested.  Our definition is called <code>smurfify</code> (改为蓝精灵, conversion to a smurf, a pun on the English language).  For that we need to know the number that needs to be smurfified, thus we expect a number <code>(n :int)</code>.  Within the function, the number is called <code>n</code>, and <code>int</code> means that an integral number (整数, not $0.5$ or a string &ldquo;Hello&rdquo;) is passed in.  In older versions of Python you may have omitted this annotation, but it is helpful to make sure the user of the function takes care of what to pass to the function.  This is called type annotation (类型注释).</p>
-<p>But we also want to return a result (结果).  Therefore we write <code>-&gt; str</code>, i.e. in the end we return a string or text.  This, too, is a type annotation.  With it, the IDE (integrated development environment, e.g. pyCharm) is able to check whether we really return a string and did not just forget about it (算了).</p>
-<p>What are the 2 cases?  We check if <code>n</code> divided by 4 gives the remainder not equal <code>!=</code> 0, that is for 1, 2, 3 or 5, 6, 7 or &hellip; .  In this case we return <code>str(n)</code> (返回给) the number as a string.  <code>return</code> also has another effect, namely the execution of the function stops here and the computer returns (回发) to the caller &ndash; the main part.  In this case the last line won&rsquo;t be executed.</p>
+<p>But we also want to return a result (结果).  Therefore we write <code>-&gt; str</code>, i.e. in the end we return a string (字串) or text.  This, too, is a type annotation.  With it, the IDE (integrated development environment, 集成开发环境, e.g. pyCharm) is able to check whether we really return a string and did not just forget about it (算了).</p>
+<p>What are the 2 cases?  We check if <code>n</code> divided by 4 gives the remainder not equal <code>!=</code> 0, that is for 1, 2, 3 or 5, 6, 7 or &hellip; .  In this case we return (返回给) <code>str(n)</code> the number as a string.  <code>return</code> also has another effect, namely the execution of the function stops here and the computer returns (回发) to the caller &ndash; the main part.  In this case the last line won&rsquo;t be executed.</p>
 <p>When <code>n</code> is divisible by 4 (<code>n%4 == 0</code>), the first <code>return</code> statement is not executed.  Instead the computer proceeds to the next line.  Here we return &ldquo;smurf&rdquo; (and then finish the function).</p>
 <p>Now, our program looks as follows:</p>
 <div class="highlight"><div class="chroma">
@@ -333,7 +333,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="3-16-is-smurf-smurf">3. &ldquo;16&rdquo; is smurf-smurf</h1>
-<p>There is still a problem left:  16 ist not &ldquo;4-smurf&rdquo;, but <code>n</code> should be reduced to 1 and the suffix is &ldquo;smurf-smurf&rdquo;.  We can get there with the following code:</p>
+<p>There is still a problem left:  16 is not &ldquo;4-smurf&rdquo;, but <code>n</code> should be reduced to 1 and the suffix is &ldquo;smurf-smurf&rdquo;.  We can get there with the following code:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -368,7 +368,7 @@
 </span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">+</span><span class="s2">&#34;-&#34;</span><span class="o">+</span><span class="n">suffix</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>while &lt;condition&gt;:</code> means that the <code>condition</code> (条件) is tested (试试).  When it is true, the indented code is executed.  Then the condition is tested again, and so on, until thecondition is no longer true (while &ndash; 当……时. means also as long as).</p>
+</div><p><code>while &lt;condition&gt;:</code> means that the <code>condition</code> (条件) is tested (试试).  When it is true, the indented code is executed.  Then the condition is tested again, and so on, until the condition is no longer true (while &ndash; 当……时. means also as long as).</p>
 <p><code>suffix += &quot;-smurf&quot;</code> means that we append (追加) &ldquo;-smurf&rdquo; once.  After the first pass, <code>n</code> is smaller by a factor of 4 and <code>suffix == &quot;smurf-smurf&quot;</code>.</p>
 <p>Now, the result looks as follows:</p>
 <div class="highlight"><div class="chroma">
@@ -383,7 +383,7 @@
 <p>First you should try to run the program by yourself.  Does it start?  Can you see any output?  Are there any problems/errors?  If you are stuck, you can either ask your dad or you ask me (e.g. when we meet the next time).</p>
 <h2 id="91-one-two-three----congee">9.1 One, two, three &ndash; Congee</h2>
 <p>Can you write a function <code>def congee(n :int) -&gt; str:</code> that replaces every 3rd number by &ldquo;congee&rdquo; (粥)?  Congee in English sounds very similar to three, that is why we replace every 3rd number.</p>
-<p>how to adjust the main loop in order to use the function?</p>
+<p>How to adjust the main loop such that it uses the new function?</p>
 <p>Can you refine (完善/提高) the function a bit?</p>
 
     </div>
@@ -411,7 +411,7 @@
       <nav class="post-nav">
         
         <a class="next" href="/post/01peloops/">
-            <span class="next-text nav-default">01PE For Loops</span>
+            <span class="next-text nav-default">01PE. For Loops</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -425,7 +425,7 @@
     <script type="text/javascript">
       var gitment = new Gitment({
         id: '2023-03-04 13:43:46 \u002b0100 CET',
-        title: '02 If and Smurfs',
+        title: '02PE. If and Smurfs',
         link: decodeURI(location.href),
         desc: 'Today we want to count smurfs (蓝精灵). This is how it works: We start with the ordinary numbers at 1: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, \u0026hellip; Then we replace every 4th number by \u0026ldquo;smurf\u0026rdquo; according to its multiplicity (几次): 1 1, 2, 3, smurf, 5, 6, 7, 2-smurf, 9, 10, 11, 3-smurf, 13, 14, 15, ...',
         owner: 'melli79',

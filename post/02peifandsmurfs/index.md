@@ -24,7 +24,7 @@ It seems that we need to test for every number whether it is divisible by 4.  Th
   n%4 == 0
 ```
 
-The term means that the computer computes the remainder (余数) of `n` under division (除法) by 4, and then checks whether it is 0.  For example `1%4==1` not equal to 0, `2%4==2`, `3%4==3`, `4%4==0` yes, `5%4==1` and so on.
+The term means that the computer computes the remainder (余数) of `n` under division (除法) by 4, and then checks whether it is 0.  For example `1%4=1` not equal to 0, `2%4=2`, `3%4=3`, `4%4=0` yes, `5%4=1` and so on.
 
 Whenever `n%4==0`, we need to write "smurf", otherwise the number `n` as a String.  How to do that in Python?  Python derives from English so we write `if` (如果, not when -- 每次, because it is not clear, whether the condition is ever fulfilled), otherwise is shorter written as `else` (否则), thus:
 
@@ -48,9 +48,9 @@ But we do not wish to squeeze (夹) everything into the main loop. Instead we wa
 
 `def` is the abbreviation for definition (定义), but in Python usually refers to the definition of some steps to be executed whenever requested.  Our definition is called `smurfify` (改为蓝精灵, conversion to a smurf, a pun on the English language).  For that we need to know the number that needs to be smurfified, thus we expect a number `(n :int)`.  Within the function, the number is called `n`, and `int` means that an integral number (整数, not $0.5$ or a string "Hello") is passed in.  In older versions of Python you may have omitted this annotation, but it is helpful to make sure the user of the function takes care of what to pass to the function.  This is called type annotation (类型注释).
 
-But we also want to return a result (结果).  Therefore we write `-> str`, i.e. in the end we return a string or text.  This, too, is a type annotation.  With it, the IDE (integrated development environment, e.g. pyCharm) is able to check whether we really return a string and did not just forget about it (算了).
+But we also want to return a result (结果).  Therefore we write `-> str`, i.e. in the end we return a string (字串) or text.  This, too, is a type annotation.  With it, the IDE (integrated development environment, 集成开发环境, e.g. pyCharm) is able to check whether we really return a string and did not just forget about it (算了).
 
-What are the 2 cases?  We check if `n` divided by 4 gives the remainder not equal `!=` 0, that is for 1, 2, 3 or 5, 6, 7 or ... .  In this case we return `str(n)` (返回给) the number as a string.  `return` also has another effect, namely the execution of the function stops here and the computer returns (回发) to the caller -- the main part.  In this case the last line won't be executed.
+What are the 2 cases?  We check if `n` divided by 4 gives the remainder not equal `!=` 0, that is for 1, 2, 3 or 5, 6, 7 or ... .  In this case we return (返回给) `str(n)` the number as a string.  `return` also has another effect, namely the execution of the function stops here and the computer returns (回发) to the caller -- the main part.  In this case the last line won't be executed.
 
 When `n` is divisible by 4 (`n%4 == 0`), the first `return` statement is not executed.  Instead the computer proceeds to the next line.  Here we return "smurf" (and then finish the function).
 
@@ -128,7 +128,7 @@ And now:
 
 # 3. "16" is smurf-smurf
 
-There is still a problem left:  16 ist not "4-smurf", but `n` should be reduced to 1 and the suffix is "smurf-smurf".  We can get there with the following code:
+There is still a problem left:  16 is not "4-smurf", but `n` should be reduced to 1 and the suffix is "smurf-smurf".  We can get there with the following code:
 
 ```Python
   def smurfify(n :int) -> str:
@@ -148,7 +148,7 @@ There is still a problem left:  16 ist not "4-smurf", but `n` should be reduced 
 
 ```
 
-`while <condition>:` means that the `condition` (条件) is tested (试试).  When it is true, the indented code is executed.  Then the condition is tested again, and so on, until thecondition is no longer true (while -- 当……时. means also as long as).
+`while <condition>:` means that the `condition` (条件) is tested (试试).  When it is true, the indented code is executed.  Then the condition is tested again, and so on, until the condition is no longer true (while -- 当……时. means also as long as).
 
 `suffix += "-smurf"` means that we append (追加) "-smurf" once.  After the first pass, `n` is smaller by a factor of 4 and `suffix == "smurf-smurf"`.
 
@@ -166,6 +166,6 @@ First you should try to run the program by yourself.  Does it start?  Can you se
 
 Can you write a function `def congee(n :int) -> str:` that replaces every 3rd number by "congee" (粥)?  Congee in English sounds very similar to three, that is why we replace every 3rd number.
 
-how to adjust the main loop in order to use the function?
+How to adjust the main loop such that it uses the new function?
 
 Can you refine (完善/提高) the function a bit?
