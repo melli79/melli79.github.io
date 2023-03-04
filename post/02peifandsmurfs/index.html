@@ -48,7 +48,7 @@
 <meta itemprop="name" content="02PE. If and Smurfs">
 <meta itemprop="description" content="if and smurfs"><meta itemprop="datePublished" content="2023-03-04T13:43:46+01:00" />
 <meta itemprop="dateModified" content="2023-03-04T13:43:46+01:00" />
-<meta itemprop="wordCount" content="1383">
+<meta itemprop="wordCount" content="1382">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="02PE. If and Smurfs"/>
 <meta name="twitter:description" content="if and smurfs"/>
@@ -287,7 +287,7 @@
 </span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">+</span><span class="s2">&#34;-smurf&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>n //= 4</code> means that we divide <code>n</code> by 4 and store the result again in <code>n</code>.  The difference between <code>//=</code> and <code>/=</code> is visible when the division leaves a remainder.  <code>//=</code> means that we drop the remainder and the result is definitely an integer (<code>int</code>, 整数), <code>/=</code> means that we also break up the remainder and are left with <em>crumbles</em> i.e. fractional numbers (有理数).</p>
+</div><p><code>n //= 4</code> means that we divide <code>n</code> by 4 and store the result again in <code>n</code>.  The difference between <code>//=</code> and <code>/=</code> is visible when the division leaves a remainder.  <code>//=</code> means that we drop the remainder and the result is definitely an integer (<code>int</code>, 整数), <code>/=</code> means that we also break up the remainder and are left with <em>crumbles</em> i.e. rational numbers (有理数).</p>
 <p>When you restart the program, the result is the following:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -298,7 +298,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="21-remove-the-1-">2.1 Remove the &ldquo;1-&rdquo;</h2>
-<p>Ok, it seems that we have to distinguish another case:  If the <code>n</code> is 1 after the division, then we only want to write &ldquo;smurf&rdquo;.  We can reach there by:</p>
+<p>Ok, it seems that we have to distinguish another case:  If <code>n</code> is 1 after the division, then we only want to write &ldquo;smurf&rdquo;.  We can reach there by:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -368,7 +368,7 @@
 </span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">+</span><span class="s2">&#34;-&#34;</span><span class="o">+</span><span class="n">suffix</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>while &lt;condition&gt;:</code> means that the <code>condition</code> (条件) is tested (试试).  When it is fulfilled (true, 真), the indented code is executed.  Then the condition is tested again, and so on, until the condition is no longer true (while &ndash; 当……时. means also as long as).  This is called a while loop (while循环).  The difference to a for loop is that we do not know how many time we need to repeat, but instead we can test whether we should repeat.  In a for loop we need to know from the beginning how many times we want to repeat.</p>
+</div><p><code>while &lt;condition&gt;:</code> means that the <code>condition</code> (条件) is tested (试试).  When it is fulfilled (true, 真), the indented code is executed.  Then the condition is tested again, and so on, until the condition is no longer true (while &ndash; 当……时. means also as long as).  This is called a while loop (while循环).  The difference to a for loop is that we do not know how many times we need to repeat, but instead we can test whether we should repeat.  In a for loop we need to know from the beginning how many times we want to repeat.</p>
 <p><code>suffix += &quot;-smurf&quot;</code> means that we append (追加) &ldquo;-smurf&rdquo; once.  After the first pass, <code>n</code> is smaller by a factor of 4 and <code>suffix == &quot;smurf-smurf&quot;</code>.  Suffix (后缀) means an ending, the opposite would be a prefix (前缀).</p>
 <p>Now, the result looks as follows:</p>
 <div class="highlight"><div class="chroma">

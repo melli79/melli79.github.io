@@ -39,7 +39,7 @@ Of course, we do not want to type in the multiples manually, instead a computer 
 ```Python
   x*y
 ```
-Assuming the variables `x` and `y` contain numbers, then `x*y` means that their product is computed.  Correspondingly, we can compute a sum by `4+5`.
+Assuming the variables `x` and `y` contain numbers, then `x*y` means that their product (求积) is computed.  Correspondingly, we can compute a sum (求和) by `4+5`.
 
 ## 2. What to do with these numbers?
 
@@ -96,7 +96,7 @@ When you look at the output, you will see that all numbers in a row are printed 
 ```Python
   print("{:2}".format(x*y), end=" ")
 ```
-`.format(...)` means that the following arguments (参数) will be inserted into the string before where there are `{...}`.  `{:2}` means that the numbers will be printed with 2 positions (or more) by padding them with spaces from the left if necessary.
+`.format(...)` means that the following arguments (参数) will be inserted into the string before instead of the `{...}`.  `{:2}` means that the numbers will be printed with 2 positions (or more) by padding them with spaces from the left if necessary.
 
 ## What happens with 100? (It needs 3 digits.)
 

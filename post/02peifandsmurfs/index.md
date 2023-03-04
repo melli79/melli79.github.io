@@ -94,7 +94,7 @@ Actually, we wanted to replace 8 by "2-smurf".  The 2 is $8÷4$.  We can reach t
 
 ```
 
-`n //= 4` means that we divide `n` by 4 and store the result again in `n`.  The difference between `//=` and `/=` is visible when the division leaves a remainder.  `//=` means that we drop the remainder and the result is definitely an integer (`int`, 整数), `/=` means that we also break up the remainder and are left with _crumbles_ i.e. fractional numbers (有理数).
+`n //= 4` means that we divide `n` by 4 and store the result again in `n`.  The difference between `//=` and `/=` is visible when the division leaves a remainder.  `//=` means that we drop the remainder and the result is definitely an integer (`int`, 整数), `/=` means that we also break up the remainder and are left with _crumbles_ i.e. rational numbers (有理数).
 
 When you restart the program, the result is the following:
 
@@ -104,7 +104,7 @@ When you restart the program, the result is the following:
 
 ## 2.1 Remove the "1-"
 
-Ok, it seems that we have to distinguish another case:  If the `n` is 1 after the division, then we only want to write "smurf".  We can reach there by:
+Ok, it seems that we have to distinguish another case:  If `n` is 1 after the division, then we only want to write "smurf".  We can reach there by:
 
 ```Python
   def smurfify(n :int) -> str:
@@ -148,7 +148,7 @@ There is still a problem left:  16 is not "4-smurf", but `n` should be reduced t
 
 ```
 
-`while <condition>:` means that the `condition` (条件) is tested (试试).  When it is fulfilled (true, 真), the indented code is executed.  Then the condition is tested again, and so on, until the condition is no longer true (while -- 当……时. means also as long as).  This is called a while loop (while循环).  The difference to a for loop is that we do not know how many time we need to repeat, but instead we can test whether we should repeat.  In a for loop we need to know from the beginning how many times we want to repeat.
+`while <condition>:` means that the `condition` (条件) is tested (试试).  When it is fulfilled (true, 真), the indented code is executed.  Then the condition is tested again, and so on, until the condition is no longer true (while -- 当……时. means also as long as).  This is called a while loop (while循环).  The difference to a for loop is that we do not know how many times we need to repeat, but instead we can test whether we should repeat.  In a for loop we need to know from the beginning how many times we want to repeat.
 
 `suffix += "-smurf"` means that we append (追加) "-smurf" once.  After the first pass, `n` is smaller by a factor of 4 and `suffix == "smurf-smurf"`.  Suffix (后缀) means an ending, the opposite would be a prefix (前缀).
 

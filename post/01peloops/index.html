@@ -48,7 +48,7 @@
 <meta itemprop="name" content="01PE. For Loops">
 <meta itemprop="description" content="This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&rsquo;s goal is a multiplication table (乘法表) as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6"><meta itemprop="datePublished" content="2023-03-03T23:24:50+01:00" />
 <meta itemprop="dateModified" content="2023-03-03T23:24:50+01:00" />
-<meta itemprop="wordCount" content="999">
+<meta itemprop="wordCount" content="1007">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="01PE. For Loops"/>
 <meta name="twitter:description" content="This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&rsquo;s goal is a multiplication table (乘法表) as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6"/>
@@ -205,7 +205,7 @@ In every row the number, then its double (两次), then the triple (三次), &he
 <pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl">  <span class="n">x</span><span class="o">*</span><span class="n">y</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Assuming the variables <code>x</code> and <code>y</code> contain numbers, then <code>x*y</code> means that their product is computed.  Correspondingly, we can compute a sum by <code>4+5</code>.</p>
+</div><p>Assuming the variables <code>x</code> and <code>y</code> contain numbers, then <code>x*y</code> means that their product (求积) is computed.  Correspondingly, we can compute a sum (求和) by <code>4+5</code>.</p>
 <h2 id="2-what-to-do-with-these-numbers">2. What to do with these numbers?</h2>
 <p>We will print (印) them on the command line (命令行).  The simplest option for that is:</p>
 <div class="highlight"><div class="chroma">
@@ -267,7 +267,7 @@ In every row the number, then its double (两次), then the triple (三次), &he
 <pre tabindex="0" class="chroma"><code class="language-Python" data-lang="Python"><span class="line"><span class="cl">  <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">{:2}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s2">&#34; &#34;</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>.format(...)</code> means that the following arguments (参数) will be inserted into the string before where there are <code>{...}</code>.  <code>{:2}</code> means that the numbers will be printed with 2 positions (or more) by padding them with spaces from the left if necessary.</p>
+</div><p><code>.format(...)</code> means that the following arguments (参数) will be inserted into the string before instead of the <code>{...}</code>.  <code>{:2}</code> means that the numbers will be printed with 2 positions (or more) by padding them with spaces from the left if necessary.</p>
 <h2 id="what-happens-with-100-it-needs-3-digits">What happens with 100? (It needs 3 digits.)</h2>
 <p>Have a look at the (new) output.  Even though we requested only 2 digits, the number 100 is displayed with 3 digits.  The reason is that <code>{:2}</code> means at least 2 positions, more when the number is bigger.</p>
 <h2 id="6-i-want-to-print-a-bigger-multiplication-table-like-20times20">6. I want to print a bigger Multiplication table, like $20\times20$</h2>
