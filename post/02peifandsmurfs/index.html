@@ -48,7 +48,7 @@
 <meta itemprop="name" content="02PE. If and Smurfs">
 <meta itemprop="description" content="if and smurfs"><meta itemprop="datePublished" content="2023-03-04T13:43:46+01:00" />
 <meta itemprop="dateModified" content="2023-03-04T13:43:46+01:00" />
-<meta itemprop="wordCount" content="1382">
+<meta itemprop="wordCount" content="1387">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="02PE. If and Smurfs"/>
 <meta name="twitter:description" content="if and smurfs"/>
@@ -224,7 +224,7 @@
 </div>
 </div><p><code>def</code> is the abbreviation for definition (定义), but in Python usually refers to the definition of some steps to be executed whenever requested.  Our definition is called <code>smurfify</code> (改为蓝精灵, conversion to a smurf, a pun on the English language).  For that we need to know the number that needs to be smurfified, thus we expect a number <code>(n :int)</code>.  Within the function, the number is called <code>n</code>, and <code>int</code> means that an integral number (整数, not $0.5$ or a string &ldquo;Hello&rdquo;) is passed in.  In older versions of Python you may have omitted this annotation (注释), but it is helpful to make sure (确保) the user of the function takes care of what arguments (参数) to pass to the function.  This is called type annotation (类型注释).</p>
 <p>But we also want to return a result (结果).  Therefore we write <code>-&gt; str</code>, i.e. in the end we return a string (字串) or text.  This, too, is a type annotation.  With it, the IDE (integrated development environment, 集成开发环境, e.g. pyCharm) is able to check whether we really return a string and did not just forget about it (算了).</p>
-<p>What are the 2 cases?  We check if <code>n</code> divided by 4 gives the remainder not equal <code>!=</code> 0, that is for 1, 2, 3 or 5, 6, 7 or &hellip; .  In this case we return (返回给) <code>str(n)</code> the number as a string.  <code>return</code> also has another effect, namely the execution of the function stops here and the computer returns (回发) to the calling part (呼叫程序) &ndash; the main part.  In this case the last line won&rsquo;t be executed.</p>
+<p>What are the 2 cases?  We check if <code>n</code> divided by 4 gives the remainder not equal <code>!=</code> 0, that is for 1, 2, 3 or 5, 6, 7 or &hellip; .  In this case we return (返回给) <code>str(n)</code> the number as a string, called stringify (similar to smurfify).  <code>return</code> also has another effect, namely the execution of the function stops here and the computer returns (回发) to the calling part (呼叫程序) &ndash; the main part.  In this case the last line won&rsquo;t be executed.</p>
 <p>When <code>n</code> is divisible by 4 (<code>n%4 == 0</code>), the first <code>return</code> statement is not executed.  Instead the computer proceeds to the next line.  Here we return &ldquo;smurf&rdquo; (and then finish the function).</p>
 <p>Now, our program looks as follows:</p>
 <div class="highlight"><div class="chroma">

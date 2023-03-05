@@ -50,7 +50,7 @@ But we do not wish to squeeze (夹) everything into the main loop. Instead we wa
 
 But we also want to return a result (结果).  Therefore we write `-> str`, i.e. in the end we return a string (字串) or text.  This, too, is a type annotation.  With it, the IDE (integrated development environment, 集成开发环境, e.g. pyCharm) is able to check whether we really return a string and did not just forget about it (算了).
 
-What are the 2 cases?  We check if `n` divided by 4 gives the remainder not equal `!=` 0, that is for 1, 2, 3 or 5, 6, 7 or ... .  In this case we return (返回给) `str(n)` the number as a string.  `return` also has another effect, namely the execution of the function stops here and the computer returns (回发) to the calling part (呼叫程序) -- the main part.  In this case the last line won't be executed.
+What are the 2 cases?  We check if `n` divided by 4 gives the remainder not equal `!=` 0, that is for 1, 2, 3 or 5, 6, 7 or ... .  In this case we return (返回给) `str(n)` the number as a string, called stringify (similar to smurfify).  `return` also has another effect, namely the execution of the function stops here and the computer returns (回发) to the calling part (呼叫程序) -- the main part.  In this case the last line won't be executed.
 
 When `n` is divisible by 4 (`n%4 == 0`), the first `return` statement is not executed.  Instead the computer proceeds to the next line.  Here we return "smurf" (and then finish the function).
 
