@@ -63,7 +63,8 @@ Ich denke, dass das Prinzip jetzt klar geworden ist.  Hier noch die Halbleiter/H
   	Boron(byteArrayOf(3), 5u, "B"),
   	Silicon(byteArrayOf(4, -4), 14u), Germanium(byteArrayOf(4, -4), 32u),
   	Arsen(byteArrayOf(-3, 5), 33u, "As"), Antimony(byteArrayOf(-3, 5), 51u, "Sb"),
-  	Tellurium(byteArrayOf(-2, 6), 52u), Polonium(byteArrayOf(-2, 6), 84u);
+  	Tellurium(byteArrayOf(-2, 6), 52u), Polonium(byteArrayOf(-2, 6), 84u),
+  	Astatine(byteArrayOf(7, -1), 85u, "At");
 
   	override val symbol = symb ?: name.substring(0..1)
   }
@@ -82,8 +83,7 @@ Am Aufwändigsten ist die Klasse der Metalle, weil die meisten chemischen Elemen
   	...
   	Aluminium(byteArrayOf(3), 13u), ...
   	Stannium(byteArrayOf(2,4), 50u, "Sn"), Lead(byteArrayOf(2,4), 82u, "Pb"),
-  	Bismuth(byteArrayOf(3,5), 83u),
-  	Astatine(byteArrayOf(7, -1), 85u, "At");
+  	Bismuth(byteArrayOf(3,5), 83u);
 
   	override val symbol = symb ?: name.substring(0..1)
   }
@@ -375,7 +375,36 @@ Dann steht da `expected: ...`  `but was: ...`  Das bedeutet, dass etwas nicht so
 
 Wenn du nun die Spezifikation von Helium wieder zurück änderst und den Test erneut laufen lässt, dann sollten wieder alle Tests grün sein.
 
-## 2.6 Salze
+
+## 2.6 Oxide
+Hier kann man nach Metallen, Halbmetallen und Nichtmetallen unterscheiden.  Entsprechend schreiben wir 3 Tests:
+
+```Kotlin
+  class Bond2Tester {
+    ...
+
+    @Test fun metalOxides() {
+      for (metal in Metal.values()) {
+        println(metal.name+": ${bind(metal, Nonmetal.Oxygen)}")
+      }
+    }
+
+    @Test fun nonmetalOxides() {
+      for (element in Nonmetal.values()) if (element!=Nonmetal.Oxygen) {
+        println(element.name +": ${bind(element, Nonmetal.Oxygen)}")
+      }
+    }
+
+    @Test fun semimetalOxides() {
+      for (element in Semimetal.values()) {
+        println(element.name +": ${bind(element, Nonmetal.Oxygen)}")
+      }
+    }
+  }
+```
+
+
+## 2.7 Salze
 
 Auch die kann unsere Methode bereits.  Dazu müssen wir nur noch auswählen, welche Elemente sich mit Metallen zu Salzen verbinden können:
 
@@ -383,7 +412,7 @@ Auch die kann unsere Methode bereits.  Dazu müssen wir nur noch auswählen, wel
   class Bond2Tester {
     ...
 
-    val halogens = listOf(Nonmetal.Phosphorus, Nonmetal.Sulfur, Nonmetal.Fluorine, Nonmetal.Chlorine, Nonmetal.Bromine, Nonmetal.Iodine)
+    val halogens = listOf(Nonmetal.Fluorine, Nonmetal.Chlorine, Nonmetal.Bromine, Nonmetal.Iodine, Nonmetal.Nitrogen, Nonmetal.Sulfur)
 
     @Test fun salts() {
       for (metal in Metal.values()) {
@@ -398,6 +427,34 @@ Auch die kann unsere Methode bereits.  Dazu müssen wir nur noch auswählen, wel
 ```
 
 Das sind ziemlich viele, und die können anhand der Valenzen alle stöchiometrisch korrekt gebildet werden.
+
+
+## 2.8 Halbmetall-Verbindungen
+
+Etwas schwieriger sieht es bei den Halbmetall-Verbindungen aus.  Das Programm kann nicht erkennen, wenn es Verbindungen, die stöchiometrisch funktionieren, aus Stabilitätsgründen gar nicht gibt.  Deshalb schränken wir den Test ein:
+
+```Kotlin
+  class Bond2Tests {
+    ...
+
+    val weakMetals = listOf(Metal.Sodium, Metal.Potassium, Metal.Rubidium, Metal.Caesium, Metal.Franzium, Metal.Magnesium, Metal.Calcium, Metal.Gallium)
+
+    private val oxidizers = listOf(Nonmetal.Fluorine, Nonmetal.Chlorine, Nonmeta.Bromine, Nonmetal.Iodine, Nonmetal.Nitrogen, Nonmetal.Sulphur)
+
+    @Test fun semimetalBonds() {
+      for (element in Semimetal.values()) {
+        print(element.name +":  ")
+        for (metal in weakMetals) {
+          print("${bind(metal, element)}, ")
+        }
+        for (oxidizer in oxidizers) {
+          print("${bind(element, oxidizer)}, ")
+        }
+        println()
+      }
+    }
+  }
+```
 
 
 # 3. Säuren und Basen
@@ -459,9 +516,9 @@ Jetzt können wir die Methode implementieren:
 ```
 Ok, also für die Metalle und Halbmetalle ist es nicht so schwer, sie bilden einfach Hydroxide entsprechend ihrer Valenzen.
 
-Für die Halogene unterscheidet es sich in Fluor und die restlichen (außer Astat, welches ich einfach als "Metall" eingeteilt habe).  Bei Fluor gibt es nur Fluorwasserstoff, dessen Bindung(en) wir bereits mit `bind(...)` berechnen können (das Ergebnis ist ein `Bond2`).  Für die anderen gibt es noch die chlorige Säure, Chlorsäure und Perchlorsäure.  In diesen hat das Halogen eine positive Valenz.  Deshalb wird als erstes auf `{ it>0 }` gefiltert.  Entsprechendes gibt es für Brom und Iod.
+Für die Halogene unterscheidet es sich in Fluor und die restlichen (außer Astat, welches ich einfach als "Halbmetall" eingeteilt habe).  Bei Fluor gibt es nur Fluorwasserstoff, dessen Bindung(en) wir bereits mit `bind(...)` berechnen können (das Ergebnis ist ein `Bond2`).  Für die anderen gibt es noch die chlorige Säure, Chlorsäure und Perchlorsäure.  In diesen hat das Halogen eine positive Valenz.  Deshalb wird als erstes auf `{ it>0 }` gefiltert.  Entsprechendes gibt es für Brom und Iod.
 
-Für die restlichen Elemente der Sauerstoffgruppe gibt es neben den Schwefelwasserstoff noch 2 mögliche 3er Bindungen:  Schwefelige Säure (H$_2$SO$_3$) und Schwefelsäure (H$_2$SO$_4$), und entsprechendes für Selen.
+Für die restlichen Elemente der Sauerstoffgruppe gibt es neben dem Schwefelwasserstoff noch 2 mögliche 3er Bindungen:  Schwefelige Säure (H$_2$SO$_3$) und Schwefelsäure (H$_2$SO$_4$), und entsprechendes für Selen.
 
 Für Sticksoff gibt es neben NH$_3$ (Ammoniak) noch die salpetrige Säure (HNO$_2$) und die Salpetersäure (HNO$_3$).  Für Phosphor gibt es neben Phosphin (PH$_3$) noch hypophosphorige Säure (H$_3$PO$_2$), phosphorige Säure (H$_3$PO$_3$) und Phosphorsäure (H$_3$PO$_4$).
 
