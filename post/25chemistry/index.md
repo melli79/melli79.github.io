@@ -376,24 +376,12 @@ Dann steht da `expected: ...`  `but was: ...`  Das bedeutet, dass etwas nicht so
 Wenn du nun die Spezifikation von Helium wieder zurück änderst und den Test erneut laufen lässt, dann sollten wieder alle Tests grün sein.
 
 
-## 2.6 Oxide
-Hier kann man nach Metallen, Halbmetallen und Nichtmetallen unterscheiden.  Entsprechend schreiben wir 3 Tests:
+## 2.6 Halbmetall-Oxide
+Auch Halbmetalle lassen sich oxidieren:
 
 ```Kotlin
   class Bond2Tester {
     ...
-
-    @Test fun metalOxides() {
-      for (metal in Metal.values()) {
-        println(metal.name+": ${bind(metal, Nonmetal.Oxygen)}")
-      }
-    }
-
-    @Test fun nonmetalOxides() {
-      for (element in Nonmetal.values()) if (element!=Nonmetal.Oxygen) {
-        println(element.name +": ${bind(element, Nonmetal.Oxygen)}")
-      }
-    }
 
     @Test fun semimetalOxides() {
       for (element in Semimetal.values()) {
@@ -417,8 +405,8 @@ Auch die kann unsere Methode bereits.  Dazu müssen wir nur noch auswählen, wel
     @Test fun salts() {
       for (metal in Metal.values()) {
         print("${metal.name}:  ")
-        for (halogene in halogenes) {
-          print(bind(metal, halogene)+", ")
+        for (halogen in halogens) {
+          print(bind(metal, halogen)+", ")
         }
         println()
       }
@@ -439,16 +427,14 @@ Etwas schwieriger sieht es bei den Halbmetall-Verbindungen aus.  Das Programm ka
 
     val weakMetals = listOf(Metal.Sodium, Metal.Potassium, Metal.Rubidium, Metal.Caesium, Metal.Franzium, Metal.Magnesium, Metal.Calcium, Metal.Gallium)
 
-    private val oxidizers = listOf(Nonmetal.Fluorine, Nonmetal.Chlorine, Nonmeta.Bromine, Nonmetal.Iodine, Nonmetal.Nitrogen, Nonmetal.Sulphur)
-
     @Test fun semimetalBonds() {
       for (element in Semimetal.values()) {
         print(element.name +":  ")
         for (metal in weakMetals) {
           print("${bind(metal, element)}, ")
         }
-        for (oxidizer in oxidizers) {
-          print("${bind(element, oxidizer)}, ")
+        for (halogen in halogens) {
+          print("${bind(element, halogen)}, ")
         }
         println()
       }

@@ -60,7 +60,7 @@ Bild 1: Periodensystem der Elemente. CC Antonsusi 2019.
 Und zum anderen wollen wir die Summenformeln von (einfachen) anorganischen Verbindungen ausrechnen, also so etwas wie NaCl oder Al$_2$O$_3$.
 1. chemische Elemente darstellen Wie man aus den Farben des obigen Periodensystems erkennt, kommen die Elemente in ca."><meta itemprop="datePublished" content="2023-03-06T22:20:45+01:00" />
 <meta itemprop="dateModified" content="2023-03-06T22:20:45+01:00" />
-<meta itemprop="wordCount" content="3548">
+<meta itemprop="wordCount" content="3484">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="25. Anorganische Chemische Verbindungen"/>
 <meta name="twitter:description" content="Nachdem wir letztes Mal über störungssichere Übertragung gesprochen haben, wollen wir heute systematische (anorganische) Chemie betreiben.
@@ -153,7 +153,7 @@ Und zum anderen wollen wir die Summenformeln von (einfachen) anorganischen Verbi
         <li><a href="#23-funktioniert-das-alles">2.3 Funktioniert das alles?</a></li>
         <li><a href="#24-nichtmetall-oxide">2.4 Nichtmetall-Oxide</a></li>
         <li><a href="#25-keine-verbindungen-mit-edelgasen">2.5 Keine Verbindungen mit Edelgasen</a></li>
-        <li><a href="#26-oxide">2.6 Oxide</a></li>
+        <li><a href="#26-halbmetall-oxide">2.6 Halbmetall-Oxide</a></li>
         <li><a href="#27-salze">2.7 Salze</a></li>
         <li><a href="#28-halbmetall-verbindungen">2.8 Halbmetall-Verbindungen</a></li>
       </ul>
@@ -785,47 +785,23 @@ Bild 1: Periodensystem der Elemente. CC Antonsusi 2019.</p>
 </div><p>Die erste Zeile kommt vom erfolgreichen Teil des Tests, d.h. er konnte irgendwelche Verbindungen bestimmen und hat diese ausgegeben (zusammen mit dem Namen Helium).</p>
 <p>Dann steht da <code>expected: ...</code>  <code>but was: ...</code>  Das bedeutet, dass etwas nicht so war, wie es erwartet wurde.  Wenn du in der Fehlermeldung weiter unten suchst, dann gibt es eine Zeile, in der etwas blau markiert ist &ldquo;Bond2Tester.kt:20&rdquo;.  Wenn du auf diesen blauen Text klickst, kommst du direkt zu der Stelle, an der etwas schiefging.  Das sollte die Zeile mit dem <code>assertEquals</code> sein.  Am Anfang der Fehlermeldung steht auch, was schiefgegangen ist, nämlich, dass keine Verbindungen erwartet wurden, es aber welche gab.</p>
 <p>Wenn du nun die Spezifikation von Helium wieder zurück änderst und den Test erneut laufen lässt, dann sollten wieder alle Tests grün sein.</p>
-<h2 id="26-oxide">2.6 Oxide</h2>
-<p>Hier kann man nach Metallen, Halbmetallen und Nichtmetallen unterscheiden.  Entsprechend schreiben wir 3 Tests:</p>
+<h2 id="26-halbmetall-oxide">2.6 Halbmetall-Oxide</h2>
+<p>Auch Halbmetalle lassen sich oxidieren:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">Bond2Tester</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="o">..</span><span class="p">.</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nd">@Test</span> <span class="k">fun</span> <span class="nf">metalOxides</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">metal</span> <span class="k">in</span> <span class="nc">Metal</span><span class="p">.</span><span class="n">values</span><span class="p">())</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">println</span><span class="p">(</span><span class="n">metal</span><span class="p">.</span><span class="n">name</span><span class="p">+</span><span class="s2">&#34;: </span><span class="si">${bind(metal, Nonmetal.Oxygen)}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="nd">@Test</span> <span class="k">fun</span> <span class="nf">nonmetalOxides</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">element</span> <span class="k">in</span> <span class="nc">Nonmetal</span><span class="p">.</span><span class="n">values</span><span class="p">())</span> <span class="k">if</span> <span class="p">(</span><span class="n">element</span><span class="o">!=</span><span class="nc">Nonmetal</span><span class="p">.</span><span class="n">Oxygen</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">println</span><span class="p">(</span><span class="n">element</span><span class="p">.</span><span class="n">name</span> <span class="p">+</span><span class="s2">&#34;: </span><span class="si">${bind(element, Nonmetal.Oxygen)}</span><span class="s2">&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">      <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nd">@Test</span> <span class="k">fun</span> <span class="nf">semimetalOxides</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">element</span> <span class="k">in</span> <span class="nc">Semimetal</span><span class="p">.</span><span class="n">values</span><span class="p">())</span> <span class="p">{</span>
@@ -864,8 +840,8 @@ Bild 1: Periodensystem der Elemente. CC Antonsusi 2019.</p>
 </span></span><span class="line"><span class="cl">    <span class="nd">@Test</span> <span class="k">fun</span> <span class="nf">salts</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">metal</span> <span class="k">in</span> <span class="nc">Metal</span><span class="p">.</span><span class="n">values</span><span class="p">())</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">${metal.name}</span><span class="s2">:  &#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">halogene</span> <span class="k">in</span> <span class="n">halogenes</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="n">print</span><span class="p">(</span><span class="n">bind</span><span class="p">(</span><span class="n">metal</span><span class="p">,</span> <span class="n">halogene</span><span class="p">)+</span><span class="s2">&#34;, &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">halogen</span> <span class="k">in</span> <span class="n">halogens</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">print</span><span class="p">(</span><span class="n">bind</span><span class="p">(</span><span class="n">metal</span><span class="p">,</span> <span class="n">halogen</span><span class="p">)+</span><span class="s2">&#34;, &#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="n">println</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
@@ -896,8 +872,6 @@ Bild 1: Periodensystem der Elemente. CC Antonsusi 2019.</p>
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-Kotlin" data-lang="Kotlin"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">Bond2Tests</span> <span class="p">{</span>
@@ -905,16 +879,14 @@ Bild 1: Periodensystem der Elemente. CC Antonsusi 2019.</p>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">val</span> <span class="py">weakMetals</span> <span class="p">=</span> <span class="n">listOf</span><span class="p">(</span><span class="nc">Metal</span><span class="p">.</span><span class="n">Sodium</span><span class="p">,</span> <span class="nc">Metal</span><span class="p">.</span><span class="n">Potassium</span><span class="p">,</span> <span class="nc">Metal</span><span class="p">.</span><span class="n">Rubidium</span><span class="p">,</span> <span class="nc">Metal</span><span class="p">.</span><span class="n">Caesium</span><span class="p">,</span> <span class="nc">Metal</span><span class="p">.</span><span class="n">Franzium</span><span class="p">,</span> <span class="nc">Metal</span><span class="p">.</span><span class="n">Magnesium</span><span class="p">,</span> <span class="nc">Metal</span><span class="p">.</span><span class="n">Calcium</span><span class="p">,</span> <span class="nc">Metal</span><span class="p">.</span><span class="n">Gallium</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">private</span> <span class="k">val</span> <span class="py">oxidizers</span> <span class="p">=</span> <span class="n">listOf</span><span class="p">(</span><span class="nc">Nonmetal</span><span class="p">.</span><span class="n">Fluorine</span><span class="p">,</span> <span class="nc">Nonmetal</span><span class="p">.</span><span class="n">Chlorine</span><span class="p">,</span> <span class="nc">Nonmeta</span><span class="p">.</span><span class="n">Bromine</span><span class="p">,</span> <span class="nc">Nonmetal</span><span class="p">.</span><span class="n">Iodine</span><span class="p">,</span> <span class="nc">Nonmetal</span><span class="p">.</span><span class="n">Nitrogen</span><span class="p">,</span> <span class="nc">Nonmetal</span><span class="p">.</span><span class="n">Sulphur</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="nd">@Test</span> <span class="k">fun</span> <span class="nf">semimetalBonds</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">element</span> <span class="k">in</span> <span class="nc">Semimetal</span><span class="p">.</span><span class="n">values</span><span class="p">())</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="n">print</span><span class="p">(</span><span class="n">element</span><span class="p">.</span><span class="n">name</span> <span class="p">+</span><span class="s2">&#34;:  &#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">metal</span> <span class="k">in</span> <span class="n">weakMetals</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">          <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">${bind(metal, element)}</span><span class="s2">, &#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">oxidizer</span> <span class="k">in</span> <span class="n">oxidizers</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">          <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">${bind(element, oxidizer)}</span><span class="s2">, &#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">halogen</span> <span class="k">in</span> <span class="n">halogens</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="si">${bind(element, halogen)}</span><span class="s2">, &#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
 </span></span><span class="line"><span class="cl">        <span class="n">println</span><span class="p">()</span>
 </span></span><span class="line"><span class="cl">      <span class="p">}</span>
