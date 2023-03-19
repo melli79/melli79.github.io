@@ -48,7 +48,7 @@
 <meta itemprop="name" content="03CE. Number Guessing Game">
 <meta itemprop="description" content="number guessing game"><meta itemprop="datePublished" content="2023-03-19T18:25:10+01:00" />
 <meta itemprop="dateModified" content="2023-03-19T18:25:10+01:00" />
-<meta itemprop="wordCount" content="2057">
+<meta itemprop="wordCount" content="2056">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="03CE. Number Guessing Game"/>
 <meta name="twitter:description" content="number guessing game"/>
@@ -382,7 +382,7 @@
 </span></span><span class="line"><span class="cl">  <span class="n">Random</span> <span class="nf">newRandom</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="kt">uint64_t</span> <span class="n">now</span> <span class="o">=</span> <span class="n">chrono</span><span class="o">::</span><span class="n">high_resolution_clock</span><span class="o">::</span><span class="n">now</span><span class="p">().</span><span class="n">time_since_epoch</span><span class="p">().</span><span class="n">count</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">    <span class="n">seed_seq</span> <span class="n">seed</span><span class="p">{</span><span class="kt">uint32_t</span><span class="p">(</span><span class="n">now</span> <span class="o">&amp;</span> <span class="mh">0xffffffff</span><span class="p">),</span> <span class="kt">uint32_t</span><span class="p">(</span><span class="n">now</span><span class="o">&gt;&gt;</span><span class="mi">32</span><span class="p">)};</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Random</span> <span class="n">result</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Random</span><span class="p">(</span><span class="n">seed</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">  <span class="p">...</span>

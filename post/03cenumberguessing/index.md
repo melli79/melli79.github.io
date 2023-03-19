@@ -133,7 +133,7 @@ I don't know (or honestly, I do not yet want to tell you where it fails).  So le
   Random newRandom() {
     uint64_t now = chrono::high_resolution_clock::now().time_since_epoch().count();
     seed_seq seed{uint32_t(now & 0xffffffff), uint32_t(now>>32)};
-    return Random result(seed);
+    return Random(seed);
   }
 
   ...
