@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on Melchior&#39;s Homepage</title>
+    <link>https://melli79.github.io/categories/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on Melchior&#39;s Homepage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 19 Mar 2023 15:45:30 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>02CE. If and Smurfs</title>
+      <link>https://melli79.github.io/post/02ceifandsmurfs/</link>
+      <pubDate>Sun, 19 Mar 2023 15:45:30 +0100</pubDate>
+      
+      <guid>https://melli79.github.io/post/02ceifandsmurfs/</guid>
+      <description>Today we want to count smurfs (蓝精灵). This is how it works: We start with the ordinary numbers from 1: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, &amp;hellip; Then we replace every 4th number by &amp;ldquo;smurf&amp;rdquo; according to its multiplicity (几次): 1 1, 2, 3, smurf, 5, 6, 7, 2-smurf, 9, 10, 11, 3-smurf, 13, 14, 15, ...</description>
+    </item>
+    
+    <item>
+      <title>01CE. For Loops</title>
+      <link>https://melli79.github.io/post/01celoops/</link>
+      <pubDate>Sun, 19 Mar 2023 14:55:50 +0100</pubDate>
+      
+      <guid>https://melli79.github.io/post/01celoops/</guid>
+      <description>This is a re-introduction. This time I wrote it for C++ and in English, hence CE. Once you have set up a programming environment, you can try to write a first small program. The Goal Today&amp;rsquo;s goal is a multiplication table (乘法表) as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6</description>
+    </item>
+    
+  </channel>
+</rss>
