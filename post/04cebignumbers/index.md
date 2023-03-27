@@ -340,7 +340,7 @@ We may only output the `tenThousands` if there is some value before it.  We can 
   }
 ```
 
-`bool` means a boolean value, i.e. either `true` (是/真) or `false` (否/不).  We need to remember whether there was a value before the tenthousands digit.  We will set the variable `value` to `true` if we printed some digit before the tenthousands.  Once, we have printed a tenthousands symbol, then we reset it to `value = false`.  The condition `value && pos%4==0` means that the computer tests for both conditions. First, it tests whether `value` is `true` and if that is given, it also tests for `pos%4==0`.  Therefore `&&` is read as "and" (和).
+`bool` means a boolean value, i.e. either `true` (是/真) or `false` (否/不).  We need to remember whether there was a value before the tenthousands digit.  We will set the variable `value` to `true` if we printed some digit before the tenthousands.  Once, we have printed a tenthousands symbol, then we reset it to `value = false`.  The condition `value && pos%4==0` means that the computer tests for both conditions. First, it tests whether `value` is `true` and if that is given, it also tests for `pos%4==0`.  Therefore `&&` is read as "and also" (还有).
 
 
 ## 1.9 Careful testing

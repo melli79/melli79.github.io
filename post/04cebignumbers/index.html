@@ -48,7 +48,7 @@
 <meta itemprop="name" content="04CE. Big Numbers, Chinese version">
 <meta itemprop="description" content="counting with Chinese number words"><meta itemprop="datePublished" content="2023-03-26T18:14:10+02:00" />
 <meta itemprop="dateModified" content="2023-03-26T18:14:10+02:00" />
-<meta itemprop="wordCount" content="3447">
+<meta itemprop="wordCount" content="3449">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="04CE. Big Numbers, Chinese version"/>
 <meta name="twitter:description" content="counting with Chinese number words"/>
@@ -678,7 +678,7 @@
 </span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>bool</code> means a boolean value, i.e. either <code>true</code> (是/真) or <code>false</code> (否/不).  We need to remember whether there was a value before the tenthousands digit.  We will set the variable <code>value</code> to <code>true</code> if we printed some digit before the tenthousands.  Once, we have printed a tenthousands symbol, then we reset it to <code>value = false</code>.  The condition <code>value &amp;&amp; pos%4==0</code> means that the computer tests for both conditions. First, it tests whether <code>value</code> is <code>true</code> and if that is given, it also tests for <code>pos%4==0</code>.  Therefore <code>&amp;&amp;</code> is read as &ldquo;and&rdquo; (和).</p>
+</div><p><code>bool</code> means a boolean value, i.e. either <code>true</code> (是/真) or <code>false</code> (否/不).  We need to remember whether there was a value before the tenthousands digit.  We will set the variable <code>value</code> to <code>true</code> if we printed some digit before the tenthousands.  Once, we have printed a tenthousands symbol, then we reset it to <code>value = false</code>.  The condition <code>value &amp;&amp; pos%4==0</code> means that the computer tests for both conditions. First, it tests whether <code>value</code> is <code>true</code> and if that is given, it also tests for <code>pos%4==0</code>.  Therefore <code>&amp;&amp;</code> is read as &ldquo;and also&rdquo; (还有).</p>
 <h2 id="19-careful-testing">1.9 Careful testing</h2>
 <p>So does that work as expected?</p>
 <p>Let us produce the results from the beginning.  Therefore we modify the main program as follows:</p>
