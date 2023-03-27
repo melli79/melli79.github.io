@@ -1,4 +1,4 @@
-After we have counted smurfs and guessed numbers last time, we want to print some numbers this time.
+After we have counted smurfs last time, we want to guess some numbers this time.
 
 # 0. Our Goal
 
