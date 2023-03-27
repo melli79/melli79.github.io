@@ -1,8 +1,8 @@
-After we have counted smurfs last time, we want to guess some numbers this time.
+After we have counted smurfs and guessed numbers last time, we want to print some numbers this time.
 
 # 0. Our Goal
 
-Here are 2 sample sessions (样本会议):
+Here are 2 samples (样本会议):
 
 ```log
   Number guessing Game
@@ -249,7 +249,7 @@ If the answer is "right", then we have guessed the number.  If the answer is "bi
 
 ## 3.3 Having a good guess -- binary search
 
-So, given the lowest possible number and the highest possible number, what is a reasonable guess?  We could ask whether it is the the lowest possible number.  Then the 2 possible answers are "right" or "bigger".  But it is impossible that the answer is "less", because we already asked for the lowest possible answer.
+So, given the lowest possible number and the highest possible number, what is a reasonable guess?  We could ask whether this should be the lowest possible number.  Then the 2 possible answers are "right" or "bigger".  But it is impossible that the answer is "less", because we already asked for the lowest possible answer.
 
 So how can we do better?
 

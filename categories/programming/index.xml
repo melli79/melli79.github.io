@@ -6,14 +6,23 @@
     <description>Recent content in Programming on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 19 Mar 2023 18:25:10 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Mar 2023 18:14:10 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>03CE. Number Guessing Game</title>
+      <title>04CE. Big Numbers</title>
       <link>https://melli79.github.io/post/03cenumberguessing/</link>
-      <pubDate>Sun, 19 Mar 2023 18:25:10 +0100</pubDate>
+      <pubDate>Sun, 26 Mar 2023 18:14:10 +0100</pubDate>
       
       <guid>https://melli79.github.io/post/03cenumberguessing/</guid>
-      <description>After we have counted smurfs last time, we want to guess some numbers this time. 0. Our Goal Here are 2 sample sessions (样本会议): 1 2 3 4 5 6 7 8 9 10 Number guessing Game Do you want to guess my number or should I guess your number (y/I)? I Ok, I have chosen a number between 1 and 100 (both inclusive).</description>
+      <description>After we have counted smurfs and guessed numbers last time, we want to print some numbers this time. 0. Our Goal Here are 2 samples (样本会议): 1 2 3 4 5 6 7 8 9 10 Number guessing Game Do you want to guess my number or should I guess your number (y/I)? I Ok, I have chosen a number between 1 and 100</description>
+    </item>
+    
+    <item>
+      <title>04CE. Big Numbers, Chinese version</title>
+      <link>https://melli79.github.io/post/04cebignumbers/</link>
+      <pubDate>Sun, 26 Mar 2023 18:14:10 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/04cebignumbers/</guid>
+      <description>After we have counted smurfs and guessed numbers last time, we want to print some numbers this time. 0. Our Goal Here are 2 samples (样本会议): 1 2 3 4 5 6 7 8 9 10 11 12 Numbers in Chinese 0：零、1：一 、2：二、3：三、4：四、5：五</description>
     </item>
     
     <item>
