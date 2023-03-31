@@ -108,7 +108,7 @@ First, we wish to extract the digits (数位) from our number.  We can obtain th
   }
 ```
 
-A vector is a container in which an arbitrary number of elements can be stored, e.g. a `vector<int>` is a container of integers.  The order of the elements is preserved.  Vectors are efficient for storing, adding new elements at the end, and if a vector is sorted, then it is efficent to search for an element (see binary search in our lecture about the number guessing game).
+A vector is a container in which an arbitrary number of elements can be stored, e.g. a `vector<int>` is a container of integers.  The order of the elements is preserved.  Vectors are efficient for storing, adding new elements at the end, and if a vector is sorted, then it is efficient to search for an element (see binary search in our lecture about the number guessing game).
 
 
 ### What is `unsigned_byte`?
@@ -416,7 +416,7 @@ So we are half through our project.
 
 
 
-# 2. Chinese banking numbers
+# 3. Chinese banking numbers
 
 Instead of immediately proceeding to English number words, let us briefly talk about counterfait numbers (反法的数字).  A number e.g. on a bank transaction statement looks as follows.  Suppose you (as a rich billionary) want to transfer ¥1'2345'6789, then you need to write: "¥壹亿贰仟叁佰肆拾伍万陆仟柒佰捌拾玖人民币"  Ok, then ¥ and the 人民币 is because it is Chinese money.
 
@@ -427,7 +427,7 @@ Well, suppose you get such a cheque from your manager and you decide that you ne
 If you write digits as 一二三四五六七八九, then it is possible to fake some of them.  But if you use the above counter-fait digits, then it is nearly impossible.
 
 
-## 2.1 Putting things in a function
+## 3.1 Putting things in a function
 
 ```C++
   static vector<string> zhBankDigits = { "零", "壹", "贰", "叁", "肆",  "伍", "陆", "柒", "捌", "玖" };
