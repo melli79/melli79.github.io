@@ -317,7 +317,7 @@ One possibility is that we may need "and" before printing a digit.  We encode th
 
 
 # 3. Paper Cheques
-These also exist(ed) in the USA.  The way they were protected against counterfeit was by writing the numbers twice, once in the position system and once in text form, e.g. in order to transfer $\\$123'456'789$ you first wrote these digits and in the line below, you wrote "onehundredtwentythree million fourhundredfiftysix thousand sevenhundredeightynine".  For those people who could not properly spell the millions and thousands it was also Ok, to just write the digits as words, i.e. "ONE-TWO-THREE FOUR-FIVE-SIX SEVEN-EIGHT-NINE" (small letters or capital letters).
+These also exist(ed) in the USA/Europe.  The way they were protected against counterfeit was by writing the numbers twice, once in the position system and once in text form, e.g. in order to transfer $\\$123'456'789$ you first wrote these digits and in the line below, you wrote "onehundredtwentythree million fourhundredfiftysix thousand sevenhundredeightynine".  For those people who could not properly spell the millions and thousands it was also Ok, to just write the digits as words, i.e. "ONE-TWO-THREE FOUR-FIVE-SIX SEVEN-EIGHT-NINE" (small letters or capital letters).
 
 I am not sure about the USA, but in Europe these times are over, i.e. if you have to make a transfer, you do that via online banking where you type the numbers and they are much harder to fake.
 

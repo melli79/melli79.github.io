@@ -432,7 +432,7 @@ If you write digits as 一二三四五六七八九, then it is possible to fake 
 ```C++
   static vector<string> zhBankDigits = { "零", "壹", "贰", "叁", "肆",  "伍", "陆", "柒", "捌", "玖" };
   static vector<string> zhBankTens = { "", "拾", "佰", "仟" };
-  static vector<string> zhBankTenthousands = { "", "万" "亿" };
+  static vector<string> zhBankTenthousands = { "", "万", "亿" };
 
   string zhBankCount(unsigned long n)
   {
