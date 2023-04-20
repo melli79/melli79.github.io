@@ -6,7 +6,16 @@
     <description>Recent content in Programming on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Apr 2023 22:35:10 +0200</lastBuildDate><atom:link href="https://melli79.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Apr 2023 16:44:10 +0200</lastBuildDate><atom:link href="https://melli79.github.io/categories/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>06CE Attention Game</title>
+      <link>https://melli79.github.io/post/06ceattentiongame/</link>
+      <pubDate>Sun, 16 Apr 2023 16:44:10 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/06ceattentiongame/</guid>
+      <description>After we have represented people in the computer last time, we want to test the user&amp;rsquo;s attention this time. 0. Our goal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 Attention game I give you a couple of numbers and you are to find which number occurs more than twice. I say: 3 4 0 9</description>
+    </item>
+    
     <item>
       <title>05CE People and Relatives</title>
       <link>https://melli79.github.io/post/05cepeople/</link>
