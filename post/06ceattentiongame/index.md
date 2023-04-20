@@ -181,10 +181,10 @@ So how many rounds?  Since we don't know, we will put that in an infinite loop.
   {
     ...
     int points = 0;
-    int numGames = 0;
+    int round = 0;
     while (true)
     {
-      numGames++;
+      round++;
       vector<short> numbers;
       for (int n=1; n<=15; n++)
       {
