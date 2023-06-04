@@ -48,7 +48,7 @@
 <meta itemprop="name" content="06CE Attention Game">
 <meta itemprop="description" content="paying attention to repeated numbers"><meta itemprop="datePublished" content="2023-04-16T16:44:10+02:00" />
 <meta itemprop="dateModified" content="2023-04-16T16:44:10+02:00" />
-<meta itemprop="wordCount" content="1460">
+<meta itemprop="wordCount" content="1595">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="06CE Attention Game"/>
 <meta name="twitter:description" content="paying attention to repeated numbers"/>
@@ -565,6 +565,85 @@
 <p>If we show 21 numbers, then we know by the same pigeon hole principle that there will be at least 1 number three times.</p>
 <p>So the answer is somewhere between 3 and 21.</p>
 <p>You can experiment with the number of numbers (the upper limit for <code>n</code>) in order to see what produces 3 equal numbers in many times, but not too many 3-fold numbers.  I thought that 15 is a reasonable choice, but maybe 12 is already sufficient.</p>
+<p>Maybe the following table helps:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:right">N</th>
+<th style="text-align:center">P(&gt;2 equal)</th>
+<th style="text-align:center">P(multiple groups)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">9</td>
+<td style="text-align:center">48.0%</td>
+<td style="text-align:center">4.7%</td>
+</tr>
+<tr>
+<td style="text-align:right">10</td>
+<td style="text-align:center">60.9%</td>
+<td style="text-align:center">9.5%</td>
+</tr>
+<tr>
+<td style="text-align:right">11</td>
+<td style="text-align:center">71.3%</td>
+<td style="text-align:center">17.8%</td>
+</tr>
+<tr>
+<td style="text-align:right">12</td>
+<td style="text-align:center">81.1%</td>
+<td style="text-align:center">27.2%</td>
+</tr>
+<tr>
+<td style="text-align:right">13</td>
+<td style="text-align:center">88.4%</td>
+<td style="text-align:center">39.6%</td>
+</tr>
+<tr>
+<td style="text-align:right">14</td>
+<td style="text-align:center">93.3%</td>
+<td style="text-align:center">54.4%</td>
+</tr>
+<tr>
+<td style="text-align:right">15</td>
+<td style="text-align:center">96.8%</td>
+<td style="text-align:center">67.3%</td>
+</tr>
+<tr>
+<td style="text-align:right">16</td>
+<td style="text-align:center">98.6%</td>
+<td style="text-align:center">78.3%</td>
+</tr>
+<tr>
+<td style="text-align:right">17</td>
+<td style="text-align:center">99.5%</td>
+<td style="text-align:center">87.1%</td>
+</tr>
+<tr>
+<td style="text-align:right">18</td>
+<td style="text-align:center">99.9%</td>
+<td style="text-align:center">93.2%</td>
+</tr>
+<tr>
+<td style="text-align:right">19</td>
+<td style="text-align:center">1- 2E-04</td>
+<td style="text-align:center">96.7%</td>
+</tr>
+<tr>
+<td style="text-align:right">20</td>
+<td style="text-align:center">1- 4E-16</td>
+<td style="text-align:center">98.6%</td>
+</tr>
+<tr>
+<td style="text-align:right">21</td>
+<td style="text-align:center">100%</td>
+<td style="text-align:center">99.5%</td>
+</tr>
+</tbody>
+</table>
+<p>Probabilities for 10 different possible digits.</p>
+<p>The middle column tells us how likely it is to have at least 1 multiple times repeating digit, i.e. the chance that the user can find an answer.  The last column tell us how likely it is that there are multiple multi-repeated digits, i.e. that there are multiple correct answers.  We want the second column to be somewhat high, but the third column not too high.  So I would recommend <code>for (int n=1; n&lt;=12; n++)</code> (on line 16).</p>
 <h1 id="3-what-if-we-want-to-punish-reluctant-勉强的-users">3. What if we want to punish reluctant (勉强的) users?</h1>
 <p>Ok, so the user could always choose &lsquo;-&rsquo; and never get forward or backwards.  If the user does not choose any number, then we could check whether there is actually a number more than twice and if so, punish the user (deduct a point, 扣一分).  How do we do that?</p>
 <h2 id="31-counting-which-number-occurs-how-often">3.1 Counting which number occurs how often</h2>
@@ -705,7 +784,11 @@
 <footer class="post-footer">
       
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/11ceeyes/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">11CE Drawing Eyes</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         <a class="next" href="/post/05cepeople/">
             <span class="next-text nav-default">05CE People and Relatives</span>
             <span class="next-text nav-mobile">Next</span>

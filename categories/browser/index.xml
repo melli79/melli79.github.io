@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Browser on Melchior&#39;s Homepage</title>
+    <link>https://melli79.github.io/categories/browser/</link>
+    <description>Recent content in Browser on Melchior&#39;s Homepage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 01 Apr 2023 14:15:01 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/browser/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>31. Projekt Browserspiel</title>
+      <link>https://melli79.github.io/post/31supercode/</link>
+      <pubDate>Sat, 01 Apr 2023 14:15:01 +0100</pubDate>
+      
+      <guid>https://melli79.github.io/post/31supercode/</guid>
+      <description>Nachdem wir letztens ein erstes geometrisches Projekt umgesetzt haben, wollen wir heute ein Browser-Spiel schreiben. Browser-Spiel soll heißen, dass man es in einem (modernen) Web-Browser spielen kann, aber keine regelmäßige Kommunikation zu einem Server braucht (lediglich die Webseite und die Scripte müssen von irgeneinem Server geladen werden).
+0. Projektziel Bild 1: Super Code. CC Att M. Grützmann 2023.
+Du kennst das Spiel vielleicht aus Jugendzeiten. 2 Spieler spielen gemeinsam, der/die eine denkt sich einen Geheimcode aus 4 Steinen in beliebigen Farben aus (und steck den verborgen im Spiel).</description>
+    </item>
+    
+  </channel>
+</rss>

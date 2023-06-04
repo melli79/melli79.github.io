@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>11CE Drawing Eyes - Melchior&#39;s Homepage</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="melli79" /><meta name="description" content="After we have set up a development environment, we want to start drawing something simple. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project &amp;hellip; of type C&#43;&#43; Qt Widget Application. Give a memorizable name to the project, e.g. movingEyes (移動的眼睛), but make sure the Build-System is cmake/minGW11. Call the main window &amp;ldquo;EyesWidget&amp;rdquo; and try to make" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.111.3 with theme even" />
+
+
+<link rel="canonical" href="https://melli79.github.io/post/11ceeyes/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78d3a03abaed5d3c468bdf402fc110f36c046abf091a63421b9ce0a5a63db941.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="11CE Drawing Eyes" />
+<meta property="og:description" content="After we have set up a development environment, we want to start drawing something simple. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project &hellip; of type C&#43;&#43; Qt Widget Application. Give a memorizable name to the project, e.g. movingEyes (移動的眼睛), but make sure the Build-System is cmake/minGW11. Call the main window &ldquo;EyesWidget&rdquo; and try to make" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://melli79.github.io/post/11ceeyes/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-03T23:12:50+02:00" />
+<meta property="article:modified_time" content="2023-06-03T23:12:50+02:00" />
+<meta itemprop="name" content="11CE Drawing Eyes">
+<meta itemprop="description" content="After we have set up a development environment, we want to start drawing something simple. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project &hellip; of type C&#43;&#43; Qt Widget Application. Give a memorizable name to the project, e.g. movingEyes (移動的眼睛), but make sure the Build-System is cmake/minGW11. Call the main window &ldquo;EyesWidget&rdquo; and try to make"><meta itemprop="datePublished" content="2023-06-03T23:12:50+02:00" />
+<meta itemprop="dateModified" content="2023-06-03T23:12:50+02:00" />
+<meta itemprop="wordCount" content="2616">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="11CE Drawing Eyes"/>
+<meta name="twitter:description" content="After we have set up a development environment, we want to start drawing something simple. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project &hellip; of type C&#43;&#43; Qt Widget Application. Give a memorizable name to the project, e.g. movingEyes (移動的眼睛), but make sure the Build-System is cmake/minGW11. Call the main window &ldquo;EyesWidget&rdquo; and try to make"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Melchior&#39;s Homepage</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archiv</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Schlagworte</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Melchior&#39;s Homepage</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archiv</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Schlagworte</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">11CE Drawing Eyes</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-06-03 </span>
+        <div class="post-category">
+            <a href="/categories/c&#43;&#43;/"> C&#43;&#43; </a>
+            <a href="/categories/programming/"> Programming </a>
+            <a href="/categories/gui/"> GUI </a>
+            <a href="/categories/qt/"> Qt </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#our-goal">Our Goal</a></li>
+    <li><a href="#1-setting-up-the-project">1. Setting up the Project</a>
+      <ul>
+        <li><a href="#meaning">Meaning</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-drawing-eyes">2. Drawing Eyes</a>
+      <ul>
+        <li><a href="#21-what-does-the-h-file-mean">2.1 What does the &ldquo;*.h&rdquo; file mean?</a></li>
+        <li><a href="#22-the-eyewidget-implementation">2.2 The EyeWidget Implementation</a></li>
+        <li><a href="#23-what-does-that-mean">2.3 What does that mean?</a></li>
+        <li><a href="#what-if-the-program-does-not-compile-anymore">What if the Program does not Compile anymore?</a></li>
+        <li><a href="#24-iris-and-pupils">2.4 Iris and Pupils</a>
+          <ul>
+            <li><a href="#what-do-the-numbers-mean">What do the numbers mean?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#3-moving-eyes">3. Moving eyes</a>
+      <ul>
+        <li><a href="#what-does-that-mean">What does that mean?</a></li>
+        <li><a href="#39-one-last-issue">3.9 One last Issue</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-try-for-yourself">9. Try for Yourself</a>
+      <ul>
+        <li><a href="#91-colorful-eyes">9.1 Colorful Eyes</a></li>
+        <li><a href="#92-squinted-eyes">9.2 Squinted Eyes</a></li>
+        <li><a href="#93-drawing-a-snowman">9.3 Drawing a Snowman</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>After we have set up a <a href="../00-setup-ide/">development environment</a>, we want to start drawing something simple.</p>
+<h1 id="our-goal">Our Goal</h1>
+<p><img src="/img/eyes.png" alt="(.)(.)" title="100x50"></p>
+<h1 id="1-setting-up-the-project">1. Setting up the Project</h1>
+<p>With the QtCreator, you create a New Project &hellip; of type C++ Qt Widget Application.  Give a memorizable name to the project, e.g. movingEyes (移動的眼睛), but make sure the Build-System is cmake/minGW11.  Call the main window &ldquo;EyesWidget&rdquo; and try to make it derive from <code>QWidget</code>. We don&rsquo;t need to choose any translation language (as our app will not contain much text).</p>
+<p>After a while, the IDE (Integrated Development Environment) opens the file &ldquo;main.cpp&rdquo; with a minimal Qt main program.  You can even reduce this as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;eyewidget.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;QApplication&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">nArgs</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">args</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">QApplication</span> <span class="n">app</span><span class="p">(</span><span class="n">nArgs</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">EyeWidget</span> <span class="n">w</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">w</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">app</span><span class="p">.</span><span class="n">exec</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is all we need here.</p>
+<h2 id="meaning">Meaning</h2>
+<p>What do these lines mean?  We create a standard Qt application and hand over the command line arguments, <code>nArgs</code> is the number of command line arguments (at least 1) and <code>args</code> are these arguments, e.g. <code>args[0]</code> is the executable program name.</p>
+<h1 id="2-drawing-eyes">2. Drawing Eyes</h1>
+<p>How to draw something into the Window?</p>
+<p>Well, we have to write our own class, that extends the class <code>QWidget</code>.  As such it will be a class with a Qt enhancement and therefore needs its own declaring header file.  But the QtCreator has already created these 2 files.  First, we should double check the header file.  In its minimal definition, it should look as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#ifndef EYEWIDGET_H
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define EYEWIDGET_H
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;QWidget&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">EyeWidget</span> <span class="o">:</span> <span class="k">public</span> <span class="n">QWidget</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Q_OBJECT</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">explicit</span> <span class="n">EyeWidget</span><span class="p">(</span><span class="n">QWidget</span> <span class="o">*</span><span class="n">parent</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">EyeWidget</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">mouseMoveEvent</span><span class="p">(</span><span class="n">QMouseEvent</span><span class="o">*</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">posXL</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">posXR</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">posY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#endif </span><span class="c1">// EYEWIDGET_H
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>2 things will be in red now:  the methods <code>paintEvent(...)</code> and <code>mouseEvent(...)</code>.  In order to obtain a minimal implementation for then, put the cursor on one of them and press &lt;Alt&gt;+&lt;Enter&gt;.  In the menu there should be an option &ldquo;implement &hellip;&rdquo;.  Once you have chosen that, the method declaration should become normal colored (such as <code>explicit EyeWidget(...)</code>).<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<h2 id="21-what-does-the-h-file-mean">2.1 What does the &ldquo;*.h&rdquo; file mean?</h2>
+<p>In a header file, we define classes and declare methods that will be provided for these classes.  In the above example, we define a <code>class EyeWidget</code> and its 4 methods are written between <code>public:</code> and <code>private:</code>.  They are written under <code>public:</code> that means that all will have public access.  But there are 2 additional things:  First the class is not defined from scratch, instead it derives from <code>QWidget</code>.  A <code>QWidget</code> is a component of a Qt Application that allows for drawing of elements and receiving user input.  It is the basic class for such interaction.  The additional keyword <code>public</code> means that all its publicly accessible methods remain publicly accessible.  This should be your default for class inheritance.</p>
+<p>Another odd thing is the identifier <code>Q_OBJECT</code>.  This is a Qt Macro and signal word that identifies this class as belonging to the Qt class hierarchy.  It makes the class handleable by the Qt Framework.  We will need that for all classes that allow for Windows user operations.</p>
+<p>In addition to all this public stuff, we have also defined 3 private variables: <code>posXL</code>, <code>posXR</code> and <code>posY</code>.  These will be necessary to interact with the user.  We will see their meaning once we implement the methods <code>paintEvent(...)</code> and <code>mouseMoveEvent(...)</code>.  In short <code>posXL</code> will be the horizontal position of the eyes&rsquo; focus from the left eye, <code>posXR</code> the horizontal position from the right eye, and <code>posY</code> the vertical position wrt. both eyes.</p>
+<h2 id="22-the-eyewidget-implementation">2.2 The EyeWidget Implementation</h2>
+<p>The main work of drawing the eyes is done in the file &ldquo;eyewidget.cpp&rdquo;.  In the beginning (after you have added minimal implementations of <code>paintEvent(...)</code> and <code>mouseMoveEvent(...)</code>), it should look as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;eyewidget.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="n">EyeWidget</span><span class="o">::</span><span class="n">EyeWidget</span><span class="p">(</span><span class="n">QWidget</span><span class="o">*</span> <span class="n">parent</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="o">:</span> <span class="n">QWidget</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">EyeWidget</span><span class="o">::~</span><span class="n">EyeWidget</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">EyeWidget</span><span class="o">::</span><span class="n">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">EyeWidget</span><span class="o">::</span><span class="n">mouseMoveEvent</span><span class="p">(</span><span class="n">QMouseEvent</span><span class="o">*</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Once, this is done, you should be able to compile and start the program, e.g. by pressing &lt;Ctrl&gt;+&lt;R&gt;.  Please give it a try to make sure everything works so far.</p>
+<p>Let us now start with drawing eyes.  Fill in the beginning of the <code>paintEvent(...)</code> method as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;QtGui&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">EyeWidget</span><span class="o">::</span><span class="n">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">QPainter</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setBrush</span><span class="p">(</span><span class="n">QBrush</span><span class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="s">&#34;white&#34;</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">eyeWidth</span> <span class="o">=</span> <span class="mf">0.9</span><span class="o">*</span><span class="n">min</span><span class="p">(</span><span class="n">width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">height</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawEllipse</span><span class="p">(</span><span class="n">width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span><span class="kt">int</span><span class="p">(</span><span class="mf">1.0</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.95</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="n">height</span><span class="p">()</span> <span class="o">-</span> <span class="mi">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawEllipse</span><span class="p">(</span><span class="n">width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span><span class="kt">int</span><span class="p">(</span><span class="mf">0.05</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="mi">10</span><span class="p">,</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.95</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="n">height</span><span class="p">()</span> <span class="o">-</span> <span class="mi">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="23-what-does-that-mean">2.3 What does that mean?</h2>
+<p>Ok, <code>EyeWidget::EyeWidget(...)</code> is the so-called constructor.  It is where the existence of an object starts.  It takes (at most) 1 argument <code>QWidget* parent</code>, i.e. the parent widget.  But when you look into its declaration in the header file, then you see that it also has a default argument <code>nullptr</code>.  So if we do not specify a parent widget, then that will be <code>NULL</code>.  This will imply that the widget will become the main widget of a new Window on the desktop.</p>
+<p>We also have to pass this <code>parent</code> widget to the constructor of the parent class.  That is what <code>: QWidget(parent)</code> means, i.e. at this point the parent class will be initialized.  At the moment the body of the method is empty <code>{  }</code>, i.e. we do not have to do anything specific.</p>
+<p>The <code>EyeWidget:~EyeWidget()</code> is the destructor.  The same way every object is constructed before its usage, it also needs to be destructed before the return of its memory.  This is done in the destructor.  In this case we won&rsquo;t do anything specific and can thus just use the default implementation <code>= default;</code>.</p>
+<p>The more interesting method is <code>paintEvent(...)</code> in which the widget is asked to paint its content.  We start by defining a <code>QPainter</code> for the current object called <code>this</code> and setting its brush to color &ldquo;white&rdquo;.  If you see a lot of red marked methods/classes, then you need to import &lt;QtGui&gt; where all the Qt graphic painting elements are defined, e.g. <code>QPainter</code>, <code>QBrush</code> and <code>QColor</code>.</p>
+<p>As it may suggest, <code>p.setBrush(QBrush(QColor(&quot;white&quot;)))</code> sets the current brush to be of the solid color white.  This will be helpful for the eyeballs.</p>
+<p>Then we compute the width of our eyes (in the computer).  The problem with modern Desktop (or browser) drawing is that we don&rsquo;t know how big the actual picture will be, e.g. the user can resize the window that contains our drawing, and we need to make the best out of the available space.  Therefore, we will define the <code>eyeWidth</code> as the minimum of either <code>width()/2</code> or <code>height()-20</code>.  These 2 methods provide the current window sizes (width and height, respectively).  The function <code>min(...)</code> is defined in the standard library in header &lt;algorithm&gt; and for convenience, we import all of the <code>namespace std</code>.  The additional factor of <code>0.9</code> is to make sure the eyes fit losely into the window.</p>
+<p>Eyeballs are just ellipses, that is why we <code>drawEllipse</code> twice.  There are 4 parameters to specify an ellipse.  In our case the top-left corner of the bounding rectangle and its width and height.  Again <code>width()/2</code> is in the middle of the window and <code>-int(eyeWidth)</code> means that the left boundary of the left eye is one <code>eyeWidth</code> to the left of the middle of the window.  The eye starts 10 pixels from the top of the window.  The width is <code>0.95*eyeWidth</code> such that it leaves a small gap between the 2 eyes (where the root of your nose is).  The height of the eye is almost the window height (reduced by 20 pixels), i.e. no matter how big the user makes the window, the eye will almost fill it, only 10 pixels short on top and on the bottom.</p>
+<p>For the right eyeball, we go $0.05*$ <code>eyeWidth</code>s to the right and draw an ellipse of the same size.</p>
+<p>When you now restart the program, you should see a gray window with 2 white eyeballs.  You can check what happens when you resize the window (e.g. press the full-screen button on top right), the eyeballs should grow and shrink with the window.</p>
+<h2 id="what-if-the-program-does-not-compile-anymore">What if the Program does not Compile anymore?</h2>
+<p>This is why we write the program incrementally, i.e. one step at a time.  You will know that the error is likely caused by something you just added.  Try to understand the error message and the place where it occurs.</p>
+<p>Some hints:</p>
+<ul>
+<li>all parentheses have to be round &lsquo;(&rsquo; and &lsquo;)&rsquo;;</li>
+<li>the decimal point has to be a point, i.e. <code>0.95</code> not <code>0,95</code>;</li>
+<li>every invocation of <code>p.drawEllipse()</code> needs 4 parameters, i.e. 3 commas and between each 2 commas every opening parenthesis needs to be closed as well;</li>
+</ul>
+<h2 id="24-iris-and-pupils">2.4 Iris and Pupils</h2>
+<p>For that we extend the <code>paintEvent(...)</code> method as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">EyeWidget</span><span class="o">::</span><span class="n">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setBrush</span><span class="p">(</span><span class="n">QBrush</span><span class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="s">&#34;#630&#34;</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawEllipse</span><span class="p">(</span><span class="n">width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span><span class="kt">int</span><span class="p">(</span><span class="mf">0.35</span><span class="o">*</span><span class="n">posXL</span><span class="o">-</span><span class="mf">0.825</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="n">height</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span><span class="kt">int</span><span class="p">(</span><span class="n">posY</span> <span class="o">-</span><span class="mf">0.3</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.6</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.6</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawEllipse</span><span class="p">(</span><span class="n">width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span><span class="kt">int</span><span class="p">(</span><span class="mf">0.35</span><span class="o">*</span><span class="n">posXR</span><span class="o">+</span><span class="mf">0.225</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="n">height</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span><span class="kt">int</span><span class="p">(</span><span class="n">posY</span> <span class="o">-</span><span class="mf">0.3</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.6</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.6</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setBrush</span><span class="p">(</span><span class="n">QBrush</span><span class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="s">&#34;black&#34;</span><span class="p">)));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawEllipse</span><span class="p">(</span><span class="n">width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span><span class="kt">int</span><span class="p">(</span><span class="mf">0.35</span><span class="o">*</span><span class="n">posXL</span><span class="o">-</span><span class="mf">0.725</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="n">height</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span><span class="kt">int</span><span class="p">(</span><span class="n">posY</span> <span class="o">-</span><span class="mf">0.2</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.4</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.4</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawEllipse</span><span class="p">(</span><span class="n">width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span><span class="kt">int</span><span class="p">(</span><span class="mf">0.35</span><span class="o">*</span><span class="n">posXR</span><span class="o">+</span><span class="mf">0.325</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="n">height</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span><span class="kt">int</span><span class="p">(</span><span class="n">posY</span> <span class="o">-</span><span class="mf">0.2</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.4</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.4</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Note that every <code>drawEllipse</code> comes in pairs, one for the left eye and one for the right eye.  The iris color is &ldquo;#630&rdquo;, i.e. 6/16 parts red, 3/16 parts green, and 0/16 parts blue.  That is a dark brown.  If you wish, you can also paint steel blue eyes, e.g. &ldquo;#03C&rdquo; where C=12, i.e. the blue component is 12/16.  If I have not messed up with the numbers and you restart the correctly typed in program, you should see 2 dark-brown eyes staring at you.</p>
+<h3 id="what-do-the-numbers-mean">What do the numbers mean?</h3>
+<p>I had to fiddle quite a bit with them and they may be not the unique solution to the problem, but <code>int(0.35*posXL-...)</code> means the position of the left eyes is adjusted to 35% of the position of the cursor w.r.t. the center of the left eyeball.  Correspondingly it is fully adjusted to the height of the cursor over the middle of the window.  The second components <code>int(...-0.825*eyeWidth)</code> and <code>int(...-0.3*eyeWidth)</code> mean that the left iris starts 82.5% into the left eyeball (when the eye stares at you) and 30% to the top of the eyeball.  Correspondingly, the right iris starts 22.5% into the right eyeball and also 30% into the top of the eyeballs.  If you choose different factors for the heights, then you will end up with squinting eyes.</p>
+<p>Correspondingly, the pupils move with the <code>posXL</code>/<code>posXR</code> and <code>posY</code> by the same factors.  This is reasonable, because the pupils are always in the center of the irises.  They are, however smaller than the iris, and always black.</p>
+<p>Please try to restart the program and see if everything is set up well.</p>
+<h1 id="3-moving-eyes">3. Moving eyes</h1>
+<p>What really makes the difference between colorful cicular patterns and eyes is that eyes follow the object they watch.  We will make the computer eyes follow the mouse cursor as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">F</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">F</span> <span class="n">sqr</span><span class="p">(</span><span class="n">F</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">EyeWidget</span><span class="o">::</span><span class="n">mouseMoveEvent</span><span class="p">(</span><span class="n">QMouseEvent</span><span class="o">*</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">xl</span> <span class="o">=</span> <span class="n">event</span><span class="o">-&gt;</span><span class="n">position</span><span class="p">().</span><span class="n">x</span><span class="p">()</span> <span class="o">-</span><span class="mf">0.25</span><span class="o">*</span><span class="n">width</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">xr</span> <span class="o">=</span> <span class="n">event</span><span class="o">-&gt;</span><span class="n">position</span><span class="p">().</span><span class="n">x</span><span class="p">()</span> <span class="o">-</span><span class="mf">0.75</span><span class="o">*</span><span class="n">width</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">y</span> <span class="o">=</span> <span class="n">event</span><span class="o">-&gt;</span><span class="n">position</span><span class="p">().</span><span class="n">y</span><span class="p">()</span> <span class="o">-</span><span class="mf">0.5</span><span class="o">*</span><span class="n">height</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">eyeRadius</span> <span class="o">=</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">min</span><span class="p">(</span><span class="n">width</span><span class="p">()</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="n">height</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">10</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">fl</span> <span class="o">=</span> <span class="n">eyeRadius</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sqr</span><span class="p">(</span><span class="n">xl</span><span class="p">)</span> <span class="o">+</span><span class="n">sqr</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span><span class="n">sqr</span><span class="p">(</span><span class="n">eyeRadius</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">fr</span> <span class="o">=</span> <span class="n">eyeRadius</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sqr</span><span class="p">(</span><span class="n">xr</span><span class="p">)</span> <span class="o">+</span><span class="n">sqr</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span><span class="n">sqr</span><span class="p">(</span><span class="n">eyeRadius</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">posXL</span> <span class="o">=</span> <span class="n">xl</span><span class="o">*</span><span class="n">fl</span><span class="p">;</span>  <span class="n">posXR</span> <span class="o">=</span> <span class="n">xr</span><span class="o">*</span><span class="n">fr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">posY</span> <span class="o">=</span> <span class="n">y</span><span class="o">*</span><span class="p">(</span><span class="n">fl</span><span class="o">+</span><span class="n">fr</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="what-does-that-mean">What does that mean?</h2>
+<ol>
+<li>
+<p>$x_L = \mathrm{event}\to x - 0.25*\mathrm{width}$ is the x-distance of the mouse position (<code>event-&gt;x(), event-&gt;y()</code>) from the middle of the left eye &ndash; in particular $x_L&lt;0$ whenever the mouse is left of (the middle of) the left eye, $x_L&gt;0$ whenever the mouse is to the right of (the middle of) the left eye;</p>
+</li>
+<li>
+<p>$x_R = \mathrm{event}\to x -0.75*\mathrm{width}$ is the x-distance of the mouse position from the middle of the right eye;</p>
+</li>
+<li>
+<p>$y = \mathrm{event}\to y -0.5*\mathrm{height}$ is the y-distance of the mouse position from the middle of the eyes;</p>
+</li>
+<li>
+<p><code>F sqr(F x) { return x*x; }</code> is the square, we use the generic definition <code>template &lt;typename F&gt;</code> i.e. we define at the same time the square for integers as well as for floating point numbers;</p>
+</li>
+<li>
+<p><code>sqrt(sqr(xl)+sqr(y))</code> is the distance of the mouse position from the middle of the left eye (s.a. Pythagorean theorem);</p>
+</li>
+<li>
+<p><code>sqrt(...+sqr(eyeWidth)</code> is a safety minimum distance, i.e. the divisor is at least <code>eyeWidth</code> (because next we will divide by this number);</p>
+</li>
+<li>
+<p>$ \mathrm{pos-}x_L = x_L*f_L$; $ \mathrm{pos-}x_R = x_R*f_R $ means, that the eye will move only a bit in the direction of the mouse;</p>
+</li>
+<li>
+<p>$f_L = \mathrm{eyeWidth}/\sqrt{&hellip;}$ and $f_R = \mathrm{eyeWidth}/\sqrt{&hellip;}$ are these small factors, <code>sqrt</code> means square root;</p>
+</li>
+<li>
+<p>$ \mathrm{pos-}y = y*(f_L+f_R)/2$ means that for the vertical displacement of the eyes we use the average of the 2 factors, in particular both eyse will always have the same height (otherwise they would be squinted);</p>
+</li>
+<li>
+<p><code>update()</code> means that we request the computer to update the picture of the eyes.  We cannot simply call <code>paintEvent(nullptr)</code>, because the computer may not be ready for painting;</p>
+</li>
+</ol>
+<h2 id="39-one-last-issue">3.9 One last Issue</h2>
+<p>If you resize the window, there seem to be no constraints, i.e. you can even make the window as small as only to consist of the top border.  That may not be helpful.  Therefore, we add the following commands to the widget constructor:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="n">EyeWidget</span><span class="o">::</span><span class="n">EyeWidget</span><span class="p">(</span><span class="n">QWidget</span><span class="o">*</span> <span class="n">parent</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">:</span> <span class="n">QWidget</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="n">setMinimumSize</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="n">setWindowTitle</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s">&#34;Qt Eyes!&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="n">setMouseTracking</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This has 2 additional effects, first, we set the window title to &ldquo;Qt Eyes!&rdquo;, and second, we will be notified whenever the mouse moves.  This is necessary, because otherwise the system will save energy in not calling the method <code>mouseMotionEvent(...)</code>.</p>
+<p>One last question:  Why didn&rsquo;t we use the parameter of the <code>paintEvent(QPaintEvent*)</code>?</p>
+<p>The answer is that we will always quickly draw the whole 2 eyes.  If your drawing takes a long time, you can read off the details of the region to update from this <code>QPaintEvent</code>.</p>
+<p>Ok, if everything is correct, the 2 eyes should follow the mouse pointer.  Maybe, you first have to click into the window with the eyes (or at least move the mouse into this window).</p>
+<h1 id="9-try-for-yourself">9. Try for Yourself</h1>
+<h2 id="91-colorful-eyes">9.1 Colorful Eyes</h2>
+<p>Try to draw green or blue eyes!</p>
+<p>If you know that <code>QColor(&quot;#630&quot;)</code> produces a dark brown brush, then <code>QColor(&quot;green&quot;)</code> produces a middle green color.  The numbers for steel blue are &ldquo;#03C&rdquo;.</p>
+<h2 id="92-squinted-eyes">9.2 Squinted Eyes</h2>
+<p>There are a couple of methods.  The simplest is to make one eye look a bit higher, e.g. so:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="n">p</span><span class="p">.</span><span class="n">drawEllipse</span><span class="p">(</span><span class="n">width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span><span class="kt">int</span><span class="p">(</span><span class="mf">0.35</span><span class="o">*</span><span class="n">posXR</span><span class="o">+</span><span class="mf">0.225</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.4</span><span class="o">*</span><span class="n">height</span><span class="p">()</span> <span class="o">+</span><span class="n">posY</span> <span class="o">-</span><span class="mf">0.3</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.6</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.6</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="n">p</span><span class="p">.</span><span class="n">drawEllipse</span><span class="p">(</span><span class="n">width</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span><span class="kt">int</span><span class="p">(</span><span class="mf">0.35</span><span class="o">*</span><span class="n">posXR</span><span class="o">+</span><span class="mf">0.325</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.4</span><span class="o">*</span><span class="n">height</span><span class="p">()</span> <span class="o">+</span><span class="n">posY</span> <span class="o">-</span><span class="mf">0.2</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.4</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="mf">0.4</span><span class="o">*</span><span class="n">eyeWidth</span><span class="p">));</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The y-coordinate is measured from the top, i.e. $y=0$ is the upper boundary of the window, $y=0.5*\mathrm{height}$ in the middle and $y=\mathrm{height}$ the lower boundary.  If we use $y=0.4*h$ instead of $y=0.5*h$, this will turn out a bit higher than the middle.  And if you do that with only one eye, then this will look higher than the other.</p>
+<h2 id="93-drawing-a-snowman">9.3 Drawing a Snowman</h2>
+<p>Can you replace the method (<code>void EyeWidget::paintEvent(...)</code>) such that it draws 3 stacked balls?</p>
+<p>Hint:  Every ball should have a diameter of <code>const int d = height()/3</code>, and the first ball begins on top ($y=0$), the second after 1/3 (<code>y=height()/3</code>), and the last one at 2/3 (<code>y=2*height()/3</code>).</p>
+<p>Please enjoy trying out different things and let me know if there are any problems.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>If automatically implementing the methods did not work, then you can manually add them to the file &ldquo;eyeswidget.cpp&rdquo; as shown below.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">melli79</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2023-06-03
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">Markdown</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://melli79.github.io/post/11ceeyes/index.md" target="_blank">The Markdown version »</a></span>
+    </p>
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/06ceattentiongame/">
+            <span class="next-text nav-default">06CE Attention Game</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2023-06-03 23:12:50 \u002b0200 CEST',
+        title: '11CE Drawing Eyes',
+        link: decodeURI(location.href),
+        desc: 'After we have set up a development environment, we want to start drawing something simple. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project \u0026hellip; of type C\u002b\u002b Qt Widget Application. Give a memorizable name to the project, e.g. movingEyes (移動的眼睛), but make sure the Build-System is cmake\/minGW11. Call the main window \u0026ldquo;EyesWidget\u0026rdquo; and try to make',
+        owner: 'melli79',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="melli79/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:melchiorG@gMail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
+  <a href="https://melli79.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">melli79</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.1c70606d1b733282f06230615f5561b5894924b6f9930ba2ab99cf1254f75a1a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

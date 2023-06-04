@@ -6,7 +6,16 @@
     <description>Recent content on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Apr 2023 16:44:10 +0200</lastBuildDate><atom:link href="https://melli79.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Jun 2023 23:12:50 +0200</lastBuildDate><atom:link href="https://melli79.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>11CE Drawing Eyes</title>
+      <link>https://melli79.github.io/post/11ceeyes/</link>
+      <pubDate>Sat, 03 Jun 2023 23:12:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/11ceeyes/</guid>
+      <description>After we have set up a development environment, we want to start drawing something simple. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project &amp;hellip; of type C++ Qt Widget Application. Give a memorizable name to the project, e.g. movingEyes (移動的眼睛), but make sure the Build-System is cmake/minGW11. Call the main window &amp;ldquo;EyesWidget&amp;rdquo; and try to make</description>
+    </item>
+    
     <item>
       <title>06CE Attention Game</title>
       <link>https://melli79.github.io/post/06ceattentiongame/</link>

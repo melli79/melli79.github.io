@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qt on Melchior&#39;s Homepage</title>
+    <link>https://melli79.github.io/categories/qt/</link>
+    <description>Recent content in Qt on Melchior&#39;s Homepage</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 03 Jun 2023 23:12:50 +0200</lastBuildDate><atom:link href="https://melli79.github.io/categories/qt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>11CE Drawing Eyes</title>
+      <link>https://melli79.github.io/post/11ceeyes/</link>
+      <pubDate>Sat, 03 Jun 2023 23:12:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/11ceeyes/</guid>
+      <description>After we have set up a development environment, we want to start drawing something simple. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project &amp;hellip; of type C++ Qt Widget Application. Give a memorizable name to the project, e.g. movingEyes (移動的眼睛), but make sure the Build-System is cmake/minGW11. Call the main window &amp;ldquo;EyesWidget&amp;rdquo; and try to make</description>
+    </item>
+    
+  </channel>
+</rss>

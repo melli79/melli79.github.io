@@ -241,6 +241,28 @@ So the answer is somewhere between 3 and 21.
 
 You can experiment with the number of numbers (the upper limit for `n`) in order to see what produces 3 equal numbers in many times, but not too many 3-fold numbers.  I thought that 15 is a reasonable choice, but maybe 12 is already sufficient.
 
+Maybe the following table helps:
+
+| N  | P(>2 equal) | P(multiple groups) |
+|---:|:-----------:|:------------------:|
+|  9 |  48.0%      |  4.7% |
+| 10 |  60.9%      |  9.5% |
+| 11 |  71.3%      | 17.8% |
+| 12 |  81.1%      | 27.2% |
+| 13 |  88.4%      | 39.6% |
+| 14 |  93.3%      | 54.4% |
+| 15 |  96.8%      | 67.3% |
+| 16 |  98.6%      | 78.3% |
+| 17 |  99.5%      | 87.1% |
+| 18 |  99.9%      | 93.2% |
+| 19 | 1- 2E-04    | 96.7% |
+| 20 | 1- 4E-16    | 98.6% |
+| 21 | 100%        | 99.5% |
+
+Probabilities for 10 different possible digits.
+
+The middle column tells us how likely it is to have at least 1 multiple times repeating digit, i.e. the chance that the user can find an answer.  The last column tell us how likely it is that there are multiple multi-repeated digits, i.e. that there are multiple correct answers.  We want the second column to be somewhat high, but the third column not too high.  So I would recommend `for (int n=1; n<=12; n++)` (on line 16).
+
 
 # 3. What if we want to punish reluctant (勉强的) users?
 Ok, so the user could always choose '-' and never get forward or backwards.  If the user does not choose any number, then we could check whether there is actually a number more than twice and if so, punish the user (deduct a point, 扣一分).  How do we do that?
