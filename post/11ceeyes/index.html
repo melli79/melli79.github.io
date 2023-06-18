@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.111.3 with theme even" />
+<meta name="generator" content="Hugo 0.113.0 with theme even" />
 
 
 <link rel="canonical" href="https://melli79.github.io/post/11ceeyes/" />
@@ -48,7 +48,7 @@
 <meta itemprop="name" content="11CE Drawing Eyes">
 <meta itemprop="description" content="After we have set up a development environment, we want to start drawing something simple. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project &hellip; of type C&#43;&#43; Qt Widget Application. Give a memorizable name to the project, e.g. movingEyes (移動的眼睛), but make sure the Build-System is cmake/minGW11. Call the main window &ldquo;EyesWidget&rdquo; and try to make"><meta itemprop="datePublished" content="2023-06-03T23:12:50+02:00" />
 <meta itemprop="dateModified" content="2023-06-03T23:12:50+02:00" />
-<meta itemprop="wordCount" content="2616">
+<meta itemprop="wordCount" content="2911">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="11CE Drawing Eyes"/>
 <meta name="twitter:description" content="After we have set up a development environment, we want to start drawing something simple. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project &hellip; of type C&#43;&#43; Qt Widget Application. Give a memorizable name to the project, e.g. movingEyes (移動的眼睛), but make sure the Build-System is cmake/minGW11. Call the main window &ldquo;EyesWidget&rdquo; and try to make"/>
@@ -141,7 +141,7 @@
         <li><a href="#22-the-eyewidget-implementation">2.2 The EyeWidget Implementation</a></li>
         <li><a href="#23-what-does-that-mean">2.3 What does that mean?</a></li>
         <li><a href="#what-if-the-program-does-not-compile-anymore">What if the Program does not Compile anymore?</a></li>
-        <li><a href="#24-iris-and-pupils">2.4 Iris and Pupils</a>
+        <li><a href="#24-iris-虹膜-and-pupils-瞳孔">2.4 Iris (虹膜) and Pupils (瞳孔)</a>
           <ul>
             <li><a href="#what-do-the-numbers-mean">What do the numbers mean?</a></li>
           </ul>
@@ -158,7 +158,7 @@
       <ul>
         <li><a href="#91-colorful-eyes">9.1 Colorful Eyes</a></li>
         <li><a href="#92-squinted-eyes">9.2 Squinted Eyes</a></li>
-        <li><a href="#93-drawing-a-snowman">9.3 Drawing a Snowman</a></li>
+        <li><a href="#93-drawing-a-snowman-雪人">9.3 Drawing a Snowman (雪人)</a></li>
       </ul>
     </li>
   </ul>
@@ -204,7 +204,8 @@
 </div>
 </div><p>This is all we need here.</p>
 <h2 id="meaning">Meaning</h2>
-<p>What do these lines mean?  We create a standard Qt application and hand over the command line arguments, <code>nArgs</code> is the number of command line arguments (at least 1) and <code>args</code> are these arguments, e.g. <code>args[0]</code> is the executable program name.</p>
+<p>What do these lines mean?  We create a standard Qt application (应用程式) and hand over the command line arguments – <code>nArgs</code> is the number of command line arguments (at least 1) and <code>args</code> are these arguments, e.g. <code>args[0]</code> is the executable program name.  Then we create an (instance of an) <code>EyeWidget</code>.  A Widget (编程小组件) is something like a window component, i.e. it could be composed with other widgets to form a more complex scenario.  But here, we call the <code>show()</code> method of the Widget which creates an embedding window (on your desktop) and shows the content to the user.</p>
+<p>Finally, with only one request to show the Widget, we would not have an interacting program.  Instead we call the method <code>app.exec()</code> in order to hand the processing over to the event loop (事件循环) of the program.  The line is only telling you part of the truth, because computing the return value is the smallest of the operations it does.  What it actually does is waiting for the user (or operating system) to trigger some action, e.g. moving the mouse, clicking somewhere, dragging and resizing the window, &hellip;, and then call the corresponding methods that handle such events.</p>
 <h1 id="2-drawing-eyes">2. Drawing Eyes</h1>
 <p>How to draw something into the Window?</p>
 <p>Well, we have to write our own class, that extends the class <code>QWidget</code>.  As such it will be a class with a Qt enhancement and therefore needs its own declaring header file.  But the QtCreator has already created these 2 files.  First, we should double check the header file.  In its minimal definition, it should look as follows:</p>
@@ -244,7 +245,7 @@
 </span></span><span class="line"><span class="cl">    <span class="n">Q_OBJECT</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">explicit</span> <span class="n">EyeWidget</span><span class="p">(</span><span class="n">QWidget</span> <span class="o">*</span><span class="n">parent</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">explicit</span> <span class="n">EyeWidget</span><span class="p">(</span><span class="n">QWidget</span><span class="o">*</span> <span class="n">parent</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">EyeWidget</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
@@ -260,9 +261,9 @@
 </div>
 </div><p>2 things will be in red now:  the methods <code>paintEvent(...)</code> and <code>mouseEvent(...)</code>.  In order to obtain a minimal implementation for then, put the cursor on one of them and press &lt;Alt&gt;+&lt;Enter&gt;.  In the menu there should be an option &ldquo;implement &hellip;&rdquo;.  Once you have chosen that, the method declaration should become normal colored (such as <code>explicit EyeWidget(...)</code>).<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
 <h2 id="21-what-does-the-h-file-mean">2.1 What does the &ldquo;*.h&rdquo; file mean?</h2>
-<p>In a header file, we define classes and declare methods that will be provided for these classes.  In the above example, we define a <code>class EyeWidget</code> and its 4 methods are written between <code>public:</code> and <code>private:</code>.  They are written under <code>public:</code> that means that all will have public access.  But there are 2 additional things:  First the class is not defined from scratch, instead it derives from <code>QWidget</code>.  A <code>QWidget</code> is a component of a Qt Application that allows for drawing of elements and receiving user input.  It is the basic class for such interaction.  The additional keyword <code>public</code> means that all its publicly accessible methods remain publicly accessible.  This should be your default for class inheritance.</p>
-<p>Another odd thing is the identifier <code>Q_OBJECT</code>.  This is a Qt Macro and signal word that identifies this class as belonging to the Qt class hierarchy.  It makes the class handleable by the Qt Framework.  We will need that for all classes that allow for Windows user operations.</p>
-<p>In addition to all this public stuff, we have also defined 3 private variables: <code>posXL</code>, <code>posXR</code> and <code>posY</code>.  These will be necessary to interact with the user.  We will see their meaning once we implement the methods <code>paintEvent(...)</code> and <code>mouseMoveEvent(...)</code>.  In short <code>posXL</code> will be the horizontal position of the eyes&rsquo; focus from the left eye, <code>posXR</code> the horizontal position from the right eye, and <code>posY</code> the vertical position wrt. both eyes.</p>
+<p>In a header file, we define classes and declare methods that will be provided for these classes.  In the above example, we define a <code>class EyeWidget</code> and its 4 methods are written between <code>public:</code> and <code>private:</code>.  They are written under <code>public:</code> that means that all will have public access.  But there are 2 additional things:  First the class is not defined from scratch, instead it derives from <code>QWidget</code>.  A <code>QWidget</code> is a component of a Qt Application that allows for drawing of elements and receiving user input.  It is the basic class for such interaction.  The additional keyword <code>public</code> means that all its publicly accessible methods remain publicly accessible.  This should be your default for class inheritance (继承于一个C++类).</p>
+<p>Another odd thing is the identifier <code>Q_OBJECT</code>.  This is a Qt Macro and signal word that identifies this class as belonging to the Qt class hierarchy.  It makes the class handleable by the Qt Framework.  We will need that for all classes that allow for Window user operations.</p>
+<p>In addition to all this public stuff, we have also defined 3 private variables: <code>posXL</code>, <code>posXR</code> and <code>posY</code>.  These will be necessary to interact with the user.  We will see their effect once we implement the methods <code>paintEvent(...)</code> and <code>mouseMoveEvent(...)</code>.  In short <code>posXL</code> will be the horizontal position of the eyes&rsquo; focus from the left eye, <code>posXR</code> the horizontal position from the right eye, and <code>posY</code> the vertical position wrt. both eyes.</p>
 <h2 id="22-the-eyewidget-implementation">2.2 The EyeWidget Implementation</h2>
 <p>The main work of drawing the eyes is done in the file &ldquo;eyewidget.cpp&rdquo;.  In the beginning (after you have added minimal implementations of <code>paintEvent(...)</code> and <code>mouseMoveEvent(...)</code>), it should look as follows:</p>
 <div class="highlight"><div class="chroma">
@@ -302,7 +303,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>Once, this is done, you should be able to compile and start the program, e.g. by pressing &lt;Ctrl&gt;+&lt;R&gt;.  Please give it a try to make sure everything works so far.</p>
-<p>Let us now start with drawing eyes.  Fill in the beginning of the <code>paintEvent(...)</code> method as follows:</p>
+<p>Let us now start with drawing eyes.  Drawing is always done from the <code>paintEvent(...)</code> method.  The Framework can request drawing or multiple reasons, e.g. you changed the size of the window, the window came to the foreground (was covered before), the user resized the window, you said that the window needs to be updated, and others.  Fill in the beginning of the <code>paintEvent(...)</code> method as follows:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -320,9 +321,11 @@
 </span><span class="lnt">13
 </span><span class="lnt">14
 </span><span class="lnt">15
+</span><span class="lnt">16
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;QtGui&gt;</span><span class="cp">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;QtGui&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp">
 </span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
@@ -340,24 +343,24 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="23-what-does-that-mean">2.3 What does that mean?</h2>
-<p>Ok, <code>EyeWidget::EyeWidget(...)</code> is the so-called constructor.  It is where the existence of an object starts.  It takes (at most) 1 argument <code>QWidget* parent</code>, i.e. the parent widget.  But when you look into its declaration in the header file, then you see that it also has a default argument <code>nullptr</code>.  So if we do not specify a parent widget, then that will be <code>NULL</code>.  This will imply that the widget will become the main widget of a new Window on the desktop.</p>
-<p>We also have to pass this <code>parent</code> widget to the constructor of the parent class.  That is what <code>: QWidget(parent)</code> means, i.e. at this point the parent class will be initialized.  At the moment the body of the method is empty <code>{  }</code>, i.e. we do not have to do anything specific.</p>
+<p>Ok, <code>EyeWidget::EyeWidget(...)</code> is the so-called constructor (构造函数).  It is where the existence of an object starts.  In our case, it takes (at most) 1 argument <code>QWidget* parent</code>, i.e. the parent widget.  But when you look into its declaration in the header file, then you see that it also has a default value (默认值) <code>nullptr</code>.  So if we do not specify a parent widget, then that will be <code>NULL</code>.  This will imply that the widget will become the main widget of a new Window on the desktop.</p>
+<p>We also have to pass this <code>parent</code> widget (包含小部件) to the constructor of the parent class (父类).  That is what <code>: QWidget(parent)</code> means, i.e. at this point the parent class will be initialized.  At the moment the body of the method is empty <code>{  }</code>, i.e. we do not have to do anything specific.</p>
 <p>The <code>EyeWidget:~EyeWidget()</code> is the destructor.  The same way every object is constructed before its usage, it also needs to be destructed before the return of its memory.  This is done in the destructor.  In this case we won&rsquo;t do anything specific and can thus just use the default implementation <code>= default;</code>.</p>
 <p>The more interesting method is <code>paintEvent(...)</code> in which the widget is asked to paint its content.  We start by defining a <code>QPainter</code> for the current object called <code>this</code> and setting its brush to color &ldquo;white&rdquo;.  If you see a lot of red marked methods/classes, then you need to import &lt;QtGui&gt; where all the Qt graphic painting elements are defined, e.g. <code>QPainter</code>, <code>QBrush</code> and <code>QColor</code>.</p>
-<p>As it may suggest, <code>p.setBrush(QBrush(QColor(&quot;white&quot;)))</code> sets the current brush to be of the solid color white.  This will be helpful for the eyeballs.</p>
+<p>As it may suggest, <code>p.setBrush(QBrush(QColor(&quot;white&quot;)))</code> sets the current brush to be of the solid color white.  This will be helpful for the eyeballs (眼球).</p>
 <p>Then we compute the width of our eyes (in the computer).  The problem with modern Desktop (or browser) drawing is that we don&rsquo;t know how big the actual picture will be, e.g. the user can resize the window that contains our drawing, and we need to make the best out of the available space.  Therefore, we will define the <code>eyeWidth</code> as the minimum of either <code>width()/2</code> or <code>height()-20</code>.  These 2 methods provide the current window sizes (width and height, respectively).  The function <code>min(...)</code> is defined in the standard library in header &lt;algorithm&gt; and for convenience, we import all of the <code>namespace std</code>.  The additional factor of <code>0.9</code> is to make sure the eyes fit losely into the window.</p>
-<p>Eyeballs are just ellipses, that is why we <code>drawEllipse</code> twice.  There are 4 parameters to specify an ellipse.  In our case the top-left corner of the bounding rectangle and its width and height.  Again <code>width()/2</code> is in the middle of the window and <code>-int(eyeWidth)</code> means that the left boundary of the left eye is one <code>eyeWidth</code> to the left of the middle of the window.  The eye starts 10 pixels from the top of the window.  The width is <code>0.95*eyeWidth</code> such that it leaves a small gap between the 2 eyes (where the root of your nose is).  The height of the eye is almost the window height (reduced by 20 pixels), i.e. no matter how big the user makes the window, the eye will almost fill it, only 10 pixels short on top and on the bottom.</p>
+<p>Eyeballs are just ellipses, that is why we <code>drawEllipse</code> twice.  There are 4 parameters to specify an ellipse.  In our case the top-left corner of the bounding rectangle and its width and height.  Again <code>width()/2</code> is in the middle of the window and <code>-int(eyeWidth)</code> means that the left boundary of the left eye is one <code>eyeWidth</code> to the left of the middle of the window.  The eye starts 10 pixels from the top of the window.  The width is <code>0.95*eyeWidth</code> such that it leaves a small gap between the 2 eyes (where the nose root is).  The height of the eye is almost the window height (reduced by 20 pixels), i.e. no matter how big the user makes the window, the eye will almost fill it, only 10 pixels short on top and on the bottom.</p>
 <p>For the right eyeball, we go $0.05*$ <code>eyeWidth</code>s to the right and draw an ellipse of the same size.</p>
 <p>When you now restart the program, you should see a gray window with 2 white eyeballs.  You can check what happens when you resize the window (e.g. press the full-screen button on top right), the eyeballs should grow and shrink with the window.</p>
 <h2 id="what-if-the-program-does-not-compile-anymore">What if the Program does not Compile anymore?</h2>
-<p>This is why we write the program incrementally, i.e. one step at a time.  You will know that the error is likely caused by something you just added.  Try to understand the error message and the place where it occurs.</p>
+<p>This is why we write the program incrementally (渐进式), i.e. one step at a time.  You will know that the error is likely caused by something you just added.  Try to understand the error message and the place where it occurs.</p>
 <p>Some hints:</p>
 <ul>
 <li>all parentheses have to be round &lsquo;(&rsquo; and &lsquo;)&rsquo;;</li>
 <li>the decimal point has to be a point, i.e. <code>0.95</code> not <code>0,95</code>;</li>
 <li>every invocation of <code>p.drawEllipse()</code> needs 4 parameters, i.e. 3 commas and between each 2 commas every opening parenthesis needs to be closed as well;</li>
 </ul>
-<h2 id="24-iris-and-pupils">2.4 Iris and Pupils</h2>
+<h2 id="24-iris-虹膜-and-pupils-瞳孔">2.4 Iris (虹膜) and Pupils (瞳孔)</h2>
 <p>For that we extend the <code>paintEvent(...)</code> method as follows:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -387,7 +390,7 @@
 </div>
 </div><p>Note that every <code>drawEllipse</code> comes in pairs, one for the left eye and one for the right eye.  The iris color is &ldquo;#630&rdquo;, i.e. 6/16 parts red, 3/16 parts green, and 0/16 parts blue.  That is a dark brown.  If you wish, you can also paint steel blue eyes, e.g. &ldquo;#03C&rdquo; where C=12, i.e. the blue component is 12/16.  If I have not messed up with the numbers and you restart the correctly typed in program, you should see 2 dark-brown eyes staring at you.</p>
 <h3 id="what-do-the-numbers-mean">What do the numbers mean?</h3>
-<p>I had to fiddle quite a bit with them and they may be not the unique solution to the problem, but <code>int(0.35*posXL-...)</code> means the position of the left eyes is adjusted to 35% of the position of the cursor w.r.t. the center of the left eyeball.  Correspondingly it is fully adjusted to the height of the cursor over the middle of the window.  The second components <code>int(...-0.825*eyeWidth)</code> and <code>int(...-0.3*eyeWidth)</code> mean that the left iris starts 82.5% into the left eyeball (when the eye stares at you) and 30% to the top of the eyeball.  Correspondingly, the right iris starts 22.5% into the right eyeball and also 30% into the top of the eyeballs.  If you choose different factors for the heights, then you will end up with squinting eyes.</p>
+<p>I had to fiddle quite a bit with them and they may be not the unique solution to the problem, but <code>int(0.35*posXL-...)</code> means the position of the left eyes is adjusted to 35% of the position of the cursor w.r.t. the center of the left eyeball.  Correspondingly it is fully adjusted to the height of the cursor over the middle of the window.  The second components <code>int(...-0.825*eyeWidth)</code> and <code>int(...-0.3*eyeWidth)</code> mean that the left iris starts 82.5% into the left eyeball (when the eye stares at you) and 30% to the top of the eyeball.  Correspondingly, the right iris starts 22.5% into the right eyeball and also 30% into the top of the eyeballs.  If you choose different factors for the heights, then you will end up with squinting eyes (眯着眼睛).</p>
 <p>Correspondingly, the pupils move with the <code>posXL</code>/<code>posXR</code> and <code>posY</code> by the same factors.  This is reasonable, because the pupils are always in the center of the irises.  They are, however smaller than the iris, and always black.</p>
 <p>Please try to restart the program and see if everything is set up well.</p>
 <h1 id="3-moving-eyes">3. Moving eyes</h1>
@@ -433,19 +436,19 @@
 </div><h2 id="what-does-that-mean">What does that mean?</h2>
 <ol>
 <li>
-<p>$x_L = \mathrm{event}\to x - 0.25*\mathrm{width}$ is the x-distance of the mouse position (<code>event-&gt;x(), event-&gt;y()</code>) from the middle of the left eye &ndash; in particular $x_L&lt;0$ whenever the mouse is left of (the middle of) the left eye, $x_L&gt;0$ whenever the mouse is to the right of (the middle of) the left eye;</p>
+<p>$x_L = \mathrm{event}\to\mathrm{position}()\to x() - 0.25*\mathrm{width}$ is the x-distance of the mouse position (<code>event-&gt;position()</code>) from the middle of the left eye &ndash; in particular $x_L&lt;0$ whenever the mouse is left of (the middle of) the left eye, $x_L&gt;0$ whenever the mouse is to the right of (the middle of) the left eye;</p>
 </li>
 <li>
-<p>$x_R = \mathrm{event}\to x -0.75*\mathrm{width}$ is the x-distance of the mouse position from the middle of the right eye;</p>
+<p>$x_R = \mathrm{event}\to\mathrm{position}()\to x() -0.75*\mathrm{width}$ is the x-distance of the mouse position from the middle of the right eye;</p>
 </li>
 <li>
-<p>$y = \mathrm{event}\to y -0.5*\mathrm{height}$ is the y-distance of the mouse position from the middle of the eyes;</p>
+<p>$y = \mathrm{event}\to\mathrm{position}()\to y() -0.5*\mathrm{height}$ is the y-distance of the mouse position from the middle of the eyes;</p>
 </li>
 <li>
 <p><code>F sqr(F x) { return x*x; }</code> is the square, we use the generic definition <code>template &lt;typename F&gt;</code> i.e. we define at the same time the square for integers as well as for floating point numbers;</p>
 </li>
 <li>
-<p><code>sqrt(sqr(xl)+sqr(y))</code> is the distance of the mouse position from the middle of the left eye (s.a. Pythagorean theorem);</p>
+<p><code>sqrt(sqr(xl)+sqr(y))</code> is the distance of the mouse position from the middle of the left eye (s.a. Pythagorean theorem, 勾股定理);</p>
 </li>
 <li>
 <p><code>sqrt(...+sqr(eyeWidth)</code> is a safety minimum distance, i.e. the divisor is at least <code>eyeWidth</code> (because next we will divide by this number);</p>
@@ -457,7 +460,7 @@
 <p>$f_L = \mathrm{eyeWidth}/\sqrt{&hellip;}$ and $f_R = \mathrm{eyeWidth}/\sqrt{&hellip;}$ are these small factors, <code>sqrt</code> means square root;</p>
 </li>
 <li>
-<p>$ \mathrm{pos-}y = y*(f_L+f_R)/2$ means that for the vertical displacement of the eyes we use the average of the 2 factors, in particular both eyse will always have the same height (otherwise they would be squinted);</p>
+<p>$ \mathrm{pos-}y = y*(f_L+f_R)/2$ means that for the vertical displacement of the eyes we use the average of the 2 factors, in particular both eyes will always have the same height (otherwise they would be squinted);</p>
 </li>
 <li>
 <p><code>update()</code> means that we request the computer to update the picture of the eyes.  We cannot simply call <code>paintEvent(nullptr)</code>, because the computer may not be ready for painting;</p>
@@ -485,7 +488,7 @@
 </div>
 </div><p>This has 2 additional effects, first, we set the window title to &ldquo;Qt Eyes!&rdquo;, and second, we will be notified whenever the mouse moves.  This is necessary, because otherwise the system will save energy in not calling the method <code>mouseMotionEvent(...)</code>.</p>
 <p>One last question:  Why didn&rsquo;t we use the parameter of the <code>paintEvent(QPaintEvent*)</code>?</p>
-<p>The answer is that we will always quickly draw the whole 2 eyes.  If your drawing takes a long time, you can read off the details of the region to update from this <code>QPaintEvent</code>.</p>
+<p>The answer is that we will always quickly draw all the 2 eyes.  If your drawing takes a long time, you can read off the details of the region to update from this <code>QPaintEvent</code>.</p>
 <p>Ok, if everything is correct, the 2 eyes should follow the mouse pointer.  Maybe, you first have to click into the window with the eyes (or at least move the mouse into this window).</p>
 <h1 id="9-try-for-yourself">9. Try for Yourself</h1>
 <h2 id="91-colorful-eyes">9.1 Colorful Eyes</h2>
@@ -508,7 +511,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>The y-coordinate is measured from the top, i.e. $y=0$ is the upper boundary of the window, $y=0.5*\mathrm{height}$ in the middle and $y=\mathrm{height}$ the lower boundary.  If we use $y=0.4*h$ instead of $y=0.5*h$, this will turn out a bit higher than the middle.  And if you do that with only one eye, then this will look higher than the other.</p>
-<h2 id="93-drawing-a-snowman">9.3 Drawing a Snowman</h2>
+<h2 id="93-drawing-a-snowman-雪人">9.3 Drawing a Snowman (雪人)</h2>
 <p>Can you replace the method (<code>void EyeWidget::paintEvent(...)</code>) such that it draws 3 stacked balls?</p>
 <p>Hint:  Every ball should have a diameter of <code>const int d = height()/3</code>, and the first ball begins on top ($y=0$), the second after 1/3 (<code>y=height()/3</code>), and the last one at 2/3 (<code>y=2*height()/3</code>).</p>
 <p>Please enjoy trying out different things and let me know if there are any problems.</p>
@@ -544,7 +547,11 @@
 <footer class="post-footer">
       
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/12cepythagoreantree/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">12CE Tree of Pythagoras</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
         <a class="next" href="/post/06ceattentiongame/">
             <span class="next-text nav-default">06CE Attention Game</span>
             <span class="next-text nav-mobile">Next</span>
@@ -595,7 +602,7 @@
       <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
       <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
       <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
-  <a href="https://melli79.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  
 </div>
 
 <div class="copyright">
