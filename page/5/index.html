@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.111.3 with theme even" />
+<meta name="generator" content="Hugo 0.113.0 with theme even" />
 
 
 <link rel="canonical" href="https://melli79.github.io/" />
@@ -105,6 +105,32 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/14baumdespythagoras/">14 Baum des Pythagoras</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-08-19 </span>
+      <div class="post-category">
+          <a href="/categories/kotlin/"> Kotlin </a>
+          <a href="/categories/programming/"> Programming </a>
+          <a href="/categories/gui/"> GUI </a>
+          <a href="/categories/fraktal/"> Fraktal </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Nachdem wir letzte Woche das Mandelbrot und Julia-Mengen gemalt haben, wollen wir heute weitere Fraktale produzieren.
+Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
+1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&#34;Baum des Pythagoras&#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(TreeOfPythagoras()) window.
+    </div>
+    <div class="read-more">
+      <a href="/post/14baumdespythagoras/" class="read-more-link">Read more...</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/13mandelbrot/">13 Mandelbrot (Apfelmännchen)</a></h1>
@@ -205,31 +231,6 @@ Im Dialog: Version 11, Oracle Open JDK auswählen.
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/03cwomengivebirth/">03C Frauen Gebären und sich Scheiden lassen</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2021-12-23 </span>
-      <div class="post-category">
-          <a href="/categories/programming/"> Programming </a>
-          <a href="/categories/kotlin/"> Kotlin </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      4. Frauen Gebären Woher kommen die Kinder?
-Das soll jetzt kein Vortrag über das Kinderkriegen werden, aber wenn unser Modell Menschen beschreibt, dann sollte es auch Kinder produzieren können.
-Im Einfachsten Fall bekommt eine Frau ein Kind und ihr Ehepartner ist der Vater. Die Signatur sieht etwa so aus:
-1 2 3 fun Person.giveBirth(givenName :String, birthday :PartialDate, gender :Gender) :Person { ... } Offenbar brauchen wir auch das Geschlecht und den Geburtstag des Kindes.
-    </div>
-    <div class="read-more">
-      <a href="/post/03cwomengivebirth/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -254,7 +255,7 @@ Im Einfachsten Fall bekommt eine Frau ein Kind und ihr Ehepartner ist der Vater.
       <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
       <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
       <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
-  <a href="https://melli79.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+  
 </div>
 
 <div class="copyright">

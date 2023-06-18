@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>12CE Tree of Pythagoras - Melchior&#39;s Homepage</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="melli79" /><meta name="description" content="After we have been drawing moving eyes last time, we want to draw something more interesting. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project &amp;hellip; of type C&#43;&#43; Qt Widget Application. Give a memorizable name to the project, e.g. pythagoreanTree (毕达哥拉斯的树), but make sure the Build-System is cmake/minGW11. Call the main window &amp;ldquo;PythagorasTreeWidget&amp;rdquo; and" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.113.0 with theme even" />
+
+
+<link rel="canonical" href="https://melli79.github.io/post/12cepythagoreantree/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78d3a03abaed5d3c468bdf402fc110f36c046abf091a63421b9ce0a5a63db941.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="12CE Tree of Pythagoras" />
+<meta property="og:description" content="After we have been drawing moving eyes last time, we want to draw something more interesting. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project &hellip; of type C&#43;&#43; Qt Widget Application. Give a memorizable name to the project, e.g. pythagoreanTree (毕达哥拉斯的树), but make sure the Build-System is cmake/minGW11. Call the main window &ldquo;PythagorasTreeWidget&rdquo; and" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://melli79.github.io/post/12cepythagoreantree/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-06-17T23:52:50+02:00" />
+<meta property="article:modified_time" content="2023-06-17T23:52:50+02:00" />
+<meta itemprop="name" content="12CE Tree of Pythagoras">
+<meta itemprop="description" content="After we have been drawing moving eyes last time, we want to draw something more interesting. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project &hellip; of type C&#43;&#43; Qt Widget Application. Give a memorizable name to the project, e.g. pythagoreanTree (毕达哥拉斯的树), but make sure the Build-System is cmake/minGW11. Call the main window &ldquo;PythagorasTreeWidget&rdquo; and"><meta itemprop="datePublished" content="2023-06-17T23:52:50+02:00" />
+<meta itemprop="dateModified" content="2023-06-17T23:52:50+02:00" />
+<meta itemprop="wordCount" content="1177">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="12CE Tree of Pythagoras"/>
+<meta name="twitter:description" content="After we have been drawing moving eyes last time, we want to draw something more interesting. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project &hellip; of type C&#43;&#43; Qt Widget Application. Give a memorizable name to the project, e.g. pythagoreanTree (毕达哥拉斯的树), but make sure the Build-System is cmake/minGW11. Call the main window &ldquo;PythagorasTreeWidget&rdquo; and"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Melchior&#39;s Homepage</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archiv</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Schlagworte</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Melchior&#39;s Homepage</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archiv</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Schlagworte</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">12CE Tree of Pythagoras</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-06-17 </span>
+        <div class="post-category">
+            <a href="/categories/c&#43;&#43;/"> C&#43;&#43; </a>
+            <a href="/categories/programming/"> Programming </a>
+            <a href="/categories/gui/"> GUI </a>
+            <a href="/categories/qt/"> Qt </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#our-goal">Our Goal</a></li>
+    <li><a href="#1-setting-up-the-project">1. Setting up the Project</a>
+      <ul>
+        <li><a href="#12-the-main-element">1.2 The main Element</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-iterum-iterumque">2. Iterum, iterumque</a>
+      <ul>
+        <li><a href="#22-to-the-right">2.2 To the Right</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-try-for-yourself">9. Try for Yourself</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>After we have been drawing moving eyes last time, we want to draw something more interesting.</p>
+<h1 id="our-goal">Our Goal</h1>
+<p><img src="/img/pythagorasTree.png" alt="Tree of the Pythagoras"></p>
+<h1 id="1-setting-up-the-project">1. Setting up the Project</h1>
+<p>With the QtCreator, you create a New Project &hellip; of type C++ Qt Widget Application.  Give a memorizable name to the project, e.g. pythagoreanTree (毕达哥拉斯的树), but make sure the Build-System is cmake/minGW11.  Call the main window &ldquo;PythagorasTreeWidget&rdquo; and make it derive from <code>QWidget</code>. We don&rsquo;t need to choose any translation language (as our app will not contain much text).</p>
+<p>After a while, the IDE opens the file &ldquo;main.cpp&rdquo; with a minimal Qt main program.  You can even reduce this as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;eyewidget.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;QApplication&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">nArgs</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">args</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">QApplication</span> <span class="n">app</span><span class="p">(</span><span class="n">nArgs</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">EyeWidget</span> <span class="n">w</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">w</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">app</span><span class="p">.</span><span class="n">exec</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is all we need here.</p>
+<p>Next, we need to make sure, the header file is set up properly.  It should look as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#ifndef PYTHAGORASTREEWIDGET_H
+</span></span></span><span class="line"><span class="cl"><span class="cp">#define PYTHAGORASTREEWIDGET_H
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;QWidget&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">PythagorasTreeWidget</span> <span class="o">:</span> <span class="k">public</span> <span class="n">QWidget</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Q_OBJECT</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">explicit</span> <span class="n">PythagorasTreeWidget</span><span class="p">(</span><span class="n">QWidget</span><span class="o">*</span> <span class="n">parent</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="o">~</span><span class="n">PythagorasTreeWidget</span><span class="p">()</span> <span class="k">override</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="cp">#endif </span><span class="c1">// PYTHAGOREANTREEWIDGET_H
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="12-the-main-element">1.2 The main Element</h2>
+<p><img src="/img/trunkAndFork.png" alt="Trunk and Fork" title="200x300"></p>
+<p>The drawing happens in the &ldquo;pythagorastreewidget.cpp&rdquo; file.  We start as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;pythagorastreewidget.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;QtGui&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="n">PythagorasTreeWidget</span><span class="o">::</span><span class="n">PythagorasTreeWidget</span><span class="p">(</span><span class="n">QWidget</span><span class="o">*</span> <span class="n">parent</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="o">:</span> <span class="n">QWidget</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setMinimumSize</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">120</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setWindowTitle</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s">&#34;Tree of Pythagoras&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setMouseTracking</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">PythagorasTreeWidget</span><span class="o">::~</span><span class="n">PythagorasTreeWidget</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">struct</span> <span class="nc">Rect</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">sprout</span><span class="p">(</span><span class="n">QPainter</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="n">Rect</span><span class="o">&amp;</span> <span class="n">base</span><span class="p">,</span> <span class="kt">int</span> <span class="n">depth</span> <span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">depth</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">x0</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">y0</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">x0</span><span class="o">+</span><span class="n">base</span><span class="p">.</span><span class="n">dx</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">y0</span><span class="o">+</span><span class="n">base</span><span class="p">.</span><span class="n">dy</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">xl</span> <span class="o">=</span> <span class="n">base</span><span class="p">.</span><span class="n">x0</span><span class="o">-</span><span class="n">base</span><span class="p">.</span><span class="n">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">yl</span> <span class="o">=</span> <span class="n">base</span><span class="p">.</span><span class="n">y0</span><span class="o">+</span><span class="n">base</span><span class="p">.</span><span class="n">dx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">x0</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">y0</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="n">xl</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="n">yl</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">xr</span> <span class="o">=</span> <span class="n">base</span><span class="p">.</span><span class="n">x0</span> <span class="o">+</span><span class="n">base</span><span class="p">.</span><span class="n">dx</span> <span class="o">-</span><span class="n">base</span><span class="p">.</span><span class="n">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">yr</span> <span class="o">=</span> <span class="n">base</span><span class="p">.</span><span class="n">y0</span> <span class="o">+</span><span class="n">base</span><span class="p">.</span><span class="n">dx</span> <span class="o">+</span><span class="n">base</span><span class="p">.</span><span class="n">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">xl</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="n">yl</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="n">xr</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="n">yr</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawLine</span><span class="p">(</span><span class="kt">int</span><span class="p">(</span><span class="n">xr</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="n">yr</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="n">xr</span><span class="o">+</span><span class="n">base</span><span class="p">.</span><span class="n">dy</span><span class="p">),</span> <span class="kt">int</span><span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">y0</span><span class="o">+</span><span class="n">base</span><span class="p">.</span><span class="n">dy</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="n">TreeWidget</span><span class="o">::</span><span class="n">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">QPainter</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">QColor</span><span class="p">(</span><span class="s">&#34;brown&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">Rect</span> <span class="n">base</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">0.65</span><span class="o">*</span><span class="n">width</span><span class="p">(),</span> <span class="mf">0.95</span><span class="o">*</span><span class="n">height</span><span class="p">(),</span> <span class="o">-</span><span class="mf">0.14</span><span class="o">*</span><span class="n">width</span><span class="p">(),</span> <span class="mf">0.0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sprout</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">base</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>A <code>struct</code> is a tuple of variables that is given a typename.  Here we define a Rect (from rectangle) that consists of a left point $(x_0, y_0)$, some width $dx$ and some height $dy$.  In the <code>paintEvent(...)</code>-method, we  compute some static (rather small) line segment and hand that to the sprout function.  Sprout (发芽) is the process when a new twig or leaf grows on a branch (or tree).  We will see later, why we need a separate function for that.  In addition, we need to pass a <code>QPainter</code> to the function, but we don&rsquo;t want it to be copied everytime.  Therefore we pass it by reference.  The same way, we also pass the rectangle via reference (and make it constant, i.e. unchangeable).</p>
+<p>You should try that part by starting the program and see whether it really draws a trunk (in black).</p>
+<h1 id="2-iterum-iterumque">2. Iterum, iterumque</h1>
+<p>OK, we have drawn a trunk, but how do we make it a whole tree with many branches and small leaves?</p>
+<p>The answer is that we sprout the same element again and again over the 2 segments on top (the green ones in Picture 1).  First, let us compute the left segment and recurse there:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">sprount</span><span class="p">(</span><span class="n">QPainter</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="n">Rect</span><span class="o">&amp;</span> <span class="n">base</span><span class="p">,</span> <span class="kt">int</span> <span class="n">depth</span> <span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">Rect</span> <span class="n">left</span> <span class="o">=</span> <span class="p">{</span> <span class="n">xl</span><span class="p">,</span> <span class="n">yl</span><span class="p">,</span> <span class="mf">0.36</span><span class="o">*</span><span class="n">base</span><span class="p">.</span><span class="n">dx</span><span class="o">-</span><span class="mf">0.48</span><span class="o">*</span><span class="n">base</span><span class="p">.</span><span class="n">dy</span><span class="p">,</span> <span class="mf">0.48</span><span class="o">*</span><span class="n">base</span><span class="p">.</span><span class="n">dx</span><span class="o">+</span><span class="mf">0.36</span><span class="o">*</span><span class="n">base</span><span class="p">.</span><span class="n">dy</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sprout</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">left</span><span class="p">,</span> <span class="n">depth</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If you restart the program, you will see the left lowest branches that extend along the whole tree.</p>
+<p>If we want to make the leaves green, we should compute the sprout size and set the color correspondingly.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">F</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="n">F</span> <span class="n">sqr</span><span class="p">(</span><span class="n">F</span> <span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">QColor</span> <span class="n">lightGreen</span> <span class="o">=</span> <span class="n">QColor</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">QColor</span> <span class="n">lightBrown</span> <span class="o">=</span> <span class="n">QColor</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">QColor</span> <span class="n">darkBrown</span> <span class="o">=</span> <span class="n">QColor</span><span class="p">(</span><span class="mi">96</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">sprout</span><span class="p">(</span><span class="n">QPainter</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="n">Rect</span><span class="o">&amp;</span> <span class="n">base</span><span class="p">,</span> <span class="kt">int</span> <span class="n">depth</span> <span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">size2</span> <span class="o">=</span> <span class="n">sqr</span><span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">dx</span><span class="p">)</span><span class="o">+</span><span class="n">sqr</span><span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">dy</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size2</span><span class="o">&lt;</span><span class="mf">4.0</span><span class="o">||</span><span class="n">depth</span><span class="o">&lt;</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size2</span><span class="o">&lt;</span><span class="mf">36.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="p">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">lightGreen</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">size2</span><span class="o">&lt;</span><span class="mf">1024.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="p">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">darkGreen</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="p">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">darkBrown</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>This is called a recursive function (递归函数), i.e. the function <code>sprout</code> calls itself in order to produce the whole result.  For a recursive algorithm two things are important:  First, you need to know when to stop the recursion.  If you forget the stopping condition (or if it fails), then the algorithm will never terminate.  Secondly, you need solve one step of the problem and finally call the function itself again handing over a smaller part of the problem.</p>
+<p>If you restart the program, you will see the trunk in dark-brown, the branches to the side in light-brown and the leaves in light-green.</p>
+<h2 id="22-to-the-right">2.2 To the Right</h2>
+<p>Next, we will extend the branches to the right.  But before the program fills the whole screen, we will temporarily disable the left branches.  This looks about as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">sprout</span><span class="p">(</span><span class="n">QPainter</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="n">Rect</span><span class="o">&amp;</span> <span class="n">base</span><span class="p">,</span> <span class="kt">int</span> <span class="n">depth</span> <span class="o">=</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// sprout(p, left, depth-1);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">Rect</span> <span class="n">right</span> <span class="o">=</span> <span class="p">{</span> <span class="n">xl</span><span class="o">+</span><span class="n">left</span><span class="p">.</span><span class="n">dx</span><span class="p">,</span> <span class="n">yl</span><span class="o">+</span><span class="n">left</span><span class="p">.</span><span class="n">dy</span><span class="p">,</span> <span class="n">xr</span><span class="o">-</span><span class="p">(</span><span class="n">left</span><span class="p">.</span><span class="n">x0</span><span class="o">+</span><span class="n">left</span><span class="p">.</span><span class="n">dx</span><span class="p">),</span> <span class="n">yr</span><span class="o">-</span><span class="p">(</span><span class="n">left</span><span class="p">.</span><span class="n">y0</span><span class="o">+</span><span class="n">left</span><span class="p">.</span><span class="n">dy</span><span class="p">)</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sprout</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">depth</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>When you start the program again, you will see a long branch to the right that ends in a light-green leaf.  Make sure, the branch becomes smaller and smaller.</p>
+<p>Once, we have convinced ourselves that both recursions work properly for themselves, we can enable them both at the same time, i.e. comment-in the first <code>sprout()</code> call.</p>
+<p>This is now called a double recursive function (双重递归函数), i.e. every (full) iteration of the function calls the function itself twice.</p>
+<p>When you now restart the program, you should see the whole tree.</p>
+<p>Try to resize the window and find out when the tree fills the whole window.  You may also wish to switch the window to full-screen.  If you want to save the tree to an image, you just have to press &lt;Win&gt;+&lt;P&gt; (or &lt;cmd&gt;+&lt;shift&gt;+&lt;4&gt; on Mac).</p>
+<p>If you get the impression that the leaves are not drawn in maximum zoom, then you can remove the depth condition in the first if-statement:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">void</span> <span class="nf">sprout</span><span class="p">(</span><span class="n">QPainter</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">,</span> <span class="k">const</span> <span class="n">Rect</span><span class="o">&amp;</span> <span class="n">base</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">size2</span> <span class="o">=</span> <span class="n">sqr</span><span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">dx</span><span class="p">)</span> <span class="o">+</span><span class="n">sqr</span><span class="p">(</span><span class="n">base</span><span class="p">.</span><span class="n">dy</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">size2</span><span class="o">&lt;</span><span class="mf">4.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sprout</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">left</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">Rect</span> <span class="n">right</span> <span class="o">=</span> <span class="p">{...};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">sprout</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">right</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="9-try-for-yourself">9. Try for Yourself</h1>
+<p>The tree is slightly left-leaning, i.e. the left branches are always a bit bigger than the right branches on the same level.</p>
+<p>Can you reflect the tree, i.e. exchange the sizes of the left and the right branches?</p>
+<p>Hint:  You may have to move the middle point $(x_M, y_M)$ more to the right, e.g. with the factors $0.48$ and $0.36$ (you should change 4 numbers).  Does it work?</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">melli79</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2023-06-17
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">Markdown</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://melli79.github.io/post/12cepythagoreantree/index.md" target="_blank">The Markdown version »</a></span>
+    </p>
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/11ceeyes/">
+            <span class="next-text nav-default">11CE Drawing Eyes</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2023-06-17 23:52:50 \u002b0200 CEST',
+        title: '12CE Tree of Pythagoras',
+        link: decodeURI(location.href),
+        desc: 'After we have been drawing moving eyes last time, we want to draw something more interesting. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project \u0026hellip; of type C\u002b\u002b Qt Widget Application. Give a memorizable name to the project, e.g. pythagoreanTree (毕达哥拉斯的树), but make sure the Build-System is cmake\/minGW11. Call the main window \u0026ldquo;PythagorasTreeWidget\u0026rdquo; and',
+        owner: 'melli79',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="melli79/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:melchiorG@gMail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">melli79</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.1c70606d1b733282f06230615f5561b5894924b6f9930ba2ab99cf1254f75a1a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
