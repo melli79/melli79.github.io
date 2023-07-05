@@ -6,7 +6,16 @@
     <description>Recent content in GUI on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 17 Jun 2023 23:52:50 +0200</lastBuildDate><atom:link href="https://melli79.github.io/categories/gui/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Jul 2023 19:18:50 +0200</lastBuildDate><atom:link href="https://melli79.github.io/categories/gui/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>13 Mandelbrot in C&#43;&#43;</title>
+      <link>https://melli79.github.io/post/13cemandelbrot/</link>
+      <pubDate>Wed, 05 Jul 2023 19:18:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/post/13cemandelbrot/</guid>
+      <description>After we drew a first fractal last week (the Tree of Pythagoras), we want to produce more mathematical art this time. The goal 0. The initial setup Using the QtCreator start a new Qt/Widget/C++-Project named &amp;ldquo;Mandelbrot&amp;rdquo; (derive the main widget from QtWidget), don&amp;rsquo;t specify any default language, and reduce the main program to: 1 2 3 4 5 6 7 8 9 #include &amp;lt;QtApplication&amp;gt; #include &amp;#34;mandelbrot.h&amp;#34; int main(int nArgs, char**</description>
+    </item>
+    
     <item>
       <title>12CE Tree of Pythagoras</title>
       <link>https://melli79.github.io/post/12cepythagoreantree/</link>

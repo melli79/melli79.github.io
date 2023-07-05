@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>13 Mandelbrot in C&#43;&#43; - Melchior&#39;s Homepage</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="melli79" /><meta name="description" content="After we drew a first fractal last week (the Tree of Pythagoras), we want to produce more mathematical art this time. The goal 0. The initial setup Using the QtCreator start a new Qt/Widget/C&#43;&#43;-Project named &amp;ldquo;Mandelbrot&amp;rdquo; (derive the main widget from QtWidget), don&amp;rsquo;t specify any default language, and reduce the main program to: 1 2 3 4 5 6 7 8 9 #include &amp;lt;QtApplication&amp;gt; #include &amp;#34;mandelbrot.h&amp;#34; int main(int nArgs, char**" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.115.0 with theme even" />
+
+
+<link rel="canonical" href="https://melli79.github.io/post/13cemandelbrot/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78d3a03abaed5d3c468bdf402fc110f36c046abf091a63421b9ce0a5a63db941.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="13 Mandelbrot in C&#43;&#43;" />
+<meta property="og:description" content="After we drew a first fractal last week (the Tree of Pythagoras), we want to produce more mathematical art this time. The goal 0. The initial setup Using the QtCreator start a new Qt/Widget/C&#43;&#43;-Project named &ldquo;Mandelbrot&rdquo; (derive the main widget from QtWidget), don&rsquo;t specify any default language, and reduce the main program to: 1 2 3 4 5 6 7 8 9 #include &lt;QtApplication&gt; #include &#34;mandelbrot.h&#34; int main(int nArgs, char**" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://melli79.github.io/post/13cemandelbrot/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-07-05T19:18:50+02:00" />
+<meta property="article:modified_time" content="2023-07-05T19:18:50+02:00" />
+<meta itemprop="name" content="13 Mandelbrot in C&#43;&#43;">
+<meta itemprop="description" content="After we drew a first fractal last week (the Tree of Pythagoras), we want to produce more mathematical art this time. The goal 0. The initial setup Using the QtCreator start a new Qt/Widget/C&#43;&#43;-Project named &ldquo;Mandelbrot&rdquo; (derive the main widget from QtWidget), don&rsquo;t specify any default language, and reduce the main program to: 1 2 3 4 5 6 7 8 9 #include &lt;QtApplication&gt; #include &#34;mandelbrot.h&#34; int main(int nArgs, char**"><meta itemprop="datePublished" content="2023-07-05T19:18:50+02:00" />
+<meta itemprop="dateModified" content="2023-07-05T19:18:50+02:00" />
+<meta itemprop="wordCount" content="1816">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="13 Mandelbrot in C&#43;&#43;"/>
+<meta name="twitter:description" content="After we drew a first fractal last week (the Tree of Pythagoras), we want to produce more mathematical art this time. The goal 0. The initial setup Using the QtCreator start a new Qt/Widget/C&#43;&#43;-Project named &ldquo;Mandelbrot&rdquo; (derive the main widget from QtWidget), don&rsquo;t specify any default language, and reduce the main program to: 1 2 3 4 5 6 7 8 9 #include &lt;QtApplication&gt; #include &#34;mandelbrot.h&#34; int main(int nArgs, char**"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Melchior&#39;s Homepage</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archiv</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Schlagworte</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Melchior&#39;s Homepage</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archiv</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Schlagworte</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">13 Mandelbrot in C&#43;&#43;</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-07-05 </span>
+        <div class="post-category">
+            <a href="/categories/c&#43;&#43;/"> C&#43;&#43; </a>
+            <a href="/categories/programming/"> Programming </a>
+            <a href="/categories/gui/"> GUI </a>
+            <a href="/categories/fraktal/"> Fraktal </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-goal">The goal</a></li>
+    <li><a href="#0-the-initial-setup">0. The initial setup</a></li>
+    <li><a href="#1-defining-mandelbrot">1. Defining Mandelbrot</a>
+      <ul>
+        <li><a href="#12-what-is-an-iteration-迭代">1.2 What is an Iteration (迭代)?</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-how-to-draw-that">2. How to draw that?</a>
+      <ul>
+        <li><a href="#21-how-to-decide-remains-bounded">2.1 How to decide “remains bounded”?</a></li>
+        <li><a href="#22-how-to-produce-colors">2.2 How to Produce Colors?</a>
+          <ul>
+            <li><a href="#but-that-are-numbers-not-colors">But that are Numbers not Colors!</a></li>
+          </ul>
+        </li>
+        <li><a href="#23-how-to-draw-a-whole-picture">2.3 How to draw a whole Picture?</a>
+          <ul>
+            <li><a href="#b-how-to-obtain-the-bounds-x0-y0">b) How to obtain the bounds <code>(x0, y0)</code>?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#9-try-for-yourself">9. Try for Yourself</a>
+      <ul>
+        <li><a href="#90-does-your-program-work">9.0 Does your Program work?</a></li>
+        <li><a href="#91-can-you-change-the-color-palette">9.1 Can you change the color palette?</a></li>
+        <li><a href="#92-how-to-draw-only-a-zoom-in-of-the-mandelbrot">9.2 How to draw only a zoom-in of the Mandelbrot?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>After we drew a first fractal last week (the Tree of Pythagoras), we want to produce more mathematical art this time.</p>
+<h1 id="the-goal">The goal</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/b005iHf8Z3g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<h1 id="0-the-initial-setup">0. The initial setup</h1>
+<p>Using the QtCreator start a new Qt/Widget/C++-Project named &ldquo;Mandelbrot&rdquo; (derive the main widget from <code>QtWidget</code>), don&rsquo;t specify any default language, and reduce the main program to:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="cp">#include</span> <span class="cpf">&lt;QtApplication&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="cp">#include</span> <span class="cpf">&#34;mandelbrot.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">nArgs</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">QtApplication</span> <span class="n">app</span><span class="p">(</span><span class="n">nArgs</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">MandelbrotWidget</span> <span class="n">window</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">window</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">app</span><span class="p">.</span><span class="n">exec</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The header file looks about the same as last time:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="cp">#include</span> <span class="cpf">&lt;QtWidget&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">  <span class="k">struct</span> <span class="nc">Rect</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">inline</span> <span class="kt">double</span> <span class="nf">y1</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">y0</span> <span class="o">+</span><span class="n">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">MandelbrotWidget</span> <span class="o">:</span><span class="n">publc</span> <span class="n">QtWidget</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">explicit</span> <span class="n">MandelbrotWidget</span><span class="p">(</span><span class="n">QtWidget</span><span class="o">*</span> <span class="n">parent</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">virtual</span> <span class="o">~</span><span class="n">MandelbrotWidget</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Rect</span> <span class="n">range</span> <span class="o">=</span> <span class="p">{</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">8.0</span><span class="o">/</span><span class="mi">3</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Rect</span> <span class="n">scale</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>Rect</code> is abbreviation for rectable.  Such a rectangle consists of one point $(x_0, y_0)$ its width <code>dx</code> and its height <code>dy</code>.  The given Range is the full Mandelbrot, with which we will start.</p>
+<p>In order to map the Mandelbrot to the screen/into our Widget, we will need to compute its <code>scale</code> first.</p>
+<h1 id="1-defining-mandelbrot">1. Defining Mandelbrot</h1>
+<p>What is a Mandelbrot (杏仁面包)?</p>
+<p>Well, literally it means almond bread, i.e. a bread with almond flour (杏仁粉) or split almonds (分裂的杏仁) on the crust (面包皮).  But where it actually came from is the name of the mathematician Bernoît Mandelbrot (贝尔诺特·曼德布罗特), who studied iterating systems and their dynamics.</p>
+<p>The core is the following iteration</p>
+<p>$$ z_{n+1} = z_n^2+c. $$</p>
+<p>It means that you choose a complex (复数) parameter $c=(c_x, c_y)$ and a starting point, like $z_0=(0,0)$, and then you compute in complex coordinates the square of the last $z_n$ and add $c=(c_x,c_y)$.</p>
+<p>If you are lucky, your math teacher or your father will tell you in highschool, what are complex numbers (复数).  For our purposes it is sufficient to know that the complex number $z_n=(x,y)$ consists of 2 real (实数, i.e. usual) numbers.  They are added in components as follows
+$$ z+c = (x+c_x, y+c_y). $$</p>
+<p>Multiplying complex numbers is a bit more tricky, because we want $zw$ to be 0 if and only if $z$ or $w$ are 0.  Therefore, we have the rule $\mathsf{i}^2=-1$ and $1=(1,0)$ as well as $\mathsf{i}=(0,1)$.  So in total that leads to
+$$ zw = xw_x + \mathsf{i}(xw_y+yw_x) +\mathsf{i}^2yw_y = (xw_x-yw_y, xw_y+yw_x). $$</p>
+<p>In particular, the square of the complex number $z$ is
+$$ z^2 = (x^2-y^2, 2xy). $$</p>
+<p>When we implement that, we need to make sure that in $z_{n+1}= z_n^2+c$ we use the old values for every place in the equations, maybe like this</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="kt">double</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">cx</span><span class="p">,</span><span class="n">cy</span> <span class="o">=</span> <span class="p">...;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">double</span>  <span class="n">x1</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span><span class="n">y</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">cx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">cy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="n">x</span> <span class="o">=</span> <span class="n">x1</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="12-what-is-an-iteration-迭代">1.2 What is an Iteration (迭代)?</h2>
+<p>The formulas above tell us to compute $z_1= z_0^2+c$.  Then, we can compute $z_2=z_1^2+c$, $z_3=z_2^2+c$, and so on.  In particular, you obtain a whole sequence (列) of (complex) numbers: $z_0$, $z_1$, $z_2$, $z_3$, &hellip;</p>
+<p>Unfortunately, you cannot draw infitintely many numbers (or even compute them).  Instead, Bernoît Mandelbrot found out that you get an interesting pattern when you make a black dot for every number $c=(c_x,c_y)$ whose sequence remains bounded (有界), i.e. the numbers do not grow bigger and bigger beyond every limit.</p>
+<p>In 2D ($z=(x,y)$) the easiest bounds are circles around the origin, i.e. $r=\sqrt{x^2+y^2}$ and experience teaches us that you have to go upto $r\le2$.  In order to save computing the square root, you just stick with $r^2=x^2+y^2$ and compare $r^2\le4$.</p>
+<h1 id="2-how-to-draw-that">2. How to draw that?</h1>
+<h2 id="21-how-to-decide-remains-bounded">2.1 How to decide “remains bounded”?</h2>
+<p>As said above, experience teaches us that we need to test for $r^2\le4$.  Unfortunately, we cannot compute infinitely many sequence elements.  Instead, we decide for a maximum number <code>maxColors=256</code> and compute at most 256 sequence elements and check whether for each $r^2=x^2+y^2\le4$.  If that remains true up to <code>maxColors</code>, the point $c=(c_x, c_y)$ belongs to the Mandelbrot, we will draw it in black.</p>
+<h2 id="22-how-to-produce-colors">2.2 How to Produce Colors?</h2>
+<p>In the sample animation they did not just draw black-and-white, but they also draw the points at the boundary in colors.  We can determine their color as follows:  If already the first point ($z_1=c=(c_x, c_y)$) violates $r^2\le4$, we will paint it with color 1, (e.g. blue), if the first point remains inside, but the second point $z_2=(x,y)$ is outside, then we draw $(c_x, c_y)$ with color 2 (e.g. green), and so on.</p>
+<p>We can do that with the following function:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="k">static</span> <span class="kt">unsigned</span> <span class="n">maxColors</span> <span class="o">=</span> <span class="mi">256</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">unsigned</span> <span class="nf">iterate</span><span class="p">(</span><span class="kt">double</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">double</span> <span class="n">cx</span><span class="p">,</span> <span class="kt">double</span> <span class="n">cy</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">x</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="n">color</span><span class="o">=</span><span class="mi">1u</span><span class="p">;</span> <span class="n">color</span><span class="o">&lt;</span><span class="n">maxColors</span><span class="p">;</span> <span class="n">color</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">double</span> <span class="n">x2</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">y</span><span class="o">*</span><span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">x2</span><span class="o">+</span><span class="n">y2</span><span class="o">&gt;</span><span class="mf">4.0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">color</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span><span class="n">cy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">x</span> <span class="o">=</span> <span class="n">x2</span><span class="o">-</span><span class="n">y2</span> <span class="o">+</span><span class="n">cx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0u</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="but-that-are-numbers-not-colors">But that are Numbers not Colors!</h3>
+<p>Well, you just have to convert them to colors, e.g. as follows</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="n">QColor</span> <span class="nf">colorize</span><span class="p">(</span><span class="n">unsgined</span> <span class="n">color</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">color</span><span class="o">==</span><span class="mi">0u</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">Qt</span><span class="p">.</span><span class="n">black</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="kt">int</span><span class="p">(</span><span class="n">color</span><span class="p">)</span> <span class="o">%</span> <span class="mi">256</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">QColor</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span><span class="n">c</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>int(color)%256</code> means to compute the iteration value modulo 256, i.e. $1\mapsto1$, $2\mapsto2$, &hellip;, $256\mapsto0$, $257\mapsto1$, &hellip; .  <code>QColor(c,128,255-c)</code> means that the colors range from $(1,128,254)$ (light blue) over $(128,128,127)$ (gray) until $(255,128,0)$ (light read).</p>
+<h2 id="23-how-to-draw-a-whole-picture">2.3 How to draw a whole Picture?</h2>
+<p>For that we use an old trick from television: instead of computing all points at the same time, we run through the picture from top-left until bottom-right row-by-row and and compute for every point its color and draw it, maybe like this:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-kotlin" data-lang="kotlin"><span class="line"><span class="cl">  <span class="o">..</span><span class="p">.</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">void</span> <span class="n">MandelbrotWidget</span><span class="o">::</span><span class="n">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="p">*)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">auto</span> <span class="n">p</span> <span class="p">=</span> <span class="n">QPainter</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scale</span> <span class="p">=</span> <span class="n">computeScale</span><span class="p">(</span><span class="n">range</span><span class="p">,</span> <span class="n">width</span><span class="p">(),</span> <span class="n">height</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="n">double</span> <span class="n">cy</span> <span class="p">=</span> <span class="n">scale</span><span class="p">.</span><span class="n">y0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">py</span><span class="p">=</span><span class="m">0</span><span class="p">;</span> <span class="n">py</span><span class="p">&lt;</span><span class="n">height</span><span class="p">();</span> <span class="n">py</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">double</span> <span class="n">cx</span> <span class="p">=</span> <span class="n">scale</span><span class="p">.</span><span class="n">x0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="n">int</span> <span class="n">px</span><span class="p">=</span><span class="m">0</span><span class="p">;</span> <span class="n">px</span><span class="p">&lt;</span><span class="n">width</span><span class="p">();</span> <span class="n">px</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">auto</span> <span class="n">c</span> <span class="p">=</span> <span class="n">iterate</span><span class="p">(</span><span class="m">0.0</span><span class="p">,</span> <span class="m">0.0</span><span class="p">,</span> <span class="n">cx</span><span class="p">,</span> <span class="n">cy</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="p">.</span><span class="n">setColor</span><span class="p">(</span><span class="n">colorize</span><span class="p">(</span><span class="n">c</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="p">.</span><span class="n">fillRect</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">px</span><span class="p">+</span><span class="m">1</span><span class="p">,</span> <span class="n">py</span><span class="p">+</span><span class="m">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">cx</span> <span class="o">+=</span> <span class="n">scale</span><span class="p">.</span><span class="n">dx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="n">cy</span> <span class="o">+=</span> <span class="n">scale</span><span class="p">.</span><span class="n">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>for (int py=0; py&lt;height(); py++)</code> is a for-loop in the variable <code>py</code>.  It starts at 0, then 1, &hellip;, until excluding <code>height()</code>, i.e. the last value is <code>height()-1</code>.  This is necessary, because the window is <code>height()</code> points high, from 0 until including <code>height()-1</code>.</p>
+<p>Correspondingly for <code>px</code>.</p>
+<p>At the end of every loop, we have <code>cx += scale.dx</code> (or the corresponding for <code>cy</code>).  We need this in order to shift $c=(c_x, c_y)$ to the next point.  Before every loop, we define <code>double cx = scale.x0;</code>, i.e. the left (upper) boundary of the image.</p>
+<p>It remains to compute the current scale.  For that, we query the current window size as <code>(width(), height())</code>.  It is important to draw the Mandelbrot always with the 1:1 side ratio, i.e. we need $|dx|=|dy|$ in the end.  Generally speaking, we want to use the scales <code>range.dx/width</code> and <code>range.dy/height</code>.  However, when they are different, we need to use for both axes the bigger scale (sic!). Therefore, we define</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">Rect</span> <span class="nf">computeScale</span><span class="p">(</span><span class="k">const</span> <span class="n">Rect</span><span class="o">&amp;</span> <span class="n">range</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="n">width</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="n">height</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">double</span> <span class="n">dx</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">range</span><span class="p">.</span><span class="n">dx</span><span class="o">/</span><span class="n">width</span><span class="p">,</span> <span class="n">range</span><span class="p">.</span><span class="n">dy</span><span class="o">/</span><span class="n">height</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">{</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="o">-</span><span class="n">dx</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Indeed, we have to invert the y-scale, because on screen the y-axis points downwards, but in a mathematical coordinate system the y-axis points upwards, therefore <code>-dx</code>.</p>
+<h3 id="b-how-to-obtain-the-bounds-x0-y0">b) How to obtain the bounds <code>(x0, y0)</code>?</h3>
+<p>In principle, we want to use <code>range.x0</code> and <code>range.y0</code>, but there are 2 problems:</p>
+<ol>
+<li>
+<p>When <code>range.dy/height &gt; base.dx/width</code>, we have to add to the left (and to the right) a little extra. Therefore <code>double x0 = range.x0 -(dx*width-range.dx)/2;</code>.</p>
+</li>
+<li>
+<p>The y-axis has a negative scale (<code>dy &lt; 0</code>). Therefore, we need to use <code>y1 = range.y0 +range.dy</code>, and correspondingly, we have to add the offset, i.e. <code>double y0 = range.y1() +(dx*height-range.dy)/2;</code>.</p>
+</li>
+</ol>
+<p>The formulas may not be obvious. Therefore, you best check, e.g. by verifying that the Mandelbrot is visible on screen (instead of just showing a blue rectangle).</p>
+<p>It remains to fill up the definition of the remaining methods of <code>MandelbrotWidget</code>, e.g. as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="cp">#include</span> <span class="cpf">&#34;mandelbrot.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="cp">#include</span> <span class="cpf">&lt;QtGui&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="n">MandelbrotWidget</span><span class="o">::</span><span class="n">MandelbrotWidget</span><span class="p">(</span><span class="n">QtWidget</span><span class="o">*</span> <span class="n">parent</span><span class="p">)</span> <span class="o">:</span><span class="n">QtWidget</span><span class="p">(</span><span class="n">parent</span><span class="p">),</span> <span class="n">scale</span><span class="p">(</span><span class="n">computeScale</span><span class="p">(</span><span class="n">range</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">320</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setMinimumSize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">320</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">640</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setWindowTitle</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s">&#34;Mandelbrot&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">MandelbrotWidget</span><span class="o">::~</span><span class="n">MandelbrotWidget</span><span class="p">()</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>So the minimum window size is $300 \times 320$ that respects the side ratio of the range.  We also suggest the window geometry to the window manager as $(100,0)+600\times640$, i.e. if we get the whole thing through, then the window will occur on the top, 100 pixels from the left and of size $600\times640$.  The window manager is not required to respect these coordinates, but with most GUIs it does.  If your laptop has a quite small screen, you may have to adjust those coordinates.  One somewhat ugly point is that we need to initialize the scale (even before knowing the dimensions of the window).  Therefore, we just compute the scale with some assumed width and height.  Note that this scale is overridden as soon as we start the <code>paintEvent(...)</code> method, because there, we compute it again with the proper size of the window.</p>
+<h1 id="9-try-for-yourself">9. Try for Yourself</h1>
+<p>Now it is your turn.  When you typed in the whole program without errors, then it should be startable and draw the Mandelbrot (the beginning of the above video).</p>
+<h2 id="90-does-your-program-work">9.0 Does your Program work?</h2>
+<p>If it does not compile, have a look at the compiler error message(s).  Can you understand where the error happens?  What does it complain about?  Compare to the program here and try to fix the problem(s).</p>
+<h2 id="91-can-you-change-the-color-palette">9.1 Can you change the color palette?</h2>
+<p>Currently, the program draws in shades of purple.  What do you need to change (and how) in order for the colors to change from red via yellow to green?</p>
+<p>Hint:  You need to change the function <code>QColor colorize(unsigned iterations)</code>.</p>
+<h2 id="92-how-to-draw-only-a-zoom-in-of-the-mandelbrot">9.2 How to draw only a zoom-in of the Mandelbrot?</h2>
+<p>Hint: <code>Rect range = {...};</code> determines the range you see.</p>
+<p>How to zoom to the ball at the left end of the Mandelbrot?</p>
+<p>Please enjoy trying around with the program.  If the program does not do what you expected, just restore the old values and start from there again.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">melli79</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2023-07-05
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">Markdown</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://melli79.github.io/post/13cemandelbrot/index.md" target="_blank">The Markdown version »</a></span>
+    </p>
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/12cepythagoreantree/">
+            <span class="next-text nav-default">12CE Tree of Pythagoras</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2023-07-05 19:18:50 \u002b0200 CEST',
+        title: '13 Mandelbrot in C\u002b\u002b',
+        link: decodeURI(location.href),
+        desc: 'After we drew a first fractal last week (the Tree of Pythagoras), we want to produce more mathematical art this time. The goal 0. The initial setup Using the QtCreator start a new Qt\/Widget\/C\u002b\u002b-Project named \u0026ldquo;Mandelbrot\u0026rdquo; (derive the main widget from QtWidget), don\u0026rsquo;t specify any default language, and reduce the main program to: 1 2 3 4 5 6 7 8 9 #include \u0026lt;QtApplication\u0026gt; #include \u0026#34;mandelbrot.h\u0026#34; int main(int nArgs, char**',
+        owner: 'melli79',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="melli79/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:melchiorG@gMail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">melli79</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.1c70606d1b733282f06230615f5561b5894924b6f9930ba2ab99cf1254f75a1a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
