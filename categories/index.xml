@@ -6,20 +6,29 @@
     <description>Recent content in Categories on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 17 Jun 2023 23:52:50 +0200</lastBuildDate><atom:link href="https://melli79.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Jul 2023 19:18:50 +0200</lastBuildDate><atom:link href="https://melli79.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43;</title>
       <link>https://melli79.github.io/categories/c&#43;&#43;/</link>
-      <pubDate>Sat, 17 Jun 2023 23:52:50 +0200</pubDate>
+      <pubDate>Wed, 05 Jul 2023 19:18:50 +0200</pubDate>
       
       <guid>https://melli79.github.io/categories/c&#43;&#43;/</guid>
       <description></description>
     </item>
     
     <item>
+      <title>Fraktal</title>
+      <link>https://melli79.github.io/categories/fraktal/</link>
+      <pubDate>Wed, 05 Jul 2023 19:18:50 +0200</pubDate>
+      
+      <guid>https://melli79.github.io/categories/fraktal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>GUI</title>
       <link>https://melli79.github.io/categories/gui/</link>
-      <pubDate>Sat, 17 Jun 2023 23:52:50 +0200</pubDate>
+      <pubDate>Wed, 05 Jul 2023 19:18:50 +0200</pubDate>
       
       <guid>https://melli79.github.io/categories/gui/</guid>
       <description></description>
@@ -28,7 +37,7 @@
     <item>
       <title>Programming</title>
       <link>https://melli79.github.io/categories/programming/</link>
-      <pubDate>Sat, 17 Jun 2023 23:52:50 +0200</pubDate>
+      <pubDate>Wed, 05 Jul 2023 19:18:50 +0200</pubDate>
       
       <guid>https://melli79.github.io/categories/programming/</guid>
       <description></description>
@@ -112,15 +121,6 @@
       <pubDate>Sun, 04 Sep 2022 12:35:50 +0200</pubDate>
       
       <guid>https://melli79.github.io/categories/animation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Fraktal</title>
-      <link>https://melli79.github.io/categories/fraktal/</link>
-      <pubDate>Sun, 21 Aug 2022 12:35:50 +0200</pubDate>
-      
-      <guid>https://melli79.github.io/categories/fraktal/</guid>
       <description></description>
     </item>
     
