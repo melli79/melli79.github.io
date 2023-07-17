@@ -88,7 +88,7 @@ In 2D ($z=(x,y)$) the easiest bounds are circles around the origin, i.e. $r=\sqr
 # 2. How to draw that?
 ## 2.1 How to decide “remains bounded”?
 
-As said above, experience teaches us that we need to test for $r^2\le4$.  Unfortunately, we cannot compute infinitely many sequence elements.  Instead, we decide for a maximum number `maxColors=256` and compute at most 256 sequence elements and check whether for each $r^2=x^2+y^2\le4$.  If that remains true up to `maxColors`, the point $c=(c_x, c_y)$ belongs to the Mandelbrot, we will draw it in black.
+As said above, experience teaches us that we need to test for $r^2\le4$.  Unfortunately, we cannot compute infinitely many sequence elements.  Instead, we decide for a maximum number `maxIt=256` and compute at most 256 sequence elements and check whether for each $r^2=x^2+y^2\le4$.  If that remains true up to `maxIt`, the point $c=(c_x, c_y)$ belongs to the Mandelbrot, we will draw it in black.
 
 ## 2.2 How to Produce Colors?
 
@@ -96,11 +96,11 @@ In the sample animation they did not just draw black-and-white, but they also dr
 
 We can do that with the following function:
 ```C++
-  static unsigned maxColors = 256;
+  static unsigned maxIt = 256;
 
   unsigned iterate(double x0, double y0, double cx, double cy) {
     double x=x0, y=y0;
-    for (unsigned color=1u; color<maxColors; color++) {
+    for (unsigned color=1u; color<maxIt; color++) {
       double x2 = x*x, y2 = y*y;
       if (x2+y2>4.0)
         return color;
@@ -116,22 +116,22 @@ We can do that with the following function:
 Well, you just have to convert them to colors, e.g. as follows
 
 ```C++
-  QColor colorize(unsgined color) {
-    if (color==0u)
+  QColor colorize(unsigned iter) {
+    if (iter==0u)
       return Qt.black;
-    const int c = int(color) % 256;
+    const int c = int(iter) % 256;
     return QColor(c, 128, 255 -c);
   }
 ```
 
-`int(color)%256` means to compute the iteration value modulo 256, i.e. $1\mapsto1$, $2\mapsto2$, ..., $256\mapsto0$, $257\mapsto1$, ... .  `QColor(c,128,255-c)` means that the colors range from $(1,128,254)$ (light blue) over $(128,128,127)$ (gray) until $(255,128,0)$ (light read).
+`int(iter)%256` means to compute the iteration value modulo 256, i.e. $1\mapsto1$, $2\mapsto2$, ..., $256\mapsto0$, $257\mapsto1$, ... .  `QColor(c,128,255-c)` means that the colors range from $(1,128,254)$ (light blue) over $(128,128,127)$ (gray) until $(255,128,0)$ (light read).
 
 
 ## 2.3 How to draw a whole Picture?
 
-For that we use an old trick from television: instead of computing all points at the same time, we run through the picture from top-left until bottom-right row-by-row and and compute for every point its color and draw it, maybe like this:
+For that we use an old trick from television: instead of computing all points at the same time, we run through the picture from top-left until bottom-right row-by-row and compute for every point its color and draw it, maybe like this:
 
-```kotlin
+```C++
   ...
 
   void MandelbrotWidget::paintEvent(QPaintEvent*) {
@@ -142,7 +142,7 @@ For that we use an old trick from television: instead of computing all points at
       double cx = scale.x0;
       for (int px=0; px<width(); px++) {
         auto c = iterate(0.0, 0.0, cx, cy);
-        p.setColor(colorize(c));
+        p.setPen(colorize(c));
         p.fillRect(px, py, px+1, py+1);
         cx += scale.dx;
       }
@@ -163,9 +163,9 @@ It remains to compute the current scale.  For that, we query the current window 
   using namespace std;
 
   Rect computeScale(const Rect& range, unsigned width, unsigned height) {
-  double dx = max(range.dx/width, range.dy/height);
-  ...
-  return { x0, y0, dx, -dx };
+    double dx = max(range.dx/width, range.dy/height);
+    ...
+    return { x0, y0, dx, -dx };
   }
 ```
 
