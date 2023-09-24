@@ -2,21 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://melli79.github.io/post/13cemandelbrot/</loc>
-    <lastmod>2023-07-05T19:18:50+02:00</lastmod>
+    <loc>https://melli79.github.io/post/07cefactorgame/</loc>
+    <lastmod>2023-09-24T16:44:10+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://melli79.github.io/categories/c&#43;&#43;/</loc>
-    <lastmod>2023-07-05T19:18:50+02:00</lastmod>
+    <lastmod>2023-09-24T16:44:10+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://melli79.github.io/categories/</loc>
+    <lastmod>2023-09-24T16:44:10+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://melli79.github.io/</loc>
+    <lastmod>2023-09-24T16:44:10+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://melli79.github.io/post/</loc>
+    <lastmod>2023-09-24T16:44:10+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://melli79.github.io/categories/programming/</loc>
+    <lastmod>2023-09-24T16:44:10+02:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://melli79.github.io/post/13cemandelbrot/</loc>
     <lastmod>2023-07-05T19:18:50+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -31,27 +59,6 @@
   
   <url>
     <loc>https://melli79.github.io/categories/gui/</loc>
-    <lastmod>2023-07-05T19:18:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/</loc>
-    <lastmod>2023-07-05T19:18:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/</loc>
-    <lastmod>2023-07-05T19:18:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/programming/</loc>
     <lastmod>2023-07-05T19:18:50+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
