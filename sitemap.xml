@@ -2,6 +2,62 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://melli79.github.io/post/17spaceshooter/</loc>
+    <lastmod>2023-10-29T21:16:50+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://melli79.github.io/categories/</loc>
+    <lastmod>2023-10-29T21:16:50+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://melli79.github.io/categories/game/</loc>
+    <lastmod>2023-10-29T21:16:50+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://melli79.github.io/categories/gui/</loc>
+    <lastmod>2023-10-29T21:16:50+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://melli79.github.io/categories/kotlin/</loc>
+    <lastmod>2023-10-29T21:16:50+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://melli79.github.io/</loc>
+    <lastmod>2023-10-29T21:16:50+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://melli79.github.io/post/</loc>
+    <lastmod>2023-10-29T21:16:50+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://melli79.github.io/categories/programming/</loc>
+    <lastmod>2023-10-29T21:16:50+01:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://melli79.github.io/post/07cefactorgame/</loc>
     <lastmod>2023-09-24T16:44:10+02:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -16,34 +72,6 @@
   </url>
   
   <url>
-    <loc>https://melli79.github.io/categories/</loc>
-    <lastmod>2023-09-24T16:44:10+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/</loc>
-    <lastmod>2023-09-24T16:44:10+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/</loc>
-    <lastmod>2023-09-24T16:44:10+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/programming/</loc>
-    <lastmod>2023-09-24T16:44:10+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://melli79.github.io/post/13cemandelbrot/</loc>
     <lastmod>2023-07-05T19:18:50+02:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -52,13 +80,6 @@
   
   <url>
     <loc>https://melli79.github.io/categories/fraktal/</loc>
-    <lastmod>2023-07-05T19:18:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/gui/</loc>
     <lastmod>2023-07-05T19:18:50+02:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -143,13 +164,6 @@
   
   <url>
     <loc>https://melli79.github.io/categories/chemie/</loc>
-    <lastmod>2023-03-06T22:20:45+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/kotlin/</loc>
     <lastmod>2023-03-06T22:20:45+01:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
