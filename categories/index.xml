@@ -6,141 +6,112 @@
     <description>Recent content in Categories on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 29 Oct 2023 21:16:50 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Game</title>
-      <link>https://melli79.github.io/categories/game/</link>
-      <pubDate>Sun, 29 Oct 2023 21:16:50 +0100</pubDate>
-      
-      <guid>https://melli79.github.io/categories/game/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GUI</title>
-      <link>https://melli79.github.io/categories/gui/</link>
-      <pubDate>Sun, 29 Oct 2023 21:16:50 +0100</pubDate>
-      
-      <guid>https://melli79.github.io/categories/gui/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kotlin</title>
-      <link>https://melli79.github.io/categories/kotlin/</link>
-      <pubDate>Sun, 29 Oct 2023 21:16:50 +0100</pubDate>
-      
-      <guid>https://melli79.github.io/categories/kotlin/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Programming</title>
-      <link>https://melli79.github.io/categories/programming/</link>
-      <pubDate>Sun, 29 Oct 2023 21:16:50 +0100</pubDate>
-      
-      <guid>https://melli79.github.io/categories/programming/</guid>
-      <description></description>
-    </item>
-    
+    <lastBuildDate>Sat, 04 Nov 2023 16:40:50 +0100</lastBuildDate>
+    <atom:link href="https://melli79.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43;</title>
       <link>https://melli79.github.io/categories/c&#43;&#43;/</link>
-      <pubDate>Sun, 24 Sep 2023 16:44:10 +0200</pubDate>
-      
+      <pubDate>Sat, 04 Nov 2023 16:40:50 +0100</pubDate>
       <guid>https://melli79.github.io/categories/c&#43;&#43;/</guid>
       <description></description>
     </item>
-    
+    <item>
+      <title>game</title>
+      <link>https://melli79.github.io/categories/game/</link>
+      <pubDate>Sat, 04 Nov 2023 16:40:50 +0100</pubDate>
+      <guid>https://melli79.github.io/categories/game/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>GUI</title>
+      <link>https://melli79.github.io/categories/gui/</link>
+      <pubDate>Sat, 04 Nov 2023 16:40:50 +0100</pubDate>
+      <guid>https://melli79.github.io/categories/gui/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Programming</title>
+      <link>https://melli79.github.io/categories/programming/</link>
+      <pubDate>Sat, 04 Nov 2023 16:40:50 +0100</pubDate>
+      <guid>https://melli79.github.io/categories/programming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kotlin</title>
+      <link>https://melli79.github.io/categories/kotlin/</link>
+      <pubDate>Tue, 31 Oct 2023 19:20:50 +0100</pubDate>
+      <guid>https://melli79.github.io/categories/kotlin/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Fraktal</title>
       <link>https://melli79.github.io/categories/fraktal/</link>
       <pubDate>Wed, 05 Jul 2023 19:18:50 +0200</pubDate>
-      
       <guid>https://melli79.github.io/categories/fraktal/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Qt</title>
       <link>https://melli79.github.io/categories/qt/</link>
       <pubDate>Sat, 17 Jun 2023 23:52:50 +0200</pubDate>
-      
       <guid>https://melli79.github.io/categories/qt/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Chemie</title>
       <link>https://melli79.github.io/categories/chemie/</link>
       <pubDate>Mon, 06 Mar 2023 22:20:45 +0100</pubDate>
-      
       <guid>https://melli79.github.io/categories/chemie/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Testen</title>
       <link>https://melli79.github.io/categories/testen/</link>
       <pubDate>Mon, 06 Mar 2023 22:20:45 +0100</pubDate>
-      
       <guid>https://melli79.github.io/categories/testen/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Python</title>
       <link>https://melli79.github.io/categories/python/</link>
       <pubDate>Sat, 04 Mar 2023 13:43:46 +0100</pubDate>
-      
       <guid>https://melli79.github.io/categories/python/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Projekt</title>
       <link>https://melli79.github.io/categories/projekt/</link>
       <pubDate>Mon, 20 Feb 2023 18:12:00 +0100</pubDate>
-      
       <guid>https://melli79.github.io/categories/projekt/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Zahlentheorie</title>
       <link>https://melli79.github.io/categories/zahlentheorie/</link>
       <pubDate>Sun, 05 Feb 2023 10:55:45 +0100</pubDate>
-      
       <guid>https://melli79.github.io/categories/zahlentheorie/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Kryptographie</title>
       <link>https://melli79.github.io/categories/kryptographie/</link>
       <pubDate>Sun, 29 Jan 2023 21:10:53 +0100</pubDate>
-      
       <guid>https://melli79.github.io/categories/kryptographie/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Animation</title>
       <link>https://melli79.github.io/categories/animation/</link>
       <pubDate>Sun, 04 Sep 2022 12:35:50 +0200</pubDate>
-      
       <guid>https://melli79.github.io/categories/animation/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>webpage</title>
       <link>https://melli79.github.io/categories/webpage/</link>
       <pubDate>Sat, 05 Sep 2020 21:50:55 +0200</pubDate>
-      
       <guid>https://melli79.github.io/categories/webpage/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

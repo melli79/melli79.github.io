@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>15CE Space Shooter in C&#43;&#43; - Melchior&#39;s Homepage</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="melli79" /><meta name="description" content="After we drew some fractals last week, we want to produce something more dynamic and interactive this time. The goal Disclaimer! Playing computer games endlessly, leads to neglegt of the real world, your health, and can harm developing children and teenager. Please be responsible and limit the gaming time. 免责声明: 无休止地玩电脑游戏会导致对现实世" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.2 with theme even" />
+
+
+<link rel="canonical" href="https://melli79.github.io/post/15cespaceshooter/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.78d3a03abaed5d3c468bdf402fc110f36c046abf091a63421b9ce0a5a63db941.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="15CE Space Shooter in C&#43;&#43;" />
+<meta property="og:description" content="After we drew some fractals last week, we want to produce something more dynamic and interactive this time. The goal Disclaimer! Playing computer games endlessly, leads to neglegt of the real world, your health, and can harm developing children and teenager. Please be responsible and limit the gaming time. 免责声明: 无休止地玩电脑游戏会导致对现实世" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://melli79.github.io/post/15cespaceshooter/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-04T16:40:50+01:00" />
+<meta property="article:modified_time" content="2023-11-04T16:40:50+01:00" />
+
+<meta itemprop="name" content="15CE Space Shooter in C&#43;&#43;">
+<meta itemprop="description" content="After we drew some fractals last week, we want to produce something more dynamic and interactive this time. The goal Disclaimer! Playing computer games endlessly, leads to neglegt of the real world, your health, and can harm developing children and teenager. Please be responsible and limit the gaming time. 免责声明: 无休止地玩电脑游戏会导致对现实世"><meta itemprop="datePublished" content="2023-11-04T16:40:50+01:00" />
+<meta itemprop="dateModified" content="2023-11-04T16:40:50+01:00" />
+<meta itemprop="wordCount" content="4237">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="15CE Space Shooter in C&#43;&#43;"/>
+<meta name="twitter:description" content="After we drew some fractals last week, we want to produce something more dynamic and interactive this time. The goal Disclaimer! Playing computer games endlessly, leads to neglegt of the real world, your health, and can harm developing children and teenager. Please be responsible and limit the gaming time. 免责声明: 无休止地玩电脑游戏会导致对现实世"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Melchior&#39;s Homepage</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archiv</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Schlagworte</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Melchior&#39;s Homepage</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archiv</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Schlagworte</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">15CE Space Shooter in C&#43;&#43;</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-11-04 </span>
+        <div class="post-category">
+            <a href="/categories/c&#43;&#43;/"> C&#43;&#43; </a>
+            <a href="/categories/programming/"> Programming </a>
+            <a href="/categories/gui/"> GUI </a>
+            <a href="/categories/game/"> game </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#the-goal">The goal</a></li>
+    <li><a href="#0-the-initial-setup">0. The initial setup</a></li>
+    <li><a href="#1-the-basic-shooter-setting">1. The basic Shooter Setting</a>
+      <ul>
+        <li><a href="#12-make-the-spaceship-move-让飞船移动">1.2 Make the spaceship move (让飞船移动)</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-shoot-at-the-rocks-向岩石射击">2. Shoot at the Rocks (向岩石射击)</a>
+      <ul>
+        <li><a href="#21-making-the-game-dynamic-让子弹飞">2.1 Making the Game Dynamic (让子弹飞)</a></li>
+        <li><a href="#22-making-shots-hit-their-target-让子弹爆炸">2.2 Making Shots Hit their Target (让子弹爆炸)</a></li>
+        <li><a href="#23-game-states-游戏的状态">2.3 Game states (游戏的状态)</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-introducing-a-dangerous-enemy-引入危险的敌人">3. Introducing a Dangerous Enemy (引入危险的敌人)</a>
+      <ul>
+        <li><a href="#32-regenerating-enemy-更生的仇敌">3.2 Regenerating Enemy (更生的仇敌)</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-try-for-yourself">9. Try for Yourself</a>
+      <ul>
+        <li><a href="#90-does-your-program-work">9.0 Does your Program work?</a></li>
+        <li><a href="#91-design-a-second-level">9.1 Design a Second Level</a></li>
+        <li><a href="#92-design-better-images">9.2 Design better Images</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>After we drew some fractals last week, we want to produce something more dynamic and interactive this time.</p>
+<h1 id="the-goal">The goal</h1>
+<p><strong>Disclaimer!</strong> Playing computer games endlessly, leads to neglegt of the real world, your health, and can harm developing children and teenager.  Please be responsible and limit the gaming time.</p>
+<p><strong>免责声明:</strong> 无休止地玩电脑游戏会导致对现实世界和自身健康的否定，并可能对发育中的儿童和青少年造成伤害。
+请负起责任，限制游戏时间。</p>
+<p><strong>Disclaimer!</strong> Weapons and wars can harm and kill people.  Making these part of fictional games does not imply their harmlessness.  Always operate weapons with care and do not hand them to children, teenagers or psychologically fragile people.</p>
+<p><strong>免责声明:</strong> 武器和战争会伤害和杀死人。将其作为虚构游戏的一部分并不意味着它们无害。请务必小心操作武器，不要将武器交给儿童、青少年或心理脆弱者。</p>
+<center>
+<video width="320" height="240" controls autoplay="true" loop>
+  <source src="/movies/spaceShooter.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+</center>
+<h1 id="0-the-initial-setup">0. The initial setup</h1>
+<p>Using the QtCreator start a new Qt/Widget/C++-Project named &ldquo;SpaceShooter&rdquo; (太空射击游戏, derive the main widget from <code>QtWidget</code>), don&rsquo;t specify any default language, and reduce the main program to:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="cp">#include</span> <span class="cpf">&lt;QtApplication&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="cp">#include</span> <span class="cpf">&#34;spaceShooter.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">  <span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">nArgs</span><span class="p">,</span> <span class="kt">char</span><span class="o">**</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">QtApplication</span> <span class="n">app</span><span class="p">(</span><span class="n">nArgs</span><span class="p">,</span> <span class="n">args</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SpaceShooterWidget</span> <span class="n">window</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">window</span><span class="p">.</span><span class="n">show</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">app</span><span class="p">.</span><span class="n">exec</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The header file looks similar to last time:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="cp">#include</span> <span class="cpf">&lt;QtWidget&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">  <span class="k">struct</span> <span class="nc">Rect</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">inline</span> <span class="kt">double</span> <span class="nf">y1</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">y0</span> <span class="o">+</span><span class="n">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">inline</span> <span class="kt">double</span> <span class="nf">px</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="kt">int</span><span class="p">(</span><span class="n">lround</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">*</span><span class="n">dx</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">inline</span> <span class="kt">double</span> <span class="nf">py</span><span class="p">(</span><span class="kt">double</span> <span class="n">y</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="kt">int</span><span class="p">(</span><span class="n">lround</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">y0</span><span class="p">)</span><span class="o">*</span><span class="n">dy</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">struct</span> <span class="nc">Point</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">Shot</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">vy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Shot</span><span class="p">(</span><span class="kt">double</span> <span class="n">x0</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y0</span><span class="p">,</span> <span class="kt">double</span> <span class="n">v0</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span> <span class="o">:</span><span class="n">x</span><span class="p">(</span><span class="n">x0</span><span class="p">),</span><span class="n">y</span><span class="p">(</span><span class="n">y0</span><span class="p">),</span><span class="n">v</span><span class="p">(</span><span class="n">y0</span><span class="p">)</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Short</span><span class="p">(</span><span class="k">const</span> <span class="n">Shot</span><span class="o">&amp;</span> <span class="n">src</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Shot</span><span class="o">&amp;</span> <span class="k">operator</span> <span class="o">=</span><span class="p">(</span><span class="k">const</span> <span class="n">Shot</span><span class="o">&amp;</span> <span class="n">src</span><span class="p">)</span> <span class="o">=</span> <span class="k">default</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="nf">isUp</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">vy</span><span class="o">&gt;</span><span class="mf">0.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">SpaceShooterWidget</span> <span class="o">:</span><span class="n">publc</span> <span class="n">QtWidget</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="k">explicit</span> <span class="n">SpaceShooterWidget</span><span class="p">(</span><span class="n">QtWidget</span><span class="o">*</span> <span class="n">parent</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">virtual</span> <span class="o">~</span><span class="n">SpaceShooterWidget</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">keyPressEvent</span><span class="p">(</span><span class="n">QKeyEvent</span><span class="o">*</span><span class="p">)</span> <span class="k">override</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">protected</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="n">accelerateLeft</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">accelerateRight</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">shoot</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">evolve</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">reset</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">fillBackground</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="kt">void</span> <span class="nf">loadImages</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="n">QPixmap</span><span class="o">*</span> <span class="n">rock</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">QPixmap</span><span class="o">*</span> <span class="n">ship</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">QPixmap</span><span class="o">*</span> <span class="n">shot</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">QPixmap</span><span class="o">*</span> <span class="n">boom</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">QPixmap</span><span class="o">*</span> <span class="n">bomb</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">      <span class="n">uint</span> <span class="n">score</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">double</span> <span class="n">posX</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">const</span> <span class="kt">double</span> <span class="n">posY</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">vector</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;</span>  <span class="n">brackground</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">vector</span><span class="o">&lt;</span><span class="n">Shot</span><span class="o">&gt;</span> <span class="n">shots</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">const</span> <span class="n">Rect</span> <span class="n">range</span> <span class="o">=</span> <span class="p">{</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">      <span class="n">Rect</span> <span class="n">scale</span> <span class="o">=</span> <span class="p">{};</span>
+</span></span><span class="line"><span class="cl">      <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You should remember <code>Rect</code>, a rectangle that keeps the dimensions of our app, <code>range</code> is the size in our fixed coordinates and scale is the scaling to window coordinates.</p>
+<p>The background consists of rocks (石) that will be represented by <code>Point</code>s (平面内的点, that are unmoving).</p>
+<p>Later we will add shots (枪声) that will be represented by <code>Shot</code> which also has coordinates and in addition a vertical velocity (垂直速度, <code>vy</code>).</p>
+<h1 id="1-the-basic-shooter-setting">1. The basic Shooter Setting</h1>
+<p>The file &ldquo;spaceShooter.cpp&rdquo; contains the definitions of methods for our widget.  As such it must contain all the methods we have declared in &ldquo;spaceShooter.h&rdquo; and did not define there.</p>
+<p>You probably remember the <code>SpaceShooterWidget::SpaceShooterWidget(QWidget* parent)</code> &ndash; the constructor &ndash;, and <code>SpaceShooterWidget::~SpaceShooterWidget()</code> &ndash; the destructor.  They are common.</p>
+<p>Whatever we wish to display in the window, we need to paint in the <code>paintEvent(QPaintEvent*)</code>.</p>
+<p>Our background will be a couple of rocks, so we need to first fill the <code>vector&lt;Point&gt;</code> with positions of these rocks and then draw them in the <code>paintEvent(...)</code>-method.  But we don&rsquo;t want to repeat the instructions for drawing a single rock over and over again.  Therefore, we load a <code>QPixmap</code> (像素图) with the image of one rock and draw that multiple times over the background.  This can be done as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&#34;mainwindow.h&#34;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;QtGui&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;QApplication&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">SpaceShooterWidget</span><span class="p">(</span><span class="n">QWidget</span><span class="o">*</span> <span class="n">parent</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="o">:</span> <span class="n">QWidget</span><span class="p">(</span><span class="n">parent</span><span class="p">),</span> <span class="p">...</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setMinimumSize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setMaximumSize</span><span class="p">(</span><span class="mi">1800</span><span class="p">,</span> <span class="mi">1200</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">setWindowTitle</span><span class="p">(</span><span class="n">tr</span><span class="p">(</span><span class="s">&#34;Space Shooter!&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">loadImages</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">reset</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">SpaceShooterWidget</span><span class="o">::~</span><span class="n">SpaceShooterWidget</span><span class="p">()</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">Rect</span> <span class="nf">computeScale</span><span class="p">(</span><span class="k">const</span> <span class="n">Rect</span><span class="o">&amp;</span> <span class="n">range</span><span class="p">,</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.9</span><span class="o">*</span><span class="n">width</span><span class="o">/</span><span class="n">range</span><span class="p">.</span><span class="n">dx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">dy</span> <span class="o">=</span> <span class="mf">0.9</span><span class="o">*</span><span class="n">height</span><span class="o">/</span><span class="n">range</span><span class="p">.</span><span class="n">dy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="p">{</span> <span class="n">range</span><span class="p">.</span><span class="n">x0</span><span class="o">-</span><span class="mf">0.05</span><span class="o">*</span><span class="n">range</span><span class="p">.</span><span class="n">dx</span><span class="o">+</span><span class="mi">10</span><span class="o">/</span><span class="n">dx</span><span class="p">,</span> <span class="n">range</span><span class="p">.</span><span class="n">y1</span><span class="p">()</span><span class="o">+</span><span class="mf">0.05</span><span class="o">*</span><span class="n">range</span><span class="p">.</span><span class="n">dy</span><span class="o">+</span><span class="mi">10</span><span class="o">/</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="o">-</span><span class="n">dy</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scale</span> <span class="o">=</span> <span class="n">computeScale</span><span class="p">(</span><span class="n">range</span><span class="p">,</span> <span class="n">width</span><span class="p">(),</span> <span class="n">height</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">QPainter</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">Qt</span><span class="o">::</span><span class="n">black</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">QFont</span><span class="p">(</span><span class="s">&#34;Arial&#34;</span><span class="p">,</span> <span class="mi">16</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawText</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span> <span class="n">tr</span><span class="p">(</span><span class="s">&#34;Score: %1&#34;</span><span class="p">).</span><span class="n">arg</span><span class="p">(</span><span class="n">score</span><span class="o">*</span><span class="mi">50</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">rock</span> <span class="p">:</span> <span class="n">background</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">p</span><span class="p">.</span><span class="n">drawPixmap</span><span class="p">(</span><span class="n">scale</span><span class="p">.</span><span class="n">px</span><span class="p">(</span><span class="n">rock</span><span class="p">.</span><span class="n">x</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="n">rock</span><span class="p">.</span><span class="n">y</span><span class="p">),</span> <span class="o">*</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">rock</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">shot</span> <span class="p">:</span> <span class="n">shots</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">p</span><span class="p">.</span><span class="n">drawPixmap</span><span class="p">(</span><span class="n">scale</span><span class="p">.</span><span class="n">px</span><span class="p">(</span><span class="n">shot</span><span class="p">.</span><span class="n">x</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="n">shot</span><span class="p">.</span><span class="n">y</span><span class="p">),</span> <span class="o">*</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">shot</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawPixmap</span><span class="p">(</span><span class="n">scale</span><span class="p">.</span><span class="n">px</span><span class="p">(</span><span class="n">posX</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="n">posY</span><span class="p">),</span> <span class="o">*</span><span class="n">ship</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">reset</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">posX</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>  <span class="n">vx</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">points</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">fillBackground</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="n">shots</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">fillBackground</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">=-</span><span class="mi">9</span><span class="p">;</span> <span class="n">x</span><span class="o">&lt;=</span><span class="mi">9</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">background</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">=-</span><span class="mi">4</span><span class="p">;</span> <span class="n">x</span><span class="o">&lt;=</span><span class="mi">4</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">background</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.9</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">=-</span><span class="mi">2</span><span class="p">;</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">background</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span> <span class="mf">0.4</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">QPixmap</span><span class="o">*</span> <span class="nf">loadRock</span><span class="p">(</span><span class="k">const</span> <span class="n">QColor</span><span class="o">&amp;</span> <span class="n">background</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span><span class="o">*</span> <span class="n">rock</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">QPainter</span><span class="p">(</span><span class="n">rock</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">fillRect</span><span class="p">(</span><span class="n">rock</span><span class="o">-&gt;</span><span class="n">rect</span><span class="p">(),</span> <span class="n">background</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">QFont</span><span class="p">(</span><span class="s">&#34;Arial&#34;</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="n">QFont</span><span class="o">::</span><span class="n">Bold</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawText</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="s">&#34;*&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">rock</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">QPixmap</span><span class="o">*</span> <span class="nf">loadShip</span><span class="p">(</span><span class="k">const</span> <span class="n">QColor</span><span class="o">&amp;</span> <span class="n">background</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span><span class="o">*</span> <span class="n">ship</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">QPainter</span><span class="p">(</span><span class="n">ship</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">fillRect</span><span class="p">(</span><span class="n">ship</span><span class="o">-&gt;</span><span class="n">rect</span><span class="p">(),</span> <span class="n">background</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">QFont</span><span class="p">(</span><span class="s">&#34;Arial&#34;</span><span class="p">,</span> <span class="mi">24</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawText</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="s">&#34;A&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">ship</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">SpaceShooter</span><span class="o">::</span><span class="n">loadImages</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="k">auto</span> <span class="n">background</span> <span class="o">=</span> <span class="n">QColor</span><span class="p">(</span><span class="mi">232</span><span class="p">,</span> <span class="mi">232</span><span class="p">,</span> <span class="mi">232</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rock</span> <span class="o">=</span> <span class="n">loadRcok</span><span class="p">(</span><span class="n">background</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">ship</span> <span class="o">=</span> <span class="n">loadShip</span><span class="p">(</span><span class="n">background</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If you start the program now, you will see a static image (静态图像) of some rocks &lsquo;*&rsquo; and an &lsquo;A&rsquo; at the bottom of the window.  That is our spaceship (太空船).  (If you get compile errors, that is because we did not yet define all methods we promised.  You can place method definitions with empty bodies for all required methods.)</p>
+<h2 id="12-make-the-spaceship-move-让飞船移动">1.2 Make the spaceship move (让飞船移动)</h2>
+<p>For that we need to interact with the keyboard (反应键盘).  In order to react fast, we just listen for the <code>keyPressEvent(QKeyEvent* event)</code>.  Within this method, we have <code>event-&gt;key()</code> that tells us which key (按键) was pressed.  I have decided for the following steering:  &lt; &lt;&ndash; &gt; (the left key) for accelerating left, &lt; &ndash;&gt; &gt; (the right key) for accelerating right, &lt;Space&gt; for shooting, &lt;Backspace&gt; for reset, and &lt;Esc&gt; in order to abort the program.  We have already declared methods for most of that.  Now the <code>keyPressEvent()</code> method looks as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">keyPressEvent</span><span class="p">(</span><span class="n">QKeyEvent</span><span class="o">*</span> <span class="n">event</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span> <span class="p">(</span><span class="n">event</span><span class="o">-&gt;</span><span class="n">key</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">case</span> <span class="n">Qt</span><span class="o">::</span><span class="nl">Key_Space</span><span class="p">:</span>  <span class="n">shoot</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">case</span> <span class="n">Qt</span><span class="o">::</span><span class="nl">Key_Left</span><span class="p">:</span>  <span class="n">accelerateLeft</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">case</span> <span class="nl">Qt</span><span class="p">:</span><span class="nl">Key_Right</span><span class="p">:</span>  <span class="n">accelerateRight</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">case</span> <span class="nl">Qt</span><span class="p">:</span><span class="nl">Key_Backspace</span><span class="p">:</span>  <span class="n">reset</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">case</span> <span class="n">Qt</span><span class="o">::</span><span class="nl">Key_Escape</span><span class="p">:</span>  <span class="n">QtApplication</span><span class="o">::</span><span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">event</span><span class="o">-&gt;</span><span class="n">accept</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>You probably know the <code>exit(int)</code> function.  It exists the program and gives a return value.  0 is the default value and means that everything went smoothly.  For Qt applications it is nicer to call <code>QtApplication::exit(0)</code>, because that gives the Qt framework the time to close resources that were allocated in between (like when the program opened a file, 打开文件).  In our case you won&rsquo;t notice much difference, because all the resources are just allocated memory that is freed at the end of the program anyway.</p>
+<p>The first approach to moving the spaceship (移动飞船) is to just change the velocity and the position once when the according key is pressed:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">accelerateLeft</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vx</span> <span class="o">-=</span> <span class="mf">0.02</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">posX</span> <span class="o">+=</span> <span class="n">vx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">posX</span><span class="o">&lt;=-</span><span class="mf">1.0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">posX</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">vx</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">accelerateRight</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">vx</span> <span class="o">+=</span> <span class="mf">0.02</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">posX</span> <span class="o">+=</span> <span class="n">vx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">posX</span><span class="o">&gt;=</span><span class="mf">1.0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">posX</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">vx</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We have also encoded that if the ship hits the bounds (出界) of the window, it will stop moving (停).  (If you don&rsquo;t do that, the ship will move invisibly beyond the world. &ndash; 将隐身于世界之外.)</p>
+<p>If you start the program again, you will notice that the spaceship (at the bottom) will move left/right, whenever you press the left-/right-key.  It will move faster and faster (越来越快) if you press multiple times (反反复复).  Note that it will keep moving left if you pressed the left-key many times and then press the right-key few times.  This is called inertia (惯性) and is one effect when flying.</p>
+<h1 id="2-shoot-at-the-rocks-向岩石射击">2. Shoot at the Rocks (向岩石射击)</h1>
+<p>Let&rsquo;s keep adding to our program.  Next, we want to shoot at the rocks when the user hits &lt;Space&gt; (the long key that always rattles at bit).  A fitst approach is to just create a shot when the user hits space, maybe as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="kt">void</span> <span class="nf">shoot</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">shots</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">Shot</span><span class="p">(</span><span class="n">posX</span><span class="p">,</span> <span class="n">posY</span><span class="o">+</span><span class="mf">0.1</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">QPixmap</span><span class="o">*</span> <span class="n">loadShot</span><span class="p">(</span><span class="k">const</span> <span class="n">QColor</span><span class="o">&amp;</span> <span class="n">background</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">shot</span> <span class="o">=</span> <span class="n">QPixmap</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">QPainter</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">fillRect</span><span class="p">(</span><span class="n">shot</span><span class="o">-&gt;</span><span class="n">rect</span><span class="p">(),</span> <span class="n">background</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">QFont</span><span class="p">(</span><span class="s">&#34;Arial&#34;</span><span class="p">),</span> <span class="mi">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawText</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span> <span class="s">&#34;^&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">shot</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">loadImages</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">shot</span> <span class="o">=</span> <span class="n">loadShot</span><span class="p">(</span><span class="n">background</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If you try the program now, you will notice that the shot gets stuck (子弹不要飞) one unit over the spaceship.  That is not good.  What we need is evolution of the shot position.</p>
+<h2 id="21-making-the-game-dynamic-让子弹飞">2.1 Making the Game Dynamic (让子弹飞)</h2>
+<p>What we need is to update the positions of the shots from time to time (and update the whole scene).  This can be reached with a <code>QTimer</code> as follows.  We need to declare such a QTimer in the <code>SpaceShooterWidget</code> as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">SpaceShooterWidget</span> <span class="o">:</span><span class="k">public</span> <span class="n">QWidget</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">QTimer</span><span class="o">*</span> <span class="n">timer</span> <span class="o">=</span> <span class="k">nullptr</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And then we need to start such a timer when we first draw the window, e.g. as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scale</span> <span class="o">=</span> <span class="n">computeScale</span><span class="p">(</span><span class="n">range</span><span class="p">,</span> <span class="n">width</span><span class="p">(),</span> <span class="n">height</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">timer</span><span class="o">==</span><span class="k">nullptr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">timer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QTimer</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="n">timer</span><span class="o">-&gt;</span><span class="n">callOnTimeout</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="n">QOverload</span><span class="o">&lt;&gt;::</span><span class="n">of</span><span class="p">(</span><span class="o">&amp;</span><span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">evolve</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">      <span class="n">timer</span><span class="o">-&gt;</span><span class="n">setInterval</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span> <span class="c1">// every 100ms
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>      <span class="n">timer</span><span class="o">-&gt;</span><span class="n">start</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>  <span class="c1">// with 100ms delay it starts
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">shot</span> <span class="p">:</span> <span class="n">shots</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">p</span><span class="p">.</span><span class="n">drawPixmap</span><span class="p">(</span><span class="n">scale</span><span class="p">.</span><span class="n">px</span><span class="p">(</span><span class="n">shot</span><span class="p">.</span><span class="n">x</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="n">shot</span><span class="p">.</span><span class="n">y</span><span class="p">),</span> <span class="o">*</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">shot</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawPixmap</span><span class="p">(...</span> <span class="o">*</span><span class="n">ship</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">evolve</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">posX</span> <span class="o">+=</span> <span class="n">vx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">posX</span><span class="o">&lt;=-</span><span class="mf">1.0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">posX</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">vx</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">posX</span><span class="o">&gt;=</span><span class="mf">1.0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">posX</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="n">vx</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">shot</span> <span class="o">=</span> <span class="n">shots</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">shot</span><span class="o">!=</span><span class="n">shots</span><span class="p">.</span><span class="n">end</span><span class="p">();)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="n">shot</span><span class="o">-&gt;</span><span class="n">move</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">shots</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">shot</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="o">++</span><span class="n">shot</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Additionally, we need to define the method <code>bool move()</code> in the struct <code>Shot</code> (in the header file):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">Shot</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">move</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">y</span> <span class="o">+=</span> <span class="n">vy</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">&lt;=</span><span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">y</span><span class="o">&lt;=</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If you try now, you will notice that the shots fly through the window.  The only odd thing is that they seem never to hit and destroy anything.</p>
+<h2 id="22-making-shots-hit-their-target-让子弹爆炸">2.2 Making Shots Hit their Target (让子弹爆炸)</h2>
+<p>So how do we detect if any shot has hit any rock?</p>
+<p>Well we need to compare them pairwise (比对).  The simplest idea is to do that when you paint all of them in the widget.  Therefore we modify the <code>void paintEvent(...)</code> method once more:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">shot</span> <span class="o">=</span> <span class="n">shots</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">shot</span><span class="o">!=</span><span class="n">shots</span><span class="p">.</span><span class="n">end</span><span class="p">();)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">p</span><span class="p">.</span><span class="n">drawPixmap</span><span class="p">(</span><span class="n">scale</span><span class="p">.</span><span class="n">px</span><span class="p">(</span><span class="n">shot</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="n">shot</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">),</span> <span class="o">*</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">shot</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">bool</span> <span class="n">passes</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">rock</span> <span class="o">=</span> <span class="n">background</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">rock</span><span class="o">!=</span><span class="n">background</span><span class="p">.</span><span class="n">end</span><span class="p">();)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">shot</span><span class="o">-&gt;</span><span class="n">hits</span><span class="p">(</span><span class="o">*</span><span class="n">rock</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">p</span><span class="p">.</span><span class="n">drawPixmap</span><span class="p">(</span><span class="n">scale</span><span class="p">.</span><span class="n">px</span><span class="p">(</span><span class="n">shot</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="n">shot</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">),</span> <span class="n">boom</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="n">background</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">rock</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="n">score</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="n">shots</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">shot</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">          <span class="n">passes</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span>
+</span></span><span class="line"><span class="cl">          <span class="o">++</span><span class="n">rock</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">passes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="o">++</span><span class="n">shot</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawPixmap</span><span class="p">(...,</span> <span class="o">*</span><span class="n">ship</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">QPixmap</span><span class="o">*</span> <span class="n">loadBoom</span><span class="p">(</span><span class="k">const</span> <span class="n">QColor</span><span class="o">&amp;</span> <span class="n">background</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">boom</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">QPainter</span><span class="p">(</span><span class="n">boom</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">fillRect</span><span class="p">(</span><span class="n">boom</span><span class="o">-&gt;</span><span class="n">rect</span><span class="p">(),</span> <span class="n">background</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">QFont</span><span class="p">(</span><span class="s">&#34;Arial&#34;</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="n">QFont</span><span class="o">::</span><span class="n">Bold</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">Qt</span><span class="o">::</span><span class="n">red</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawText</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span> <span class="s">&#34;*&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">boom</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">loadImages</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">boom</span> <span class="o">=</span> <span class="n">loadBoom</span><span class="p">(</span><span class="n">background</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We also need to decide when a <code>Shot</code> hits a rock:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">Shot</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="n">hits</span><span class="p">(</span><span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">obs</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="nf">abs</span><span class="p">(</span><span class="n">obs</span><span class="p">.</span><span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="n">abs</span><span class="p">(</span><span class="n">obs</span><span class="p">.</span><span class="n">y</span><span class="o">-</span><span class="n">y</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Now the shots should explode when they hit a rock (and then the rock as well as the shot are gone).  Give it a try.  Can you eliminate all the rocks?  What happens then?</p>
+<h2 id="23-game-states-游戏的状态">2.3 Game states (游戏的状态)</h2>
+<p>Well, so far nothing happens when you are finished with shooting all rocks (maybe except that your score is somewhere like 1600).  So our game needs a state (状态).</p>
+<p>What states are possible?</p>
+<p>Well, <code>CONTINUE</code> where we just continue playing, <code>EXPLODING</code> if our ship is exploding, <code>WINNING</code> when we are winning, and <code>GAME_OVER</code> after our ship exploded.  That&rsquo;s only 4 states.  Let us use an <code>enum</code> for that.  We need to define it in the header file, because we also need to introduce the property there:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">SpaceShooter</span> <span class="o">:</span><span class="k">public</span> <span class="n">QWidget</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">enum</span> <span class="nc">State</span> <span class="p">{</span> <span class="n">CONTINUE</span><span class="p">,</span> <span class="n">EXPLODING</span><span class="p">,</span> <span class="n">WINNING</span><span class="p">,</span> <span class="n">GAME_OVER</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">uint</span> <span class="n">countDown</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">State</span> <span class="n">state</span> <span class="o">=</span> <span class="n">CONTINUE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>And then we add the handling in the <code>paintEvent(...)</code>-method, because that is when it becomes apparent that there are no more rocks left.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="kt">void</span> <span class="nf">paintWinning</span><span class="p">(</span><span class="n">QPainter</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">,</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">QFont</span><span class="p">(</span><span class="s">&#34;arial&#34;</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">QFont</span><span class="o">::</span><span class="n">Bold</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">Qt</span><span class="o">::</span><span class="n">darkGreen</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawText</span><span class="p">(</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span><span class="mi">120</span><span class="p">,</span> <span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#34;You Won!!!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="nf">paintGameOver</span><span class="p">(</span><span class="n">QPainter</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">,</span> <span class="kt">int</span> <span class="n">width</span><span class="p">,</span> <span class="kt">int</span> <span class="n">height</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">QFont</span><span class="p">(</span><span class="s">&#34;arial&#34;</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">QFont</span><span class="o">::</span><span class="n">Bold</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setPen</span><span class="p">(</span><span class="n">Qt</span><span class="o">::</span><span class="n">red</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawText</span><span class="p">(</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="n">height</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="s">&#34;Game Over!&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">shot</span> <span class="o">=</span> <span class="n">shots</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">shot</span><span class="o">!=</span><span class="n">shots</span><span class="p">.</span><span class="n">end</span><span class="p">();)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="p">...</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">passes</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">shot</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="o">!=</span><span class="n">GAME_OVER</span> <span class="o">&amp;&amp;</span> <span class="n">background</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">      <span class="n">state</span> <span class="o">=</span> <span class="n">WINNING</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span> <span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">case</span> <span class="nl">CONTINUE</span><span class="p">:</span> <span class="n">p</span><span class="p">.</span><span class="n">drawPixmap</span><span class="p">(</span><span class="n">scale</span><span class="p">.</span><span class="n">px</span><span class="p">(</span><span class="n">posX</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="n">posY</span><span class="p">),</span> <span class="n">ship</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">      <span class="k">case</span> <span class="nl">WINNING</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="p">.</span><span class="n">drawPixmap</span><span class="p">(</span><span class="n">scale</span><span class="p">.</span><span class="n">px</span><span class="p">(</span><span class="n">posX</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="n">posY</span><span class="p">),</span> <span class="n">ship</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">paintWinning</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">width</span><span class="p">(),</span> <span class="n">height</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">case</span> <span class="nl">EXPLODING</span><span class="p">:</span> <span class="n">p</span><span class="p">.</span><span class="n">drawPixmap</span><span class="p">(...,</span> <span class="n">boom</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">countDown</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">          <span class="n">countDown</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">          <span class="k">break</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span>
+</span></span><span class="line"><span class="cl">          <span class="n">state</span> <span class="o">=</span> <span class="n">GAME_OVER</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="k">case</span> <span class="nl">GAME_OVER</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="p">.</span><span class="n">fillRect</span><span class="p">(</span><span class="n">scale</span><span class="p">.</span><span class="n">px</span><span class="p">(</span><span class="n">posX</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="n">posY</span><span class="p">),</span> <span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span> <span class="n">bgColor</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">paintGameOver</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">width</span><span class="p">(),</span> <span class="n">height</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">reset</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">countDown</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">state</span> <span class="o">=</span> <span class="n">CONTINUE</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>If you now swipe off all rocks, then you will see the green letters &ldquo;You Won!!!&rdquo;, give it a try.</p>
+<h1 id="3-introducing-a-dangerous-enemy-引入危险的敌人">3. Introducing a Dangerous Enemy (引入危险的敌人)</h1>
+<p>Well, so fat it is super easy to win the game.  We should either play against the time, i.e. hit the <code>GAME_OVER</code> once the time runs out (超时), or we introduce some defense (防守) for the rocks.  I have decided for the latter:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="n">uniform_real_distribution</span><span class="o">&lt;&gt;</span> <span class="n">u01</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span> <span class="nc">RNG</span><span class="o">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="kt">bool</span> <span class="n">flipCoin</span><span class="p">(</span><span class="n">RNG</span><span class="o">&amp;</span> <span class="n">random</span><span class="p">,</span> <span class="kt">double</span> <span class="n">bias</span> <span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nf">u01</span><span class="p">(</span><span class="n">random</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">bias</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">evolve</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">posX</span> <span class="o">+=</span> <span class="n">vx</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="o">==</span><span class="n">GAME_OVER</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="kt">double</span> <span class="n">bias</span> <span class="o">=</span> <span class="mf">0.007</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">background</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">enemy</span> <span class="p">:</span><span class="n">background</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">flipCoin</span><span class="p">(</span><span class="n">random</span><span class="p">,</span> <span class="n">bias</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">        <span class="n">shots</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span> <span class="n">enemy</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>We can find the (template) class <code>uniform_real_distribution</code> in the header &lt;random&gt;.  The object <code>u01</code> can generate a uniformly distributed real number between 0 and 1 (介于0和1之间的均匀分布实数), but for that it needs a random value (随机值).  Once this is clear, it becomes also clear what the method <code>flipCoin(RNG random, ...)</code> does, it basically flips a coin (掷硬币), so the output is Heads (正面) or Tails (反面), I mean <code>true</code> or <code>false</code>.  If we have generated a random number between 0 and 1, we would just compare to 0.5 in order to obtain a fair coin (不偏不倚的硬币).  But in the program we will need a a bent coin (偏倚的硬币), i.e. one with a bias (偏倚).  The smaller the bias the less likely it is to reach <code>true</code>.  That is the meaning of the second parameter.</p>
+<p>The problem is from where do we get <code>random</code> (and what type does it have)?</p>
+<p>The answer is that we will use a pseudo random number generator (伪随机数发生器, namely a Mersenne twister).  But for that, we need to keep its state.  So let us put that inside the <code>SpaceShooterWidget</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="cp">#include</span> <span class="cpf">&lt;random&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl">  <span class="n">strcut</span> <span class="n">Point</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">SpaceShooterWidget</span> <span class="o">:</span><span class="k">public</span> <span class="n">QWidget</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">mt19937_64</span> <span class="n">random</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>An in addition, we should initialize the random number generator.  This is also called seeding and needs to be done.  (Some random number generators show odd behavior if you do not seed.  In the better case they always produce the same random number sequence.)  We will do that in the constructor.  Generally, we have 2 options:  Either we seed with the current time (say milliseconds since 1970), or with the cryptographic random source (加密随机源) of the computer.  I have decided for the latter:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">SpaceShooterWidget</span><span class="p">(</span><span class="n">QWidget</span><span class="o">*</span> <span class="n">parent</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="o">:</span><span class="n">QWidget</span><span class="p">(</span><span class="n">parent</span><span class="p">),</span> <span class="n">random</span><span class="p">(</span><span class="n">random_device</span><span class="p">()())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Why didn&rsquo;t I just write <code>random_device random;</code> in the class definition?</p>
+<p>Well the random device is supposed to generate random numbers to the best of the computer&rsquo;s capabilities.  But on the other hand it is a bit slow in that.  The pseudo random number generators are much faster in generating many (almost) random numbers.</p>
+<p>When you start the program again, and don&rsquo;t move or shoot, you will notice that suddenly bullets occur that move downwards.  This is because we chose the same picture regardless of whether they are shots (<code>isUp()==true</code>) or bombs (<code>!isUp()</code>).  We can correct that in the paint method as follows:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">shot</span> <span class="o">=</span> <span class="n">shots</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">shot</span><span class="o">!=</span><span class="n">shots</span><span class="p">.</span><span class="n">end</span><span class="p">();)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="n">shot</span><span class="o">-&gt;</span><span class="n">isUp</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="p">.</span><span class="n">drawPixmap</span><span class="p">(</span><span class="n">scale</span><span class="p">.</span><span class="n">px</span><span class="p">(</span><span class="n">shot</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="n">shot</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">),</span> <span class="o">*</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">shot</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">else</span>
+</span></span><span class="line"><span class="cl">        <span class="n">p</span><span class="p">.</span><span class="n">drawPixmap</span><span class="p">(</span><span class="n">scale</span><span class="p">.</span><span class="n">px</span><span class="p">(</span><span class="n">shot</span><span class="o">-&gt;</span><span class="n">x</span><span class="p">),</span> <span class="n">scale</span><span class="p">.</span><span class="n">py</span><span class="p">(</span><span class="n">shot</span><span class="o">-&gt;</span><span class="n">y</span><span class="p">),</span> <span class="o">*</span><span class="k">this</span><span class="o">-&gt;</span><span class="n">bomb</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="kt">bool</span> <span class="n">passes</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">      <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">QPixmap</span><span class="o">*</span> <span class="n">loadBomb</span><span class="p">(</span><span class="n">QColor</span><span class="o">&amp;</span> <span class="n">background</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">bomb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">QPainter</span><span class="p">(</span><span class="n">bomb</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">fillRect</span><span class="p">(</span><span class="n">bomb</span><span class="o">-&gt;</span><span class="n">rect</span><span class="p">(),</span> <span class="n">background</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">QFont</span><span class="p">(</span><span class="s">&#34;arial&#34;</span><span class="p">,</span> <span class="mi">20</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">drawText</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span> <span class="s">&#34;v&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="n">p</span><span class="p">.</span><span class="n">end</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">bomb</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">loadImages</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bomb</span> <span class="o">=</span> <span class="n">loadBomb</span><span class="p">(</span><span class="n">background</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="32-regenerating-enemy-更生的仇敌">3.2 Regenerating Enemy (更生的仇敌)</h2>
+<p>I can make the game even harder:  Let the enemy regenerate, i.e. rocks re-appear after they have been shot.  For that we need to split the <code>fillBackground()</code> into 2 parts:  The first will <code>generateBackground()</code> and the original method will just stuff the generated background in this variable.  Once we have done that, we can in every <code>evolve()</code>-step check whether any <code>gaps</code> occurred (有差距).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">evolve</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="o">==</span><span class="n">GAME_OVER</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">        <span class="n">shots</span><span class="p">.</span><span class="n">push_back</span><span class="p">({</span> <span class="n">enemy</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.65</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">flipCoin</span><span class="p">(</span><span class="n">random</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">auto</span> <span class="n">gaps</span> <span class="o">=</span> <span class="n">gernateBackground</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">      <span class="k">for</span> <span class="p">(</span><span class="k">const</span> <span class="k">auto</span><span class="o">&amp;</span> <span class="nl">rock</span> <span class="p">:</span> <span class="n">background</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">gaps</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">rock</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">gaps</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">uint</span> <span class="n">index</span> <span class="o">=</span> <span class="n">random</span><span class="p">()</span> <span class="o">%</span> <span class="n">gaps</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">auto</span> <span class="n">rock</span> <span class="o">=</span> <span class="n">gaps</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="n">uint</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">index</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="o">++</span><span class="n">rock</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">background</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="o">*</span><span class="n">rock</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">      <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="n">update</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">MainWindow</span><span class="o">::</span><span class="n">fillBackground</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">background</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span><span class="o">&amp;</span> <span class="nl">rock</span> <span class="p">:</span> <span class="n">generateBackground</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">        <span class="n">background</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">rock</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="n">set</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;</span> <span class="n">MainWindow</span><span class="o">::</span><span class="n">generateBackground</span><span class="p">()</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">set</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;</span> <span class="n">background</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">=-</span><span class="mi">9</span><span class="p">;</span> <span class="n">x</span><span class="o">&lt;=</span><span class="mi">9</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">background</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">=-</span><span class="mi">4</span><span class="p">;</span> <span class="n">x</span><span class="o">&lt;=</span><span class="mi">4</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">background</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="mf">0.9</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">=-</span><span class="mi">2</span><span class="p">;</span> <span class="n">x</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span> <span class="n">x</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">background</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span> <span class="mf">0.4</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">background</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>But in order to implement this method, we need to declare it in the <code>SpaceShooterWidget</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="cp">#include</span> <span class="cpf">&lt;set&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="k">struct</span> <span class="nc">Point</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kt">bool</span> <span class="k">operator</span> <span class="o">&lt;</span><span class="p">(</span><span class="k">const</span> <span class="n">Point</span><span class="o">&amp;</span> <span class="n">p</span><span class="p">)</span> <span class="k">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="n">y</span><span class="o">&lt;</span><span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="o">||</span> <span class="n">y</span><span class="o">==</span><span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="o">&amp;&amp;</span> <span class="n">x</span><span class="o">&lt;</span><span class="n">p</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">class</span> <span class="nc">SpaceShooterWidget</span> <span class="o">:</span><span class="k">public</span> <span class="n">QWidget</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="k">protected</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="n">std</span><span class="o">::</span><span class="n">set</span><span class="o">&lt;</span><span class="n">Point</span><span class="o">&gt;</span> <span class="n">generateBackground</span><span class="p">()</span> <span class="k">const</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">void</span> <span class="nf">fillBackground</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>The reason why I made it a method (返法，and not a simple static function &ndash; 静态函数) is that in the final part where you are asked to generate the background differently for different levels.  But the <code>level</code> (级) will be a property of the <code>SpaceShooterWidget</code>.  (Alternatively, we could pass all required variables to this function.)</p>
+<p>Note that in C++ sets are always ordered (有序集).  But for that you need to define the <code>operator &lt;</code>.  If you make this operator a method (inside the class/struct defintion), then you only pass one additional argument.  The other argument is the current object (<code>this</code>).  Of course, a comparison does not change any object, so it receives a const reference to the other point and also treats the current object a const.</p>
+<p>Now, if you try it again, you will notice that it is pretty hard to win.</p>
+<h1 id="9-try-for-yourself">9. Try for Yourself</h1>
+<p>Now it is your turn.  When you typed in the whole program without errors, then it should be startable and you should be able to navigate the space ship, shoot, hit the rocks.  But also the rocks will drop bombs on you.</p>
+<h2 id="90-does-your-program-work">9.0 Does your Program work?</h2>
+<p>If it does not compile, have a look at the compiler error message(s).  Can you understand where the error happens?  What does it complain about?  Compare to the program here and try to fix the problem(s).</p>
+<h2 id="91-design-a-second-level">9.1 Design a Second Level</h2>
+<p>As we noted, it is now pretty hard to win against the computer.  You could design an easier first level and then make the game harder and harder with every higher level.  In order to adapt to the level, you need to make it a (private) member variable of the <code>SpaceShooterWidget</code>.  Initialize it to <code>1</code> and reset it to <code>1</code>.</p>
+<p>You may wish to adjust some things depending on this level, e.g. you could skip generating some of the background in the first level.  Or you could adjust the <code>bias</code>es for flipping the coins, e.g. multiply by <code>sqrt(level)</code>.  That means that the second level is 41% harder, the 3rd level 68% and the 4th level double as hard as the 1st level.</p>
+<p>Of course, you will also need to increase the level, once the current level is won.  You can do that similar to the switch from <code>EXPLODING</code> to <code>GAME_OVER</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">paintEvent</span><span class="p">(</span><span class="n">QPaintEvent</span><span class="o">*</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">    <span class="k">switch</span> <span class="p">(</span><span class="n">state</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="p">...</span>
+</span></span><span class="line"><span class="cl">      <span class="k">case</span> <span class="nl">WINNING</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">countDown</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">          <span class="n">countDown</span><span class="o">--</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span>
+</span></span><span class="line"><span class="cl">          <span class="nf">increaseLevel</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kt">void</span> <span class="n">SpaceShooterWidget</span><span class="o">::</span><span class="n">increaseLevel</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">level</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">...</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="92-design-better-images">9.2 Design better Images</h2>
+<p>Currently, we are just using a couple of letters and some special characters in order to represent the elements of the picture (ship, rock, shot, bomb, explosion).  You could design 20x20 jpg pictures in your favorite graphics program, store them together with the written program, and then load the jpg-files instead of generating a QPixmap.  A useful sample will be:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-C++" data-lang="C++"><span class="line"><span class="cl">  <span class="n">ship</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="s">&#34;./ship.jpg&#34;</span><span class="p">);</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Basically, you can replace the corresponding line in the <code>loadImages()</code>-method with this statement.  (You need to put the &ldquo;ship.jpg&rdquo; next to the &ldquo;*.exe&rdquo; file.)</p>
+<p>Please enjoy trying around with the program.  If the program does not do what you expected, just restore the old values and start from there again.</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">melli79</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2023-11-04
+        
+    </span>
+  </p>
+  <p class="copyright-item">
+      <span class="item-title">Markdown</span>
+      <span class="item-content"><a class="link-to-markdown" href="https://melli79.github.io/post/15cespaceshooter/index.md" target="_blank">The Markdown version »</a></span>
+    </p>
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/17spaceshooter/">
+            <span class="next-text nav-default">17. Weltraum-Shooter</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="comments-gitment"></div>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/default.min.css" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var gitment = new Gitment({
+        id: '2023-11-04 16:40:50 \u002b0100 CET',
+        title: '15CE Space Shooter in C\u002b\u002b',
+        link: decodeURI(location.href),
+        desc: 'After we drew some fractals last week, we want to produce something more dynamic and interactive this time. The goal Disclaimer! Playing computer games endlessly, leads to neglegt of the real world, your health, and can harm developing children and teenager. Please be responsible and limit the gaming time. 免责声明: 无休止地玩电脑游戏会导致对现实世',
+        owner: 'melli79',
+        repo: '',
+        oauth: {
+          client_id: '',
+          client_secret: ''
+        }
+      });
+      gitment.render('comments-gitment');
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/imsun/gitment">comments powered by gitment.</a></noscript>
+
+  
+
+  
+    <script src="https://utteranc.es/client.js"
+            repo="melli79/"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://github.com/utterance">comments powered by utterances.</a></noscript>
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:melchiorG@gMail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.linkedin.com/in/melchior-grutzmann-01741510/" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://github.com/melli79/" class="iconfont icon-github" title="github"></a>
+      <a href="https://www.instagram.com/gulinculture/" class="iconfont icon-instagram" title="instagram"></a>
+  
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2023
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">melli79</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.1c70606d1b733282f06230615f5561b5894924b6f9930ba2ab99cf1254f75a1a.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

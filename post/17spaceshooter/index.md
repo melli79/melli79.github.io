@@ -1,6 +1,11 @@
 Nachdem wir letztens Wirbel im Computer animiert haben, wollen wir heute ein kleines animiertes Spiel produzieren.
 
 # Das Ziel
+
+**Warnung!** Computerspiele lenken vom realen Leben ab.  Das kann zur Vernachlässigung der realen Beziehungen, der Gesundheit führen, und kann die Entwicklung von Kindern und Jugendlichen beeinträchtigen und gefährden.  Seid verantwortlich und begrenzt die Zeit für Computer- und Handy-Spiele.
+
+**Warnung!** Waffen und Kriege können verletzen und Menschen töten.  Wenn diese Teil fiktionaler Spiele sind, heißt das nicht, dass sie harmlos wären.  Beim Umgang mit Waffen sollten immer Vorsicht walten, und sie gehören nicht in die Hände von Kindern, Jugendlichen oder psychologisch labilen Menschen.
+
 <center>
 <video width="320" height="240" controls autoplay="true" loop>
   <source src="/movies/spaceShooter.mp4" type="video/mp4">

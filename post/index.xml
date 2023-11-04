@@ -6,122 +6,105 @@
     <description>Recent content in Posts on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 29 Oct 2023 21:16:50 +0100</lastBuildDate><atom:link href="https://melli79.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Nov 2023 16:40:50 +0100</lastBuildDate>
+    <atom:link href="https://melli79.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>15CE Space Shooter in C&#43;&#43;</title>
+      <link>https://melli79.github.io/post/15cespaceshooter/</link>
+      <pubDate>Sat, 04 Nov 2023 16:40:50 +0100</pubDate>
+      <guid>https://melli79.github.io/post/15cespaceshooter/</guid>
+      <description>After we drew some fractals last week, we want to produce something more dynamic and interactive this time. The goal Disclaimer! Playing computer games endlessly, leads to neglegt of the real world, your health, and can harm developing children and teenager. Please be responsible and limit the gaming time. 免责声明: 无休止地玩电脑游戏会导致对现实世</description>
+    </item>
     <item>
       <title>17. Weltraum-Shooter</title>
       <link>https://melli79.github.io/post/17spaceshooter/</link>
-      <pubDate>Sun, 29 Oct 2023 21:16:50 +0100</pubDate>
-      
+      <pubDate>Tue, 31 Oct 2023 19:20:50 +0100</pubDate>
       <guid>https://melli79.github.io/post/17spaceshooter/</guid>
       <description>Nachdem wir letztens Wirbel im Computer animiert haben, wollen wir heute ein kleines animiertes Spiel produzieren.
-Das Ziel Your browser does not support the video tag. 0. Programm aufsetzen So wie bei den meisten Desktop Grafik-Apps, starten wir mit einem Hauptprogramm, dass ein Fenster anlegt, in dem dann unsere Komponente dargestellt wird.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 abstract class GameComponent :JComponent() { abstract fun accelerateLeft() abstract fun accelerateRight() abstract fun shoot() abstract fun reset() } class MyWindow(private val content :JComponent) :JFrame(&amp;#34;Space Shooter&amp;#34;), KeyListener { init { layout = BorderLayout() contentPane = content preferredSize = Dimension(600, 400) setSize(600, 400) defaultCloseOperation = EXIT_ON_CLOSE addKeyListener(this) } override fun keyPressed(event :KeyEvent) = when (event.</description>
+Das Ziel Warnung! Computerspiele lenken vom realen Leben ab. Das kann zur Vernachlässigung der realen Beziehungen, der Gesundheit führen, und kann die Entwicklung von Kindern und Jugendlichen beeinträchtigen und gefährden. Seid verantwortlich und begrenzt die Zeit für Computer- und Handy-Spiele.
+Warnung! Waffen und Kriege können verletzen und Menschen töten. Wenn diese Teil fiktionaler Spiele sind, heißt das nicht, dass sie harmlos wären.</description>
     </item>
-    
     <item>
       <title>07CE Factor Game</title>
       <link>https://melli79.github.io/post/07cefactorgame/</link>
       <pubDate>Sun, 24 Sep 2023 16:44:10 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/07cefactorgame/</guid>
       <description>After we have tested people&amp;rsquo;s attention last time, we want to play some combinatorial game this time. 0. Our goal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 Factor game Please enter the limit (between 5 and 100): 10 Players are drawing numbers alternatingly.</description>
     </item>
-    
     <item>
       <title>13CE Mandelbrot in C&#43;&#43;</title>
       <link>https://melli79.github.io/post/13cemandelbrot/</link>
       <pubDate>Wed, 05 Jul 2023 19:18:50 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/13cemandelbrot/</guid>
       <description>After we drew a first fractal last week (the Tree of Pythagoras), we want to produce more mathematical art this time. The goal 0. The initial setup Using the QtCreator start a new Qt/Widget/C++-Project named &amp;ldquo;Mandelbrot&amp;rdquo; (derive the main widget from QtWidget), don&amp;rsquo;t specify any default language, and reduce the main program to: 1 2 3 4 5 6 7 8 9 #include &amp;lt;QtApplication&amp;gt; #include &amp;#34;mandelbrot.h&amp;#34; int main(int nArgs, char**</description>
     </item>
-    
     <item>
       <title>12CE Tree of Pythagoras</title>
       <link>https://melli79.github.io/post/12cepythagoreantree/</link>
       <pubDate>Sat, 17 Jun 2023 23:52:50 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/12cepythagoreantree/</guid>
       <description>After we have been drawing moving eyes last time, we want to draw something more interesting. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project &amp;hellip; of type C++ Qt Widget Application. Give a memorizable name to the project, e.g. pythagoreanTree (毕达哥拉斯的树), but make sure the Build-System is cmake/minGW11. Call the main window &amp;ldquo;PythagorasTreeWidget&amp;rdquo; and</description>
     </item>
-    
     <item>
       <title>11CE Drawing Eyes</title>
       <link>https://melli79.github.io/post/11ceeyes/</link>
       <pubDate>Sat, 03 Jun 2023 23:12:50 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/11ceeyes/</guid>
       <description>After we have set up a development environment, we want to start drawing something simple. Our Goal 1. Setting up the Project With the QtCreator, you create a New Project &amp;hellip; of type C++ Qt Widget Application. Give a memorizable name to the project, e.g. movingEyes (移動的眼睛), but make sure the Build-System is cmake/minGW11. Call the main window &amp;ldquo;EyesWidget&amp;rdquo; and try to make</description>
     </item>
-    
     <item>
       <title>06CE Attention Game</title>
       <link>https://melli79.github.io/post/06ceattentiongame/</link>
       <pubDate>Sun, 16 Apr 2023 16:44:10 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/06ceattentiongame/</guid>
       <description>After we have represented people in the computer last time, we want to test the user&amp;rsquo;s attention this time. 0. Our goal 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 Attention game I give you a couple of numbers and you are to find which number occurs more than twice. I say: 3 4 0 9</description>
     </item>
-    
     <item>
       <title>05CE People and Relatives</title>
       <link>https://melli79.github.io/post/05cepeople/</link>
       <pubDate>Sat, 01 Apr 2023 22:35:10 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/05cepeople/</guid>
       <description>After we have written numbers in Chinese and English last time, we want to represent people in the computer this time. 0. Our Goal 1 2 3 Mr. Melchior Grützmann (*1979-6-20) father D. Grützmann (*1954) mother B. Grützmann (*1955) 1. What makes a Person? Well if</description>
     </item>
-    
     <item>
       <title>04.2CE Big Numbers, English version</title>
       <link>https://melli79.github.io/post/04.2cecountinginenglish/</link>
       <pubDate>Tue, 28 Mar 2023 01:05:10 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/04.2cecountinginenglish/</guid>
       <description>After we have written numbers in Chinese last time, we want to write some numbers in English this time. Haken vs Hacken 0. Our Goal Here again the second sample: 1 2 3 4 5 6 7 8 9 10 11 12 13 Numbers in English 0: zero, 1:one, 2:two, 3:three, 4:four, 5:five, 6:six, 7:seven, 8:eight, 9:nine, 10:ten, 11:eleven, 12:twelve, 13:thirteen, 14:fourteen, 15:fifteen, 16:sixteen, 17:seventeen, 18:eighteen, 19:nineteen, 20:twenty, 21:twentyone, ...,</description>
     </item>
-    
     <item>
       <title>04CE. Big Numbers, Chinese version</title>
       <link>https://melli79.github.io/post/04cebignumbers/</link>
       <pubDate>Sun, 26 Mar 2023 18:14:10 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/04cebignumbers/</guid>
       <description>After we have counted smurfs and guessed numbers last time, we want to print some numbers this time. 0. Our Goal Here are 2 samples (样本会议): 1 2 3 4 5 6 7 8 9 10 11 12 Numbers in Chinese 0：零、1：一 、2：二、3：三、4：四、5：五</description>
     </item>
-    
     <item>
       <title>03CE. Number Guessing Game</title>
       <link>https://melli79.github.io/post/03cenumberguessing/</link>
       <pubDate>Mon, 20 Mar 2023 18:14:10 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/03cenumberguessing/</guid>
       <description>After we have counted smurfs last time, we want to guess some numbers this time. 0. Our Goal Here are 2 samples (样本会议): 1 2 3 4 5 6 7 8 9 10 Number guessing Game Do you want to guess my number or should I guess your number (y/I)? I Ok, I have chosen a number between 1 and 100 (both inclusive). What</description>
     </item>
-    
     <item>
       <title>02CE. If and Smurfs</title>
       <link>https://melli79.github.io/post/02ceifandsmurfs/</link>
       <pubDate>Sun, 19 Mar 2023 15:45:30 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/02ceifandsmurfs/</guid>
       <description>Today we want to count smurfs (蓝精灵). This is how it works: We start with the ordinary numbers from 1: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, &amp;hellip; Then we replace every 4th number by &amp;ldquo;smurf&amp;rdquo; according to its multiplicity (几次): 1 1, 2, 3, smurf, 5, 6, 7, 2-smurf, 9, 10, 11, 3-smurf, 13, 14, 15, ...</description>
     </item>
-    
     <item>
       <title>01CE. For Loops</title>
       <link>https://melli79.github.io/post/01celoops/</link>
       <pubDate>Sun, 19 Mar 2023 14:55:50 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/01celoops/</guid>
       <description>This is a re-introduction. This time I wrote it for C++ and in English, hence CE. Once you have set up a programming environment, you can try to write a first small program. The Goal Today&amp;rsquo;s goal is a multiplication table (乘法表) as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6</description>
     </item>
-    
     <item>
       <title>25. Anorganische Chemische Verbindungen</title>
       <link>https://melli79.github.io/post/25chemistry/</link>
       <pubDate>Mon, 06 Mar 2023 22:20:45 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/25chemistry/</guid>
       <description>Nachdem wir letztes Mal über störungssichere Übertragung gesprochen haben, wollen wir heute systematische (anorganische) Chemie betreiben.
 0. Unser Ziel Wir haben 2 Teilziele. Zum einen wollen wir die (meisten) Elemente des Periodensystems systematisch erfassen, also die hier:
@@ -129,195 +112,159 @@ Bild 1: Periodensystem der Elemente. CC Antonsusi 2019.
 Und zum anderen wollen wir die Summenformeln von (einfachen) anorganischen Verbindungen ausrechnen, also so etwas wie NaCl oder Al$_2$O$_3$.
 1. chemische Elemente darstellen Wie man aus den Farben des obigen Periodensystems erkennt, kommen die Elemente in ca.</description>
     </item>
-    
     <item>
       <title>02PE. If and Smurfs</title>
       <link>https://melli79.github.io/post/02peifandsmurfs/</link>
       <pubDate>Sat, 04 Mar 2023 13:43:46 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/02peifandsmurfs/</guid>
       <description>Today we want to count smurfs (蓝精灵). This is how it works: We start with the ordinary numbers from 1: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, &amp;hellip; Then we replace every 4th number by &amp;ldquo;smurf&amp;rdquo; according to its multiplicity (几次): 1 1, 2, 3, smurf, 5, 6, 7, 2-smurf, 9, 10, 11, 3-smurf, 13, 14, 15, ...</description>
     </item>
-    
     <item>
       <title>01PE. For Loops</title>
       <link>https://melli79.github.io/post/01peloops/</link>
       <pubDate>Fri, 03 Mar 2023 23:24:50 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/01peloops/</guid>
       <description>This is a re-introduction. This time I wrote it for Python and in English, hence PE. Once you have set up the programming environment, you can try to write a first small program. The Goal Today&amp;rsquo;s goal is a multiplication table (乘法表) as follows: 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6</description>
     </item>
-    
     <item>
       <title>30. Projekt Bézierkurven</title>
       <link>https://melli79.github.io/post/30beziercurves/</link>
       <pubDate>Mon, 20 Feb 2023 18:12:00 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/30beziercurves/</guid>
       <description>Nachdem wir in den ersten 3 Teilen eine Einführung in Kotlin und Programmieren, sowie Grafikprogrammierung und vertiefende Algorithmen betrachtet haben, wollen uns jetzt mittelgroßen Projekten widmen. Heute fangen wir mit Bézierkurven an.
 0. Die Aufgabe Gegeben ein paar Punkte in der Ebene, wie können wir eine glatte Kurve durch diese Punkte zeichnen?
 Bild 1: Straklatte (engl. spline) durch 4 Punkte. CC SA P.S. Foresman 2007.
 Wenn wir das mechanisch tun wollen, dann könnten wir die benachbarten Punkte mit einem Lineal (und Stift) verbinden.</description>
     </item>
-    
     <item>
       <title>24. Störungssichere Übertragung</title>
       <link>https://melli79.github.io/post/24errorcorrection/</link>
       <pubDate>Sun, 05 Feb 2023 10:55:45 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/24errorcorrection/</guid>
       <description>Nachdem wir letztes Mal über fälschungssichere Übertragung und Kryptographie gesprochen haben, wollen wir heute über störungssichere Übertragung sprechen.
 1. Bilder von den Voyager-Sonden Zunächst sollten wir klären, wo man das einsetzen kann. Also die Voyager-Sonden wurden vor 75 Jahren in Richtung Neptun und jenseits des Sonnensystems losgeschickt, um Erkundungen des Weltraums auch dort zu ermöglichen. Zum einen hatten die Sonden ein paar Aufzeichnungen von der Menschheit auf der Erde (in den 1970ern) mit und zum anderen sind Kameras und starke Sendeanlagen in den Sonden eingebaut.</description>
     </item>
-    
     <item>
       <title>23. Verschlüsselung und Signierung</title>
       <link>https://melli79.github.io/post/23encryptionandsigning/</link>
       <pubDate>Sun, 29 Jan 2023 21:10:53 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/23encryptionandsigning/</guid>
       <description>Nachdem wir letztes Mal den RSA Algorithmus kennen gelernt haben, wollen wir diesmal etwas allgemeiner über Kryptographie sprechen.
 Wer lieber ein (kurzes) Buch liest, dem sei [1] empfohlen.
 [1] A. Beutelspacher: Kryptologie, Eine Einführung in die Wissenschaft vom Verschlüsseln, Verbergen und Verheimlichen, Taschenbuch, November 2014.
 1. Wenn Alice Bob eine geheime Nachricht schicken will&amp;hellip; Zunächst einmal, worum geht es eigentlich bei Kryptographie (als Teilgebiet der Mathematik/Informatik). Wir haben 2 Subjekte, die geheime Informationen über einen öffentlichen Kanal austauschen wollen.</description>
     </item>
-    
     <item>
       <title>22. ggT, phi und RSA</title>
       <link>https://melli79.github.io/post/22eulerfermat/</link>
       <pubDate>Wed, 18 Jan 2023 18:00:52 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/22eulerfermat/</guid>
       <description>Nachdem wir letztes Mal mit Primzahlen und dem kleinen Satz von Fermat verschlüsselt haben, wollen wir heute die Grundlagen des RSA Algorithmus kennen lernen.
 1. Potenzen modulo $n$, noch einmal Erinnern wir uns noch einmal an die Potenzen der Reste modulo $n$. Beim letzten Mal hatten wir dazu folgende Tabellen produziert:
 1 2 3 4 5 6 7 8 9 Potenzen modulo 7: 0 1 2 3 4 5 6 7 1 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 2 4 1 2 4 1 2 1 3 2 6 4 5 1 3 1 4 2 1 4 2 1 4 1 5 4 6 2 3 1 5 1 6 1 6 1 6 1 6 sowie</description>
     </item>
-    
     <item>
       <title>21. Potenzen und Kleiner Satz des Fermat</title>
       <link>https://melli79.github.io/post/21fermatslittletheorem/</link>
       <pubDate>Tue, 17 Jan 2023 19:00:51 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/21fermatslittletheorem/</guid>
       <description>Nachdem wir letztes Mal Primzahlen gefunden haben und Multiplikation modulo $n$ betrieben haben, wollen wir heute Potenzen modulo $n$ betrachten.
 1. Potenz-Tabelle Analog zur Multiplikationstabelle, wollen wir diesmal potenzieren modulo einer positiven ganzen Zahl $n$. Wenn wir $b^e\pmod{n}$ ausrechnen, haben wir mathematisch 2 Möglichkeiten: Wir können entweder mit großen ganzen Zahlen rechnen und zunächst $b^e$ ausrechnen und dann den Rest modulo $n$ bestimmen. Oder wir multiplizieren in einem fort, d.h. fangen bei $b^2\equiv b * b \pmod{n}$ an, bestimmen den Rest modulo $n$ und gehen dann weiter zu $b^3\equiv b^2 * b \pmod{n}$.</description>
     </item>
-    
     <item>
       <title>20 Zahlenkongruenzen und Primzahlen</title>
       <link>https://melli79.github.io/post/20numbercongruences/</link>
       <pubDate>Sun, 15 Jan 2023 20:45:50 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/20numbercongruences/</guid>
       <description>Im Dritten Teil der Serie, Einführung in das Programmieren, wollen wir weitere mathematische Spiele betreiben. Heute wollen wir mit Zahlenkongruenzen rechnen.
 1. Etwas Theorie Du erinnerst dich vielleicht noch an das erste Programm, in dem wir die Multiplikationstabelle (also das kleine 1x1) dargestellt haben. Diesmal wollen wir das aber etwas abändern. Statt dem ganzen Produkt geben wir nur den Rest bei Division durch die ganze Zahl $n$ aus. Das bedeutet folgendes: Wenn wir $3 * 5$ ausrechnen und $n=6$, dann dividieren wir das Zwischenergebnis $15$ durch $6$ und erhalten $2$ Rest $3$.</description>
     </item>
-    
     <item>
       <title>16. Wirbel im Computer</title>
       <link>https://melli79.github.io/post/16curlsonthecomputer/</link>
       <pubDate>Sun, 04 Sep 2022 12:35:50 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/16curlsonthecomputer/</guid>
       <description>Nachdem wir letztens Fraktale gemalt haben, wollen wir heute Animationen produzieren.
 Das Ziel Your browser does not support the video tag. 0. Programm aufsetzen So wie bei den meisten Desktop Grafik-Apps, starten wir mit einem Hauptprogramm, dass ein Fenster anlegt, in dem dann unsere Komponente dargestellt wird.
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 class MyWindow(private val content :JComponent) :JFrame(&amp;#34;Curls on the Computer&amp;#34;), KeyListener { init { layout = BorderLayout() contentPane = content setSize(800, 600) defaultCloseOperation = EXIT_ON_CLOSE addKeyListener(this) .</description>
     </item>
-    
     <item>
       <title>15 Iterierte Funktionssysteme</title>
       <link>https://melli79.github.io/post/15iteratedfunctionsystems/</link>
       <pubDate>Sun, 21 Aug 2022 12:35:50 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/15iteratedfunctionsystems/</guid>
       <description>Nachdem wir letzte Wochen das Mandelbrot und den Baum des Pythagoras gemalt haben, wollen wir heute weitere Fraktale produzieren.
 Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
 1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&amp;#34;Iteriertes Funktionensystem&amp;#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(IFS(System.</description>
     </item>
-    
     <item>
       <title>14 Baum des Pythagoras</title>
       <link>https://melli79.github.io/post/14baumdespythagoras/</link>
       <pubDate>Fri, 19 Aug 2022 18:35:50 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/14baumdespythagoras/</guid>
       <description>Nachdem wir letzte Woche das Mandelbrot und Julia-Mengen gemalt haben, wollen wir heute weitere Fraktale produzieren.
 Das Ziel 0. Programm aufsetzen Das kennst du schon: Ein neues Kotlin-Projekt anlegen und das Hauptprogramm ausfüllen, etwa so:
 1 2 3 4 5 6 7 8 9 10 11 12 13 class MyWindow(content :JComponent) :JFrame(&amp;#34;Baum des Pythagoras&amp;#34;) { init { layout = BorderLayout() contentPane = content defaultCloseOperation = EXIT_ON_CLOSE setSize(800, 600) } } fun main() { val window = MyWindow(TreeOfPythagoras()) window.</description>
     </item>
-    
     <item>
       <title>13 Mandelbrot (Apfelmännchen)</title>
       <link>https://melli79.github.io/post/13mandelbrot/</link>
       <pubDate>Sat, 25 Jun 2022 12:35:50 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/13mandelbrot/</guid>
       <description>Nachdem wir letzte Woche Korbmuster gemalt haben, wollen wir heute weitere mathematische Kunst produzieren.
 Das Ziel 0. Programm Aufsetzen Das kennst du vielleicht schon: Du legst ein neues Kotlin/JVM-Projekt an und schreibst das Hauptprogramm etwa so:
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 class MainWindow(contentPane :JComponent) :JFrame(&amp;#34;Mandelbrot&amp;#34;) { init { this.layout = BorderLayout() this.contentPane = contentPane this.setSize(500, 500) defaultCloseOperation = EXIT_ON_CLOSE } } fun main(args :Array&amp;lt;String&amp;gt;) { val window = MainWindow(Mandelbrot()) window.</description>
     </item>
-    
     <item>
       <title>12 Moderne Kunst</title>
       <link>https://melli79.github.io/post/12modernart/</link>
       <pubDate>Mon, 18 Apr 2022 16:05:50 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/12modernart/</guid>
       <description>Nachdem wir letzte Woche Augen gemalt haben, wollen wir heute moderne Kunst produzieren.
 Das Ziel 1. Projekt aufsetzen Das geht so ähnlich wie beim letzten Projekt: Unter Datei &amp;gt; Neu &amp;gt; Projekt &amp;hellip; ein Kotlin-Projekt mit Namen &amp;ldquo;Modern Art&amp;rdquo; aufsetzen mit dem gleichen JDK wie beim letzten Mal.
 Dann im Hauptprogramm &amp;ldquo;Main.kt&amp;rdquo;:
 1 2 3 4 5 6 7 8 9 10 11 12 13 14 class MainWindow(contentPane :JComponent) :JFrame(&amp;#34;Modern Art&amp;#34;) { init { this.</description>
     </item>
-    
     <item>
       <title>11 Augen malen</title>
       <link>https://melli79.github.io/post/11eyes/</link>
       <pubDate>Sun, 10 Apr 2022 12:31:50 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/11eyes/</guid>
       <description>Nachdem ihr eine Entwicklungsumgebung aufgesetzt habt, wollen wir heute etwas malen.
 Das Ziel 1. Projekt aufsetzen So, wie in der Anleitung im Schritt 2B angegeben, erstellt ihr eine Datei &amp;gt; Neu &amp;gt; Projekt &amp;hellip; vom Typ Kotlin, Console Application. Ihr könnt dem Projekt einen ordentlichen Namen geben, z.B. Eyes (engl. für Augen), achtet darauf, dass das Build-System Gradle-Kotlin ist, das Projekt open JDK 11 (oder was ihr damals als Java-Umgebung installiert habt) verwendet.</description>
     </item>
-    
     <item>
       <title>00 Kotlin IDE Aufsetzen</title>
       <link>https://melli79.github.io/post/00-setup-ide/</link>
       <pubDate>Sat, 09 Apr 2022 11:50:55 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/00-setup-ide/</guid>
       <description>1. Schritt: IntelliJ für Windows 64 herunterladen und installieren Als Entwicklungsumgebung für Kotlin empfehle ich IntelliJ Idea Kommunity-Version. Diese kann man von der Website von JetBrains herunterladen, wichtig ist es, auf den schwarzen Knopf (Community Version) zu klicken.
 2A. Schritt: Java 11 Development Kit installieren Das sollte aus der IntelliJ IDE heraus gehen: Datei &amp;gt; Projektstruktur &amp;gt; Projekt &amp;gt; SDK &amp;gt; Download JDK
 Im Dialog: Version 11, Oracle Open JDK auswählen.</description>
     </item>
-    
     <item>
       <title>03C Frauen Gebären und sich Scheiden lassen</title>
       <link>https://melli79.github.io/post/03cwomengivebirth/</link>
       <pubDate>Thu, 23 Dec 2021 18:10:51 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/03cwomengivebirth/</guid>
       <description>4. Frauen Gebären Woher kommen die Kinder?
 Das soll jetzt kein Vortrag über das Kinderkriegen werden, aber wenn unser Modell Menschen beschreibt, dann sollte es auch Kinder produzieren können.
 Im Einfachsten Fall bekommt eine Frau ein Kind und ihr Ehepartner ist der Vater. Die Signatur sieht etwa so aus:
 1 2 3 fun Person.giveBirth(givenName :String, birthday :PartialDate, gender :Gender) :Person { ... } Offenbar brauchen wir auch das Geschlecht und den Geburtstag des Kindes.</description>
     </item>
-    
     <item>
       <title>03B Leute können Heiraten</title>
       <link>https://melli79.github.io/post/03bpeoplecanmarry/</link>
       <pubDate>Wed, 22 Dec 2021 21:39:52 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/03bpeoplecanmarry/</guid>
       <description>Heute wollen wir schauen, was Personen tun können.
 3. Zwei Personen können heiraten. Wenn wir schon ein Modell von Menschen haben, dann sollten die auch wie Menschen leben können. Als erstes wollen sie heiraten können.
 Was sind die Voraussetzungen zum Heiraten? Man braucht einen Mann, eine Frau (oder 2 Männer oder 2 Frauen), die müssen beide ledig sein und alt genug und dann werden sie Mann und Frau (oder Mann und Mann oder Frau und Frau).</description>
     </item>
-    
     <item>
       <title>03 Daten und Leute</title>
       <link>https://melli79.github.io/post/03dataandpeople/</link>
       <pubDate>Wed, 22 Dec 2021 19:40:39 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/03dataandpeople/</guid>
       <description>Heute soll es darum gehen, wie man Leute im Computer darstellt.
 1. Was ist uns an Leuten wichtig? Ein echter Mensch ist 2&amp;ndash;200 kg schwer, besteht aus Haut, Muskeln, Knochen, &amp;hellip;, trägt Kleidung, &amp;hellip; . Die werden wahrscheinlich nicht in den Computer passen.
@@ -325,52 +272,43 @@ Stattdessen überlegen wir uns, was wir von einem Menschen darstellen wollen, d.
 Also ein Mensch hat
 einen festen Vornamen, einen Familiennamen, ein Geburtsdatum, ein Geschlecht, einen Vater, eine Mutter, vielleicht eine/n Ehepartner/in, vielleicht Kinder.</description>
     </item>
-    
     <item>
       <title>02 If und Schlümpfe</title>
       <link>https://melli79.github.io/post/02ifandsmurfs/</link>
       <pubDate>Mon, 20 Dec 2021 20:30:46 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/02ifandsmurfs/</guid>
       <description>Heute wollen wir Schlümpfe zählen. Das geht so:
 Wir fangen mit den normalen Zahlen bei 1 an: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, &amp;hellip;
 Dann ersetzen wir jede 5. Zahl durch Schlümpf entsprechend ihrem Vielfache:
 1 1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, ... die 25 ist Schlümpf-Schlümpf. 0. Zahlenreihe Vom ersten Post erinnerst du dich bestimmt noch an for-Schleifen, mit denen man durchzählen kann, etwa so:</description>
     </item>
-    
     <item>
       <title>29. Statistik und Geschlecht</title>
       <link>https://melli79.github.io/post/29statistics/</link>
       <pubDate>Sun, 19 Dec 2021 20:25:47 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/29statistics/</guid>
       <description>Heute wollen wir uns fragen, wie der Computer am Namen erkennen kann, ob jemand Mann oder Frau ist.
 1. Woran erkennt man, ob jemand weiblich ist? Natürlich ist der Vorname nicht die einzige Quelle, anhand derer man das entscheiden kann, z.B. kann man oft auch am Surf- oder Kaufverhalten herausfinden, ob jemand Mann (Junge) oder Frau (Mädchen) ist.
 Auch ist es nicht immer ganz eindeutig, ob jemand Mann oder Frau ist, z.</description>
     </item>
-    
     <item>
       <title>01 For-Schleifen</title>
       <link>https://melli79.github.io/post/01loops/</link>
       <pubDate>Sat, 18 Dec 2021 23:21:50 +0100</pubDate>
-      
       <guid>https://melli79.github.io/post/01loops/</guid>
       <description>Nachdem Ihr die Programmierumgebung aufgesetzt habt, fangen wir heute mit einem ersten kleinen Programm an: Das kleine 1x1.
 Das Ziel Das Ziel soll etwa folgende Tabelle sein:
 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21 24 27 30 4 8 12 16 20 24 28 32 36 40 5 10 15 20 25 30 35 40 45 50 6 12 18 24 30 36 42 48 54 60 7 14 21 28 35 42 49 56 63 70 8 16 24 32 40 48 56 64 72 80 9 18 27 36 45 54 63 72 81 90 10 20 30 40 50 60 70 80 90 100 Was wollen wir haben: Zeilen 1.</description>
     </item>
-    
     <item>
       <title>Setup Webpage</title>
       <link>https://melli79.github.io/post/setup-webpage/</link>
       <pubDate>Sat, 05 Sep 2020 21:50:55 +0200</pubDate>
-      
       <guid>https://melli79.github.io/post/setup-webpage/</guid>
       <description>There is a considerable easy way to set up a web page similar to this one.
 Step 1: install Hugo A. If you are using a Mac, just get accustomed to Homebrew and install hugo via
 1 brew install hugo B. If you are using Linux it probably comes with a package manager that should have some compatible version of hugo available, e.g. on Ubuntu like systems:
 1 sudo apt-get install hugo If you feel that your system is too old consider updating it first.</description>
     </item>
-    
   </channel>
 </rss>

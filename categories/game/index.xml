@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Game on Melchior&#39;s Homepage</title>
+    <title>game on Melchior&#39;s Homepage</title>
     <link>https://melli79.github.io/categories/game/</link>
-    <description>Recent content in Game on Melchior&#39;s Homepage</description>
+    <description>Recent content in game on Melchior&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 29 Oct 2023 21:16:50 +0100</lastBuildDate><atom:link href="https://melli79.github.io/categories/game/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Nov 2023 16:40:50 +0100</lastBuildDate>
+    <atom:link href="https://melli79.github.io/categories/game/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>15CE Space Shooter in C&#43;&#43;</title>
+      <link>https://melli79.github.io/post/15cespaceshooter/</link>
+      <pubDate>Sat, 04 Nov 2023 16:40:50 +0100</pubDate>
+      <guid>https://melli79.github.io/post/15cespaceshooter/</guid>
+      <description>After we drew some fractals last week, we want to produce something more dynamic and interactive this time. The goal Disclaimer! Playing computer games endlessly, leads to neglegt of the real world, your health, and can harm developing children and teenager. Please be responsible and limit the gaming time. 免责声明: 无休止地玩电脑游戏会导致对现实世</description>
+    </item>
     <item>
       <title>17. Weltraum-Shooter</title>
       <link>https://melli79.github.io/post/17spaceshooter/</link>
-      <pubDate>Sun, 29 Oct 2023 21:16:50 +0100</pubDate>
-      
+      <pubDate>Tue, 31 Oct 2023 19:20:50 +0100</pubDate>
       <guid>https://melli79.github.io/post/17spaceshooter/</guid>
       <description>Nachdem wir letztens Wirbel im Computer animiert haben, wollen wir heute ein kleines animiertes Spiel produzieren.
-Das Ziel Your browser does not support the video tag. 0. Programm aufsetzen So wie bei den meisten Desktop Grafik-Apps, starten wir mit einem Hauptprogramm, dass ein Fenster anlegt, in dem dann unsere Komponente dargestellt wird.
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 abstract class GameComponent :JComponent() { abstract fun accelerateLeft() abstract fun accelerateRight() abstract fun shoot() abstract fun reset() } class MyWindow(private val content :JComponent) :JFrame(&amp;#34;Space Shooter&amp;#34;), KeyListener { init { layout = BorderLayout() contentPane = content preferredSize = Dimension(600, 400) setSize(600, 400) defaultCloseOperation = EXIT_ON_CLOSE addKeyListener(this) } override fun keyPressed(event :KeyEvent) = when (event.</description>
+Das Ziel Warnung! Computerspiele lenken vom realen Leben ab. Das kann zur Vernachlässigung der realen Beziehungen, der Gesundheit führen, und kann die Entwicklung von Kindern und Jugendlichen beeinträchtigen und gefährden. Seid verantwortlich und begrenzt die Zeit für Computer- und Handy-Spiele.
+Warnung! Waffen und Kriege können verletzen und Menschen töten. Wenn diese Teil fiktionaler Spiele sind, heißt das nicht, dass sie harmlos wären.</description>
     </item>
-    
   </channel>
 </rss>
