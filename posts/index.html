@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     
@@ -11,11 +11,11 @@
     
     
     
-      <meta name="robots" content="noindex, nofollow">
+      <meta name="robots" content="index, follow">
     
     
 
-    <link rel="stylesheet" href="/ananke/css/main.css">
+    <link rel="stylesheet" href="/ananke/css/main.d955a0fd4b29149d3776b2cc0200082c27e22390244f848ea705ae857450a01e.css" integrity="sha256-2VWg/UspFJ03drLMAgAILCfiI5AkT4SOpwWuhXRQoB4=" crossorigin="anonymous">
     
 
 
@@ -32,12 +32,12 @@
     
 
     
-      <link rel="canonical" href="http://localhost:1313/posts/">
+      <link rel="canonical" href="https://melli79.github.io/posts/">
     
 
     
     
-    <meta property="og:url" content="http://localhost:1313/posts/">
+    <meta property="og:url" content="https://melli79.github.io/posts/">
   <meta property="og:site_name" content="古林学院 -- Gu-Lin School">
   <meta property="og:title" content="Posts">
   <meta property="og:locale" content="en_us">
@@ -49,8 +49,11 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Posts">
 
+      
+      
+    
 	
-  </head><body class="ma0 avenir bg-near-white development is-section is-section">
+  </head><body class="ma0 avenir bg-near-white production is-section is-section">
     
 
   <header>
@@ -176,6 +179,28 @@ In every row the number, then its double (两次), then the triple (三次), &he
   <div class="mb3 pa4 gray overflow-hidden bg-white">
     <span class="f6 db">Posts</span>
     <h1 class="f3 near-black">
+      <a href="/posts/11eyes/" class="link black dim">
+        11 Augen malen
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Nachdem ihr eine <a href="../00-setup-ide/">Entwicklungsumgebung aufgesetzt</a> habt, wollen wir heute etwas malen.</p>
+<h1 id="das-ziel">Das Ziel</h1>
+<p><img src="/img/eyes.png" alt="(.)(.)" title="100x50"></p>
+<h1 id="1-projekt-aufsetzen">1. Projekt aufsetzen</h1>
+<p>So, wie in der Anleitung im Schritt 2B angegeben, erstellt ihr eine Datei &gt; Neu &gt; Projekt &hellip; vom Typ Kotlin, Console Application.  Ihr könnt dem Projekt einen ordentlichen Namen geben, z.B. Eyes (engl. für Augen), achtet darauf, dass das Build-System Gradle-Kotlin ist, das Projekt open JDK 11 (oder was ihr damals als Java-Umgebung installiert habt) verwendet.  Der Rest kann bei den Standardwerten bleiben.</p>
+    </div>
+    <a href="/posts/11eyes/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+  </div>
+</div>
+
+        </div>
+      
+        <div class="w-100 w-30-l mb4 relative bg-white">
+          <div class="w-100 mb4 nested-copy-line-height relative bg-white">
+  <div class="mb3 pa4 gray overflow-hidden bg-white">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
       <a href="/posts/00-setup-ide/" class="link black dim">
         00 Kotlin IDE Aufsetzen
       </a>
@@ -183,9 +208,9 @@ In every row the number, then its double (两次), then the triple (三次), &he
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       <h1 id="1-schritt-intellij-für-windows-64-herunterladen-und-installieren">1. Schritt: IntelliJ für Windows 64 herunterladen und installieren</h1>
 <p>Als Entwicklungsumgebung für Kotlin empfehle ich IntelliJ Idea Kommunity-Version.  Diese kann man von der Website von <a href="https://www.jetbrains.com/idea/download/#section=windows">JetBrains</a> herunterladen, wichtig ist es, auf den schwarzen Knopf (Community Version) zu klicken.</p>
-<h1 id="2a-schritt-java-11-development-kit-installieren">2A. Schritt: Java 11 Development Kit installieren</h1>
+<h1 id="2a-schritt-java-25-development-kit-installieren">2A. Schritt: Java 25 Development Kit installieren</h1>
 <p>Das sollte aus der IntelliJ IDE heraus gehen: Datei &gt; Projektstruktur &gt; Projekt &gt; SDK &gt; Download JDK</p>
-<p>Im Dialog: Version 11, Oracle Open JDK auswählen.  Der Pfad sollte automatisch ausgefüllt sein, ansonsten kann man C:\Programme\Java angeben.</p>
+<p>Im Dialog: Version 25, Oracle Open JDK auswählen.  Der Pfad sollte automatisch ausgefüllt sein, ansonsten kann man C:\Programme\Java angeben.</p>
     </div>
     <a href="/posts/00-setup-ide/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
   </div>
@@ -318,14 +343,23 @@ In jeder Zeile die Zahl, dann ihr Doppeltes, dann das Dreifache, &hellip;, das 1
     </article>
 
     </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white white-70 dn dib-ns pv2 ph3 no-underline" href="http://localhost:1313/" >
-    &copy;  古林学院 -- Gu-Lin School 2026 
-  </a>
-    <div><div class="ananke-socials"></div>
-</div>
-  </div>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+    <div
+        class="flex justify-between mw8 center"
+    >
+        
+        <p class="f7 gray dib pv2 mv0">
+            &copy; 2020–2026 古林学院 -- Gu-Lin School. All rights
+            reserved.
+        </p>
+
+        
+        <div class="flex-l items-center">
+            <a class="gray" href="mailto:x@gMail.com,x=melchiorG"
+                >x@gMail.com,x=melchiorG</a
+            >
+        </div>
+    </div>
 </footer>
 
   </body>

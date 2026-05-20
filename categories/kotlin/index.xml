@@ -2,45 +2,52 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kotlin on 古林学院 -- Gu-Lin School</title>
-    <link>http://localhost:1313/categories/kotlin/</link>
+    <link>https://melli79.github.io/categories/kotlin/</link>
     <description>Recent content in Kotlin on 古林学院 -- Gu-Lin School</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 Apr 2022 11:50:55 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/kotlin/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Apr 2022 12:31:50 +0200</lastBuildDate>
+    <atom:link href="https://melli79.github.io/categories/kotlin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>11 Augen malen</title>
+      <link>https://melli79.github.io/posts/11eyes/</link>
+      <pubDate>Sun, 10 Apr 2022 12:31:50 +0200</pubDate>
+      <guid>https://melli79.github.io/posts/11eyes/</guid>
+      <description>&lt;p&gt;Nachdem ihr eine &lt;a href=&#34;../00-setup-ide/&#34;&gt;Entwicklungsumgebung aufgesetzt&lt;/a&gt; habt, wollen wir heute etwas malen.&lt;/p&gt;&#xA;&lt;h1 id=&#34;das-ziel&#34;&gt;Das Ziel&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://melli79.github.io/img/eyes.png&#34; alt=&#34;(.)(.)&#34; title=&#34;100x50&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;1-projekt-aufsetzen&#34;&gt;1. Projekt aufsetzen&lt;/h1&gt;&#xA;&lt;p&gt;So, wie in der Anleitung im Schritt 2B angegeben, erstellt ihr eine Datei &amp;gt; Neu &amp;gt; Projekt &amp;hellip; vom Typ Kotlin, Console Application.  Ihr könnt dem Projekt einen ordentlichen Namen geben, z.B. Eyes (engl. für Augen), achtet darauf, dass das Build-System Gradle-Kotlin ist, das Projekt open JDK 11 (oder was ihr damals als Java-Umgebung installiert habt) verwendet.  Der Rest kann bei den Standardwerten bleiben.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>00 Kotlin IDE Aufsetzen</title>
-      <link>http://localhost:1313/posts/00-setup-ide/</link>
+      <link>https://melli79.github.io/posts/00-setup-ide/</link>
       <pubDate>Sat, 09 Apr 2022 11:50:55 +0200</pubDate>
-      <guid>http://localhost:1313/posts/00-setup-ide/</guid>
-      <description>&lt;h1 id=&#34;1-schritt-intellij-für-windows-64-herunterladen-und-installieren&#34;&gt;1. Schritt: IntelliJ für Windows 64 herunterladen und installieren&lt;/h1&gt;&#xA;&lt;p&gt;Als Entwicklungsumgebung für Kotlin empfehle ich IntelliJ Idea Kommunity-Version.  Diese kann man von der Website von &lt;a href=&#34;https://www.jetbrains.com/idea/download/#section=windows&#34;&gt;JetBrains&lt;/a&gt; herunterladen, wichtig ist es, auf den schwarzen Knopf (Community Version) zu klicken.&lt;/p&gt;&#xA;&lt;h1 id=&#34;2a-schritt-java-11-development-kit-installieren&#34;&gt;2A. Schritt: Java 11 Development Kit installieren&lt;/h1&gt;&#xA;&lt;p&gt;Das sollte aus der IntelliJ IDE heraus gehen: Datei &amp;gt; Projektstruktur &amp;gt; Projekt &amp;gt; SDK &amp;gt; Download JDK&lt;/p&gt;&#xA;&lt;p&gt;Im Dialog: Version 11, Oracle Open JDK auswählen.  Der Pfad sollte automatisch ausgefüllt sein, ansonsten kann man C:\Programme\Java angeben.&lt;/p&gt;</description>
+      <guid>https://melli79.github.io/posts/00-setup-ide/</guid>
+      <description>&lt;h1 id=&#34;1-schritt-intellij-für-windows-64-herunterladen-und-installieren&#34;&gt;1. Schritt: IntelliJ für Windows 64 herunterladen und installieren&lt;/h1&gt;&#xA;&lt;p&gt;Als Entwicklungsumgebung für Kotlin empfehle ich IntelliJ Idea Kommunity-Version.  Diese kann man von der Website von &lt;a href=&#34;https://www.jetbrains.com/idea/download/#section=windows&#34;&gt;JetBrains&lt;/a&gt; herunterladen, wichtig ist es, auf den schwarzen Knopf (Community Version) zu klicken.&lt;/p&gt;&#xA;&lt;h1 id=&#34;2a-schritt-java-25-development-kit-installieren&#34;&gt;2A. Schritt: Java 25 Development Kit installieren&lt;/h1&gt;&#xA;&lt;p&gt;Das sollte aus der IntelliJ IDE heraus gehen: Datei &amp;gt; Projektstruktur &amp;gt; Projekt &amp;gt; SDK &amp;gt; Download JDK&lt;/p&gt;&#xA;&lt;p&gt;Im Dialog: Version 25, Oracle Open JDK auswählen.  Der Pfad sollte automatisch ausgefüllt sein, ansonsten kann man C:\Programme\Java angeben.&lt;/p&gt;</description>
     </item>
     <item>
       <title>03B Leute können Heiraten</title>
-      <link>http://localhost:1313/posts/03bpeoplecanmarry/</link>
+      <link>https://melli79.github.io/posts/03bpeoplecanmarry/</link>
       <pubDate>Wed, 22 Dec 2021 21:39:52 +0100</pubDate>
-      <guid>http://localhost:1313/posts/03bpeoplecanmarry/</guid>
+      <guid>https://melli79.github.io/posts/03bpeoplecanmarry/</guid>
       <description>&lt;p&gt;Heute wollen wir schauen, was Personen tun können.&lt;/p&gt;&#xA;&lt;h1 id=&#34;3-zwei-personen-können-heiraten&#34;&gt;3. Zwei Personen können heiraten.&lt;/h1&gt;&#xA;&lt;p&gt;Wenn wir schon ein Modell von Menschen haben, dann sollten die auch wie Menschen leben können.  Als erstes wollen sie heiraten können.&lt;/p&gt;&#xA;&lt;p&gt;Was sind die Voraussetzungen zum Heiraten?  Man braucht einen Mann, eine Frau (oder 2 Männer oder 2 Frauen), die müssen beide ledig sein und alt genug und dann werden sie Mann und Frau (oder Mann und Mann oder Frau und Frau).&lt;/p&gt;</description>
     </item>
     <item>
       <title>03 Daten und Leute</title>
-      <link>http://localhost:1313/posts/03dataandpeople/</link>
+      <link>https://melli79.github.io/posts/03dataandpeople/</link>
       <pubDate>Wed, 22 Dec 2021 19:40:39 +0100</pubDate>
-      <guid>http://localhost:1313/posts/03dataandpeople/</guid>
+      <guid>https://melli79.github.io/posts/03dataandpeople/</guid>
       <description>&lt;p&gt;Heute soll es darum gehen, wie man Leute im Computer darstellt.&lt;/p&gt;&#xA;&lt;h1 id=&#34;1-was-ist-uns-an-leuten-wichtig&#34;&gt;1. Was ist uns an Leuten wichtig?&lt;/h1&gt;&#xA;&lt;p&gt;Ein echter Mensch ist 2&amp;ndash;200 kg schwer, besteht aus Haut, Muskeln, Knochen, &amp;hellip;, trägt Kleidung, &amp;hellip; .&#xA;Die werden wahrscheinlich nicht in den Computer passen.&lt;/p&gt;&#xA;&lt;p&gt;Stattdessen überlegen wir uns, was wir von einem Menschen darstellen wollen, d.h. wir bilden uns ein Modell.&lt;/p&gt;&#xA;&lt;p&gt;Also ein Mensch hat&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;einen festen Vornamen,&lt;/li&gt;&#xA;&lt;li&gt;einen Familiennamen,&lt;/li&gt;&#xA;&lt;li&gt;ein Geburtsdatum,&lt;/li&gt;&#xA;&lt;li&gt;ein Geschlecht,&lt;/li&gt;&#xA;&lt;li&gt;einen Vater, eine Mutter,&lt;/li&gt;&#xA;&lt;li&gt;vielleicht eine/n Ehepartner/in,&lt;/li&gt;&#xA;&lt;li&gt;vielleicht Kinder.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;2-wie-können-wir-diese-daten-darstellen&#34;&gt;2. Wie können wir diese Daten darstellen?&lt;/h1&gt;&#xA;&lt;p&gt;Vor- und Familiennamen können wir als Text darstellen, in Kotlin &lt;code&gt;String&lt;/code&gt;s.  Das Datum stellen wir als &lt;code&gt;PartialDate&lt;/code&gt; dar, d.h. für manche Menschen kennen wir nur das Geburtsjahr, für andere das genaue Datum (mit Jahr).&lt;/p&gt;</description>
     </item>
     <item>
       <title>02 If und Schlümpfe</title>
-      <link>http://localhost:1313/posts/02ifandsmurfs/</link>
+      <link>https://melli79.github.io/posts/02ifandsmurfs/</link>
       <pubDate>Mon, 20 Dec 2021 20:30:46 +0100</pubDate>
-      <guid>http://localhost:1313/posts/02ifandsmurfs/</guid>
+      <guid>https://melli79.github.io/posts/02ifandsmurfs/</guid>
       <description>&lt;p&gt;Heute wollen wir Schlümpfe zählen.  Das geht so:&lt;/p&gt;&#xA;&lt;ol start=&#34;0&#34;&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Wir fangen mit den normalen Zahlen bei 1 an: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, &amp;hellip;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Dann ersetzen wir jede 5. Zahl durch Schlümpf entsprechend ihrem Vielfache:&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;  1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, ...&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;die 25 ist Schlümpf-Schlümpf.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h1 id=&#34;0-zahlenreihe&#34;&gt;0. Zahlenreihe&lt;/h1&gt;&#xA;&lt;p&gt;Vom ersten Post erinnerst du dich bestimmt noch an for-Schleifen, mit denen man durchzählen kann, etwa so:&lt;/p&gt;</description>
     </item>
     <item>
       <title>01 For-Schleifen</title>
-      <link>http://localhost:1313/posts/01loops/</link>
+      <link>https://melli79.github.io/posts/01loops/</link>
       <pubDate>Sat, 18 Dec 2021 23:21:50 +0100</pubDate>
-      <guid>http://localhost:1313/posts/01loops/</guid>
+      <guid>https://melli79.github.io/posts/01loops/</guid>
       <description>&lt;p&gt;Nachdem Ihr die Programmierumgebung aufgesetzt habt, fangen wir heute mit einem ersten kleinen Programm an: Das kleine 1x1.&lt;/p&gt;&#xA;&lt;h1 id=&#34;das-ziel&#34;&gt;Das Ziel&lt;/h1&gt;&#xA;&lt;p&gt;Das Ziel soll etwa folgende Tabelle sein:&lt;/p&gt;&#xA;&lt;pre&gt;&#xA;   1  2  3  4  5  6  7  8  9 10&#xA;   2  4  6  8 10 12 14 16 18 20&#xA;   3  6  9 12 15 18 21 24 27 30&#xA;   4  8 12 16 20 24 28 32 36 40&#xA;   5 10 15 20 25 30 35 40 45 50&#xA;   6 12 18 24 30 36 42 48 54 60&#xA;   7 14 21 28 35 42 49 56 63 70&#xA;   8 16 24 32 40 48 56 64 72 80&#xA;   9 18 27 36 45 54 63 72 81 90&#xA;  10 20 30 40 50 60 70 80 90 100&#xA;&lt;/pre&gt;&#xA;&lt;p&gt;Was wollen wir haben:  Zeilen 1..10, die die Vielfache der jeweiligen Zahl enthalten.&#xA;In jeder Zeile die Zahl, dann ihr Doppeltes, dann das Dreifache, &amp;hellip;, das 10-fache.&lt;/p&gt;</description>
     </item>
   </channel>

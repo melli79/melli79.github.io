@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GUI on 古林学院 -- Gu-Lin School</title>
-    <link>http://localhost:1313/categories/gui/</link>
+    <link>https://melli79.github.io/categories/gui/</link>
     <description>Recent content in GUI on 古林学院 -- Gu-Lin School</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 10 Apr 2022 12:31:50 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/gui/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://melli79.github.io/categories/gui/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>11 Augen malen</title>
-      <link>http://localhost:1313/posts/11eyes/</link>
+      <link>https://melli79.github.io/posts/11eyes/</link>
       <pubDate>Sun, 10 Apr 2022 12:31:50 +0200</pubDate>
-      <guid>http://localhost:1313/posts/11eyes/</guid>
-      <description>&lt;p&gt;Nachdem ihr eine &lt;a href=&#34;../00-setup-ide/&#34;&gt;Entwicklungsumgebung aufgesetzt&lt;/a&gt; habt, wollen wir heute etwas malen.&lt;/p&gt;&#xA;&lt;h1 id=&#34;das-ziel&#34;&gt;Das Ziel&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/img/eyes.png&#34; alt=&#34;(.)(.)&#34; title=&#34;100x50&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;1-projekt-aufsetzen&#34;&gt;1. Projekt aufsetzen&lt;/h1&gt;&#xA;&lt;p&gt;So, wie in der Anleitung im Schritt 2B angegeben, erstellt ihr eine Datei &amp;gt; Neu &amp;gt; Projekt &amp;hellip; vom Typ Kotlin, Console Application.  Ihr könnt dem Projekt einen ordentlichen Namen geben, z.B. Eyes (engl. für Augen), achtet darauf, dass das Build-System Gradle-Kotlin ist, das Projekt open JDK 11 (oder was ihr damals als Java-Umgebung installiert habt) verwendet.  Der Rest kann bei den Standardwerten bleiben.&lt;/p&gt;</description>
+      <guid>https://melli79.github.io/posts/11eyes/</guid>
+      <description>&lt;p&gt;Nachdem ihr eine &lt;a href=&#34;../00-setup-ide/&#34;&gt;Entwicklungsumgebung aufgesetzt&lt;/a&gt; habt, wollen wir heute etwas malen.&lt;/p&gt;&#xA;&lt;h1 id=&#34;das-ziel&#34;&gt;Das Ziel&lt;/h1&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://melli79.github.io/img/eyes.png&#34; alt=&#34;(.)(.)&#34; title=&#34;100x50&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;1-projekt-aufsetzen&#34;&gt;1. Projekt aufsetzen&lt;/h1&gt;&#xA;&lt;p&gt;So, wie in der Anleitung im Schritt 2B angegeben, erstellt ihr eine Datei &amp;gt; Neu &amp;gt; Projekt &amp;hellip; vom Typ Kotlin, Console Application.  Ihr könnt dem Projekt einen ordentlichen Namen geben, z.B. Eyes (engl. für Augen), achtet darauf, dass das Build-System Gradle-Kotlin ist, das Projekt open JDK 11 (oder was ihr damals als Java-Umgebung installiert habt) verwendet.  Der Rest kann bei den Standardwerten bleiben.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

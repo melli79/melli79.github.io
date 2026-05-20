@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C&#43;&#43; on 古林学院 -- Gu-Lin School</title>
-    <link>http://localhost:1313/categories/c&#43;&#43;/</link>
+    <link>https://melli79.github.io/categories/c&#43;&#43;/</link>
     <description>Recent content in C&#43;&#43; on 古林学院 -- Gu-Lin School</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 19 Mar 2023 15:45:30 +0100</lastBuildDate>
-    <atom:link href="http://localhost:1313/categories/c++/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://melli79.github.io/categories/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>02CE. If and Smurfs</title>
-      <link>http://localhost:1313/posts/02ceifandsmurfs/</link>
+      <link>https://melli79.github.io/posts/02ceifandsmurfs/</link>
       <pubDate>Sun, 19 Mar 2023 15:45:30 +0100</pubDate>
-      <guid>http://localhost:1313/posts/02ceifandsmurfs/</guid>
+      <guid>https://melli79.github.io/posts/02ceifandsmurfs/</guid>
       <description>&lt;p&gt;Today we want to count smurfs (蓝精灵).  This is how it works:&lt;/p&gt;&#xA;&lt;ol start=&#34;0&#34;&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;We start with the ordinary numbers from 1: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, &amp;hellip;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Then we replace every 4th number by &amp;ldquo;smurf&amp;rdquo; according to its multiplicity (几次):&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;  1, 2, 3, smurf, 5, 6, 7, 2-smurf, 9, 10, 11, 3-smurf, 13, 14, 15, ...&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;16 is smurf-smurf.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h1 id=&#34;0-the-numbers&#34;&gt;0. The numbers&lt;/h1&gt;&#xA;&lt;p&gt;Probably you remember the for loop, that allows us to count, like this:&lt;/p&gt;</description>
     </item>
     <item>
       <title>01CE. For Loops</title>
-      <link>http://localhost:1313/posts/01celoops/</link>
+      <link>https://melli79.github.io/posts/01celoops/</link>
       <pubDate>Sun, 19 Mar 2023 14:55:50 +0100</pubDate>
-      <guid>http://localhost:1313/posts/01celoops/</guid>
+      <guid>https://melli79.github.io/posts/01celoops/</guid>
       <description>&lt;p&gt;This is a re-introduction.  This time I wrote it for C++ and in English, hence CE.&lt;/p&gt;&#xA;&lt;p&gt;Once you have set up a programming environment, you can try to write a first small program.&lt;/p&gt;&#xA;&lt;h1 id=&#34;the-goal&#34;&gt;The Goal&lt;/h1&gt;&#xA;&lt;p&gt;Today&amp;rsquo;s goal is a multiplication table (乘法表) as follows:&lt;/p&gt;&#xA;&lt;pre&gt;&#xA;   1  2  3  4  5  6  7  8  9 10&#xA;   2  4  6  8 10 12 14 16 18 20&#xA;   3  6  9 12 15 18 21 24 27 30&#xA;   4  8 12 16 20 24 28 32 36 40&#xA;   5 10 15 20 25 30 35 40 45 50&#xA;   6 12 18 24 30 36 42 48 54 60&#xA;   7 14 21 28 35 42 49 56 63 70&#xA;   8 16 24 32 40 48 56 64 72 80&#xA;   9 18 27 36 45 54 63 72 81 90&#xA;  10 20 30 40 50 60 70 80 90 100&#xA;&lt;/pre&gt;&#xA;&lt;p&gt;In words:  The 10 rows (行) contain the multiples of the corresponding number.&#xA;In every row the number, then its double (两次), then the triple (三次), &amp;hellip;, the 10-fold (十次).&lt;/p&gt;</description>
     </item>
   </channel>
