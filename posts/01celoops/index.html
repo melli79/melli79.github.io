@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>01CE. For Loops | 古林学院 -- Gu-Lin School</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="This is a re-introduction.  This time I wrote it for C&#43;&#43; and in English, hence CE.
+Once you have set up a programming environment, you can try to write a first small program.
+The Goal
+Today&rsquo;s goal is a multiplication table (乘法表) as follows:
+
+   1  2  3  4  5  6  7  8  9 10
+   2  4  6  8 10 12 14 16 18 20
+   3  6  9 12 15 18 21 24 27 30
+   4  8 12 16 20 24 28 32 36 40
+   5 10 15 20 25 30 35 40 45 50
+   6 12 18 24 30 36 42 48 54 60
+   7 14 21 28 35 42 49 56 63 70
+   8 16 24 32 40 48 56 64 72 80
+   9 18 27 36 45 54 63 72 81 90
+  10 20 30 40 50 60 70 80 90 100
+
+In words:  The 10 rows (行) contain the multiples of the corresponding number.
+In every row the number, then its double (两次), then the triple (三次), &hellip;, the 10-fold (十次).">
+    <meta name="generator" content="Hugo 0.161.1">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/01celoops/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/01celoops/">
+  <meta property="og:site_name" content="古林学院 -- Gu-Lin School">
+  <meta property="og:title" content="01CE. For Loops">
+  <meta property="og:description" content="This is a re-introduction. This time I wrote it for C&#43;&#43; and in English, hence CE.
+Once you have set up a programming environment, you can try to write a first small program.
+The Goal Today’s goal is a multiplication table (乘法表) as follows:
+1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21 24 27 30 4 8 12 16 20 24 28 32 36 40 5 10 15 20 25 30 35 40 45 50 6 12 18 24 30 36 42 48 54 60 7 14 21 28 35 42 49 56 63 70 8 16 24 32 40 48 56 64 72 80 9 18 27 36 45 54 63 72 81 90 10 20 30 40 50 60 70 80 90 100 In words: The 10 rows (行) contain the multiples of the corresponding number. In every row the number, then its double (两次), then the triple (三次), …, the 10-fold (十次).">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2023-03-19T14:55:50+01:00">
+    <meta property="article:modified_time" content="2023-03-19T14:55:50+01:00">
+
+  <meta itemprop="name" content="01CE. For Loops">
+  <meta itemprop="description" content="This is a re-introduction. This time I wrote it for C&#43;&#43; and in English, hence CE.
+Once you have set up a programming environment, you can try to write a first small program.
+The Goal Today’s goal is a multiplication table (乘法表) as follows:
+1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21 24 27 30 4 8 12 16 20 24 28 32 36 40 5 10 15 20 25 30 35 40 45 50 6 12 18 24 30 36 42 48 54 60 7 14 21 28 35 42 49 56 63 70 8 16 24 32 40 48 56 64 72 80 9 18 27 36 45 54 63 72 81 90 10 20 30 40 50 60 70 80 90 100 In words: The 10 rows (行) contain the multiples of the corresponding number. In every row the number, then its double (两次), then the triple (三次), …, the 10-fold (十次).">
+  <meta itemprop="datePublished" content="2023-03-19T14:55:50+01:00">
+  <meta itemprop="dateModified" content="2023-03-19T14:55:50+01:00">
+  <meta itemprop="wordCount" content="1141">
+  <meta itemprop="keywords" content="C&#43;&#43;,Programming">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="01CE. For Loops">
+  <meta name="twitter:description" content="This is a re-introduction. This time I wrote it for C&#43;&#43; and in English, hence CE.
+Once you have set up a programming environment, you can try to write a first small program.
+The Goal Today’s goal is a multiplication table (乘法表) as follows:
+1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21 24 27 30 4 8 12 16 20 24 28 32 36 40 5 10 15 20 25 30 35 40 45 50 6 12 18 24 30 36 42 48 54 60 7 14 21 28 35 42 49 56 63 70 8 16 24 32 40 48 56 64 72 80 9 18 27 36 45 54 63 72 81 90 10 20 30 40 50 60 70 80 90 100 In words: The 10 rows (行) contain the multiples of the corresponding number. In every row the number, then its double (两次), then the triple (三次), …, the 10-fold (十次).">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-01CEloops">
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        古林学院 -- Gu-Lin School
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/categories/" title="Categories page">
+              Categories
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+
+  <article class="page-01CEloops flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    Posts
+</aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">01CE. For Loops</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-03-19T14:55:50+01:00">March 19, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>This is a re-introduction.  This time I wrote it for C++ and in English, hence CE.</p>
+<p>Once you have set up a programming environment, you can try to write a first small program.</p>
+<h1 id="the-goal">The Goal</h1>
+<p>Today&rsquo;s goal is a multiplication table (乘法表) as follows:</p>
+<pre>
+   1  2  3  4  5  6  7  8  9 10
+   2  4  6  8 10 12 14 16 18 20
+   3  6  9 12 15 18 21 24 27 30
+   4  8 12 16 20 24 28 32 36 40
+   5 10 15 20 25 30 35 40 45 50
+   6 12 18 24 30 36 42 48 54 60
+   7 14 21 28 35 42 49 56 63 70
+   8 16 24 32 40 48 56 64 72 80
+   9 18 27 36 45 54 63 72 81 90
+  10 20 30 40 50 60 70 80 90 100
+</pre>
+<p>In words:  The 10 rows (行) contain the multiples of the corresponding number.
+In every row the number, then its double (两次), then the triple (三次), &hellip;, the 10-fold (十次).</p>
+<h1 id="what-elements-do-we-need">What Elements do we need?</h1>
+<ol>
+<li>A <em>variable</em> (变量/变数) can store a certain value, e.g.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>;
+</span></span></code></pre></div><p>means that we create a variable named <em>x</em> and give it the value 3, which is an integer (整数) hence the <code>int</code> in the beginning.</p>
+<p>Correspondingly</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  string name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Mel&#34;</span>;
+</span></span></code></pre></div><p>is a variable named <code>name</code> (名字) that contains the text <em>Mel</em> (my name), text or <code>string</code> means a sequence of characters (字串).</p>
+<p>Of course, we do not want to type in the multiples manually, instead a computer should be able to compute it.  We can reach that in the following way:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>  x<span style="color:#f92672">*</span>y
+</span></span></code></pre></div><p>Assuming the variables <code>x</code> and <code>y</code> contain numbers, then <code>x*y</code> means that their product (求积) is computed.  Correspondingly, we can compute a sum (求和) by <code>4+5</code>.</p>
+<h2 id="2-what-to-do-with-these-numbers">2. What to do with these numbers?</h2>
+<p>We will output them on the command line (命令行).  The simplest option for that is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>  cout<span style="color:#f92672">&lt;&lt;</span>x<span style="color:#f92672">*</span>y;
+</span></span></code></pre></div><p>Everything between <code>&lt;&lt;</code> and <code>;</code> will be printed/output on the command line.  <code>cout</code> derives from C/C++ output.</p>
+<h2 id="3-we-need-one-more-ingredient">3. We need one more ingredient</h2>
+<p>We want for every row 10 expressions and repeat that for 10 rows.</p>
+<p>For one row this looks as follows<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> y <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> x<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; x<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">11</span>; x<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span>x<span style="color:#f92672">*</span>y<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  cout<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span></code></pre></div><p>The first expression should be familiar <code>int y = 5</code> means that the variable <code>y</code> gets the value 5.
+<code>for (int x=1; x&lt;11; i++)</code> means that the following block / indented command(s) will be reapeated for all numbers from 1 below 11. In the first iteration (迭代), we have <code>x=1</code>, in the second iteration <code>x=2</code> and so on until <code>x=10</code> (the last number below 11).  This is called a for loop (for循环).</p>
+<p>The additional <code>cout&lt;&lt;endl;</code> means that we finish the output row after the loop.</p>
+<h2 id="4-how-do-we-form-the-whole-table">4. How do we form the whole table?</h2>
+<p>We should repeat the above block not only for <code>y=5</code>, but need to repeat it for <code>y</code> in <code>1..10</code> as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> y<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; y<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">11</span>; y<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> x<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; x<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">11</span>; x<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      cout<span style="color:#f92672">&lt;&lt;</span>x<span style="color:#f92672">*</span>y<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h2 id="5-how-can-i-make-this-a-whole-program">5. How can I make this a whole program?</h2>
+<p>For that you need 2 additional ingredients.</p>
+<p>First, the whole set of instructions has to go into a function (函数/方法) called <code>main</code>.  The reason is that the computer needs to know where to start with your program.  By convention this is in the function <code>main</code> as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> y<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>; y<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">11</span>; y<span style="color:#f92672">++</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>One part of the convention is that this function is called <code>main</code> (主), another convention is that it should return an <code>int</code>.  If everything went well, we should return 0, thus the program ends with <code>return 0;</code> (返回给).</p>
+<h2 id="6-problems-compiling-the-program">6. Problems compiling the program</h2>
+<p>When I try to compile the program, the compiler complains that it does not know the object <code>cout</code>, the operator <code>&lt;&lt;</code> is not applicable and it does not know <code>endl</code> either.  Somehow something important is missing.</p>
+<p>Yes, indeed.  All 3 elements are contained in the standard library and we need to tell the compiler where to find them and that it should use them.  Therefore, the program should start as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Now, the program should compile and you should even be able to run it.</p>
+<h1 id="7-how-can-i-start-the-program">7. How can I Start the Program?</h1>
+<p>If you set up your programming environment properly and wrote the programm in a new project, all you have to do is click the run botton on the top bar and immediately the program will be executed.</p>
+<h2 id="where-can-i-see-the-result">Where can I see the result?</h2>
+<p>When you started the program as explained above, there will be a new window (窗) in which you can see the output (输出) of the program (that should look as the picture in the beginning).</p>
+<h1 id="8-how-can-i-improve-the-program">8. How can I Improve the Program?</h1>
+<p>When you look at the output, you will see that all numbers in a row are printed one after the other with only one space.  This means that the numbers in different rows are not aligned in columns (在列中对齐), because the earlier rows contain more 1-digit numbers.  We can fix that by expanding every number to 2 digits (数字) as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  cout<span style="color:#f92672">&lt;&lt;</span>setw(<span style="color:#ae81ff">2</span>)<span style="color:#f92672">&lt;&lt;</span>x<span style="color:#f92672">*</span>y<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; &#34;</span>;
+</span></span></code></pre></div><p><code>&lt;&lt;setw(2)</code> means that the following number will be printed with 2 positions (or more) by padding them with spaces from the left if necessary.</p>
+<h2 id="additional-library">additional library</h2>
+<p>In order for the compiler to find the method <code>setw</code> we need an additional <code>#include</code> directive, namely for the library &ldquo;iomanip&rdquo;, e.g. as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iomanip&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span></code></pre></div><h2 id="what-happens-with-100-it-needs-3-digits">What happens with 100? (It needs 3 digits.)</h2>
+<p>Have a look at the (new) output.  Even though we requested only 2 digits, the number 100 is displayed with 3 digits.  The reason is that <code>&lt;&lt;setw(2)</code> means at least 2 positions, more when the number is bigger.</p>
+<h2 id="91-i-want-to-print-a-bigger-multiplication-table-like">9.1 I want to print a bigger Multiplication table, like <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo>×</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">20\times20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">20</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">20</span></span></span></span></h2>
+<p>Have a look at the line <code>for (int y=1; y&lt;11; y++)</code>.  <code>11</code> means that the last iteration runs with <code>y=10</code>.  So what is the first change?</p>
+<h3 id="how-do-i-make-the-table-square-shaped-方形">How do I make the Table square shaped (方形)?</h3>
+<p>We have 2 for loops <code>for (int y=...)</code> and <code>for (int x=...)</code>, i.e. you also have to adjust the 2nd for loop.</p>
+<p>Another problem may be that from the middle of the table on, most numbers exceed the 2 digits.  You can expand all numbers to 3 characters by adjusting to <code>&lt;&lt;setw(3)&lt;&lt;...</code>.</p>
+<h1 id="9-your-time-to-try-out-things">9. Your time to try out things</h1>
+<p>Please use the opportunity to try out different things&hellip;</p>
+<p>Next time, we will talk about conditional commands and counting smurfs.</p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Even though I am personally a fan of Kernighan &amp; Ritchie&rsquo;s egyptian style, many programming schools today prefer the Allman style (i.e. braces of matching identation each on a separate line).  Also my friend learned this style at school.&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+<ul class="pa0">
+  
+</ul>
+
+      
+    </div></article>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+    <div
+        class="flex justify-between mw8 center"
+    >
+        
+        <p class="f7 gray dib pv2 mv0">
+            &copy; 2020–2026 古林学院 -- Gu-Lin School. All rights
+            reserved.
+        </p>
+
+        
+        <div class="flex-l items-center">
+            <a class="gray" href="mailto:x@gMail.com,x=melchiorG"
+                >x@gMail.com,x=melchiorG</a
+            >
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

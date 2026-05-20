@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>IDE on Melchior&#39;s Homepage</title>
-    <link>https://melli79.github.io/tags/ide/</link>
-    <description>Recent content in IDE on Melchior&#39;s Homepage</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 09 Apr 2022 11:50:55 +0200</lastBuildDate><atom:link href="https://melli79.github.io/tags/ide/index.xml" rel="self" type="application/rss+xml" />
+    <title>IDE on 古林学院 -- Gu-Lin School</title>
+    <link>http://localhost:1313/tags/ide/</link>
+    <description>Recent content in IDE on 古林学院 -- Gu-Lin School</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Apr 2022 11:50:55 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/ide/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>00 Kotlin IDE Aufsetzen</title>
-      <link>https://melli79.github.io/post/00-setup-ide/</link>
+      <link>http://localhost:1313/posts/00-setup-ide/</link>
       <pubDate>Sat, 09 Apr 2022 11:50:55 +0200</pubDate>
-      
-      <guid>https://melli79.github.io/post/00-setup-ide/</guid>
-      <description>1. Schritt: IntelliJ für Windows 64 herunterladen und installieren Als Entwicklungsumgebung für Kotlin empfehle ich IntelliJ Idea Kommunity-Version. Diese kann man von der Website von JetBrains herunterladen, wichtig ist es, auf den schwarzen Knopf (Community Version) zu klicken.
-2A. Schritt: Java 11 Development Kit installieren Das sollte aus der IntelliJ IDE heraus gehen: Datei &amp;gt; Projektstruktur &amp;gt; Projekt &amp;gt; SDK &amp;gt; Download JDK
-Im Dialog: Version 11, Oracle Open JDK auswählen.</description>
+      <guid>http://localhost:1313/posts/00-setup-ide/</guid>
+      <description>&lt;h1 id=&#34;1-schritt-intellij-für-windows-64-herunterladen-und-installieren&#34;&gt;1. Schritt: IntelliJ für Windows 64 herunterladen und installieren&lt;/h1&gt;&#xA;&lt;p&gt;Als Entwicklungsumgebung für Kotlin empfehle ich IntelliJ Idea Kommunity-Version.  Diese kann man von der Website von &lt;a href=&#34;https://www.jetbrains.com/idea/download/#section=windows&#34;&gt;JetBrains&lt;/a&gt; herunterladen, wichtig ist es, auf den schwarzen Knopf (Community Version) zu klicken.&lt;/p&gt;&#xA;&lt;h1 id=&#34;2a-schritt-java-11-development-kit-installieren&#34;&gt;2A. Schritt: Java 11 Development Kit installieren&lt;/h1&gt;&#xA;&lt;p&gt;Das sollte aus der IntelliJ IDE heraus gehen: Datei &amp;gt; Projektstruktur &amp;gt; Projekt &amp;gt; SDK &amp;gt; Download JDK&lt;/p&gt;&#xA;&lt;p&gt;Im Dialog: Version 11, Oracle Open JDK auswählen.  Der Pfad sollte automatisch ausgefüllt sein, ansonsten kann man C:\Programme\Java angeben.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

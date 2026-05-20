@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>02 If und Schlümpfe | 古林学院 -- Gu-Lin School</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="if and smurfs">
+    <meta name="generator" content="Hugo 0.161.1">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/02ifandsmurfs/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/02ifandsmurfs/">
+  <meta property="og:site_name" content="古林学院 -- Gu-Lin School">
+  <meta property="og:title" content="02 If und Schlümpfe">
+  <meta property="og:description" content="if and smurfs">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-12-20T20:30:46+01:00">
+    <meta property="article:modified_time" content="2021-12-20T20:30:46+01:00">
+
+  <meta itemprop="name" content="02 If und Schlümpfe">
+  <meta itemprop="description" content="if and smurfs">
+  <meta itemprop="datePublished" content="2021-12-20T20:30:46+01:00">
+  <meta itemprop="dateModified" content="2021-12-20T20:30:46+01:00">
+  <meta itemprop="wordCount" content="899">
+  <meta itemprop="keywords" content="Programming,Kotlin">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="02 If und Schlümpfe">
+  <meta name="twitter:description" content="if and smurfs">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-02ifAndSmurfs">
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        古林学院 -- Gu-Lin School
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/categories/" title="Categories page">
+              Categories
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+
+  <article class="page-02ifAndSmurfs flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    Posts
+</aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">02 If und Schlümpfe</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-12-20T20:30:46+01:00">December 20, 2021</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>Heute wollen wir Schlümpfe zählen.  Das geht so:</p>
+<ol start="0">
+<li>
+<p>Wir fangen mit den normalen Zahlen bei 1 an: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, &hellip;</p>
+</li>
+<li>
+<p>Dann ersetzen wir jede 5. Zahl durch Schlümpf entsprechend ihrem Vielfache:</p>
+</li>
+</ol>
+<pre tabindex="0"><code class="language-log" data-lang="log">  1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, ...
+</code></pre><ol start="3">
+<li>die 25 ist Schlümpf-Schlümpf.</li>
+</ol>
+<h1 id="0-zahlenreihe">0. Zahlenreihe</h1>
+<p>Vom ersten Post erinnerst du dich bestimmt noch an for-Schleifen, mit denen man durchzählen kann, etwa so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (n <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">100</span>) {
+</span></span><span style="display:flex;"><span>      print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$n</span><span style="color:#e6db74">, &#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    println()
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h1 id="1-schlümpf">1. Schlümpf</h1>
+<p>Offenbar müssen wir bei jeder Zahl prüfen, ob sie durch 5 teilbar ist.  Das macht man so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  n%<span style="color:#ae81ff">5</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>Es bedeutet, dass man den Rest beim Dividieren von <code>n</code> durch 5 ausrechnet und dann schaut, ob der 0 ist.  Beispielsweise ist <code>1%5==1</code> also nicht gleich 0, <code>2%5==2</code>, <code>3%5==3</code>, <code>5%5==0</code>, <code>6%5==1</code> und so weiter.</p>
+<p>Falls <code>n%5==0</code>, dann müssen wir &ldquo;Schlümpf, &quot; ausgeben, ansonsten &ldquo;$n, &ldquo;.  Wie bringen wir das dem Computer bei?  Kotlin ist an Englisch anlgelehnt und im Englischen heißt falls <code>if</code> (nicht when, da ja nicht klar ist, ob die Bedingung erfüllt wird), ansonsten heißt <code>else</code>, also:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (n%<span style="color:#ae81ff">5</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Schlümpf, &#34;</span>)
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$n</span><span style="color:#e6db74">, &#34;</span>)
+</span></span></code></pre></div><p>Damit wir nicht alles ins Hauptprogramm stopfen, wollen wir das Verschlumpfen in eine Funktion stecken:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">smurfify</span>(n :Int) :String {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (n%<span style="color:#ae81ff">5</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> n.toString()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Schlümpf&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p><code>fun</code> kennst du sicherlich noch von der ersten Lektion, <code>fun main()</code> ist das Hauptprogramm.  Unser Teilstück heißt jetzt <code>smurfify</code> (Verschlumpfen).  Dazu muss man natürlich wissen, welche Zahl verschlumpft werden soll, also übergeben wir eine Zahl <code>(n :Int)</code>.  Die Zahl heisst im Teilprogramm <code>n</code> und <code>Int</code> gibt an, dass eine ganze Zahl (also nicht <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.5</mn></mrow><annotation encoding="application/x-tex">0.5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.5</span></span></span></span> oder &ldquo;Hallo&rdquo;) übergeben wird.</p>
+<p>Natürlich wollen wir auch das Ergebnis zurück geben, also schreiben wir <code>:String</code>, d.h. es wird am Ende Text zurück gegeben.</p>
+<p>Nun zu den 2 Fällen:  Es wird kontrolliert, ob <code>n</code> bei Division durch 5 nicht den Rest 0 ergibt, also nur 1, 2, 3 oder 4.  In diesem Fall wird, <code>n.toString()</code> zurück gegeben (engl. return heisst zurückkehren oder zurückgeben), also die Zahl als Text.  <code>return</code> bewirkt noch etwas anderes, nämlich, dass die Funktion hier beendet wird.  Die letzte Zeile wird in diesem Fall also gar nicht mehr ausgeführt.</p>
+<p>Wenn <code>n</code> aber durch 5 teilbar ist (<code>n%5 == 0</code>), dann wird die erste <code>return</code>-Anweisung nicht ausgeführt.  Stattdessen geht es mit dem nächsten Befehl weiter.  Da wird dann &ldquo;Schlümpf&rdquo; zurück gegeben (und die Funktion beendet).</p>
+<p>Jetzt sieht unser Programm etwa so aus:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">smurfify</span>(n :Int) :String {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (n%<span style="color:#ae81ff">5</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> n.toString()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Schlümpf&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (n <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">..</span><span style="color:#ae81ff">30</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">val</span> number = smurfify(n)
+</span></span><span style="display:flex;"><span>      print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$number</span><span style="color:#e6db74">, &#34;</span>)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    println()
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Und das Ergebnis so:</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">  1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, Schlümpf, 11, 12, 13, 14, Schlümpf, 16, 17, 18, 19, Schlümpf, ...
+</code></pre><p>Immerhin, jede 5. Zahl ist durch &ldquo;Schlümpf&rdquo; ersetzt.</p>
+<h1 id="2-wie-kann-man-die-vielfache-ausgeben">2. Wie kann man die Vielfache ausgeben?</h1>
+<p>Eigentlich sollen wir für 10 aber &ldquo;2 Schlümpf&rdquo; schreiben.  Die 2 ist 10/5.  Das können wir so erreichen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">smurfify</span>(n :Int) :String {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (n%<span style="color:#ae81ff">5</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> n.toString()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> factor = n/<span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$factor</span><span style="color:#e6db74"> Schlümpf&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Wenn du das Programm wieder startest, dann sieht das Ergebnis so aus:</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">  1, 2, 3, 4, 1 Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, 17, 18, 19, 4 Schlümpf, 21, 22, 23, 24, 5 Schlümpf, 26, 27, 28, 29, 6 Schlümpf,
+</code></pre><h2 id="21-die-1-kann-weg">2.1 Die &ldquo;1&rdquo; kann weg</h2>
+<p>Ok, offenbar müssen wir noch einen Fall unterscheiden:  Wenn der <code>factor</code> 1 ist, dann nur &ldquo;Schlümpf&rdquo; ausgeben, also:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">smurfify</span>(n :Int) :String {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (n%<span style="color:#ae81ff">5</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> n.toString()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> factor = n/<span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (factor<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Schlümpf&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$factor</span><span style="color:#e6db74"> Schlümpf&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Jetzt aber:</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">  1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, 17, 18, 19, 4 Schlümpf, 21, 22, 23, 24, 5 Schlümpf, 26, 27, 28, 29, 6 Schlümpf,
+</code></pre><h1 id="3-25-ist-schlümpf-schlümpf">3. &ldquo;25&rdquo; ist Schlümpf-Schlümpf</h1>
+<p>Eine Sache stört noch:  Die 25 ist nicht einfach &ldquo;5 Schlümpf&rdquo;, sondern der <code>factor</code> sollte 1 sein und die Endung &ldquo;Schlümpf-Schlümpf&rdquo;.  Das kann man so erreichen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">smurfify</span>(n :Int) :String {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (n%<span style="color:#ae81ff">5</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> n.toString()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> factor = n/<span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> suffix = <span style="color:#e6db74">&#34;Schlümpf&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (factor%<span style="color:#ae81ff">5</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>) {
+</span></span><span style="display:flex;"><span>      factor <span style="color:#f92672">/=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>      suffix <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;-Schlümpf&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (factor<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> suffix
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$factor</span><span style="color:#e6db74"> </span><span style="color:#e6db74">$suffix</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p><code>while (bedingung) { ... }</code> bedeutet, dass die <code>bedingung</code> getestet wird.  Wenn die wahr ist, wird der Teil zwischen <code>{</code> und <code>}</code> ausgeführt.  Dann wird die Bedingung wieder getestet und so weiter, bis die Bedingung irgendwann nicht mehr erfüllt ist (engl. while heisst während, solange).</p>
+<p><code>factor /= 5</code> heisst, dass der Faktor durch 5 geteilt wird und das neue Erbegnis gespeichert wird (deshalb auch <code>var factor = ...</code>).  Entsprechend heisst <code>suffix += &quot;-Schlümpf&quot;</code>, dass einmal &ldquo;-Schlümpf&rdquo; angehängt wird.  Nach dem ersten Durchlauf ist also <code>factor</code> um einen Faktor 5 kleiner und <code>suffix == &quot;Schlümpf-Schlümpf&quot;</code>.</p>
+<p>Nun sieht die Ausgabe wie folgt aus:</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">  1, 2, 3, 4, Schlümpf, 6, 7, 8, 9, 2 Schlümpf, 11, 12, 13, 14, 3 Schlümpf, 16, 17, 18, 19, 4 Schlümpf, 21, 22, 23, 24, Schlümpf-Schlümpf, 26, 27, 28, 29, 6 Schlümpf,
+</code></pre><h1 id="4-selber-probieren">4. Selber probieren</h1>
+<p>Kannst Du eine Funktion <code>fun congee(n :Int) :String</code> schreiben, die jede 3. Zahl durch &ldquo;Brei&rdquo; (engl. congee) ersetzt?</p>
+<p>Wie muss man die Funktion ins Hauptprogramm einbauen?</p>
+<p>Kannst du die Funktion noch verfeinern?</p>
+<ul class="pa0">
+  
+</ul>
+
+      
+    </div></article>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+    <div
+        class="flex justify-between mw8 center"
+    >
+        
+        <p class="f7 gray dib pv2 mv0">
+            &copy; 2020–2026 古林学院 -- Gu-Lin School. All rights
+            reserved.
+        </p>
+
+        
+        <div class="flex-l items-center">
+            <a class="gray" href="mailto:x@gMail.com,x=melchiorG"
+                >x@gMail.com,x=melchiorG</a
+            >
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

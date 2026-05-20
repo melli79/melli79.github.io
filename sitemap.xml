@@ -1,417 +1,53 @@
-<?xml-stylesheet type="text/xsl" href="https://melli79.github.io/sitemap.xsl"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://melli79.github.io/post/15cespaceshooter/</loc>
-    <lastmod>2023-11-04T16:40:50+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/c&#43;&#43;/</loc>
-    <lastmod>2023-11-04T16:40:50+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/</loc>
-    <lastmod>2023-11-04T16:40:50+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/game/</loc>
-    <lastmod>2023-11-04T16:40:50+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/gui/</loc>
-    <lastmod>2023-11-04T16:40:50+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/</loc>
-    <lastmod>2023-11-04T16:40:50+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/</loc>
-    <lastmod>2023-11-04T16:40:50+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/programming/</loc>
-    <lastmod>2023-11-04T16:40:50+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/17spaceshooter/</loc>
-    <lastmod>2023-10-31T19:20:50+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/kotlin/</loc>
-    <lastmod>2023-10-31T19:20:50+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/07cefactorgame/</loc>
-    <lastmod>2023-09-24T16:44:10+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/13cemandelbrot/</loc>
-    <lastmod>2023-07-05T19:18:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/fraktal/</loc>
-    <lastmod>2023-07-05T19:18:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/12cepythagoreantree/</loc>
-    <lastmod>2023-06-17T23:52:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/qt/</loc>
-    <lastmod>2023-06-17T23:52:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/11ceeyes/</loc>
-    <lastmod>2023-06-03T23:12:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/06ceattentiongame/</loc>
-    <lastmod>2023-04-16T16:44:10+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/05cepeople/</loc>
-    <lastmod>2023-04-01T22:35:10+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/04.2cecountinginenglish/</loc>
-    <lastmod>2023-03-28T01:05:10+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/04cebignumbers/</loc>
-    <lastmod>2023-03-26T18:14:10+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/03cenumberguessing/</loc>
-    <lastmod>2023-03-20T18:14:10+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/02ceifandsmurfs/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2023-03-19T15:45:30+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/01celoops/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/02ceifandsmurfs/</loc>
+    <lastmod>2023-03-19T15:45:30+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/c&#43;&#43;/</loc>
+    <lastmod>2023-03-19T15:45:30+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/</loc>
+    <lastmod>2023-03-19T15:45:30+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2023-03-19T15:45:30+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/categories/programming/</loc>
+    <lastmod>2023-03-19T15:45:30+01:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/01celoops/</loc>
     <lastmod>2023-03-19T14:55:50+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/25chemistry/</loc>
-    <lastmod>2023-03-06T22:20:45+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/chemie/</loc>
-    <lastmod>2023-03-06T22:20:45+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/testen/</loc>
-    <lastmod>2023-03-06T22:20:45+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/02peifandsmurfs/</loc>
-    <lastmod>2023-03-04T13:43:46+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/python/</loc>
-    <lastmod>2023-03-04T13:43:46+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/01peloops/</loc>
-    <lastmod>2023-03-03T23:24:50+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/30beziercurves/</loc>
-    <lastmod>2023-02-20T18:12:00+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/projekt/</loc>
-    <lastmod>2023-02-20T18:12:00+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/24errorcorrection/</loc>
-    <lastmod>2023-02-05T10:55:45+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/zahlentheorie/</loc>
-    <lastmod>2023-02-05T10:55:45+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/23encryptionandsigning/</loc>
-    <lastmod>2023-01-29T21:10:53+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/kryptographie/</loc>
-    <lastmod>2023-01-29T21:10:53+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/22eulerfermat/</loc>
-    <lastmod>2023-01-18T18:00:52+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/21fermatslittletheorem/</loc>
-    <lastmod>2023-01-17T19:00:51+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/20numbercongruences/</loc>
-    <lastmod>2023-01-15T20:45:50+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/16curlsonthecomputer/</loc>
-    <lastmod>2022-09-04T12:35:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/animation/</loc>
-    <lastmod>2022-09-04T12:35:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/15iteratedfunctionsystems/</loc>
-    <lastmod>2022-08-21T12:35:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/14baumdespythagoras/</loc>
-    <lastmod>2022-08-19T18:35:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/13mandelbrot/</loc>
-    <lastmod>2022-06-25T12:35:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/12modernart/</loc>
-    <lastmod>2022-04-18T16:05:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/11eyes/</loc>
-    <lastmod>2022-04-10T12:31:50+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/00-setup-ide/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/00-setup-ide/</loc>
     <lastmod>2022-04-09T11:50:55+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/tags/ide/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/ide/</loc>
     <lastmod>2022-04-09T11:50:55+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/tags/kotlin/</loc>
+  </url><url>
+    <loc>http://localhost:1313/categories/kotlin/</loc>
     <lastmod>2022-04-09T11:50:55+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/kotlin/</loc>
     <lastmod>2022-04-09T11:50:55+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/03cwomengivebirth/</loc>
-    <lastmod>2021-12-23T18:10:51+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/03bpeoplecanmarry/</loc>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2022-04-09T11:50:55+02:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/03bpeoplecanmarry/</loc>
     <lastmod>2021-12-22T21:39:52+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/03dataandpeople/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/03dataandpeople/</loc>
     <lastmod>2021-12-22T19:40:39+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/02ifandsmurfs/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/02ifandsmurfs/</loc>
     <lastmod>2021-12-20T20:30:46+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/29statistics/</loc>
-    <lastmod>2021-12-19T20:25:47+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/01loops/</loc>
+  </url><url>
+    <loc>http://localhost:1313/posts/01loops/</loc>
     <lastmod>2021-12-18T23:21:50+01:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
-  
-  <url>
-    <loc>https://melli79.github.io/tags/publishing/</loc>
-    <lastmod>2020-09-05T21:50:55+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/post/setup-webpage/</loc>
-    <lastmod>2020-09-05T21:50:55+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/tags/webpage/</loc>
-    <lastmod>2020-09-05T21:50:55+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://melli79.github.io/categories/webpage/</loc>
-    <lastmod>2020-09-05T21:50:55+02:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
 </urlset>

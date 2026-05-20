@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>03B Leute können Heiraten | 古林学院 -- Gu-Lin School</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="people can marry">
+    <meta name="generator" content="Hugo 0.161.1">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/03bpeoplecanmarry/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/03bpeoplecanmarry/">
+  <meta property="og:site_name" content="古林学院 -- Gu-Lin School">
+  <meta property="og:title" content="03B Leute können Heiraten">
+  <meta property="og:description" content="people can marry">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-12-22T21:39:52+01:00">
+    <meta property="article:modified_time" content="2021-12-22T21:39:52+01:00">
+
+  <meta itemprop="name" content="03B Leute können Heiraten">
+  <meta itemprop="description" content="people can marry">
+  <meta itemprop="datePublished" content="2021-12-22T21:39:52+01:00">
+  <meta itemprop="dateModified" content="2021-12-22T21:39:52+01:00">
+  <meta itemprop="wordCount" content="767">
+  <meta itemprop="keywords" content="Programming,Kotlin">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="03B Leute können Heiraten">
+  <meta name="twitter:description" content="people can marry">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-03BpeopleCanMarry">
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        古林学院 -- Gu-Lin School
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/categories/" title="Categories page">
+              Categories
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+
+  <article class="page-03BpeopleCanMarry flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    Posts
+</aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">03B Leute können Heiraten</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-12-22T21:39:52+01:00">December 22, 2021</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>Heute wollen wir schauen, was Personen tun können.</p>
+<h1 id="3-zwei-personen-können-heiraten">3. Zwei Personen können heiraten.</h1>
+<p>Wenn wir schon ein Modell von Menschen haben, dann sollten die auch wie Menschen leben können.  Als erstes wollen sie heiraten können.</p>
+<p>Was sind die Voraussetzungen zum Heiraten?  Man braucht einen Mann, eine Frau (oder 2 Männer oder 2 Frauen), die müssen beide ledig sein und alt genug und dann werden sie Mann und Frau (oder Mann und Mann oder Frau und Frau).</p>
+<h2 id="31-woran-erkennt-man-dass-jemand-ledig-ist">3.1 Woran erkennt man, dass jemand ledig ist?</h2>
+<p>Naja, ledig ist man, wenn man nicht verheiratet ist, also keine/n Ehepartner/in (engl. spouse) hat.</p>
+<p>Dem Computer erklärt man das so</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  Person(<span style="color:#f92672">..</span>.) {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">isSingle</span>() = spouse<span style="color:#f92672">==</span><span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Das bedeutet, dass <code>isSingle</code> eine Funktion ist und die wird berechnet als <code>spouse==null</code>, also dass man keine/n Ehepartner/in hat.</p>
+<p>Moment, früher haben wir doch Funktionen so geschrieben:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">isSingle</span>(p :Person) :Boolean {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p.spouse <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Ja, es gibt 2 Unterschiede:  Zum einen schreiben wir die Person davor, also <code>melli.isSingle()</code>, deshalb ist unsere Funktion innerhalb der Person definiert und nimmt kein weiteres Argument entgegen.  Solche Funktionen heißen Methoden.</p>
+<p>Zum anderen ist doch vom Ausdruck <code>spouse==null</code> klar, dass es ein <code>Boolean</code> ist und das wir den Wert zurückgeben wollen.  Zur Erinnerung <code>Boolean</code> heisst, dass es <code>true</code> (wahr) oder <code>false</code> (falsch) sein kann.  Das haben sich die Entwickler von Kotlin auch gedacht und deshalb diese verkürzte Variante der Definition von Funktionen (oder Methoden) erfunden.  Sehr praktisch, oder?</p>
+<h2 id="32-wie-kann-man-nun-heiraten">3.2 Wie kann man nun heiraten?</h2>
+<p>Also im wahren Leben ist das komplizierter, aber im Computer können wir uns das wie folgt vorstellen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">Person</span>.marry(s :Person, weddingDay :PartialDate) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!is</span>Single())
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> IllegalStateException(<span style="color:#e6db74">&#34;Du bist nicht ledig, damit kannst du nicht mehr heiraten.&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (!s.isSingle())
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> IllegalStateException(<span style="color:#e6db74">&#34;Dein/e Partner/in ist nicht ledig.  Den/die kannst du nicht heiraten.&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (age(weddingDay)&lt;<span style="color:#ae81ff">18</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> IllegalStateException(<span style="color:#e6db74">&#34;Du bist zu jung zum Heiraten.&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>(s.age(weddingDay)&lt;<span style="color:#ae81ff">18</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">throw</span> IllegalStateException(<span style="color:#e6db74">&#34;Dein/e Partner/in ist zu jung zum Heiraten.&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// und wenn dann alles passt
+</span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.spouse = s
+</span></span><span style="display:flex;"><span>    s.spouse = <span style="color:#66d9ef">this</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Hier haben wir einen Kompromiss, die Funktion muss nicht in der Klasse <code>Person</code> definiert werden, aber sie operiert auf einer Person.  Diese Person steht dann implizit dahinter (z.B. bei <code>isSingle()</code> oder bei <code>age()</code>).  Wenn man die Person explizit braucht, dann kann man <code>this</code> schreiben (engl. für dieses).</p>
+<p>Was bedeuten die vielen <code>IllegalStateException</code>s?  Naja, in diesem Fall kann man halt nicht einfach heiraten.</p>
+<h2 id="33-was-ist-mit-dem-familiennamen">3.3 Was ist mit dem Familiennamen?</h2>
+<p>Ok, den kann man bei der Hochzeit festlegen, z.B. behält eine Person immer ihren Namen, die andere Person kann den Familiennamen entweder behalten oder den des/der Partner/in annehmen oder einen Doppelnamen bekommen.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">enum</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FamilyNameRule</span> {
+</span></span><span style="display:flex;"><span>    KeepName, SpousesName, DoubleName
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">Person</span>.marry(s :Person, weddingDay :PartialDate, familyNameRule :FamilyNameRule =<span style="color:#a6e22e">FamilyNameRule</span>.SpousesName) {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">when</span> (familyNameRule) {
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">FamilyNameRule</span>.Partners <span style="color:#f92672">-&gt;</span> s.familyName = <span style="color:#66d9ef">this</span>.familyName
+</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">FamilyNameRule</span>.DoubleName <span style="color:#f92672">-&gt;</span> s.familyName <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;-&#34;</span>+<span style="color:#66d9ef">this</span>.familyName
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">else</span> <span style="color:#f92672">-&gt;</span> {}
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p><code>when</code> (wenn oder sobald) bedeutet so ähnlich wie <code>if</code>, dass es mehrere Fälle geben kann.  Die einzelnen Fälle werden dann mit <code>-&gt;</code> aufgelistet, also wenn <code>familyNameRule==FamilyRule.Partners</code>, dann <code>s.familyName = this.familyName</code>. Wenn <code>familyNameRule==FamilyNameRule.DoubleName</code>, dann &hellip; .</p>
+<h2 id="34-wie-alt-ist-eine-person">3.4 Wie alt ist eine Person?</h2>
+<p>Das hängt vom Geburtstag und vom aktuellen Datum ab.  Wir können das als Methode zur Person hinzufügen.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  Person(<span style="color:#f92672">..</span>.) {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">age</span>(today :PartialDate) = today.year - birthday.year
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Aber ist das korrekt?</p>
+<p>Wenn die Person am 31.12.2010 geboren ist und heute der 1.1.2011 ist, dann ist die Person doch noch nicht 1 Jahr alt.  D.h. eigentlich müssen wir noch 1 Jahr abziehen, wenn heute (engl. today) vor dem Geburtsmonat ist.  Der 2. Versuch wäre:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">age</span>(today :PartialDate) = today.year - birthday.year -
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (month<span style="color:#f92672">!=</span><span style="color:#66d9ef">null</span><span style="color:#f92672">&amp;&amp;</span>today.month<span style="color:#f92672">!=</span><span style="color:#66d9ef">null</span><span style="color:#f92672">&amp;&amp;</span>month&lt;today.month) <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>Ist das korrekt?</p>
+<p>Tja, wenn die Person am 31.12.2021 geboren ist und heute der 1.12.2022, dann ist die Person immer noch nicht 1 Jahr alt.  Es gibt also noch einen weiteren Fall.  3. Versuch:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">age</span>(today :PartialDate) = today.year - year -
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (month<span style="color:#f92672">!=</span><span style="color:#66d9ef">null</span><span style="color:#f92672">&amp;&amp;</span>today.month<span style="color:#f92672">!=</span><span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (month&lt;today.month <span style="color:#f92672">||</span>
+</span></span><span style="display:flex;"><span>          month<span style="color:#f92672">==</span>today.month<span style="color:#f92672">&amp;&amp;</span>day<span style="color:#f92672">!=</span><span style="color:#66d9ef">null</span><span style="color:#f92672">&amp;&amp;</span>today.day<span style="color:#f92672">!=</span><span style="color:#66d9ef">null</span><span style="color:#f92672">&amp;&amp;</span>day&lt;today.day)
+</span></span><span style="display:flex;"><span>        <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>Zum Glück brauchen wir nur das Alter in Jahren.</p>
+<p>Funktioniert das nun?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> melli = Person(<span style="color:#e6db74">&#34;Melchior&#34;</span>, <span style="color:#e6db74">&#34;Grützmann&#34;</span>, <span style="color:#a6e22e">Gender</span>.Male, PartialDate(<span style="color:#ae81ff">1979</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">20</span>))
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> fanli = Person(<span style="color:#e6db74">&#34;Fanli&#34;</span>, <span style="color:#e6db74">&#34;Lin&#34;</span>, <span style="color:#a6e22e">Gender</span>.Female, PartialDate(<span style="color:#ae81ff">1991</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">17</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$melli</span><span style="color:#e6db74"> heiratet </span><span style="color:#e6db74">$fanli</span><span style="color:#e6db74">:&#34;</span>)
+</span></span><span style="display:flex;"><span>    fanli.marry(melli, PartialDate(<span style="color:#ae81ff">2050</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>), <span style="color:#a6e22e">FamilyNameRule</span>.DoubleName)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">$melli</span><span style="color:#e6db74"> ist verheiratet mit </span><span style="color:#e6db74">$fanli</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><pre tabindex="0"><code class="language-log" data-lang="log">  Herr Melchior Grützmann (*20.6.1979) heiratet Frau Fanli Lin (*17.1.1991):
+  Herr Melchior Grützmann-Lin (*20.6.1979) ist verheiratet mit Frau Fanli Lin (*17.1.1991).
+</code></pre><h2 id="9a-selbst-experimentieren">9a. Selbst experimentieren</h2>
+<p>Ok, nun ist Zeit, selber zu probieren:</p>
+<ol>
+<li>
+<p>Wie bekommst du heraus, wie alt Melchior am 30.6.2050 ist?</p>
+</li>
+<li>
+<p>Kann jemand, der am 2.2.2010 geboren ist, jemanden, die am 1.3. 2011 geboren ist, am 1.1.2028 heiraten?</p>
+</li>
+</ol>
+<p>Überlege dir das erst einmal theoretisch und probiere es dann mit dem Programm aus.</p>
+<ol start="3">
+<li>
+<p>Wie sieht es am 5.2.2028 aus?</p>
+</li>
+<li>
+<p>Und am 1.1.2030?</p>
+</li>
+</ol>
+<ul class="pa0">
+  
+</ul>
+
+      
+    </div></article>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+    <div
+        class="flex justify-between mw8 center"
+    >
+        
+        <p class="f7 gray dib pv2 mv0">
+            &copy; 2020–2026 古林学院 -- Gu-Lin School. All rights
+            reserved.
+        </p>
+
+        
+        <div class="flex-l items-center">
+            <a class="gray" href="mailto:x@gMail.com,x=melchiorG"
+                >x@gMail.com,x=melchiorG</a
+            >
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

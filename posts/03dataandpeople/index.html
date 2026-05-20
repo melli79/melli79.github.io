@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>03 Daten und Leute | 古林学院 -- Gu-Lin School</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="People and Data">
+    <meta name="generator" content="Hugo 0.161.1">
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.css">
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/03dataandpeople/">
+    
+
+    
+    
+    <meta property="og:url" content="http://localhost:1313/posts/03dataandpeople/">
+  <meta property="og:site_name" content="古林学院 -- Gu-Lin School">
+  <meta property="og:title" content="03 Daten und Leute">
+  <meta property="og:description" content="People and Data">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-12-22T19:40:39+01:00">
+    <meta property="article:modified_time" content="2021-12-22T19:40:39+01:00">
+
+  <meta itemprop="name" content="03 Daten und Leute">
+  <meta itemprop="description" content="People and Data">
+  <meta itemprop="datePublished" content="2021-12-22T19:40:39+01:00">
+  <meta itemprop="dateModified" content="2021-12-22T19:40:39+01:00">
+  <meta itemprop="wordCount" content="830">
+  <meta itemprop="keywords" content="Programming,Kotlin">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="03 Daten und Leute">
+  <meta name="twitter:description" content="People and Data">
+
+	
+  </head><body class="ma0 avenir bg-near-white development is-page is-page page-03DataandPeople">
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        古林学院 -- Gu-Lin School
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/categories/" title="Categories page">
+              Categories
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+
+  <article class="page-03DataandPeople flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    Posts
+</aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">03 Daten und Leute</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-12-22T19:40:39+01:00">December 22, 2021</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>Heute soll es darum gehen, wie man Leute im Computer darstellt.</p>
+<h1 id="1-was-ist-uns-an-leuten-wichtig">1. Was ist uns an Leuten wichtig?</h1>
+<p>Ein echter Mensch ist 2&ndash;200 kg schwer, besteht aus Haut, Muskeln, Knochen, &hellip;, trägt Kleidung, &hellip; .
+Die werden wahrscheinlich nicht in den Computer passen.</p>
+<p>Stattdessen überlegen wir uns, was wir von einem Menschen darstellen wollen, d.h. wir bilden uns ein Modell.</p>
+<p>Also ein Mensch hat</p>
+<ul>
+<li>einen festen Vornamen,</li>
+<li>einen Familiennamen,</li>
+<li>ein Geburtsdatum,</li>
+<li>ein Geschlecht,</li>
+<li>einen Vater, eine Mutter,</li>
+<li>vielleicht eine/n Ehepartner/in,</li>
+<li>vielleicht Kinder.</li>
+</ul>
+<h1 id="2-wie-können-wir-diese-daten-darstellen">2. Wie können wir diese Daten darstellen?</h1>
+<p>Vor- und Familiennamen können wir als Text darstellen, in Kotlin <code>String</code>s.  Das Datum stellen wir als <code>PartialDate</code> dar, d.h. für manche Menschen kennen wir nur das Geburtsjahr, für andere das genaue Datum (mit Jahr).</p>
+<p>Beim Geschlecht gibt es offiziell 3 Möglichkeiten: männlich (<code>Male</code>), weiblich (<code>Female</code>) und divers (<code>Other</code>), d.h. das Geschlecht (<code>Gender</code>) kann genau 1 dieser 3 Fälle sein.  Das kann man in Kotlin durch eine Klasse mit aufzählbaren Werten (<code>enum class</code>, engl. enumerable heisst aufzählbar) darstellen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-kotlin" data-lang="kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">enum</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Gender</span>(<span style="color:#66d9ef">val</span> title :String) {
+</span></span><span style="display:flex;"><span>    Male(<span style="color:#e6db74">&#34;Herr&#34;</span>), Female(<span style="color:#e6db74">&#34;Frau&#34;</span>), Other(<span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Dabei bedeutet <code>val title :String</code>, dass es zu jedem Geschlecht noch einen Titel gibt.  Der Titel des jeweiligen Geschlechts steht in Klammern dahiner, für divers ist mir nichts eingefallen.</p>
+<p>Wie sieht nun eine Person aus?</p>
+<h2 id="1-versuch">1. Versuch</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> givenName :String,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> familyName :String,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> gender :Gender,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> birthday :PartialDate,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> father :Person,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> mother :Person,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> spouse :Person? =<span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> children :MutableList&lt;Person&gt; =mutableListOf&lt;Person&gt;()
+</span></span><span style="display:flex;"><span>  )
+</span></span></code></pre></div><p>Was bedeutet <code>var spouse :Person? =null</code>?  Zunächst einmal dass der/die Partner/in (engl. spouse) sich ändern kann (<code>var</code> steht für engl. variable, änderbar).  Dann, dass es eine <code>Person</code> sein kann oder auch niemand (<code>?</code>) und schließlich, dass der Anfangswert <code>null</code> ist (also niemand).  Das ist sicherlich sinnvoll, z.B. wenn die Person gerade erst geboren ist.</p>
+<p>Was bedeutet <code>:MutableList&lt;Person&gt; =mutableList&lt;Person&gt;()</code>?  Dass die Kinder in einer Liste eingetragen werden und die sich im Laufe des Lebens ändern kann (engl. mutable heisst änderbar).   Am Anfang ist die Liste leer, weil man noch keine Kinder hat.</p>
+<p>Wie erzeugt man jetzt eine Person?</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">val</span> melli = Person(<span style="color:#e6db74">&#34;Melchior&#34;</span>, <span style="color:#e6db74">&#34;Grützmann&#34;</span>, <span style="color:#a6e22e">Gender</span>.Male, PartialDate(<span style="color:#ae81ff">1979</span>,<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">20</span>), ?, ?)
+</span></span></code></pre></div><p>Irgend etwas stimmt da noch nicht.  Was gebe ich für Vater und Mutter an?  Ok, ich habe einen Vater und eine Mutter, aber wenn ich die nicht angeben will?  Selbst wenn ich die angeben würde, was gebe ich für den Vater meines Vaters an?  Und für dessen Mutter?  Und für deren Eltern??</p>
+<p>Wenn ich nicht die gesamte Menschheitsgeschichte angeben möchte, dann sollten auch Vater und Mutter optional sein, also:</p>
+<h2 id="2-versuch">2. Versuch</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>(<span style="color:#f92672">..</span>.,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> father :Person? =<span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> mother :Person? =<span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">..</span>.
+</span></span><span style="display:flex;"><span>  )
+</span></span></code></pre></div><p>Jetzt kann ich schreiben:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">val</span> melli = Person(<span style="color:#e6db74">&#34;Melchior&#34;</span>, <span style="color:#e6db74">&#34;Grützmann&#34;</span>, <span style="color:#a6e22e">Gender</span>.Male, PartialDate(<span style="color:#ae81ff">1979</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">20</span>))
+</span></span></code></pre></div><p>Die restlichen Eigenschaften haben einfach ihre Standardwerte, also keine Eltern, keine Partnerin, keine Kinder.</p>
+<h2 id="wie-sieht-so-eine-person-aus">Wie sieht so eine Person aus?</h2>
+<p>Die Standardausgabe ist ziemlich komisch, da steht &ldquo;Person@2354345&rdquo;.  Wir hätten doch lieber &ldquo;Herr Melchior Grützmann (*20.6.1979)&rdquo;.</p>
+<p>Also müssen wir Kotlin sagen, wie es die Person in einen Text (<code>String</code>) umwandelt.  Das geht so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  Person (<span style="color:#f92672">..</span>.) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">toString</span>() = <span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">${gender.title}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">$givenName</span><span style="color:#e6db74"> </span><span style="color:#e6db74">$familyName</span><span style="color:#e6db74"> (*</span><span style="color:#e6db74">$birthday</span><span style="color:#e6db74">)&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>&ldquo;&rdquo;&quot;&hellip;&quot;&quot;&quot; bedeutet dabei, dass der lange Text zwischen den 2x3 Anführungszeichen ausgewertet wird (die $&hellip; durch die Werte ersetzt werden).</p>
+<p><code>&quot;${gender.title}&quot;</code> bedeutet, dass der Titel zum Geschlecht ausgegeben wird, also für männlich (<code>Male</code>) &ldquo;Herr&rdquo;, für weiblich (<code>Female</code>) &ldquo;Frau&rdquo; und für divers (<code>Other</code>) &quot;&quot; (ein leerer String).</p>
+<p>Und wenn wir das Geburtsdatum implementiert haben, dann kann man eine Person auch wirklich ausgeben.  Das sieht dann so aus:</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">  Herr Melchior Grützmann (*20.6.1979)
+</code></pre><h2 id="3-wie-stellt-man-ein-teilweise-bekanntes-datum-dar">3. Wie stellt man ein teilweise bekanntes Datum dar?</h2>
+<p>Nachdem wir jetzt schon etwas Erfahrung mit Personen haben, machen wir das ähnlich:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PartialDate</span>(<span style="color:#66d9ef">val</span> year :Int, <span style="color:#66d9ef">val</span> month :Byte? =<span style="color:#66d9ef">null</span>, <span style="color:#66d9ef">val</span> day :Byte? =<span style="color:#66d9ef">null</span>)
+</span></span></code></pre></div><p><code>Byte</code> ist eine kleine Zahl, nur bis maximal 127.  Das reicht für den Tag im Monat oder den Monat im Jahr.</p>
+<p>Wir haben das gleiche Problem mit der Ausgabe.  Diesmal können wir das aber nicht mit nur 1 String beschreiben.  Stattdessen haben wir 3 Fälle:  ein ganzes Datum (mit Monat und Tag), ein Datum mit Monat (ohne Tag), eine Jahreszahl.  Das kann man so darstellen</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">toString</span>() = <span style="color:#66d9ef">if</span> (month<span style="color:#f92672">!=</span><span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (day<span style="color:#f92672">!=</span><span style="color:#66d9ef">null</span>) <span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">$day</span><span style="color:#e6db74">.</span><span style="color:#e6db74">$month</span><span style="color:#e6db74">.</span><span style="color:#e6db74">$year</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">$month</span><span style="color:#e6db74">/</span><span style="color:#e6db74">$year</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">$year</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span></code></pre></div><p>Achtung, weil der Schrägstrich &lsquo;/&rsquo; innerhalb des Strings ist, wird hier nicht dividiert, sondern ein Schrägstrich &lsquo;/&rsquo; ausgegeben.</p>
+<p>Das gesamte Programm sieht etwa so aus:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PartialDate</span>(<span style="color:#66d9ef">val</span> year :Int, <span style="color:#66d9ef">val</span> month :Byte? =<span style="color:#66d9ef">null</span>, <span style="color:#66d9ef">val</span> day :Byte? =<span style="color:#66d9ef">null</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">toString</span>() = <span style="color:#66d9ef">if</span> (month<span style="color:#f92672">!=</span><span style="color:#66d9ef">null</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (day<span style="color:#f92672">!=</span><span style="color:#66d9ef">null</span>) <span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">$day</span><span style="color:#e6db74">.</span><span style="color:#e6db74">$month</span><span style="color:#e6db74">.</span><span style="color:#e6db74">$year</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">$month</span><span style="color:#e6db74">/</span><span style="color:#e6db74">$year</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">else</span> <span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">$year</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>(
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> givenName :String,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> familyName :String,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> gender :Gender,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> birthday :PartialDate,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> father :Person? =<span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> mother :Person? =<span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> spouse :Person? =<span style="color:#66d9ef">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> children :MutableList&lt;Person&gt; =mutableList()
+</span></span><span style="display:flex;"><span>  ) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">toString</span>() = <span style="color:#e6db74">&#34;&#34;&#34;</span><span style="color:#e6db74">${gender.title}</span><span style="color:#e6db74"> </span><span style="color:#e6db74">$givenName</span><span style="color:#e6db74"> </span><span style="color:#e6db74">$familyName</span><span style="color:#e6db74"> (*</span><span style="color:#e6db74">$birthday</span><span style="color:#e6db74">)&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">val</span> melli = Person(<span style="color:#e6db74">&#34;Melchior&#34;</span>, <span style="color:#e6db74">&#34;Grützmann&#34;</span>, <span style="color:#a6e22e">Gender</span>.Male, PartialDate(<span style="color:#ae81ff">1979</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">20</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    println(<span style="color:#e6db74">&#34;Hallo </span><span style="color:#e6db74">$melli</span><span style="color:#e6db74">!&#34;</span>)
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Und jetzt ist die Ausgabe wirklich:</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">  Hallo Herr Melchior Grützmann (*20.6.1979)!
+</code></pre><p>Im zweiten Teil modellieren wir, wie eine Person heiraten, Kinder bekommen und sich scheiden lassen kann.</p>
+<ul class="pa0">
+  
+</ul>
+
+      
+    </div></article>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+    <div
+        class="flex justify-between mw8 center"
+    >
+        
+        <p class="f7 gray dib pv2 mv0">
+            &copy; 2020–2026 古林学院 -- Gu-Lin School. All rights
+            reserved.
+        </p>
+
+        
+        <div class="flex-l items-center">
+            <a class="gray" href="mailto:x@gMail.com,x=melchiorG"
+                >x@gMail.com,x=melchiorG</a
+            >
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
