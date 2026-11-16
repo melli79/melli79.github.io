@@ -24,7 +24,7 @@ Today&rsquo;s goal is a multiplication table (乘法表) as follows:
 
 In words:  The 10 rows (行) contain the multiples of the corresponding number.
 In every row the number, then its double (两次), then the triple (三次), &hellip;, the 10-fold (十次).">
-    <meta name="generator" content="Hugo 0.161.1">
+    <meta name="generator" content="Hugo 0.169.0">
     
     
     
@@ -50,30 +50,30 @@ In every row the number, then its double (两次), then the triple (三次), &he
     
     
     <meta property="og:url" content="https://melli79.github.io/posts/01celoops/">
-  <meta property="og:site_name" content="古林学院 -- Gu-Lin School">
-  <meta property="og:title" content="01CE. For Loops">
-  <meta property="og:description" content="This is a re-introduction. This time I wrote it for C&#43;&#43; and in English, hence CE.
+	<meta property="og:site_name" content="古林学院 -- Gu-Lin School">
+	<meta property="og:title" content="01CE. For Loops">
+	<meta property="og:description" content="This is a re-introduction. This time I wrote it for C&#43;&#43; and in English, hence CE.
 Once you have set up a programming environment, you can try to write a first small program.
 The Goal Today’s goal is a multiplication table (乘法表) as follows:
 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21 24 27 30 4 8 12 16 20 24 28 32 36 40 5 10 15 20 25 30 35 40 45 50 6 12 18 24 30 36 42 48 54 60 7 14 21 28 35 42 49 56 63 70 8 16 24 32 40 48 56 64 72 80 9 18 27 36 45 54 63 72 81 90 10 20 30 40 50 60 70 80 90 100 In words: The 10 rows (行) contain the multiples of the corresponding number. In every row the number, then its double (两次), then the triple (三次), …, the 10-fold (十次).">
-  <meta property="og:locale" content="en_us">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2023-03-19T14:55:50+01:00">
-    <meta property="article:modified_time" content="2023-03-19T14:55:50+01:00">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2023-03-19T14:55:50+01:00">
+		<meta property="article:modified_time" content="2023-03-19T14:55:50+01:00">
 
-  <meta itemprop="name" content="01CE. For Loops">
-  <meta itemprop="description" content="This is a re-introduction. This time I wrote it for C&#43;&#43; and in English, hence CE.
+	<meta itemprop="name" content="01CE. For Loops">
+	<meta itemprop="description" content="This is a re-introduction. This time I wrote it for C&#43;&#43; and in English, hence CE.
 Once you have set up a programming environment, you can try to write a first small program.
 The Goal Today’s goal is a multiplication table (乘法表) as follows:
 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21 24 27 30 4 8 12 16 20 24 28 32 36 40 5 10 15 20 25 30 35 40 45 50 6 12 18 24 30 36 42 48 54 60 7 14 21 28 35 42 49 56 63 70 8 16 24 32 40 48 56 64 72 80 9 18 27 36 45 54 63 72 81 90 10 20 30 40 50 60 70 80 90 100 In words: The 10 rows (行) contain the multiples of the corresponding number. In every row the number, then its double (两次), then the triple (三次), …, the 10-fold (十次).">
-  <meta itemprop="datePublished" content="2023-03-19T14:55:50+01:00">
-  <meta itemprop="dateModified" content="2023-03-19T14:55:50+01:00">
-  <meta itemprop="wordCount" content="1141">
-  <meta itemprop="keywords" content="C&#43;&#43;,Programming">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="01CE. For Loops">
-  <meta name="twitter:description" content="This is a re-introduction. This time I wrote it for C&#43;&#43; and in English, hence CE.
+	<meta itemprop="datePublished" content="2023-03-19T14:55:50+01:00">
+	<meta itemprop="dateModified" content="2023-03-19T14:55:50+01:00">
+	<meta itemprop="wordCount" content="1141">
+	<meta itemprop="keywords" content="C&#43;&#43;,Programming">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="01CE. For Loops">
+	<meta name="twitter:description" content="This is a re-introduction. This time I wrote it for C&#43;&#43; and in English, hence CE.
 Once you have set up a programming environment, you can try to write a first small program.
 The Goal Today’s goal is a multiplication table (乘法表) as follows:
 1 2 3 4 5 6 7 8 9 10 2 4 6 8 10 12 14 16 18 20 3 6 9 12 15 18 21 24 27 30 4 8 12 16 20 24 28 32 36 40 5 10 15 20 25 30 35 40 45 50 6 12 18 24 30 36 42 48 54 60 7 14 21 28 35 42 49 56 63 70 8 16 24 32 40 48 56 64 72 80 9 18 27 36 45 54 63 72 81 90 10 20 30 40 50 60 70 80 90 100 In words: The 10 rows (行) contain the multiples of the corresponding number. In every row the number, then its double (两次), then the triple (三次), …, the 10-fold (十次).">
@@ -239,7 +239,7 @@ In every row the number, then its double (两次), then the triple (三次), &he
 </span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
 </span></span></code></pre></div><h2 id="what-happens-with-100-it-needs-3-digits">What happens with 100? (It needs 3 digits.)</h2>
 <p>Have a look at the (new) output.  Even though we requested only 2 digits, the number 100 is displayed with 3 digits.  The reason is that <code>&lt;&lt;setw(2)</code> means at least 2 positions, more when the number is bigger.</p>
-<h2 id="91-i-want-to-print-a-bigger-multiplication-table-like">9.1 I want to print a bigger Multiplication table, like <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo>×</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">20\times20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">20</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">20</span></span></span></span></h2>
+<h2 id="91-i-want-to-print-a-bigger-multiplication-table-like">9.1 I want to print a bigger Multiplication table, like <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>20</mn><mo>×</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">20\times20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.7278em;vertical-align:-0.0833em;"></span><span class="mord">20</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">20</span></span></span></span></h2>
 <p>Have a look at the line <code>for (int y=1; y&lt;11; y++)</code>.  <code>11</code> means that the last iteration runs with <code>y=10</code>.  So what is the first change?</p>
 <h3 id="how-do-i-make-the-table-square-shaped-方形">How do I make the Table square shaped (方形)?</h3>
 <p>We have 2 for loops <code>for (int y=...)</code> and <code>for (int x=...)</code>, i.e. you also have to adjust the 2nd for loop.</p>

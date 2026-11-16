@@ -1,26 +1,45 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>C&#43;&#43; on 古林学院 -- Gu-Lin School</title>
-    <link>https://melli79.github.io/categories/c&#43;&#43;/</link>
-    <description>Recent content in C&#43;&#43; on 古林学院 -- Gu-Lin School</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 19 Mar 2023 15:45:30 +0100</lastBuildDate>
-    <atom:link href="https://melli79.github.io/categories/c++/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>02CE. If and Smurfs</title>
-      <link>https://melli79.github.io/posts/02ceifandsmurfs/</link>
-      <pubDate>Sun, 19 Mar 2023 15:45:30 +0100</pubDate>
-      <guid>https://melli79.github.io/posts/02ceifandsmurfs/</guid>
-      <description>&lt;p&gt;Today we want to count smurfs (蓝精灵).  This is how it works:&lt;/p&gt;&#xA;&lt;ol start=&#34;0&#34;&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;We start with the ordinary numbers from 1: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, &amp;hellip;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Then we replace every 4th number by &amp;ldquo;smurf&amp;rdquo; according to its multiplicity (几次):&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;  1, 2, 3, smurf, 5, 6, 7, 2-smurf, 9, 10, 11, 3-smurf, 13, 14, 15, ...&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;16 is smurf-smurf.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h1 id=&#34;0-the-numbers&#34;&gt;0. The numbers&lt;/h1&gt;&#xA;&lt;p&gt;Probably you remember the for loop, that allows us to count, like this:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>01CE. For Loops</title>
-      <link>https://melli79.github.io/posts/01celoops/</link>
-      <pubDate>Sun, 19 Mar 2023 14:55:50 +0100</pubDate>
-      <guid>https://melli79.github.io/posts/01celoops/</guid>
-      <description>&lt;p&gt;This is a re-introduction.  This time I wrote it for C++ and in English, hence CE.&lt;/p&gt;&#xA;&lt;p&gt;Once you have set up a programming environment, you can try to write a first small program.&lt;/p&gt;&#xA;&lt;h1 id=&#34;the-goal&#34;&gt;The Goal&lt;/h1&gt;&#xA;&lt;p&gt;Today&amp;rsquo;s goal is a multiplication table (乘法表) as follows:&lt;/p&gt;&#xA;&lt;pre&gt;&#xA;   1  2  3  4  5  6  7  8  9 10&#xA;   2  4  6  8 10 12 14 16 18 20&#xA;   3  6  9 12 15 18 21 24 27 30&#xA;   4  8 12 16 20 24 28 32 36 40&#xA;   5 10 15 20 25 30 35 40 45 50&#xA;   6 12 18 24 30 36 42 48 54 60&#xA;   7 14 21 28 35 42 49 56 63 70&#xA;   8 16 24 32 40 48 56 64 72 80&#xA;   9 18 27 36 45 54 63 72 81 90&#xA;  10 20 30 40 50 60 70 80 90 100&#xA;&lt;/pre&gt;&#xA;&lt;p&gt;In words:  The 10 rows (行) contain the multiples of the corresponding number.&#xA;In every row the number, then its double (两次), then the triple (三次), &amp;hellip;, the 10-fold (十次).&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>C&#43;&#43; on 古林学院 -- Gu-Lin School</title>
+		<link>https://melli79.github.io/categories/c&#43;&#43;/</link>
+		<description>Recent content in C&#43;&#43; on 古林学院 -- Gu-Lin School</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Sat, 01 Apr 2023 22:35:10 +0200</lastBuildDate>
+		
+			<atom:link href="https://melli79.github.io/categories/c++/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>05CE People and Relatives</title>
+				<link>https://melli79.github.io/posts/05cepeople/</link>
+				<pubDate>Sat, 01 Apr 2023 22:35:10 +0200</pubDate>
+				<guid>https://melli79.github.io/posts/05cepeople/</guid>
+				<description>&lt;p&gt;After we have written numbers in Chinese and English last time, we want to represent people in the computer this time.&lt;/p&gt;&#xA;&lt;h1 id=&#34;0-our-goal&#34;&gt;0. Our Goal&lt;/h1&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;  Mr. Melchior Grützmann (*1979-6)&#xA;    father D. Grützmann (*1954)&#xA;    mother B. Grützmann (*1955)&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;1-what-makes-a-person&#34;&gt;1. What makes a Person?&lt;/h1&gt;&#xA;&lt;p&gt;Well if I look at myself, I have a body, clothes, an apartment, a name, a day of birth, a father, a mother and many more things.  Which of those things do we want to model and represent in the computer?&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>03CE. Number Guessing Game</title>
+				<link>https://melli79.github.io/posts/03cenumberguessing/</link>
+				<pubDate>Mon, 20 Mar 2023 18:14:10 +0100</pubDate>
+				<guid>https://melli79.github.io/posts/03cenumberguessing/</guid>
+				<description>&lt;p&gt;After we have counted smurfs last time, we want to guess some numbers this time.&lt;/p&gt;&#xA;&lt;h1 id=&#34;0-our-goal&#34;&gt;0. Our Goal&lt;/h1&gt;&#xA;&lt;p&gt;Here are 2 samples (样本会议):&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;  Number guessing Game&#xA;  Do you want to guess my number or should I guess your number (y/I)? I&#xA;&#xA;  Ok, I have chosen a number between 1 and 100 (both inclusive).&#xA;  What is your guess? 50&#xA;  My number is bigger.&#xA;  What is your guess? 75&#xA;  My number is smaller.&#xA;  What is your guess? 62&#xA;  Yes, that&amp;#39;s it!  You got it right!!&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;  Number guessing Game&#xA;  Do you want to guess my number or should I guess your number (y/I)? y&#xA;&#xA;  Ok, choose a number between 1 and 100 (both inclusive), but don&amp;#39;t tell me yet.  Instead I ask:&#xA;  Is it 50 (&amp;lt;=&amp;gt;)? &amp;lt;&#xA;  Is it 25 (&amp;lt;=&amp;gt;)? &amp;gt;&#xA;  Is it 37 (&amp;lt;=&amp;gt;)? =&#xA;  Wow, I guessed it.  Your number is 37!&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&#34;1-you-guess-my-number&#34;&gt;1. You guess my number&lt;/h1&gt;&#xA;&lt;p&gt;We will write this first case in a function which will then be called by the &lt;code&gt;main&lt;/code&gt; part.  We do not have to return anything and as a first guess we do not need any programmatic arguments.  Therefore we start with:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>02CE. If and Smurfs</title>
+				<link>https://melli79.github.io/posts/02ceifandsmurfs/</link>
+				<pubDate>Sun, 19 Mar 2023 15:45:30 +0100</pubDate>
+				<guid>https://melli79.github.io/posts/02ceifandsmurfs/</guid>
+				<description>&lt;p&gt;Today we want to count smurfs (蓝精灵).  This is how it works:&lt;/p&gt;&#xA;&lt;ol start=&#34;0&#34;&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;We start with the ordinary numbers from 1: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, &amp;hellip;&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Then we replace every 4th number by &amp;ldquo;smurf&amp;rdquo; according to its multiplicity (几次):&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-log&#34; data-lang=&#34;log&#34;&gt;  1, 2, 3, smurf, 5, 6, 7, 2-smurf, 9, 10, 11, 3-smurf, 13, 14, 15, ...&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;ol start=&#34;3&#34;&gt;&#xA;&lt;li&gt;16 is smurf-smurf.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h1 id=&#34;0-the-numbers&#34;&gt;0. The numbers&lt;/h1&gt;&#xA;&lt;p&gt;Probably you remember the for loop, that allows us to count, like this:&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>01CE. For Loops</title>
+				<link>https://melli79.github.io/posts/01celoops/</link>
+				<pubDate>Sun, 19 Mar 2023 14:55:50 +0100</pubDate>
+				<guid>https://melli79.github.io/posts/01celoops/</guid>
+				<description>&lt;p&gt;This is a re-introduction.  This time I wrote it for C++ and in English, hence CE.&lt;/p&gt;&#xA;&lt;p&gt;Once you have set up a programming environment, you can try to write a first small program.&lt;/p&gt;&#xA;&lt;h1 id=&#34;the-goal&#34;&gt;The Goal&lt;/h1&gt;&#xA;&lt;p&gt;Today&amp;rsquo;s goal is a multiplication table (乘法表) as follows:&lt;/p&gt;&#xA;&lt;pre&gt;&#xA;   1  2  3  4  5  6  7  8  9 10&#xA;   2  4  6  8 10 12 14 16 18 20&#xA;   3  6  9 12 15 18 21 24 27 30&#xA;   4  8 12 16 20 24 28 32 36 40&#xA;   5 10 15 20 25 30 35 40 45 50&#xA;   6 12 18 24 30 36 42 48 54 60&#xA;   7 14 21 28 35 42 49 56 63 70&#xA;   8 16 24 32 40 48 56 64 72 80&#xA;   9 18 27 36 45 54 63 72 81 90&#xA;  10 20 30 40 50 60 70 80 90 100&#xA;&lt;/pre&gt;&#xA;&lt;p&gt;In words:  The 10 rows (行) contain the multiples of the corresponding number.&#xA;In every row the number, then its double (两次), then the triple (三次), &amp;hellip;, the 10-fold (十次).&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

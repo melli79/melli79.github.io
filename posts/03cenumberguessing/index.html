@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>03CE. Number Guessing Game | 古林学院 -- Gu-Lin School</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="guessing and letting guess numbers">
+    <meta name="generator" content="Hugo 0.169.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.d955a0fd4b29149d3776b2cc0200082c27e22390244f848ea705ae857450a01e.css" integrity="sha256-2VWg/UspFJ03drLMAgAILCfiI5AkT4SOpwWuhXRQoB4=" crossorigin="anonymous">
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://melli79.github.io/posts/03cenumberguessing/">
+    
+
+    
+    
+    <meta property="og:url" content="https://melli79.github.io/posts/03cenumberguessing/">
+	<meta property="og:site_name" content="古林学院 -- Gu-Lin School">
+	<meta property="og:title" content="03CE. Number Guessing Game">
+	<meta property="og:description" content="guessing and letting guess numbers">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2023-03-20T18:14:10+01:00">
+		<meta property="article:modified_time" content="2023-03-20T18:14:10+01:00">
+
+	<meta itemprop="name" content="03CE. Number Guessing Game">
+	<meta itemprop="description" content="guessing and letting guess numbers">
+	<meta itemprop="datePublished" content="2023-03-20T18:14:10+01:00">
+	<meta itemprop="dateModified" content="2023-03-20T18:14:10+01:00">
+	<meta itemprop="wordCount" content="1741">
+	<meta itemprop="keywords" content="Programming,C&#43;&#43;">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="03CE. Number Guessing Game">
+	<meta name="twitter:description" content="guessing and letting guess numbers">
+
+      
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production is-page is-page page-03CEnumberGuessing">
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        古林学院 -- Gu-Lin School
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/categories/" title="Categories page">
+              Categories
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+
+  <article class="page-03CEnumberGuessing flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    Posts
+</aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">03CE. Number Guessing Game</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-03-20T18:14:10+01:00">March 20, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>After we have counted smurfs last time, we want to guess some numbers this time.</p>
+<h1 id="0-our-goal">0. Our Goal</h1>
+<p>Here are 2 samples (样本会议):</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">  Number guessing Game
+  Do you want to guess my number or should I guess your number (y/I)? I
+
+  Ok, I have chosen a number between 1 and 100 (both inclusive).
+  What is your guess? 50
+  My number is bigger.
+  What is your guess? 75
+  My number is smaller.
+  What is your guess? 62
+  Yes, that&#39;s it!  You got it right!!
+</code></pre><pre tabindex="0"><code class="language-log" data-lang="log">  Number guessing Game
+  Do you want to guess my number or should I guess your number (y/I)? y
+
+  Ok, choose a number between 1 and 100 (both inclusive), but don&#39;t tell me yet.  Instead I ask:
+  Is it 50 (&lt;=&gt;)? &lt;
+  Is it 25 (&lt;=&gt;)? &gt;
+  Is it 37 (&lt;=&gt;)? =
+  Wow, I guessed it.  Your number is 37!
+</code></pre><h1 id="1-you-guess-my-number">1. You guess my number</h1>
+<p>We will write this first case in a function which will then be called by the <code>main</code> part.  We do not have to return anything and as a first guess we do not need any programmatic arguments.  Therefore we start with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">letGuess</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Ok, I have chosen a number between 1 and 100 (both inclusive).&#34;</span><span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Here <code>void</code> means that we are returning nothing (specifically), just the control (程序流程).  Therefore, we do not need any <code>return</code> statement.</p>
+<h2 id="11--choosing-a-secret-number">1.1  Choosing a secret number</h2>
+<p>So, first we need to choose a number.  We want to make sure it is a different number every time.  Therefore, we initialize with a random number.  While the function <code>rand()</code> gives an integer between 0 and <code>MAX_RANDOM</code>, we want to use a more C++ way.  There are 2 classes in C++ (library &ldquo;random&rdquo;) that allow us to perform that:  First there is the class <code>mt19937_64</code> that produces a random sequence (随机序列), and second there is <code>uniform_int_distribution</code> that produces integers between a minimum (最低) and a maximum (最高).</p>
+<p>The problem with (pseudo) random numbers is that they always require seeding (播种), i.e. the careful initialization (来初始化) such that you do not always obtain the same sequence.  Therefore we will assume that a random number generator is passed to our function.</p>
+<p>How do we make a number between 1 and 100?</p>
+<p>The answer is <code>uniform_int_distribution rollDice(1, 100)</code>.  This object <code>rollDice</code> (掷骰子) has one method, namely the call <code>rollDice(random)</code> produces an integer between 1 and 100 both ends inclusive.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">letGuess</span>(Random random)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    uniform_int_distribution rollDice(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">100</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> secret <span style="color:#f92672">=</span> rollDice(random);
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span>...
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Why did I name it <code>secret</code> (秘密) and not <code>a</code>?  The compiler does not care whether you name it <code>a</code>, or <code>secret</code> or <code>i32</code>, but your fellow programmers (同事/同学) do mind.  I.e. we want another reader (and that could be yourself in 6 months) to know what the variable was good for.  Therefore I call it <code>secret</code>.</p>
+<h2 id="12-your-input">1.2 Your input</h2>
+<p>Next, we need to ask the user for a number.  In C++ this is done via <code>cin&gt;&gt;guess;</code> but first we need to define a variable, here <code>guess</code>, that takes the input.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  fun <span style="color:#a6e22e">letGuess</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Your guess: &#34;</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> guess<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    cin<span style="color:#f92672">&gt;&gt;</span>guess;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h2 id="13-my-answer">1.3 My Answer</h2>
+<p>Then we need to tell the user whether the actual number is bigger, smaller or exactly the guess.  We can do that with 3 if branches as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  fun <span style="color:#a6e22e">letGuess</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    cin<span style="color:#f92672">&gt;&gt;</span>guess;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (guess<span style="color:#f92672">&lt;</span>secret)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;My number is bigger&#34;</span><span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (guess<span style="color:#f92672">&gt;</span>secret)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;My number is smaller.&#34;</span><span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;  Yes, that&#39;s it!  You got it right!!&#34;</span><span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h2 id="14-loop-循环">1.4 Loop (循环)</h2>
+<p>If the user cannot guess the number in the first run, then they probably want to guess again (the same number).  So we need to put a loop around it.  But how many times?</p>
+<p>Since we don&rsquo;t know how many times it will take the user, we should do a &ldquo;forever&rdquo; loop (永远循环), e.g. as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">letGuess</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span>...
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (true)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Your guess: &#34;</span>;
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h1 id="2-so-does-that-work--we-need-a-main-program">2. So does that work? &ndash; We need a main program</h1>
+<p>I don&rsquo;t know (or honestly, I do not yet want to tell you where it fails).  So let us give it a try.  Therefore we need a <code>main</code> program.  At the moment, the most important thing, the main program has to do is call our function <code>letGuess()</code>.  This can be achieved as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;random&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;chrono&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">typedef</span> mt19937_64 Random;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  Random <span style="color:#a6e22e">newRandom</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">uint64_t</span> now <span style="color:#f92672">=</span> chrono<span style="color:#f92672">::</span>high_resolution_clock<span style="color:#f92672">::</span>now().time_since_epoch().count();
+</span></span><span style="display:flex;"><span>    seed_seq seed{<span style="color:#66d9ef">uint32_t</span>(now <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xffffffff</span>), <span style="color:#66d9ef">uint32_t</span>(now<span style="color:#f92672">&gt;&gt;</span><span style="color:#ae81ff">32</span>)};
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> Random(seed);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> main()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    Random random <span style="color:#f92672">=</span> newRandom();
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;  Number guessing Game&#34;</span><span style="color:#f92672">&lt;&lt;</span>endl
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Do you want to guess my number or should I guess your number (y/I)? I&#34;</span><span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    letGuess(random);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>So what happens when we try that program?</p>
+<p>The first steps seem promising, i.e. the program asks us for a number and then tells us whether its secret number is smaller or bigger.</p>
+<p>But what happens when we finally guess the number?  The program clearly acknowledges (确认) that, but then it keeps asking for our guess and giving the same answer again and again, the program does not want to terminate (不完).</p>
+<p>What went wrong?</p>
+<p>We forgot to tell the compiler that the &ldquo;forever&rdquo; loop should be stopped.  This can be achieved in the following way:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">letGuess</span>(Random random)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (true)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Yes, that&#39;s it!  You got it right!!&#34;</span><span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>The statement <code>break;</code> means to break out of the loop (退出循环).</p>
+<p>Instead you could also have written <code>return;</code> i.e. a return statement without any argument.  Because our function is sufficiently small, i.e. there is nothing else to be done after the loop, the effect is the same.</p>
+<h2 id="3-i-guess-your-number">3. I guess your number</h2>
+<p>Similar to before, we want to write that in a function.  So we start as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">guess</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Think of a number between 1 and 100 (both inclusive), but do not yet tell it to me.  I will ask you a couple of guesses.&#34;</span><span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h2 id="31-knowing-the-bounds">3.1 Knowing the bounds</h2>
+<p>So what does the computer know about your number?  The lowest possible number is 1 and the highest possible number is 100.  We should store these values.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">guess</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span>...
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> low <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;  <span style="color:#66d9ef">int</span> high <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Now we probably need to take a couple of guesses and think about the answers.  Therefore, we put the remaining code in a loop.  But should it be infinite?  We don&rsquo;t know the answer as long as <code>low&lt;high</code>.  Once we have reached <code>low==high</code>, there is a unique solution.  If even <code>low&gt;high</code>, then something is wrong.  So we formulate:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">guess</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (low<span style="color:#f92672">&lt;</span>high)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h2 id="32-what-to-do-with-the-answer">3.2 What to do with the Answer?</h2>
+<p>If the answer is &ldquo;right&rdquo;, then we have guessed the number.  If the answer is &ldquo;bigger&rdquo;, then we know that the new lower limit (<code>low</code>, 下限) is our guess plus 1.  If the answer is &ldquo;smaller&rdquo;, we know that the new <code>high</code> (上限) is the guess minus 1.  So let us put that together.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">guess</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (low<span style="color:#f92672">&lt;</span>high)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">int</span> guess <span style="color:#f92672">=</span> ...;
+</span></span><span style="display:flex;"><span>      cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Is it &#34;</span><span style="color:#f92672">&lt;&lt;</span>guess<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; (&lt;=&gt;)? &#34;</span>;
+</span></span><span style="display:flex;"><span>      string input;
+</span></span><span style="display:flex;"><span>      cin<span style="color:#f92672">&gt;&gt;</span>input;
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (input.length()<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> (input[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;&lt;&#39;</span> <span style="color:#f92672">||</span> input[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;l&#39;</span>))
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        high <span style="color:#f92672">=</span> guess <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (input.length()<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> (input[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;&gt;&#39;</span> <span style="color:#f92672">||</span> input[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;b&#39;</span>))
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        low <span style="color:#f92672">=</span> guess <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (input.length()<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> (input[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;=&#39;</span> <span style="color:#f92672">||</span> input[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;r&#39;</span>))
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Wow, I guessed it!  Your number is &#34;</span><span style="color:#f92672">&lt;&lt;</span>guess<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;!!&#34;</span><span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>      } <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Sorry, I did not understand your answer.&#34;</span><span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h2 id="33-having-a-good-guess--binary-search">3.3 Having a good guess &ndash; binary search</h2>
+<p>So, given the lowest possible number and the highest possible number, what is a reasonable guess?  We could ask whether this should be the lowest possible number.  Then the 2 possible answers are &ldquo;right&rdquo; or &ldquo;bigger&rdquo;.  But it is impossible that the answer is &ldquo;less&rdquo;, because we already asked for the lowest possible answer.</p>
+<p>So how can we do better?</p>
+<p>We could ask for <code>low+1</code> and then at least expect all 3 answers.  But what would you do if you are standing in front of an alphabetically sorted (按字母顺序排列的) bookshelf (书架) and you are looking for a book by &ldquo;Rowling&rdquo;?</p>
+<p>You would best look in the <em>middle of the bookshelf</em> and decide whether the book there is (written by an author) before &ldquo;Rowling&rdquo; or after.  And that is the best idea:  We take a guess in the middle (平均数).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">guess</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (low<span style="color:#f92672">&lt;</span>high) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">int</span> guess <span style="color:#f92672">=</span> (low<span style="color:#f92672">+</span>high)<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>      cout<span style="color:#f92672">&lt;&lt;</span>...
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>So what happens if the sum <code>low+high</code> is odd (奇)?  The answer is that the computer rounds it to the lower integer, e.g. if the low is 1 and the high is 6, then their sum is 7 and half of it is <code>7/2 == 3</code>.</p>
+<h2 id="34-after-the-loop-while循环后">3.4 After the loop (while循环后)</h2>
+<p>What happens if we leave the loop (I mean other than via <code>return</code>)?</p>
+<p>The answer is that it depends:  If <code>low</code> is bigger than <code>high</code>, then there is certainly something wrong, e.g. the user cheated (受骗了).</p>
+<p>If <code>low==high</code>, then we also know the number.  So in total we conclude:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">guess</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> (low<span style="color:#f92672">&lt;</span>high)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (low<span style="color:#f92672">&gt;</span>high)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;That is not possible, because there is no number between &#34;</span><span style="color:#f92672">&lt;&lt;</span>low<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; and &#34;</span><span style="color:#f92672">&lt;&lt;</span>high<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    }<span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;So your number must be &#34;</span><span style="color:#f92672">&lt;&lt;</span>low<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;.&#34;</span><span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h2 id="4-adjusting-the-main-program">4. Adjusting the main program</h2>
+<p>If you just want to test the second function <code>guess()</code>, then you could modify the main program, e.g.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> main()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;... (y/I)? y&#34;</span><span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    guess();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>You should try your implementation a couple of times in this configuration.  Does it work as expected?  Does it terminate (完好)?  What happens if the user just hits &lt;Return&gt; (返回键)?</p>
+<p>Once you have convinced yourself that the function <code>guess()</code> is working, you should complete the main program.  Instead of giving the answer, we should actually ask the user for their choice and then decide to either call <code>guess()</code> or <code>letGuess(...)</code>.  We can do that, e.g. as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Do you ... (y/I)? &#34;</span>;
+</span></span><span style="display:flex;"><span>    string choice;
+</span></span><span style="display:flex;"><span>    cin<span style="color:#f92672">&gt;&gt;</span>choice;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (choice.length()<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> (choice[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;y&#39;</span> <span style="color:#f92672">||</span> choice[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;Y&#39;</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      cout<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>      guess();
+</span></span><span style="display:flex;"><span>    }<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (choice.length()<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> (choice[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;I&#39;</span> <span style="color:#f92672">||</span> choice[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">==</span><span style="color:#e6db74">&#39;i&#39;</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      cout<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>      letGuess(random);
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;I did not understand your answer.&#34;</span><span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h1 id="9-time-to-try-for-yourself">9. Time to Try for Yourself</h1>
+<p>So does your program work, i.e. does it compile and start?  Does it react as expected?  Does it terminate?</p>
+<p>Does the user know what to do?  You can test the program with somebody else, e.g. one of your parents.</p>
+<ul class="pa0">
+  
+</ul>
+
+      
+    </div></article>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+    <div
+        class="flex justify-between mw8 center"
+    >
+        
+        <p class="f7 gray dib pv2 mv0">
+            &copy; 2020–2026 古林学院 -- Gu-Lin School. All rights
+            reserved.
+        </p>
+
+        
+        <div class="flex-l items-center">
+            <a class="gray" href="mailto:x@gMail.com,x=melchiorG"
+                >x@gMail.com,x=melchiorG</a
+            >
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>
+
+
+

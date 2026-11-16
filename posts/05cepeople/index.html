@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>05CE People and Relatives | 古林学院 -- Gu-Lin School</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="representing people on the computer">
+    <meta name="generator" content="Hugo 0.169.0">
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    
+
+    <link rel="stylesheet" href="/ananke/css/main.d955a0fd4b29149d3776b2cc0200082c27e22390244f848ea705ae857450a01e.css" integrity="sha256-2VWg/UspFJ03drLMAgAILCfiI5AkT4SOpwWuhXRQoB4=" crossorigin="anonymous">
+    
+
+
+    
+      
+
+    
+
+    
+
+    
+      <link rel="canonical" href="https://melli79.github.io/posts/05cepeople/">
+    
+
+    
+    
+    <meta property="og:url" content="https://melli79.github.io/posts/05cepeople/">
+	<meta property="og:site_name" content="古林学院 -- Gu-Lin School">
+	<meta property="og:title" content="05CE People and Relatives">
+	<meta property="og:description" content="representing people on the computer">
+	<meta property="og:locale" content="en_us">
+	<meta property="og:type" content="article">
+		<meta property="article:section" content="posts">
+		<meta property="article:published_time" content="2023-04-01T22:35:10+02:00">
+		<meta property="article:modified_time" content="2023-04-01T22:35:10+02:00">
+
+	<meta itemprop="name" content="05CE People and Relatives">
+	<meta itemprop="description" content="representing people on the computer">
+	<meta itemprop="datePublished" content="2023-04-01T22:35:10+02:00">
+	<meta itemprop="dateModified" content="2023-04-01T22:35:10+02:00">
+	<meta itemprop="wordCount" content="1542">
+	<meta itemprop="keywords" content="Programming,C&#43;&#43;">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:title" content="05CE People and Relatives">
+	<meta name="twitter:description" content="representing people on the computer">
+
+      
+      
+    
+	
+  </head><body class="ma0 avenir bg-near-white production is-page is-page page-05CEpeople">
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l center items-center justify-between">
+    <a href="/" class="f3 fw2 hover-white white-90 dib no-underline">
+      
+        古林学院 -- Gu-Lin School
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+        <ul class="pl0 mr3">
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/categories/" title="Categories page">
+              Categories
+            </a>
+          </li>
+          
+          <li class="list f5 f4-ns fw4 dib pr3">
+            <a class="hover-white white-90 no-underline" href="/tags/" title="Tags page">
+              Tags
+            </a>
+          </li>
+          
+        </ul>
+      
+      <div class="ananke-socials"></div>
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+
+  <article class="page-05CEpeople flex-l mw7 center ph3 flex-wrap justify-between">
+    <header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked ttu">
+    Posts
+</aside><div id="sharing" class="mt3 ananke-socials"></div>
+<h1 class="f1 athelas mt3 mb1">05CE People and Relatives</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2023-04-01T22:35:10+02:00">April 1, 2023</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-100-l"><p>After we have written numbers in Chinese and English last time, we want to represent people in the computer this time.</p>
+<h1 id="0-our-goal">0. Our Goal</h1>
+<pre tabindex="0"><code class="language-log" data-lang="log">  Mr. Melchior Grützmann (*1979-6)
+    father D. Grützmann (*1954)
+    mother B. Grützmann (*1955)
+</code></pre><h1 id="1-what-makes-a-person">1. What makes a Person?</h1>
+<p>Well if I look at myself, I have a body, clothes, an apartment, a name, a day of birth, a father, a mother and many more things.  Which of those things do we want to model and represent in the computer?</p>
+<p>I decided for the given names, family name, day of birth, father (when he is known), mother (when she is known) and some more.  So let us start with these:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>  <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>  <span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> {
+</span></span><span style="display:flex;"><span>    string familyName;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> givenNames;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> Gender gender;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> PartialDate birthday;
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> titles;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    Person(string familyName0, vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> givenNames0, Gender gender0, PartialDate birthday0, vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> titles0 <span style="color:#f92672">=</span>vector<span style="color:#f92672">&lt;</span>stirng<span style="color:#f92672">&gt;</span>())
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">:</span>familyName(familyName0), givenNames(givenNames0), gender(gender0), birthday(birthday0), titles(titles0) {}
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><p>Here we face a couple of new concepts.  First a <code>class</code> (类) means a definition of some family of objects that should all have certain properties (财产) and behave (行为) in a certain way.  Our class is called <code>Person</code>, because it represents a natual person.</p>
+<p>Then we name a couple of properties, i.e. the features every person should have like a <code>familyName</code> (性), <code>givenNames</code> (名字), a <code>gender</code> (性别), a <code>birthday</code> (出生日) and maybe <code>titles</code> (称号).  Some of these properties are constant, i.e. marked with <code>const</code>, because they never change in the life of a person, e.g. the gender, the birthday, the given names.  Other properties can change, e.g. the family name (in the western world when 2 people marry, one of them can change their family name to represent the name of the other as well).</p>
+<p>Then we write <code>Person()</code> again.  This is the constructor (构造函数).  It tells us how to make up a person.  In this case we do that by giving all the properties of a person.  These values are then handed to the respective property fields in the Person.</p>
+<p>Don&rsquo;t forget the semicolon <code>;</code> after the class definition.</p>
+<h2 id="11-what-genders-are-there">1.1 What Genders are there?</h2>
+<p>There are only finitely many Genders, so we can enlist or enumerate (枚举) them.  For that we use the C++ type <code>enum</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Gender</span> {
+</span></span><span style="display:flex;"><span>  	Male<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, Female, Other
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><h2 id="12-what-is-a-partialdate">1.2 What is a PartialDate</h2>
+<p>A full birthday consists of the year, the month and the day of the month.  But maybe for some people we only know (or want to present) parts of this date.  Therefore, we use the following version:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">char</span>  byte;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PartialDate</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">short</span> year;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> byte month;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> byte day;
+</span></span><span style="display:flex;"><span>    PartialDate(<span style="color:#66d9ef">short</span> year0, byte month0 <span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, byte day0 <span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>) <span style="color:#f92672">:</span>year(year0), month(month0), day(day0) {}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><p>So clearly, a PartialDate contains the year, month and day.  We can construct a PartialDate from a year, month, day.  But it is also possible to omit the day which will then be assumed as 0.  It is also possible to omit the month (and day) which will then (both) be assumed as 0.</p>
+<p>How do we print dates?</p>
+<p>In the main program, we want to write something like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    PartialDate today(<span style="color:#ae81ff">2023</span>,<span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">7</span>);
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Today is &#34;</span><span style="color:#f92672">&lt;&lt;</span>today<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Therefore, we need to implement some function as: <code>ostream&amp; operator &lt;&lt;(ostream&amp; out, const PartialDate&amp; date);</code>  But we want this function to be related to the PartialDate.  Therefore, we declare it as <code>friend</code> as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PartialDate</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">friend</span> ostream<span style="color:#f92672">&amp;</span> operatror <span style="color:#f92672">&lt;&lt;</span>(ostream<span style="color:#f92672">&amp;</span> out, <span style="color:#66d9ef">const</span> PartialDate<span style="color:#f92672">&amp;</span> d) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (d.month<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> out<span style="color:#f92672">&lt;&lt;</span>d.year;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">if</span> (d.day<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> out<span style="color:#f92672">&lt;&lt;</span>d.year<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;/&#34;</span><span style="color:#f92672">&lt;&lt;</span>d.month;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> out<span style="color:#f92672">&lt;&lt;</span>d.year<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;-&#34;</span><span style="color:#f92672">&lt;&lt;</span>d.month<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;-&#34;</span><span style="color:#f92672">&lt;&lt;</span>d.day;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><p>We can access (访问) the properties of an object via <code>.</code>-notation, i.e. <code>p.year</code> gets the <code>year</code> of the object <code>p</code> if it is a PartialDate.</p>
+<p>In other words, we only output as much as is known in the PartialDate.</p>
+<h2 id="13-how-to-print-a-person">1.3 How to print a Person?</h2>
+<p>We can do that similar to a PartialDate:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">friend</span> ostream<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span> <span style="color:#f92672">&lt;&lt;</span>(ostream<span style="color:#f92672">&amp;</span> out, <span style="color:#66d9ef">const</span> Person<span style="color:#f92672">&amp;</span> p)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> out<span style="color:#f92672">&lt;&lt;</span>p.titles<span style="color:#f92672">&lt;&lt;</span>p.givenNames<span style="color:#f92672">&lt;&lt;</span>p.familyName<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; (*&#34;</span><span style="color:#f92672">&lt;&lt;</span>p.birthday<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;)&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><h3 id="does-that-compile">Does that compile?</h3>
+<p>The answer is no, because the computer does not know how to print a <code>vector&lt;string&gt;</code>.  Therefore, we have to implement that before the class, e.g. as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  ostream<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span> <span style="color:#f92672">&lt;&lt;</span>(ostream<span style="color:#f92672">&amp;</span> out, <span style="color:#66d9ef">const</span> vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;&amp;</span> names)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span> name : names)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      out<span style="color:#f92672">&lt;&lt;</span>name<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; &#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> out;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PartialDate</span> {
+</span></span><span style="display:flex;"><span>  	...
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> {
+</span></span><span style="display:flex;"><span>  	...
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><p>Now it should compile, run and prints the Person, e.g. in the following main program:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">operator</span><span style="color:#e6db74">&#34;&#34;</span>s;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> melli <span style="color:#f92672">=</span> Person(<span style="color:#e6db74">&#34;Grützmann&#34;</span>s, {<span style="color:#e6db74">&#34;Melchior&#34;</span>s}, Male, PartialDate(<span style="color:#ae81ff">1979</span>,<span style="color:#ae81ff">6</span>));
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span>melli<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h2 id="14-what-about-the-gender-and-addressing">1.4 What about the Gender and addressing?</h2>
+<p>Well, the addressing depends on the gender maybe as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    ostream<span style="color:#f92672">&amp;</span> printAddressing(ostream<span style="color:#f92672">&amp;</span> out) <span style="color:#66d9ef">const</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">switch</span>(gender) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> Male: <span style="color:#66d9ef">return</span> out<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Mr. &#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> Female:  <span style="color:#66d9ef">return</span> out<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Ms. &#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>  <span style="color:#66d9ef">return</span> out;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><p>We can use this method in the <code>friend operator &lt;&lt;(...)</code> as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">friend</span> ostream<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span> <span style="color:#f92672">&lt;&lt;</span>(ostream<span style="color:#f92672">&amp;</span> out, <span style="color:#66d9ef">const</span> Person<span style="color:#f92672">&amp;</span> p) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p.printAddressing(out)<span style="color:#f92672">&lt;&lt;</span>titles<span style="color:#f92672">&lt;&lt;</span>...;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Now the result of the same last main program looks better, e.g.</p>
+<pre tabindex="0"><code class="language-log" data-lang="log">  Mr. Melchior Grützmann (*1979-6)
+</code></pre><h1 id="2-adding-parents">2. Adding Parents</h1>
+<p>How can I add my parents?</p>
+<p>The naïve attempt would be something as the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;</span> parents;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    Person(string familyName0, vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> givenNames0, ..., vector<span style="color:#f92672">&lt;</span>Parents<span style="color:#f92672">&gt;</span> parents0) <span style="color:#f92672">:</span>..., parents(parents0) {}
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>But there are 2 problems with that:  First it does not compile.  The compiler complains with something like <code>... type Person is incomplete in instantiating constructor or vector&lt;T&gt;()</code>.  We could somehow work around that with a forward declaration.  But the second problem is that we do not wish to copy (拷贝) the parents, instead we want to reference (参考) the parents.</p>
+<p>In modern C++ this is done via <code>shared_ptr</code> where &ldquo;ptr&rdquo; stands for pointer (指针).  It means that the child can point to their parents, which is reasonable when the child is old enough and the parents are around.</p>
+<p>With that idea, the class definition should look something like the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    vector<span style="color:#f92672">&lt;</span>shared_ptr<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;&gt;</span> parents;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    Person(string name, ..., <span style="color:#66d9ef">const</span> vector<span style="color:#f92672">&lt;</span>shared_ptr<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;&gt;&amp;</span> parents) <span style="color:#f92672">:</span>... {}
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><p>But how do we use that?</p>
+<p>We would have to make the <code>Person</code> in a shared pointer.  This is best done as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>;
+</span></span><span style="display:flex;"><span>  shared_ptr<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;</span> makePerson(string name, vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> givenNames, Gender gender, PartialDate birthday, vector<span style="color:#f92672">&lt;</span>shared_ptr<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;&gt;</span> parents);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    Person(string name0, ...) <span style="color:#f92672">:</span>name(name0), ..., parents(parents0) {}
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">friend</span> shared_ptr<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;</span> makePerson(string name, vector<span style="color:#f92672">&lt;</span>string<span style="color:#f92672">&gt;</span> givenNames, Gender gender, PartialDate birthday, vector<span style="color:#f92672">&lt;</span>shared_ptr<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;&gt;</span> parents) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">make_shared</span>(Person(name, givenNames, ..., parents));
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><p>With that, we write our main program as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">using</span> <span style="color:#66d9ef">operator</span><span style="color:#e6db74">&#34;&#34;</span>s;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> father <span style="color:#f92672">=</span> makePerson(<span style="color:#e6db74">&#34;Grützmann&#34;</span>s, {<span style="color:#e6db74">&#34;D.&#34;</span>s}, Male, PartialDate(<span style="color:#ae81ff">1954</span>));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> mother <span style="color:#f92672">=</span> makePerson(<span style="color:#e6db74">&#34;Grützmann&#34;</span>s, {<span style="color:#e6db74">&#34;B.&#34;</span>s}, Female, PartialDate(<span style="color:#ae81ff">1955</span>));
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> melli <span style="color:#f92672">=</span> makePerson(<span style="color:#e6db74">&#34;Grützmann&#34;</span>s, { <span style="color:#e6db74">&#34;Melchior&#34;</span>s }, Male, PartialDate(<span style="color:#ae81ff">1979</span>,<span style="color:#ae81ff">6</span>), { father, mother });
+</span></span><span style="display:flex;"><span>    cout<span style="color:#f92672">&lt;&lt;</span>melli<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Here <code>auto</code> means that the compiler should choose automatically (自动地) the type of the variables <code>father</code>, <code>mother</code> and <code>melli</code>.</p>
+<p>The problem is that this does not compile.  The compiler complains that there is <code>no operator &lt;&lt;(ostream&amp;, shared_ptr&lt;Person&gt;&amp;)</code> and that is true, we have not defined any.</p>
+<p>For that, we split the definition of the friend <code>operator &lt;&lt;</code> as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>;
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    ostream<span style="color:#f92672">&amp;</span> show(ostream<span style="color:#f92672">&amp;</span> out) <span style="color:#66d9ef">const</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">printAddressing</span>(out)<span style="color:#f92672">&lt;&lt;</span>titles<span style="color:#f92672">&lt;&lt;</span>givenNames<span style="color:#f92672">&lt;&lt;</span>familyName<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; (*&#34;</span><span style="color:#f92672">&lt;&lt;</span>birthday<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;)&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  ostream<span style="color:#f92672">&amp;</span> <span style="color:#66d9ef">operator</span> <span style="color:#f92672">&lt;&lt;</span>(ostream<span style="color:#f92672">&amp;</span> out, <span style="color:#66d9ef">const</span> shared_ptr<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;&amp;</span> p) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p<span style="color:#f92672">-&gt;</span>show(out);
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Now, the program should compile and start.  Unfortunately, it does not show the parents.</p>
+<p>Instead of cramming this all in the method <code>show(...)</code>, we write a new method <code>describe(...)</code> (描述) that prints all details about the Person, maybe as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>;
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ostream<span style="color:#f92672">&amp;</span> describe(ostream<span style="color:#f92672">&amp;</span> out) <span style="color:#66d9ef">const</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      show(out);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> parent : parents)
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        out<span style="color:#f92672">&lt;&lt;</span>endl<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;  &#34;</span><span style="color:#f92672">&lt;&lt;</span>parent;
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> out;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><h2 id="21-printing-father-and-mother">2.1 Printing Father and Mother</h2>
+<p>Currently my parents are just printed as Mr. and Ms., respectively.  If we want to change them to &ldquo;father&rdquo; and &ldquo;mother&rdquo;, then we should mark them as <code>Parent</code> when showing them.  Therefore, we introduce another enum:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Relation</span> { <span style="color:#75715e">// 关系
+</span></span></span><span style="display:flex;"><span>    Self<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, Parent
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><p>and incorporate that into <code>printAdressing(...)</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ostream<span style="color:#f92672">&amp;</span> show(ostream<span style="color:#f92672">&amp;</span> out, Relation relation <span style="color:#f92672">=</span>Self) <span style="color:#66d9ef">const</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">printAddressing</span>(out, relation)<span style="color:#f92672">&lt;&lt;</span>titles<span style="color:#f92672">&lt;&lt;</span>...;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ostream<span style="color:#f92672">&amp;</span> printAddressing(ostream<span style="color:#f92672">&amp;</span> out, Relation relation) <span style="color:#66d9ef">const</span> {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">switch</span> (relation)
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> Self:  <span style="color:#66d9ef">switch</span> (gender)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">case</span> Male:  <span style="color:#66d9ef">return</span> out<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Mr. &#34;</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">case</span> Female:  <span style="color:#66d9ef">return</span> out<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;Ms. &#34;</span>;
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>  <span style="color:#66d9ef">return</span> out;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> Parent:  <span style="color:#66d9ef">switch</span> (gender)
+</span></span><span style="display:flex;"><span>    	{
+</span></span><span style="display:flex;"><span>    	  <span style="color:#66d9ef">case</span> Female: <span style="color:#66d9ef">return</span> out<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;mother &#34;</span>;
+</span></span><span style="display:flex;"><span>    	  <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>  <span style="color:#66d9ef">return</span><span style="color:#f92672">&lt;&lt;</span>out<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;father &#34;</span>;
+</span></span><span style="display:flex;"><span>    	}
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> out;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    ostream<span style="color:#f92672">&amp;</span> describe(ostream<span style="color:#f92672">&amp;</span> out) <span style="color:#66d9ef">const</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      show(out);
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> parent : parents)
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        parent<span style="color:#f92672">-&gt;</span>show(out, Parent);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">return</span> out;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  };
+</span></span></code></pre></div><p>Finally the main program is modified as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>()
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    melli<span style="color:#f92672">-&gt;</span>describe(cout)<span style="color:#f92672">&lt;&lt;</span>endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h1 id="9-time-to-try-for-yourself">9. Time to try for yourself</h1>
+<p>Now is the latest time that you should try the examples for yourself.  Does the last program compile?  Does it start?  Does it produce the results you expected?</p>
+<p>If you wish to try something else, you could e.g. add children to the Person, maybe with a field</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>  vector<span style="color:#f92672">&lt;</span>shared_ptr<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;&gt;</span> children;
+</span></span></code></pre></div><p>But if you want to describe the children as well, you may have to add another case of <code>Relative</code>, e.g. <code>Child</code>.</p>
+<p>Please let me know if you succeeded or if there are any questions.</p>
+<h2 id="91-adding-a-spouse">9.1 Adding a spouse</h2>
+<p>Suppose I want to add a spouse (配偶) to the Person, how can I do that?</p>
+<p>You may want to introduce another <code>shared_ptr&lt;Person&gt; spouse</code></p>
+<ul class="pa0">
+  
+</ul>
+
+      
+    </div></article>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+    <div
+        class="flex justify-between mw8 center"
+    >
+        
+        <p class="f7 gray dib pv2 mv0">
+            &copy; 2020–2026 古林学院 -- Gu-Lin School. All rights
+            reserved.
+        </p>
+
+        
+        <div class="flex-l items-center">
+            <a class="gray" href="mailto:x@gMail.com,x=melchiorG"
+                >x@gMail.com,x=melchiorG</a
+            >
+        </div>
+    </div>
+</footer>
+
+  </body>
+</html>
+
+
+
