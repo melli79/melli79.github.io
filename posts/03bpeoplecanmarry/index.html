@@ -46,7 +46,7 @@
 	<meta itemprop="description" content="people can marry">
 	<meta itemprop="datePublished" content="2021-12-22T21:39:52+01:00">
 	<meta itemprop="dateModified" content="2021-12-22T21:39:52+01:00">
-	<meta itemprop="wordCount" content="765">
+	<meta itemprop="wordCount" content="933">
 	<meta itemprop="keywords" content="Programming,Kotlin">
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:title" content="03B Leute können Heiraten">
@@ -126,12 +126,12 @@
 <h2 id="31-woran-erkennt-man-dass-jemand-ledig-ist">3.1 Woran erkennt man, dass jemand ledig ist?</h2>
 <p>Naja, ledig ist man, wenn man nicht verheiratet ist, also keine/n Ehepartner/in (engl. spouse) hat.</p>
 <p>Dem Computer erklärt man das so</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  Person(<span style="color:#f92672">..</span>.) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>(<span style="color:#f92672">..</span>.) {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">..</span>.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">isSingle</span>() = spouse<span style="color:#f92672">==</span><span style="color:#66d9ef">null</span>
 </span></span><span style="display:flex;"><span>  }
-</span></span></code></pre></div><p>Das bedeutet, dass <code>isSingle</code> eine Funktion ist und die wird berechnet als <code>spouse==null</code>, also dass man keine/n Ehepartner/in hat.</p>
+</span></span></code></pre></div><p>Das bedeutet, dass <code>isSingle</code> eine Methode ist und die wird berechnet als <code>spouse==null</code>, also dass man keine/n Ehepartner/in hat.</p>
 <p>Moment, früher haben wir doch Funktionen so geschrieben:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">isSingle</span>(p :Person) :Boolean {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p.spouse <span style="color:#f92672">==</span> <span style="color:#66d9ef">null</span>
@@ -155,7 +155,7 @@
 </span></span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">this</span>.spouse = s
 </span></span><span style="display:flex;"><span>    s.spouse = <span style="color:#66d9ef">this</span>
 </span></span><span style="display:flex;"><span>  }
-</span></span></code></pre></div><p>Hier haben wir einen Kompromiss, die Funktion muss nicht in der Klasse <code>Person</code> definiert werden, aber sie operiert auf einer Person.  Diese Person steht dann implizit dahinter (z.B. bei <code>isSingle()</code> oder bei <code>age()</code>).  Wenn man die Person explizit braucht, dann kann man <code>this</code> schreiben (engl. für dieses).</p>
+</span></span></code></pre></div><p>Hier haben wir einen Kompromiss, die Funktion wird nicht in der Klasse <code>Person</code> definiert, aber sie operiert auf einer Person.  Diese Person steht dann implizit dahinter (z.B. bei <code>isSingle()</code> oder bei <code>age()</code>).  Wenn man die Person explizit braucht, dann kann man <code>this</code> schreiben (engl. für dieses).</p>
 <p>Was bedeuten die vielen <code>IllegalStateException</code>s?  Naja, in diesem Fall kann man halt nicht einfach heiraten.</p>
 <h2 id="33-was-ist-mit-dem-familiennamen">3.3 Was ist mit dem Familiennamen?</h2>
 <p>Ok, den kann man bei der Hochzeit festlegen, z.B. behält eine Person immer ihren Namen, die andere Person kann den Familiennamen entweder behalten oder den des/der Partner/in annehmen oder einen Doppelnamen bekommen.</p>
@@ -175,7 +175,7 @@
 </span></span></code></pre></div><p><code>when</code> (wenn oder sobald) bedeutet so ähnlich wie <code>if</code>, dass es mehrere Fälle geben kann.  Die einzelnen Fälle werden dann mit <code>-&gt;</code> aufgelistet, also wenn <code>familyNameRule==FamilyRule.Partners</code>, dann <code>s.familyName = this.familyName</code>. Wenn <code>familyNameRule==FamilyNameRule.DoubleName</code>, dann &hellip; .</p>
 <h2 id="34-wie-alt-ist-eine-person">3.4 Wie alt ist eine Person?</h2>
 <p>Das hängt vom Geburtstag und vom aktuellen Datum ab.  Wir können das als Methode zur Person hinzufügen.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  Person(<span style="color:#f92672">..</span>.) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-Kotlin" data-lang="Kotlin"><span style="display:flex;"><span>  <span style="color:#66d9ef">data</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>(<span style="color:#f92672">..</span>.) {
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">..</span>.
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fun</span> <span style="color:#a6e22e">age</span>(today :PartialDate) = today.year - birthday.year
@@ -207,7 +207,22 @@
 </span></span><span style="display:flex;"><span>  }
 </span></span></code></pre></div><pre tabindex="0"><code class="language-log" data-lang="log">  Herr Melchior Grützmann (*6/1979) heiratet Frau Fanli Lin (*1/1991):
   Herr Melchior Grützmann-Lin (*6/1979) ist verheiratet mit Frau Fanli Lin (*1/1991).
-</code></pre><h2 id="9a-selbst-experimentieren">9a. Selbst experimentieren</h2>
+</code></pre><h2 id="zusammenfassung">Zusammenfassung</h2>
+<ul>
+<li>
+<p>Neben Methoden haben wir auch Extension-Funktionen gesehen, z.B. <code>fun Person.marry(s :Spouse, weddingDay :PartialDate)...</code>.</p>
+</li>
+<li>
+<p>Diese sind nicht in der Klasse definiert, aber verhalten sich so, als wären sie Teil der Klasse, z.B. kann man sie wie Methoden aufrufen <code>melli.marry(fanli, PartialDate(2050))</code>.</p>
+</li>
+<li>
+<p>Auch in diesen kann man mit <code>this</code> das aktuelle Objekt aufrufen.  Schließlich beziehen sich auch in solchen Extension-Funktionen alle Methoden/Extension-Funktionen ohne Objektangabe auf das aktuelle Objekt <code>this</code>: <code>fun Person.marry(...) { if (!isSingle()) ...</code> hier wird <code>isSingle()</code> mit dem aktuellen Objekt <code>this</code> aufgerufen.</p>
+</li>
+<li>
+<p>Eine Entwicklungsmethode für komplexere Logik ist es, zunächst den Hauptfall abzubilden: Am Beispiel des Alters haben wir zunächst die Differenz zwischen Geburtsjahr und aktuellem Jahr gebildet.  Dann überlegt man, ob es Verfeinerungen geben muss und fügt diese eine nach der anderen hinzu:  Wir haben zunächst für den Fall, heute ist ein Monat vor dem Geburtsmonat, verfeinert.  So ergänzt man Schritt für Schritt, bis entweder wirklich alle Fälle abgedeckt sind oder das Programm hinreichend gut funktioniert (man keine Zeit mehr hat, weiter zu verfeinern).</p>
+</li>
+</ul>
+<h2 id="9a-selbst-experimentieren">9a. Selbst experimentieren</h2>
 <p>Ok, nun ist Zeit, selber zu probieren:</p>
 <ol>
 <li>
